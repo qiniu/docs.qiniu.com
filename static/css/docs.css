@@ -224,20 +224,6 @@ ul {
 	color:#565859;
 }
 
-article img {
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	-padding: 8px;
-	background: white;
-	--webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-	--moz-box-shadow: 0 0 12px rgba(0,0,0,0.4);
-	-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-	margin:20px 0px;
-	border:1px solid #AAA;
-	max-width:600px;
-}
-
 article > pre {
 	background-color: #F7F7F9;
 	border: 1px solid #E1E1E8;
@@ -248,13 +234,6 @@ article > pre {
 	font-family: 'Droid Sans Mono', sans-serif !IMPORTANT;
 }
 
-/*
-article > pre > code {
-	font-size:13px !IMPORTANT;
-	font-family: 'Droid Sans Mono', sans-serif !IMPORTANT;
-	color:#777;
-}
-*/
 
 /* Table Element, uses Bootstrap's .table as default style */
 
