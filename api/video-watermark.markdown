@@ -31,7 +31,7 @@ OutputFormat  | 否，默认`mp4`|指定目标缩略图的输出格式，取值�
 
 	[GET] http://api-demo.qiniudn.com/test.mov?vwatermark/1
 						/image/aHR0cDovL3Rlc3R1bml0LnFpbml1ZG4uY29tL3Fpbml1bG9nby5wbmc=
-						/gravity/SouthWest
+						/gravity/SouthEast
 						/format/mp4
 
 为视频`http://open.qiniudn.com/thinking-in-go.mp4`打上水印`http://testunit.qiniudn.com/qiniulogo.png`, 水印的位置是右下角(东南)，输出格式为`mp4`
