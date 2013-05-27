@@ -17,7 +17,7 @@ title: "给视频加水印"
 Mode| 是|模式, 1:, 表示`图片水印`  
 EncodedRemoteImageUrl   |是| 水印的源路径，目前仅支持远程路径，需要经过 `urlsafe_base64_encode`.  
 Gravity |否，默认`NorthEast`| 打水印的位置，目前支持 `NorthWest`, `North`, `NorthEast`, `West`, `Center`, `East`, `SouthWest`,   `South`, `SouthEast`
-OutputFormat  | 否，默认`mp4`|指定目标缩略图的输出格式，取值范围：jpg, gif, png, webp 等图片格式
+OutputFormat  | 否，默认`mp4`|指定目标缩略图的输出格式，取值范围：mp4, flv 等视频格式
 
 `urlsafe_base64_encode(string) ` 函数的实现符合 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 标准，开发者可以参考 [https://github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
 
