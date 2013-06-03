@@ -14,7 +14,7 @@ title: "上传接口"
         - [算法](#uploadToken-algorithm)
         - [参数](#uploadToken-args)
         - [使用上传模型1，App-Client 接收来自 Qiniu-Cloud-Storage 的 Response Body](#uploadToken-returnBody)
-        - [使用上传模型2，App-Client 接收来自 App-Server 的 Response Body](#upload-with-callback)
+        - [使用上传模型2，App-Client 接收来自 App-Server 的 Response Body](#upload-with-callback-appserver)
         - [音视频上传预转 - asyncOps](#uploadToken-asyncOps)
         - [样例代码](#uploadToken-examples)
 - [附录](#dictionary)
@@ -339,7 +339,7 @@ returnBody 赋值可以把 魔法变量（[MagicVariables](#MagicVariables)）�
 可用的魔法变量列表参考：[MagicVariables](#MagicVariables)
 
 
-<a name="upload-with-callback"></a>
+<a name="upload-with-callback-appserver"></a>
 
 ### 使用上传模型2，App-Client 接收来自 App-Server 的 Response Body
 
