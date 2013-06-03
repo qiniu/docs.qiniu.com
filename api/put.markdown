@@ -6,16 +6,20 @@ title: "上传接口"
 - [上传流程](#workflow)
     - [Local - 本地上传](#local-upload) 
     - [UGC - 终端用户加速直传](#ugc-upload) 
+    	- [上传模式1——普通上传](#upload-without-callback)
+    	- [上传模式2——高级上传（带回调）](#upload-with-callback)
 - [上传文件](#upload)
     - [接口 - API](#upload-api)
     - [凭证 - uploadToken](#uploadToken)
         - [算法](#uploadToken-algorithm)
         - [参数](#uploadToken-args)
-        - [自定义返回值 - returnBody](#uploadToken-returnBody)
+        - [使用上传模型1，App-Client 接收来自 Qiniu-Cloud-Storage 的 Response Body](#uploadToken-returnBody)
+        - [使用上传模型2，App-Client 接收来自 App-Server 的 Response Body](#upload-with-callback)
         - [音视频上传预转 - asyncOps](#uploadToken-asyncOps)
         - [样例代码](#uploadToken-examples)
 - [附录](#dictionary)
     - [魔法变量 - MagicVariables](#MagicVariables)
+    - [自定义变量 - xVariables](#xVariables)
     - [错误码](#error-code)
 
 <a name="workflow"></a>
@@ -36,48 +40,53 @@ title: "上传接口"
 
 如果是需要通过网站(Web)或是移动应用(App)等客户端上传文件，则可以参考如下 UGC (User Generated Content) 上传流程。
 
+
 <a name="ugc-upload"></a>
 
 ### UGC - 终端用户加速直传
 
+<a name="upload-without-callback"></a>
+
+**上传模式1——普通上传**
+
 ```
-                                   *************
-                               ****             ****
-                             **                     **
-                           **                         **
-                           *    Qiniu-Cloud-Storage    *
-                           **                         **
-                             **                     **
-                           ^   ****             ****
-                          /   /    *************
+                                       *************
+                                   ****             ****
+                                 **                     **
+                               **                         **
+                               *    Qiniu-Cloud-Storage    *
+                               **                         **
+                                 **                     **
+                               ^   ****             ****
+                              /   /    *************
+                             /   /
+                            /   /
+                           /   /
+                          /   /
                          /   /
-                        /   /
+                        /   / (4) Return Result
                        /   /
-                      /   /
+      (3) Upload File /   /
                      /   /
-                    /   / (4) Return Result
+                    /   /
                    /   /
-  (3) Upload File /   /
+                  /   /
                  /   /
                 /   /
                /   /
-              /   /
-             /   /
-            /   /
-           /   /
-          /   v
-  +------------------+                                        +------------------+
-  |                  |                                        |                  |
-  |                  |    (1) Request Upload (can be once)    |                  |
-  |                  |--------------------------------------->|                  |
-  |    App-Client    |                                        |    App-Server    |
-  |                  |<---------------------------------------|                  |
-  |                  |    (2) Make Policy / UploadToken       |                  |
-  |                  |                                        |                  |
-  +------------------+                                        +------------------+
-           |                                                           ^
-           |              (5) Callback                                 |
-           +-----------------------------------------------------------+
+              /   v
+      +------------------+                                        +------------------+
+      |                  |                                        |                  |
+      |                  |    (1) Request Upload (can be once)    |                  |
+      |                  |--------------------------------------->|                  |
+      |    App-Client    |                                        |    App-Server    |
+      |                  |<---------------------------------------|                  |
+      |                  |    (2) Make Policy / UploadToken       |                  |
+      |                  |                                        |                  |
+      +------------------+                                        +------------------+
+               |                                                           ^
+               |              (5) Callback                                 |
+               +-----------------------------------------------------------+
 ```
 
 1. App-Client 向 App-Server 请求上传文件
@@ -86,9 +95,66 @@ title: "上传接口"
 4. 文件上传成功后，Qiniu 返回给 App-Client 上传结果（可包含相应的文件信息）
 5. App-Client 将文件上传结果及相关信息汇报给 App-Server，App-Server 可写表做记录等操作
 
+
+<a name="upload-with-callback"></a>
+
+**上传模式2——高级上传（带回调）**
+
+                                           *************
+                                       ****             ****
+                                     **                     **
+                                   **                         **
+                                   *    Qiniu-Cloud-Storage    *
+                                   **                         **
+                                     **                     **
+                                   ^   ****             ****    \
+                                  /   /    *************     ^   \
+                                 /   /                        \   \
+                                /   /                          \   \
+                               /   /                            \   \
+                              /   /                              \   \
+                             /   /                                \   \
+                            /   /                                  \   \ (4) Callback
+                           /   /                                    \   \
+          (3) Upload File /   /                                      \   \
+                         /   /                                        \   \
+                        /   / (6) Return Result                        \   \
+                       /   /                                            \   \
+                      /   /                            (5) Return Result \   \
+                     /   /                                                \   \
+                    /   /                                                  \   \
+                   /   /                                                    \   \
+                  /   v                                                      \   v
+          +------------------+                                        +------------------+
+          |                  |                                        |                  |
+          |                  |    (1) Request Upload                  |                  |
+          |                  |--------------------------------------->|                  |
+          |    App-Client    |                                        |    App-Server    |
+          |                  |<---------------------------------------|                  |
+          |                  |    (2) Make Policy / UploadToken       |                  |
+          |                  |                                        |                  |
+          +------------------+                                        +------------------+
+
+
+1. App-Client 向 App-Server 请求上传文件
+2. App-Server 使用 Qiniu-SDK 生成上传授权凭证（UploadToken），并颁发给 App-Client
+3. App-Client 取得上传授权许可（UploadToken）后，使用 Qiniu-Client-SDK 直传文件到最近的存储节点
+4. 文件上传成功后，Qiniu 以 HTTP POST 方式告知 App-Server 上传结果（可包含相应的文件信息）
+5. App-Server 可写表做记录等操作，然后经 Qiniu 中转返回给 App-Client 它想要的信息
+6. Qiniu 作为代理，原封不动地将回调 App-Server 的返回结果回传给 App-Client
+
+**其中模型2相对于模型1更为高级，体现在以下几方面**:
+
+1. App Client 无需向 App-Server 发送通知，全部统一由 Qiniu 发送 Callback，当存在多种终端（比如Web/iOS/Android）都需要上传文件时，每个终端不需要各自处理 Callback 业务逻辑。
+
+2. Callback 环节加速，七牛云存储的就近节点能比 App-Client 以更优异的网络回调 App-Server 。
+
+3. 只要文件上传成功，App-Server 必然知情。即使 App-Server 回调失败，App-Client 还是会得到完整的回调数据，可自定义策略进行异步处理。
+
+
 **注意**
 
-- 步骤(1)和步骤(2)中 App-Client 获取上传授权凭证（UploadToken）不用重复频繁获取，UploadToken 可通过 `deadline` 选项设置有效期，在设定的有效期内可多次复用。后续 [上传授权凭证 - uploadToken 算法说明](#uploadToken-algorithm) 会解释各选项的具体作用。
+- 以上两种上传模型中，步骤(1)和步骤(2)中 App-Client 获取上传授权凭证（UploadToken）不用重复频繁获取，UploadToken 可通过 `deadline` 选项设置有效期，在设定的有效期内可多次复用。后续 [上传授权凭证 - uploadToken 算法说明](#uploadToken-algorithm) 会解释各选项的具体作用。
 
 
 | 适用平台                                                              |
@@ -105,6 +171,7 @@ HTML Form API
 
     <form method="post" action="http://up.qiniu.com/" enctype="multipart/form-data">
       <input name="key" type="hidden" value="{FileID}">
+      <input name="x:custom_field_name" type="hidden" value="{SomeVal}">
       <input name="token" type="hidden" value="{UploadToken}">
       <input name="file" type="file" />
     </form>
@@ -114,6 +181,7 @@ HTML Form API
 名称        | 类型   | 必须 | 说明
 ------------|--------|------|-------------------------------------
 key         | string | 否   | 标识文件的索引，所在的存储空间内唯一。key可包含斜杠，但不以斜杠开头，比如 `a/b/c.jpg` 是一个合法的key。若不指定 key，缺省使用文件的 etag（即上传成功后返回的hash值）作为key；此时若 UploadToken 有指定 returnUrl 选项，则文件上传成功后跳转到 `returnUrl?query_string`, query_string 包含`key={FileID}`
+x:custom_field_name | string | 否 | 自定义变量，必须以 `x:` 开头命名，不限个数。可以在 uploadToken 的 `callbackBody` 选项中使用 `$(x:custom_field_name)` 求值。
 token       | string | 是   | 上传授权凭证 - UploadToken
 file        | file   | 是   | 文件本身
 
@@ -126,6 +194,11 @@ file        | file   | 是   | 文件本身
     Content-Disposition: form-data; name="key"
 
     <FileID>
+
+    <Boundary>
+    Content-Disposition: form-data; name="x:custom_field_name"
+
+    <SomeVal>
 
     <Boundary>
     Content-Disposition: form-data; name="token"
@@ -176,9 +249,11 @@ uploadToken 算法如下：
     Flags = {
         scope: <Bucket string>,
         deadline: <UnixTimestamp int64>,
-        customer: <EndUserId string>,
+        endUser: <EndUserId string>,
         returnUrl: <RedirectURL string>,
         returnBody: <ResponseBodyForAppClient string>,
+        callbackBody: <RequestBodyForAppServer string>
+        callbackUrl: <RequestUrlForAppServer string>,
         asyncOps: <asyncProcessCmds string>
     }
 
@@ -200,6 +275,8 @@ uploadToken 算法如下：
 - `Flags` 各字段里边的尖括号“`<Variable Type>`”内容表示要被替换掉的“变量”，“变量”的数据类型已在括号内指定
 - `urlsafe_base64_encode(string)` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 <https://github.com/qiniu> 上各SDK的样例代码。
 - `AccessKey:EncodedSign:EncodedFlags` 这里的冒号是字符串，仅作为连接分隔符使用，最终连接组合的 UploadToken 也是一个字符串（String）。
+- `callbackUrl` 与 `returnUrl` 不可同时指定，两者只可选其一。
+- `callbackBody` 与 `returnBody` 不可同时指定，两者只可选其一。
 
 
 <a name="uploadToken-args"></a>
@@ -208,21 +285,23 @@ uploadToken 算法如下：
 
 uploadToken 参数详解：
 
- 字段名     | 必须 | 说明
-------------|------|-----------------------------------------------------------------------
- scope      | 是   | 一般指文件要上传到的目标存储空间（Bucket）。若为"Bucket"，表示限定只能传到该Bucket（仅限于新增文件）；若为"Bucket:Key"，表示限定特定的文件，可修改该文件。
- deadline   | 否   | 定义 uploadToken 的失效时间，Unix时间戳，精确到秒，缺省为 3600 秒
- customer   | 否   | 给上传的文件添加唯一属主标识，特殊场景下非常有用，比如根据终端用户标识给图片或视频打水印
- returnUrl  | 否   | 设置文件上传成功后，跳转的URL，一般为 HTML Form 上传时使用。文件上传成功后会跳转到 returnUrl?query_string, query_string 会包含 returnBody 内容
- returnBody | 否   | 文件上传成功后，自定义从七牛云存储最终返回給终端程序（客户端）的回调参数
- asyncOps   | 否   | 指定文件（图片/音频/视频）上传成功后异步地执行指定的预转操作。每个预转指令是一个API规格字符串，多个预转指令可以使用分号“;”隔开
+ 字段名       | 必须 | 说明
+--------------|------|-----------------------------------------------------------------------
+ scope        | 是   | 一般指文件要上传到的目标存储空间（Bucket）。若为"Bucket"，表示限定只能传到该Bucket（仅限于新增文件）；若为"Bucket:Key"，表示限定特定的文件，可修改该文件。
+ deadline     | 否   | 定义 uploadToken 的失效时间，Unix时间戳，精确到秒，缺省为 3600 秒
+ endUser      | 否   | 给上传的文件添加唯一属主标识，特殊场景下非常有用，比如根据终端用户标识给图片或视频打水印
+ returnUrl    | 否   | 设置用于浏览器端文件上传成功后，浏览器执行301跳转的URL，一般为 HTML Form 上传时使用。文件上传成功后会跳转到 returnUrl?query_string, query_string 会包含 returnBody 内容。returnUrl 不可与 callbackUrl 同时使用。
+ returnBody   | 否   | 文件上传成功后，自定义从 Qiniu-Cloud-Server 最终返回給终端 App-Client 的数据。支持 [魔法变量](#MagicVariables)，不可与 callbackBody 同时使用。
+ callbackBody | 否   | 文件上传成功后，Qiniu-Cloud-Server 向 App-Server 发送POST请求的数据。支持 [魔法变量](#MagicVariables) 和 [自定义变量](#xVariables)，不可与 returnBody 同时使用。
+ callbackUrl  | 否   | 文件上传成功后，Qiniu-Cloud-Server 向 App-Server 发送POST请求的URL，必须是公网上可以正常进行POST请求并能响应 HTTP Status 200 OK 的有效 URL 
+ asyncOps     | 否   | 指定文件（图片/音频/视频）上传成功后异步地执行指定的预转操作。每个预转指令是一个API规格字符串，多个预转指令可以使用分号“;”隔开
 
 
 <a name="uploadToken-returnBody"></a>
 
-### 自定义返回值 - returnBody
+### 使用上传模型1，App-Client 接收来自 Qiniu-Cloud-Storage 的 Response Body
 
-如果 App-Client 上传一张图片到 Qiniu-Cloud-Storage 后，App-Client 想知道该图片的一些信息比如 Etag, EXIF 等信息，那么此时即可使用 `returnBody` 参数。 
+如果开发者使用上传模型1，App-Client 上传一张图片到 Qiniu-Cloud-Storage 后，App-Client 想知道该图片的一些信息比如 Etag, EXIF 等信息，那么此时即可在 uploadToken 中使用 **`returnBody`** 参数。 
 
 App-Client 想求值得到的这些 Etag, EXIF 等信息我们称之为魔法变量（[MagicVariables](#MagicVariables)）。
 
@@ -259,6 +338,47 @@ returnBody 赋值可以把 魔法变量（[MagicVariables](#MagicVariables)）�
 
 可用的魔法变量列表参考：[MagicVariables](#MagicVariables)
 
+
+<a name="upload-with-callback"></a>
+
+### 使用上传模型2，App-Client 接收来自 App-Server 的 Response Body
+
+如果开发者使用了上传模型2，在 uploadToken 中指定了 `callbackUrl` 和 `callbackBody` 选项。App-Client 使用该 uploadToken 将文件上传成功后，Qiniu-Cloud-Storage 会向指定的 `callbackUrl` 以 HTTP POST 方式将 `callbackBody` 的值以 `application/x-www-form-urlencoded` 的形式发送给 App-Server。App-Server 接收请求后，返回 `Content-Type: "application/json"` 形式的 Response Body, 该段 JSON 数据会原封不动地经由 Qiniu-Cloud-Storage 返回给 App-Client 。
+
+**callbackUrl** 必须是公网上可以公开访问的 URL  
+
+**callbackUrl** 若指定，**callbackBody** 也必须指定，且两者的值都不能为空  
+
+**callbackBody** 必须是 `a=1&b=2&c=3` 这种形式的字符串。当包含 [魔法变量](#MagicVariables) 时，可以是这样一种形式：`a=1&key=$(etag)&size=$(fsize)&uid=$(endUser)` 。当包含 [自定义变量](#xVariables) 时，可以是这样一种形式：`test=$(x:test)&key=$(etag)&size=$(fsize)&uid=$(endUser)`，其中 `x:test` 是一个自定义变量。自定义变量命名必须以 `x:` 开头，且在 `multipart/form-data` 上传流中存在。
+
+Qiniu-Cloud-Storage 回调 App-Server 成功后，App-Server 必须返回如下格式的 Response:
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    Cache-Control: no-store
+    Response Body: {
+        "foo": "bar",
+        "name": "gogopher.jpg",
+        "size": 214513,
+        "type": "image/jpg",
+        "w": 640,
+        "h": 480
+    }
+
+其中，Response Body 部分 App-Server 随意，只需为标准的 [JSON](http://json.org) 格式即可。
+
+参考：
+
+- [魔法变量 - MagicVariables](#MagicVariables)
+- [自定义变量 - xVariables](#xVariables)
+
+#### callback 的安全性保证
+
+为了确保 Qiniu-Cloud-Storage 回调 App-Server 是安全且不被造成攻击的，Qiniu-Cloud-Storage 在向 App-Server 发送 HTTP POST 请求的时候，在 HTTP Headers 里边额外附加了一个 `Authorization` 字段，该字段值的生成算法同 [文件管理接口：授权认证 - AccessToken](#/api/file-handle.html#digest-auth) 一致，开发者可选在 App-Server 通过 SDK 提供的代码进行校验，以确保回调请求是合法的。
+
+### callback 失败处理
+
+如果文件上传成功，但是 Qiniu-Cloud-Storage 回调 App-Server 失败，Qiniu-Cloud-Storage 会将回调失败的信息连同 `callbackBody` 数据本身返回给 App-Client, App-Client 可选自定义策略进行相应的处理。
 
 <a name="uploadToken-asyncOps"></a>
 
@@ -336,7 +456,7 @@ returnBody 赋值可以把 魔法变量（[MagicVariables](#MagicVariables)）�
 
 <a name="uploadToken-examples"></a>
 
-### 样例代码
+### 生成 uploadToken 的样例代码
 
 生成 uploadToken 的样例代码可以参考: 
 
@@ -368,6 +488,7 @@ fsize     | 无   | 文件大小，单位: Byte
 mimeType  | 无   | 文件的资源类型，比如 .jpg 图片的资源类型为 `image/jpg`
 imageInfo | 有   | 获取所上传图片的基本信息，支持访问子字段
 exif      | 有   | 获取所上传图片EXIF信息，支持访问子字段
+endUser   | 无   | 获取 uploadToken 中指定的 endUser 选项的值，即终端用户ID
 
 MagicVariables 支持同 [JSON](http://json.org/) 对象一样的 `{Object}.{Property}` 访问形式，比如：
 
@@ -387,6 +508,7 @@ MagicVariables 求值示例：
 - `$(imageInfo.width)` - 获取当前上传图片的原始高度
 - `$(imageInfo.height)` - 获取当前上传图片的原始高度
 - `$(imageInfo.format)` -  获取当前上传图片的格式
+- `$(endUser)` - 获取 uploadToken 中指定的 endUser 选项的值，即终端用户ID
 
 imageInfo 接口返回的 JSON 数据可参考：<http://qiniuphotos.qiniudn.com/gogopher.jpg?imageInfo>
 
@@ -395,6 +517,29 @@ imageInfo 接口返回的 JSON 数据可参考：<http://qiniuphotos.qiniudn.com
 - `$(exif.ApertureValue.val)` - 获取当前上传图片拍照时的具体光圈值
 
 exif 接口返回的 JSON 数据可参考：<http://qiniuphotos.qiniudn.com/gogopher.jpg?exif>
+
+
+<a name="xVariables"></a>
+
+### 自定义变量 - xVariables
+
+已知 [上传API](#upload-api) 结构如下
+
+HTML Form API
+
+    <form method="post" action="http://up.qiniu.com/" enctype="multipart/form-data">
+      <input name="key" type="hidden" value="{FileID}">
+      <input name="x:custom_field_name" type="hidden" value="{SomeVal}">
+      <input name="token" type="hidden" value="{UploadToken}">
+      <input name="file" type="file" />
+    </form>
+
+自定义变量即是其中的 `x:custom_field_name`，Qiniu-Cloud-Storage 允许在 form 或 `multipart/form-data` 流中添加任意以 `x:` 开头的自定义字段，不限个数，例如：
+
+	<input name="x:uid" value="xxx">
+	<input name="x:album_id" value="yyy">
+
+这样，开发者在 uploadToken 的 `callbackBody` 选项里面就可以通过 `$(x:album_id)` 引用此自定义字段的值。例如此时 `callbackBody` 可以设置为 `key=$(etag)&album=$(x:album_id)&uid=$(x:uid)`，App-Server 通过此设置即可得到 App-Client 端文件上传成功后附带的自定义变量的值。
 
 
 <a name="error-code"></a>
