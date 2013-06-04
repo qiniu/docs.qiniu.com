@@ -32,9 +32,7 @@
 与远程库 `git://github.com/qiniu/docs.qiniu.com.git` 保持同步，避免冲突的办法如下：
 
 1. `cd <your_fork_dir>`
-
 2. `git remote add qiniu git://github.com/qiniu/docs.qiniu.com.git`
-
 3. `git fetch qiniu`
 4. `git merge qiniu/master`
 
