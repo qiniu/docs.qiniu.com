@@ -67,7 +67,7 @@ body > .container > .container-inner {
 .navbar-inverse .navbar-inner {
 	padding-top:10px;
 	padding-bottom:10px;
-	background: #4276b6;
+	background: #3068a2;
 	background-image: none;
 	border-bottom: none;
 	border-top: none;
@@ -83,7 +83,7 @@ body > .container > .container-inner {
 
 .navbar-inverse .nav  > li.active > a,
 .navbar-inverse .nav  > li.active > a:hover {
-	background: #4276b6;
+	background: #3068a2;
 	box-shadow: none;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
