@@ -372,9 +372,9 @@ Qiniu-Cloud-Storage 回调 App-Server 成功后，App-Server 必须返回如下�
 - [魔法变量 - MagicVariables](#MagicVariables)
 - [自定义变量 - xVariables](#xVariables)
 
-#### callback 的安全性保证
+### callback 的安全性保证
 
-为了确保 Qiniu-Cloud-Storage 回调 App-Server 是安全且不被造成攻击的，Qiniu-Cloud-Storage 在向 App-Server 发送 HTTP POST 请求的时候，在 HTTP Headers 里边额外附加了一个 `Authorization` 字段，该字段值的生成算法同 [文件管理接口：授权认证 - AccessToken](#/api/file-handle.html#digest-auth) 一致，开发者可选在 App-Server 通过 SDK 提供的代码进行校验，以确保回调请求是合法的。
+为了确保 Qiniu-Cloud-Storage 回调 App-Server 是安全且不被造成攻击的，Qiniu-Cloud-Storage 在向 App-Server 发送 HTTP POST 请求的时候，在 HTTP Headers 里边额外附加了一个 `Authorization` 字段，该字段值的生成算法同 [文件管理接口：授权认证 - AccessToken](/api/file-handle.html#digest-auth) 一致，开发者可选在 App-Server 通过 SDK 提供的代码进行校验，以确保回调请求是合法的。
 
 ### callback 失败处理
 
