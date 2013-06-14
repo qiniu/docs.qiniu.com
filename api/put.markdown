@@ -181,7 +181,7 @@ HTML Form API
 名称        | 类型   | 必须 | 说明
 ------------|--------|------|-------------------------------------
 key         | string | 否   | 标识文件的索引，所在的存储空间内唯一。key可包含斜杠，但不以斜杠开头，比如 `a/b/c.jpg` 是一个合法的key。若不指定 key，缺省使用文件的 etag（即上传成功后返回的hash值）作为key；此时若 UploadToken 有指定 returnUrl 选项，则文件上传成功后跳转到 `returnUrl?query_string`, query_string 包含`key={FileID}`
-x:custom_field_name | string | 否 | 自定义变量，必须以 `x:` 开头命名，不限个数。可以在 uploadToken 的 `callbackBody` 选项中使用 `$(x:custom_field_name)` 求值。
+x:custom_field_name | string | 否 | [自定义变量](#xVariables)，必须以 `x:` 开头命名，不限个数。可以在 uploadToken 的 `callbackBody` 选项中使用 `$(x:custom_field_name)` 求值。
 token       | string | 是   | 上传授权凭证 - UploadToken
 file        | file   | 是   | 文件本身
 
@@ -337,6 +337,20 @@ returnBody 赋值可以把 魔法变量（[MagicVariables](#MagicVariables)）�
     }
 
 可用的魔法变量列表参考：[MagicVariables](#MagicVariables)
+
+### HTML Form 上传后跳转
+
+若在 uploadToken 中指定了 `returnUrl` 和 `returnBody` 选项，且文件上传成功，Qiniu-Cloud-Storage 会返回如下应答：
+
+    HTTP/1.1 301 Moved Permanently
+    Location: returnUrl?upload_ret={returnBodyEncoded}
+
+即跳转到指定的 `returnUrl` 并附带上经过 `urlsafe_base64_encode()` 编码过的 `returnBody` 。 `urlsafe_base64_encode(string)` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 <https://github.com/qiniu> 上各SDK的样例代码。可以通过逆向还原 `returnBody` 。
+
+若上传失败，且上传失败的原因不是由于 uploadToken 无效造成的，Qiniu-Cloud-Storage 会返回如下应答：
+
+    HTTP/1.1 301 Moved Permanently
+    Location: returnUrl?code={error_code}&error={error_message}
 
 
 <a name="upload-with-callback-appserver"></a>
