@@ -7,7 +7,6 @@ title: "图像处理"
 - [获取图片EXIF信息](#imageExif)
 - [生成指定规格的缩略图](#imageView)
 - [高级图像处理接口（缩略、裁剪、旋转、转化）](#imageMogr)
-- [高级图像处理接口（缩略、裁剪、旋转、转化）并持久化存储处理结果](#imageMogrAs)
 - [图像水印接口](#watermark)
 
 
@@ -124,7 +123,8 @@ title: "图像处理"
 
 **请求**
 
-    [GET] <ImageDownloadURL>?imageMogr/auto-orient
+    [GET] <ImageDownloadURL>?imageMogr/v2
+          /auto-orient
           /thumbnail/<ImageSizeGeometry>
           /gravity/<GravityType>
           /crop/<ImageSizeAndOffsetGeometry>
@@ -144,14 +144,15 @@ title: "图像处理"
 
 示例：
 
-    [GET] http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/auto-orient
+    [GET] http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2
+                /auto-orient
                 /thumbnail/!256x256r
                 /gravity/center
                 /crop/!256x256
                 /quality/80
                 /rotate/45
 
-![高级图像处理](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/auto-orient/thumbnail/!256x256r/gravity/center/crop/!256x256/quality/80/rotate/45)
+![高级图像处理](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/auto-orient/thumbnail/!256x256r/gravity/center/crop/!256x256/quality/80/rotate/45)
 
 您可能留意到部分参数以 ! 开头，这是参数被转义的标识。为了方便阅读，我们采用了特殊的转义方法。以下是转义符号列表：
 
@@ -167,16 +168,16 @@ title: "图像处理"
 
   size | 规格说明 | 样例
 -------| -------- | ------------------------------------------------------
-  scale% | 基于原图大小，按照指定的百分比进行缩放。 | [50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/!50p)
-  scale-x%xscale-y% | 以百分比的形式指定缩略图的宽或高，另一边自适应等比缩放，只能使用一个 % 限定。 | [50%x](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/!50p) [x50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/!x50p)
-  width | 限定缩略图宽度，高度等比自适应。 | [200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/200)
-  xheight | 限定缩略图高度，宽度等比自适应。 | [x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/x100)
-  widthxheight | 限定长边，短边自适应，将缩略图的大小限定在指定的宽高矩形内。若指定的宽度大于指定的高度，以指定的高度为基准，宽度自适应等比缩放；若指定的宽度小于指定的高度，以指定的宽度为基准，高度自适应等比缩放。 | [100x200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/100x200) [200x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/200x100)
-  widthxheight^ | 限定短边，长边自适应，目标缩略图大小会超出指定的宽高矩形。若指定的宽度大于指定的高度，以指定的宽度为基准，高度自适应等比缩放；若指定的宽度小于指定的高度，以指定的高度为基准，宽度自适应等比缩放。 | [100x200^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/100x200^) [200x100^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/200x100^)
-  widthxheight! | 限定缩略图宽和高。缩略图按照指定的宽和高强行缩略，忽略原图宽和高的比例，可能会变形。 | [100x200!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/100x200!) [200x100!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/200x100!)
-  widthxheight> | 当原图尺寸超出给定的宽度或高度时，按照给定的 widthxheight 规格进行缩略。 | [100x200>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/100x200%3E) [1000x2000>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/1000x2000%3E)
-  widthxheight< | 当原图尺寸低于给定的宽度和高度时，按照给定的 widthxheight 规格进行拉伸。 | [100x200<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/200x100<) [1000x2000<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/2000x1000<)
-  area@ | 缩略图按原始图片高宽比例等比缩放，但缩放后的宽乘高的总分辨率不超过给定的总像素。 | [20000@](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/thumbnail/20000@)
+  scale% | 基于原图大小，按照指定的百分比进行缩放。 | [50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!50p)
+  scale-x%xscale-y% | 以百分比的形式指定缩略图的宽或高，另一边自适应等比缩放，只能使用一个 % 限定。 | [50%x](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!50p) [x50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x50p)
+  width | 限定缩略图宽度，高度等比自适应。 | [200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200)
+  xheight | 限定缩略图高度，宽度等比自适应。 | [x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x100)
+  widthxheight | 限定长边，短边自适应，将缩略图的大小限定在指定的宽高矩形内。若指定的宽度大于指定的高度，以指定的高度为基准，宽度自适应等比缩放；若指定的宽度小于指定的高度，以指定的宽度为基准，高度自适应等比缩放。 | [100x200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200) [200x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100)
+  widthxheight^ | 限定短边，长边自适应，目标缩略图大小会超出指定的宽高矩形。若指定的宽度大于指定的高度，以指定的宽度为基准，高度自适应等比缩放；若指定的宽度小于指定的高度，以指定的高度为基准，宽度自适应等比缩放。 | [100x200^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200^) [200x100^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100^)
+  widthxheight! | 限定缩略图宽和高。缩略图按照指定的宽和高强行缩略，忽略原图宽和高的比例，可能会变形。 | [100x200!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200!) [200x100!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100!)
+  widthxheight> | 当原图尺寸超出给定的宽度或高度时，按照给定的 widthxheight 规格进行缩略。 | [100x200>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200%3E) [1000x2000>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/1000x2000%3E)
+  widthxheight< | 当原图尺寸低于给定的宽度和高度时，按照给定的 widthxheight 规格进行拉伸。 | [100x200<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100<) [1000x2000<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/2000x1000<)
+  area@ | 缩略图按原始图片高宽比例等比缩放，但缩放后的宽乘高的总分辨率不超过给定的总像素。 | [20000@](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/20000@)
 
 指定图片缩略或裁剪前相对于原图的起始坐标：
 
@@ -193,49 +194,6 @@ y 为正数时为从源图区域左上角的纵坐标，为负数时，左上角
 `/crop/!300×400-10a10` 表示从源图坐标为 x:0  y:10 截取 290×400 的子图片。
 
 这个源图可以是 `/thumbnail/<ImageSizeGeometry>` 参数处理过后的图片，意味着 `thumbnail` 和 `crop` 之间的操作可以链式处理。
-
-
-<a name="imageMogrAs"></a>
-
-## 高级图像处理接口（缩略、裁剪、旋转、转化）并持久化存储处理结果
-
-也可以将高级图像处理接口处理过的图片进行云端持久化，即将一个存储在七牛云存储的图片进行缩略、裁剪、旋转和格式转化处理后的缩略图作为一个新文件持久化存储到七牛云存储服务器上，这样就可以供后续直接使用而不用每次都传入参数进行图像处理。
-
-图像处理持久化的接口规格如下：
-
-**请求**
-
-    [POST] <ImageDownloadURL>?imageMogr/auto-orient
-           /thumbnail/<ImageSizeGeometry>
-           /gravity/<GravityType>
-           /crop/<ImageSizeAndOffsetGeometry>
-           /quality/<ImageQuality>
-           /rotate/<RotateDegree>
-           /format/<DestinationImageFormat> =jpg, gif, png, webp, etc.
-           /save-as/<EncodedEntryURI>
-
-注意：
-
-- `/auto-orient` 参数是和图像处理顺序相关的，一般建议放在首位（根据原图EXIF信息自动旋正）。
-
-
-**参数**
-
-和之前的流式图像处理接口 `imageMogr` 相比，持久化的图像处理接口多了一个 `save-as` 参数，指定了处理过后的缩略图存放的目标路径。
-
-名称                | 说明
---------------------|--------------------------------------------------------------------------------
-`<EncodedEntryURI>` | 指定目标缩略图存放的地址。`EncodedEntryURI = urlsafe_base64_encode(bucket:key)`
-
-`urlsafe_base64_encode(string)` 函数的实现符合 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 标准，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
-
-该 POST 请求需要进行签名认证才能调用，参考 [授权认证 - AccessToken](file-handle.html#digest-auth)。
-
-**响应**
-
-    200 OK
-    {"hash" => "FrOXNat8VhBVmcMF3uGrILpTu8Cs"}
-
 
 <a name="watermark"></a>
 
