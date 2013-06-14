@@ -147,8 +147,8 @@ title: "图像处理"
 名称                 | 必填 | 说明
 ---------------------|------|-----------------------------------------------------
 `<ImageSizeGeometry>`  | 否   | 缩略图大小，详解见下。
-`<GravityType>`      | 否   | 位置偏移，只会时使gravity设置之后的{offset}受到影响。默认值为 `NorthWest`（左上角）。可选值：`NorthWest`, `North`, `NorthEast`, `West`, `Center`, `East`, `SouthWest`, `South`, `SouthEast` 。
-`<ImageSizeAndOffsetGeometry>`  | 否   | 裁剪大小和偏移坐标，详解见下。
+`<GravityType>`      | 否   | 位置偏移，只会使其后的裁剪偏移({offset})受到影响。默认值为 `NorthWest`（左上角）。可选值：`NorthWest`, `North`, `NorthEast`, `West`, `Center`, `East`, `SouthWest`, `South`, `SouthEast` 。
+`<ImageSizeAndOffsetGeometry>`  | 否   | 裁剪大小和偏移，详解见下。
 `<ImageQuality>`         | 否   | 图片质量，取值范围是[1, 100]。
 `<RotateDegree>`         | 否   | 旋转角度。
 `<DestinationImageFormat>`          | 否   | 输出格式，可选为jpg, gif, png, bmp, tiff, webp等。
