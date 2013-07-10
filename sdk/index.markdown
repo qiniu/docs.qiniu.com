@@ -13,6 +13,5 @@ title: 七牛SDK列表
 * [go-sdk](https://github.com/qiniu/api)
 * [perl-sdk](https://github.com/qiniu/perl-sdk)
 * [nodejs-sdk](https://github.com/qiniu/nodejs-sdk)
-* [perl-sdl](https://github.com/qiniu/perl-sdk)
 * [ios-sdk](https://github.com/qiniu/ios-sdk)
 * [android-sdk](https://github.com/qiniu/android-sdk)
