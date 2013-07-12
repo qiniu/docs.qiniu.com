@@ -317,3 +317,384 @@ table tbody tr:nth-child(odd) td,
 table tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
+@font-face {
+  font-family: 'octiconsregular';
+  src: url('octicons-regular-webfont.eot');
+  src: url('octicons-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('octicons-regular-webfont.woff') format('woff'),
+       url('octicons-regular-webfont.svg#octiconsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*------------------------------------------------------------------------------
+     Icon Styles
+------------------------------------------------------------------------------*/
+
+.mega-icon {
+  font-family: 'octiconsregular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.mega-icon-invertocat:before {
+  content: "\f00a";
+}
+
+.octicon-calendar:before {
+  content: "\f068";
+}
+
+.octicon {
+  font: normal normal 16px "octiconsregular";
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* end */
+
+/*------------------------------------------------------------------------------
+     Global Documentation Styles
+------------------------------------------------------------------------------*/
+
+html {
+  height:100%;
+}
+
+body {
+  font: 13px helvetica,arial,freesans,clean,sans-serif;
+  line-height: 1.4em;
+  background-color: #fff;
+  color: #393939;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+p {
+  margin: 1em 0;
+}
+
+h1 {
+  font-size: 20px;
+  border-bottom: 1px solid #cccccc;
+  padding: .5em 0;
+  margin: 2em 0 1em;
+}
+
+h1:first-child {
+  margin: 0 0 1em;
+}
+
+h2 {
+  font-size: 16px;
+  color: #333;
+  margin: 2em auto 1em;
+}
+
+  body.api .content h2 {
+    background: transparent url(../images/crud-sprite.png) left 2px no-repeat;
+    padding-left: 22px;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+  }
+
+  body.api .change h2.title {
+    background: none;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    padding-left: 0;
+    font-size:24px;
+  }
+
+h2 span.step {
+  color: #666;
+}
+
+h3 {
+  font-size: 14px;
+  color: #333;
+  margin: 1.5em 0 .5em;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+h6 {
+  font-size: 13px;
+  color: #666;
+}
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration:underline;
+}
+
+blockquote {
+  margin:0 -5px;
+  padding: 0px 20px;
+}
+
+ul,
+ol {
+  margin: 0px;
+  padding: 0px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  padding-left: 1em;
+  margin-bottom: 1em;
+}
+
+dd + dd {
+  margin-bottom: 0;
+}
+
+span.attention,
+p.attention {
+  color: #e98400;
+  font-style: italic;
+}
+
+a img {
+  border: 0px;
+}
+/*------------------------------------------------------------------------------
+     Sidebar
+------------------------------------------------------------------------------*/
+
+div.sidebar-shell {
+  position: relative;
+  float: right;
+  margin: 35px 0 0;
+}
+
+div.sidebar-module {
+  padding: 3px;
+  background: #EEE;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: block;
+  width: 332px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+div.sidebar-module > ul {
+  background: #fafafb;
+  border: solid #CACACA;
+  border-width: 1px 1px 0px 1px;
+  margin: 0px;
+}
+
+div.sidebar-module > p {
+  background: #fafafb;
+  border: solid #CACACA;
+  border-width: 1px;
+  padding: 8px 10px;
+  margin: 0px;
+  display: block;
+  line-height: 1.4em;
+}
+
+div.sidebar-module li {
+  list-style-type: none;
+}
+
+div.sidebar-module > ul > li {
+  border-bottom: 1px solid #CACACA;
+  text-decoration: none;
+}
+
+div.sidebar-module > ul > li:hover {
+  text-decoration: none;
+}
+
+
+div.sidebar-module > ul h3 {
+  margin: 0px;
+  color: #666;
+  text-shadow: 1px 1px 0px #fff;
+  border-bottom: 1px solid #CACACA;
+  font-size: 14px;
+  background-color: #e1e1e1;
+  background-image: -moz-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -ms-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -o-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#e1e1e1));
+  background-image: -webkit-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: linear-gradient(top, #f1f1f1, #e1e1e1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f1f1f1', EndColorStr='#e1e1e1');
+}
+
+div.sidebar-module > ul li h3:hover,
+div.sidebar-module > ul h3.disable {
+  background-color: #e1e1e1;
+  background-image: -moz-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -ms-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -o-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e1e1), to(#d1d1d1));
+  background-image: -webkit-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: linear-gradient(top, #e1e1e1, #d1d1d1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e1e1e1', EndColorStr='#d1d1d1');
+}
+
+
+div.sidebar-module > ul h3 a,
+div.sidebar-module > ul h3.disable span {
+  padding: 8px 0px 8px 10px;
+  color: #666;
+  display: block;
+  text-decoration: none;
+}
+
+div.sidebar-module > ul h3.disable span {
+  padding-left: 20px;
+  background-image: url(../images/active-arrow.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: default;
+}
+div.sidebar-module > ul h3:hover a {
+  text-decoration: none;
+}
+
+div.sidebar-module ul ul,
+div.sidebar-module .spacer {
+  display: block;
+  padding-bottom: 2px;
+  background-color: #FAFAFB;
+}
+
+div.sidebar-module ul ul li {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #e9ecee;
+  font-weight: bold;
+  color: #666;
+}
+
+div.sidebar-module ul ul li:hover,
+div.sidebar-module li.disable {
+  border-top: 1px solid #fafafb;
+  border-bottom: 1px solid #e5e8ea;
+  background-color: #f0f0f3;
+}
+
+div.sidebar-module li.disable {
+  background-image: url(../images/active-arrow.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+div.sidebar-module ul ul li a,
+div.sidebar-module ul ul li span {
+  padding: 6px 0px 6px 10px;
+  display: block;
+  text-decoration: none;
+}
+
+div.sidebar-module ul ul li span {
+  padding-left: 20px;
+  cursor: default;
+}
+
+/* @end */
+
+
+/****************************/
+/*  Expandable List Module  */
+/****************************/
+
+div.expandable > ul h3 {
+  display: table;
+  width: 100%;
+}
+
+div.expandable > ul h3 > a {
+  display: table-cell;
+  background-color: #e1e1e1;
+  background-image: -moz-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -ms-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -o-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#e1e1e1));
+  background-image: -webkit-linear-gradient(top, #f1f1f1, #e1e1e1);
+  background-image: linear-gradient(top, #f1f1f1, #e1e1e1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f1f1f1', EndColorStr='#e1e1e1');
+}
+
+div.expandable > ul h3 > a:hover {
+  background-color: #e1e1e1;
+  background-image: -moz-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -ms-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -o-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e1e1), to(#d1d1d1));
+  background-image: -webkit-linear-gradient(top, #e1e1e1, #d1d1d1);
+  background-image: linear-gradient(top, #e1e1e1, #d1d1d1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e1e1e1', EndColorStr='#d1d1d1');
+}
+
+div.expandable > ul h3 > a.collapsed,
+div.expandable > ul h3 > a.expanded {
+  background-image: url(http://developer.github.com/shared/images/expand-arrows.png);
+  background-position: 0px -3px;
+  background-repeat: no-repeat;
+  width: 13px;
+  border-right: 1px solid #cacaca;
+  padding: 8px 11px;
+}
+
+div.expandable > ul h3 > a.expanded {
+  background-position: -38px -3px;
+}
+
+div.expandable > ul h3 > a.collapsed:hover {
+  background-image: url(http://developer.github.com/shared/images/expand-arrows.png);
+  background-position: 0px -43px;
+  background-repeat: no-repeat;
+  width: 13px;
+  border-right: 1px solid #cacaca;
+  padding: 8px 11px;
+}
+
+div.expandable > ul h3 > a.expanded:hover {
+  background-position: -38px -43px;
+}
+
+
+li.api-status a.good {
+  color: #227b41;
+}
+
+li.api-status a.minor {
+  color: #ed8b3f;
+}
+
+li.api-status a.major {
+  color: #ad1a05;
+}
+
+li.api-status img {
+  float: left;
+  margin: 0 5px 0 0;
+}
+/* @end */
