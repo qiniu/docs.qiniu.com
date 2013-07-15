@@ -494,12 +494,6 @@ div.sidebar-module {
   font-size: 12px;
 }
 
-div.sidebar-module > ul {
-  background: #fafafb;
-  border: solid #CACACA;
-  border-width: 1px 1px 0px 1px;
-  margin: 0px;
-}
 
 div.sidebar-module > p {
   background: #fafafb;
