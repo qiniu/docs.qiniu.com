@@ -491,7 +491,7 @@ div.sidebar-module {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   display: block;
-  width: 332px;
+  width: 220px;
   margin-bottom: 20px;
   font-size: 12px;
 }
@@ -580,6 +580,7 @@ div.sidebar-module .spacer {
   display: block;
   padding-bottom: 2px;
   background-color: #FAFAFB;
+  margin:0px;
 }
 
 div.sidebar-module ul ul li {
