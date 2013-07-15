@@ -480,8 +480,6 @@ a img {
 
 div.sidebar-shell {
   position: relative;
-  float: right;
-  margin: 35px 0 0;
 }
 
 div.sidebar-module {
@@ -491,7 +489,7 @@ div.sidebar-module {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   display: block;
-  width: 220px;
+  width: 249px;
   margin-bottom: 20px;
   font-size: 12px;
 }
