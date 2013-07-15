@@ -47,6 +47,17 @@
 <div class="container-fluid container-docs">
 <div class="span9">
 <article>
+<div class="btn-group">
+  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> 版本</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+    <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+    <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="i"></i> Make admin</a></li>
+  </ul>
+</div>
 {{ .content }}
 </article>
 </div>
@@ -113,5 +124,7 @@
   ga('send', 'pageview');
 </script>
 <script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.scrollUp.min.js"></script>
+<a id="scrollUp" href="#top" title="" style="position: fixed; z-index: 2147483647; display: block;"></a>
 </body>
 </html>
