@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link href="/static/css/bootstrap.css" rel="stylesheet" />
 <link href="/static/css/base.css" rel="stylesheet" />
+<link href="/static/css/main.css" rel="stylesheet" />
 <link href="/static/css/docs.css" rel="stylesheet" />
 <script src="/static/js/jquery.js" type="text/javascript"></script>
 <script src="/static/js/qiniudoc.js" type="text/javascript"></script>
@@ -22,98 +23,101 @@
 <![endif]-->
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-<div class="navbar-inner">
-<div class="container">
-<a class="brand" href="/">七牛云存储 <small>文档</small></a>
-<ul class="nav pull-right">
-<li><a href="https://github.com/qiniu">SDK</a></li>
-<li><a href="/guide/testing.html">测试指南</a></li>
-<li><a href="http://portal.qiniu.com/">自助平台</a></li>
-<li><a href="http://www.qiniu.com/">七牛官网</a></li>
-</ul>
-</div>
-</div>
+<div id="top-tip" class="top-tip"></div>
+<div id="curtain-bg" class="curtain-bg"></div>
+<div class="header">
+	<div class="center-content">
+		<a href="/">
+			<div class="logo"></div>
+		</a>
+		<div class="main-header">			
+			<ul class="inline links">
+				<li><a href="/">开发者平台</a></li>
+				<li><a href="/develop/tutorial">新手上路</a></li>
+				<li><a href="/develop/">开发者</a></li>
+				<li><a href="http://support.qiniu.com">问答社区</a></li>
+				
+			</ul>
+		</div>
+	</div>
 </div>
 
-<div class="masthead">
-<div class="container">
-<h1>{{ .page.title }}</h1>
-</div>
+<div class="main develop-index">	
+	<div class="center-content">
+		<div class="box">
+			<div class="left-cnt">
+				<div id="js-sidebar" class="sidebar-shell">
+				      <div class="js-toggle-list sidebar-module expandable">
+					<ul>
+					  <li class="js-topic">
+					    <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="#">七牛API文档</a></h3>
+					    <ul class="js-guides">
+				      		<li style="display: none;"><a href="/api/v6/put.html">上传</a></li>
+					      <li style="display: none;"><a href="/api/v6/get.html">下载</a></li>
+					      <li style="display: none;"><a href="/api/v6/file-handle.html">文件管理</a></li>
+					      <li style="display: none;"><a href="/api/v6/image-process.html">图像处理</a></li>
+					      <li style="display: none;"><a href="/api/v6/audio-video-hls-process.html">音频/视频/流媒体处理</a></li>
+					      <li style="display: none;"><a href="/api/v6/qrcode.html">生成二维码 - QR code</a></li>
+					      <li style="display: none;"><a href="/api/v6/markdown-convert.html">Markdown 转 HTML</a></li>
+					      <li style="display: none;"><a href="/api/v6/pipeline.html">Pipeline API</a></li>
+					    </ul>
+					  </li>
+					  <li class="js-topic">
+					    <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="#">开发工具文档</a></h3>
+					    <ul class="js-guides">
+					      <li style="display: none;"><a href="/tools/qrsync.html">qrsync</a></li>
+					      <li style="display: none;"><a href="/tools/qboxrsctl.html">qboxrsctl</a></li>
+					      <li style="display: none;"><a href="/tools/qiniu-autosync.html">Autosync</a></li>
+					    </ul>
+					  </li>
+					  <li class="js-topic js-current">
+					    <h3><a href="#" class="js-expand-btn expanded">&nbsp;</a><a href="#">SDK文档</a></h3>
+					    <ul class="js-guides">
+					      <li><a href="/nodejs-sdk/v2/index.html">Node.js</a></li>
+					      <li><a href="/android-sdk/v6/index.html">Android</a></li>
+					      <li><a href="/ios-sdk/v6/index.html">IOS</a></li>
+					      <li><a href="/ruby-sdk/v3/index.html">Ruby</a></li>
+					      <li><a href="/java-sdk/v6/index.html">Java</a></li>
+					      <li class="disable"><a href="/python-sdk/v6/index.html">Python</a></li>
+					      <li><a href="/csharp-sdk/v2/index.html">C#/.NET</a></li>
+					      <li><a href="/PHP-sdk/v6/index.html">PHP5/5.3</a></li>
+					      <li><a href="/go-sdk/v6/index.html">Go</a></li>
+					      <li><a href="/c-sdk/v6/index.html">C/C++</a></li>
+					      
+					    </ul>
+					  </li>
+					  
+					</ul>
+				      </div> <!-- /sidebar-module -->
+					 </div>
+			</div>
+			<div class="right-cnt">	
+				<h1>{{ .page.title }}</h1>
+				<article>
+				{{ .content }}
+				</article>
+			</div>
+		</div>
+	</div>
+
 </div>
 
-<div class="container">
-<div class="container-inner">
-<div class="container-fluid container-docs">
-<div class="span9">
-<article>
-<div class="btn-group">
-  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> 版本</a>
-  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-    <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-    <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-    <li class="divider"></li>
-    <li><a href="#"><i class="i"></i> Make admin</a></li>
-  </ul>
+<div class="footer">
+	<div class="center-content">
+		<div class="logo"></div>
+		<div class="copyright"></div>
+		<div class="main-footer">
+			<ul class="inline links">
+				<li><a href="http://www.qiniu.com">七牛云存储</a></li>
+				<li><a href="http://www.qiniu.com/about/jobs.html">招贤纳士</a></li>
+				<li><a href="http://www.qiniu.com/about/index.html">关于七牛</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
-{{ .content }}
-</article>
-</div>
-<div class="span3 pull-right">
-<div id="js-sidebar" class="sidebar-shell">
-      <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="#">七牛API文档</a></h3>
-            <ul class="js-guides">
-      		<li><a href="/api/v6/put.html">上传</a></li>
-              <li><a href="/api/v6/get.html">下载</a></li>
-              <li><a href="/api/v6/file-handle.html">文件管理</a></li>
-              <li><a href="/api/v6/image-process.html">图像处理</a></li>
-              <li><a href="/api/v6/audio-video-hls-process.html">音频/视频/流媒体处理</a></li>
-              <li><a href="/api/v6/qrcode.html">生成二维码 - QR code</a></li>
-              <li><a href="/api/v6/markdown-convert.html">Markdown 转 HTML</a></li>
-              <li><a href="/api/v6/pipeline.html">Pipeline API</a></li>
-            </ul>
-          </li>
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="#">开发工具文档</a></h3>
-            <ul class="js-guides">
-              <li><a href="/tools/qrsync.html">qrsync</a></li>
-              <li><a href="/tools/qboxrsctl.html">qboxrsctl</a></li>
-              <li><a href="/tools/qiniu-autosync.html">Autosync</a></li>
-            </ul>
-          </li>
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="#">SDK文档</a></h3>
-            <ul class="js-guides">
-              <li><a href="/nodejs-sdk/v2/index.html">Node.js</a></li>
-              <li><a href="/android-sdk/v6/index.html">Android</a></li>
-              <li><a href="/ios-sdk/v6/index.html">IOS</a></li>
-              <li><a href="/ruby-sdk/v3/index.html">Ruby</a></li>
-              <li><a href="/java-sdk/v6/index.html">Java</a></li>
-              <li><a href="/python-sdk/v6/index.html">Python</a></li>
-              <li><a href="/csharp-sdk/v2/index.html">C#/.NET</a></li>
-              <li><a href="/PHP-sdk/v6/index.html">PHP5/5.3</a></li>
-              <li><a href="/go-sdk/v6/index.html">Go</a></li>
-              <li><a href="/c-sdk/v6/index.html">C/C++</a></li>
-              
-            </ul>
-          </li>
-          
-        </ul>
-      </div> <!-- /sidebar-module -->
-         </div>
+<div id="box-bg" class="box-bg"></div>
 
-</div><!-- end .span3-->
-</div><!-- end .container-fluid -->
-</div><!-- end .inner -->
-</div>
-<footer>
-<p class="copyright">&copy; 2013 <strong>Qiniu.com</strong> All Rights Reserved.</p>
-</footer>
+
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
