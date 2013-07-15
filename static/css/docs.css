@@ -13,9 +13,6 @@
 	padding-bottom:30px;
 }
 
-.container-docs .span3 ul {
-	float:right;
-}
 
 .container-docs .span9 {
 	margin:0px;
@@ -452,7 +449,6 @@ blockquote {
 
 ul,
 ol {
-  margin: 0px;
   padding: 0px;
 }
 
