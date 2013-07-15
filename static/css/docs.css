@@ -483,14 +483,10 @@ div.sidebar-shell {
 }
 
 div.sidebar-module {
-  padding: 3px;
-  background: #EEE;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  border-radius: 3px;
   display: block;
   width: 249px;
-  margin-bottom: 20px;
   font-size: 12px;
 }
 
