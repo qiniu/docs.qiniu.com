@@ -695,3 +695,10 @@ li.api-status img {
   margin: 0 5px 0 0;
 }
 /* @end */
+#scrollUp {
+bottom: 20px;
+right: 20px;
+height: 38px;
+width: 38px;
+background: url("../img/top.png") no-repeat;
+}
