@@ -891,7 +891,9 @@ div.expandable > ul h3 > a.expanded:hover {
   border: 1px solid #ccc;
   height: 28px;
 }
-
+.spapi{
+	margin-left:10px;
+}
 /* @end */
 #version{
 	background-color:#34495E;
