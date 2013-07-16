@@ -893,3 +893,10 @@ div.expandable > ul h3 > a.expanded:hover {
 }
 
 /* @end */
+#version{
+	background-color:#34495E;
+	border-radius: 3px;
+	padding: 0px 5px;
+	font-size: 18px;
+	color:white;
+}
