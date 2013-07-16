@@ -8,7 +8,6 @@ html {
 
 body {
   font: 13px helvetica,arial,freesans,clean,sans-serif;
-  word-break:break-all;
   line-height: 1.4em;
   background-color: #fff;
   color: #393939;
@@ -38,10 +37,10 @@ h2 {
   margin: 2em auto 1em;
 }
 
-  body.api .content h2 {
+body.api .content h2 {
     background: transparent url(../img/crud-sprite.png) left 2px no-repeat;
     padding-left: 22px;
-  }
+}
 
 h2 span.step {
   color: #666;
@@ -65,6 +64,8 @@ h6 {
 a {
   color: #4183C4;
   text-decoration: none;
+  word-break: break-all;
+  display: block;
 }
 
 a:hover,
