@@ -38,7 +38,7 @@ h2 {
 }
 
   body.api .content h2 {
-    background: transparent url(../images/crud-sprite.png) left 2px no-repeat;
+    background: transparent url(../img/crud-sprite.png) left 2px no-repeat;
     padding-left: 22px;
   }
 
@@ -159,7 +159,7 @@ a img {
   margin: 0;
   padding: 0px 11px 0px 13px;
   list-style-type: none;
-  background: url(../images/nav-rule.png) no-repeat 0px 50%;
+  background: url(../img/nav-rule.png) no-repeat 0px 50%;
   line-height: 1.4em;
 }
 
@@ -260,7 +260,7 @@ div.sidebar-module > ul h3.disable span {
 
 div.sidebar-module > ul h3.disable span {
   padding-left: 20px;
-  background-image: url(../images/active-arrow.png);
+  background-image: url(../img/active-arrow.png);
   background-position: left center;
   background-repeat: no-repeat;
   cursor: default;
@@ -291,7 +291,7 @@ div.sidebar-module li.disable {
 }
 
 div.sidebar-module li.disable {
-  background-image: url(../images/active-arrow.png);
+  background-image: url(../img/active-arrow.png);
   background-position: left center;
   background-repeat: no-repeat;
 }
@@ -344,7 +344,7 @@ div.sidebar-module ul ul li span {
 #footer .upper_footer {
   min-height: 160px;
   overflow: hidden;
-  background: url(../images/bg_footer_top.png) #f8f8f8 repeat-x;
+  background: url(../img/bg_footer_top.png) #f8f8f8 repeat-x;
 }
 
 #footer .upper_footer ul.footer_nav {
@@ -362,7 +362,7 @@ div.sidebar-module ul ul li span {
 
 #footer .lower_footer {
   position: relative;
-  background:url(../images/bg_footer_bottom.png) #fff repeat-x;
+  background:url(../img/bg_footer_bottom.png) #fff repeat-x;
   overflow: hidden;
   clear:both;
 }
@@ -444,7 +444,7 @@ div.sidebar-module ul ul li span {
   height: auto;
   width: 920px;
   margin: -20px auto 0;
-  background: url(../images/background-white.png) 0 0 no-repeat;
+  background: url(../img/background-white.png) 0 0 no-repeat;
 }
 
 .content {
@@ -634,7 +634,7 @@ span.codeline span {
   right: 0px;
   top: 0px;
   text-indent: -9999px;
-  background-image: url(../images/qmark.png);
+  background-image: url(../img/qmark.png);
   background-repeat: no-repeat;
   background-position: 1px 3px;
   max-width: 8px;
@@ -686,7 +686,7 @@ span.bash-output {
   position: relative;
 }
 .more-info > h4 {
-  background-image: url('../images/dropdown_sprites.jpg');
+  background-image: url('../img/dropdown_sprites.jpg');
   background-repeat: no-repeat;
   padding: .25em 0 .25em 25px;
   cursor: pointer;
@@ -857,7 +857,7 @@ div.expandable > ul h3 > a:hover {
 
 div.expandable > ul h3 > a.collapsed,
 div.expandable > ul h3 > a.expanded {
-  background-image: url(/shared/images/expand-arrows.png);
+  background-image: url(../img/expand-arrows.png);
   background-position: 0px -3px;
   background-repeat: no-repeat;
   width: 13px;
@@ -870,7 +870,7 @@ div.expandable > ul h3 > a.expanded {
 }
 
 div.expandable > ul h3 > a.collapsed:hover {
-  background-image: url(/shared/images/expand-arrows.png);
+  background-image: url(../img/expand-arrows.png);
   background-position: 0px -43px;
   background-repeat: no-repeat;
   width: 13px;
