@@ -8,6 +8,7 @@ html {
 
 body {
   font: 13px helvetica,arial,freesans,clean,sans-serif;
+  word-break:break-all;
   line-height: 1.4em;
   background-color: #fff;
   color: #393939;
