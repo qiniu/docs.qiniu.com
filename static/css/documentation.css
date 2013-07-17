@@ -524,8 +524,8 @@ p code {
 code {white-space: nowrap;}
 
 pre {
-  background: none repeat scroll 0 0 #FFFDE8;
-  border: 1px dotted #FFE0BB;
+  background: none repeat scroll 0 0 #f8f8f8;
+  border: 1px solid #dd;
   line-height: 1.2em;
   font: 14px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
   padding: 10px;
