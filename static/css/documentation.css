@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font: 13px helvetica,arial,freesans,clean,sans-serif;
+  font: 14px helvetica,arial,freesans,clean,sans-serif;
   line-height: 1.4em;
   background-color: #fff;
   color: #393939;
@@ -272,10 +272,6 @@ div.sidebar-module .spacer {
 }
 
 div.sidebar-module ul ul li {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #e9ecee;
-  font-weight: bold;
-  color: #666;
 }
 
 div.sidebar-module ul ul li:hover,
@@ -293,7 +289,7 @@ div.sidebar-module li.disable {
 
 div.sidebar-module ul ul li a,
 div.sidebar-module ul ul li span {
-  padding: 6px 0px 6px 10px;
+  padding: 3px 0px 3px 10px;
   display: block;
   text-decoration: none;
 }
@@ -525,7 +521,7 @@ code {white-space: nowrap;}
 
 pre {
   background: none repeat scroll 0 0 #f8f8f8;
-  border: 1px solid #dd;
+  border: 1px solid #bbb;
   line-height: 1.2em;
   font: 14px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
   padding: 10px;
