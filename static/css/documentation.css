@@ -276,8 +276,6 @@ div.sidebar-module ul ul li {
 
 div.sidebar-module ul ul li:hover,
 div.sidebar-module li.disable {
-  border-top: 1px solid #fafafb;
-  border-bottom: 1px solid #e5e8ea;
   background-color: #f0f0f3;
 }
 
