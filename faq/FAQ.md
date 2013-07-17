@@ -1,5 +1,5 @@
 ---
-title:FAQ
+title: FAQ
 ---
 # 七牛云存储常见问题
 
