@@ -37,11 +37,6 @@ h2 {
   margin: 2em auto 1em;
 }
 
-body.api .content h2 {
-    background: transparent url(../img/crud-sprite.png) left 2px no-repeat;
-    padding-left: 22px;
-}
-
 h2 span.step {
   color: #666;
 }
