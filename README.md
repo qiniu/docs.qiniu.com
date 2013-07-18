@@ -38,4 +38,3 @@
 4. `git merge qiniu/master`
 
 后续同步更新只需运行第3步和第4步。
-hello
