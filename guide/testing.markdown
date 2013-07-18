@@ -165,7 +165,7 @@ title: "测试指南"
 
 实际情况下，若您的业务偏 UGC(User Generate Content)，可以使用 [七牛提供的SDK](https://github.com/qiniu) 让终端用户直传图片/音频/视频/文件到七牛云存储。
 
-若不想用测试帐号，也可自行注册申请帐号。注册地址：<https://portal-beta.qiniu.com/signup>
+若不想用测试帐号，也可自行注册申请帐号。注册地址：<https://portal.qiniu.com/signup>
 
 为方便测试，我们在测试帐号申里边创建了一个名为 `qtestbucket` 的存储空间。
 
