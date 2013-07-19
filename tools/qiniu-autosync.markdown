@@ -21,7 +21,7 @@ Linux 下可以使用如下命令:
 
 ## 使用
 
-获取七牛云存储 ACCESS_KEY 和 SECRET_KEY 以及 BUCKET_NAME (空间名称) 请登录：<https://portal-beta.qiniu.com/>
+获取七牛云存储 ACCESS_KEY 和 SECRET_KEY 以及 BUCKET_NAME (空间名称) 请登录：<https://portal.qiniu.com/>
 
 用法（反斜杠用于排版换行需要，实际情况下可忽略）:
 
