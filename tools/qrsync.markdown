@@ -13,11 +13,11 @@ qrsync 是一个根据七牛云存储API实现的简易命令行辅助上传同�
 
 qrsync 命令行辅助同步工具下载地址：
 
-- Mac OS: <http://devtools.qiniudn.com/darwin_amd64/qiniu-devtools.zip>
-- Linux 64bits: <http://devtools.qiniudn.com/linux_amd64/qiniu-devtools.zip>
-- Linux 32bits: <http://devtools.qiniudn.com/linux_386/qiniu-devtools.zip>
-- Windows 32bits: <http://devtools.qiniudn.com/windows_386/qiniu-devtools.zip>
-- Windows 64bits: <http://devtools.qiniudn.com/windows_amd64/qiniu-devtools.zip>
+- Mac OS: <http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.zip>
+- Linux 64bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip>
+- Linux 32bits: <http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip>
+- Windows 32bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip>
+- Windows 64bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip>
 
 ## 用法
 
@@ -36,8 +36,8 @@ qrsync 命令行辅助同步工具下载地址：
 
 其中，`access_key` 和 `secret_key` 在七牛云存储平台上申请。步骤如下：
 
-1. [开通七牛开发者帐号](https://portal-beta.qiniu.com/signup)
-2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal-beta.qiniu.com/setting/key)
+1. [开通七牛开发者帐号](https://portal.qiniu.com/signup)
+2. [登录七牛开发者自助平台，查看 Access Key 和 Secret Key](https://portal.qiniu.com/setting/key)
 
 `bucket` 是你在七牛云存储上希望保存数据的 Bucket 名（类似于数据库的表），这个自己选择一个合适的就可以，要求是只能由字母、数字、下划线等组成。
 
@@ -45,7 +45,7 @@ qrsync 命令行辅助同步工具下载地址：
 
 `async_ops` 是设置上传预转参数，一般上传的音视频如果需要转码，可以使用该参数。详情参考：[音视频上传预转 - asyncOps](/api/put.html#uploadToken-asyncOps)
 
-可以在 [七牛云存储开发者网站后台](https://portal-beta.qiniu.com/) 进行相应的域名绑定操作，域名绑定成功后，若您将 bucket 设为公用（public）属性，则可以用如下方式对上传的文件进行访问：
+可以在 [七牛云存储开发者网站后台](https://portal.qiniu.com/) 进行相应的域名绑定操作，域名绑定成功后，若您将 bucket 设为公用（public）属性，则可以用如下方式对上传的文件进行访问：
 
     http://<绑定域名>/<key>
 
