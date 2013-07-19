@@ -899,3 +899,45 @@ div.expandable > ul h3 > a.expanded:hover {
 								width: 38px;
 								background: url("../img/top.png") no-repeat;
 }
+.popover {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 0 none;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    right: 10px;
+		bottom:10px;
+    max-width: 276px;
+    padding: 1px;
+    position: fixed;
+    text-align: left;
+    white-space: normal;
+    z-index: 1010;
+		display:none;
+}
+.popover-title {
+				padding: 8px 14px;
+				margin: 0;
+				font-size: 14px;
+				font-weight: normal;
+				line-height: 18px;
+				background-color: #f7f7f7;
+				border-bottom: 1px solid #ebebeb;
+				-webkit-border-radius: 5px 5px 0 0;
+				-moz-border-radius: 5px 5px 0 0;
+				border-radius: 5px 5px 0 0;
+}
+#popover-content{
+		padding:10px;
+}
+.popover ul, .content ol {
+    margin-left: 1.5em;
+}
+
+.popover.top .arrow {
+    border-bottom-width: 0;
+    border-top-color: rgba(0, 0, 0, 0.25);
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+}
