@@ -1,5 +1,14 @@
 ## CHANGE LOG
 
+### v6.1.0
+
+2013-07-20 issue [#27](https://github.com/qiniu/docs.qiniu.com/pull/27)
+
+- 1. 重新接入sdk docs；
+- 2. 修正文档的一些链接错误和文字错误；
+- 3. 重新使用v3版的样式；
+- 4. 全面接入github，由master分支更新自动触发文档的拉取和网站构建。
+
 ### v6.0.0
 
 2013-06-21 issue [#16](https://github.com/qiniu/docs.qiniu.com/pull/16)
