@@ -43,7 +43,7 @@ $ qrsync.exe conf.json
 }
 ```
 
-，详见[qrsync使用说明](http://docs.qiniu.com/tools/qrsync.html)。qrsync工具可以用于整个目录内文件的上传，对于仅需使用七牛云存储进行数据备份的用于而言，是最佳的选择。
+详见[qrsync使用说明](http://docs.qiniu.com/tools/qrsync.html)。qrsync工具可以用于整个目录内文件的上传，对于仅需使用七牛云存储进行数据备份的用于而言，是最佳的选择。
 
 如果用户需要在自己的业务逻辑中向七牛云存储上传数据，则有更多的选择。用户可以根据自己使用的服务端语言，选择一种SDK方便地实现数据上传操作。
 
