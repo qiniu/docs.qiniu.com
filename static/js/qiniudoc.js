@@ -1,8 +1,5 @@
 // Init sidebar
 $(function() {
-  var activeItem,
-      helpList = $('#js-sidebar .js-topic'),
-
 	if($('body.api') && window.location){
 		var reg = /\/\/[^\/]+(\/.+)/g,
 		docUrl = reg.exec(window.location.toString())
@@ -28,5 +25,5 @@ $(function() {
 	  animationOutSpeed: 200,
 	  scrollText: '',
 	  activeOverlay: false
-  });
+     });
 });
