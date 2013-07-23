@@ -1,17 +1,19 @@
 ---
 layout: default
-title: 七牛SDK列表
+title: 七牛云存储SDK使用指南
 ---
 
-* [ios-sdk](https://github.com/qiniu/ios-sdk)
-* [android-sdk](https://github.com/qiniu/android-sdk)
-* [go-sdk](https://github.com/qiniu/api)
-* [php-sdk](https://github.com/qiniu/php-sdk)
-* [ruby-sdk](https://github.com/qiniu/ruby-sdk)
-* [java-sdk](https://github.com/qiniu/java-sdk)
-* [python-sdk](https://github.com/qiniu/python-sdk)
-* [nodejs-sdk](https://github.com/qiniu/nodejs-sdk) 
-* [c-sdk](https://github.com/qiniu/c-sdk)
-* [c-sdk-for-windows](https://github.com/qiniu/c-sdk-for-windows) (若从源代码编译则依赖[c-sdk-wdeps](https://github.com/qiniu/c-sdk-wdeps)）
-* [c#-sdk](https://github.com/qiniu/csharp-sdk)
-* [perl-sdk](https://github.com/qiniu/perl-sdk)
+七牛云存储向用户提供了丰富的SDK，帮助用户更好地使用我们的服务。这些SDK涵盖了最常用的一些语言和平台，以及多种移动客户端。目前包括：
+
+1. [Objective-C (iOS)](http://docs.qiniu.com/ios-sdk/index.html)
+1. [Java (Android)](http://docs.qiniu.com/android-sdk/index.html)
+1. [Java](http://docs.qiniu.com/java-sdk/index.html)
+1. [PHP](http://docs.qiniu.com/php-sdk/index.html)
+1. [Python](http://docs.qiniu.com/python-sdk/index.html)
+1. [Ruby](http://docs.qiniu.com/ruby-sdk/index.html)
+1. [Node.js](http://docs.qiniu.com/nodejs-sdk/index.html)
+1. [C#](http://docs.qiniu.com/csharp-sdk/index.html)
+1. [C/C++](http://docs.qiniu.com/c-sdk/index.html)
+1. [Go](http://docs.qiniu.com/go-sdk/index.html)
+
+所有SDK遵循共同的接口规范，用户可以没有障碍地在不同语言之间切换。
