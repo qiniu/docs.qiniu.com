@@ -16,7 +16,7 @@ title: 七牛云存储使用指南
 
 在使用七牛云存储之前，需要[注册成为七牛用户](https://portal.qiniu.com/signup)，然后[取得AccessKey和SecretKey](https://portal.qiniu.com/setting/key)。
 
-** 注意： Secret Key是七牛云存储对用户访问安全验证的核心要素，用户必须妥善保管，不能泄露给第三方，亦不可置于最终用户使用的客户端中。如发生泄露，请立刻更换Access Key和Secret Key。 **
+**注意： Secret Key是七牛云存储对用户访问安全验证的核心要素，用户必须妥善保管，不能泄露给第三方，亦不可置于最终用户使用的客户端中。如发生泄露，请立刻更换Access Key和Secret Key。**
 
 七牛云存储的使用非常简单。根据不同的用况，用户可以选择适合自身的方式。
 
