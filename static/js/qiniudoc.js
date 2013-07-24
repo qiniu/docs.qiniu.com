@@ -10,7 +10,7 @@ $(function() {
 		if(docUrl){
 		  $('#js-sidebar .js-topic a').each(function(){
 		    var url = $(this).attr('href').toString()        
-		    if(url.indexOf(first) >= 0 && url.indexOf(last)>=0){           
+		    if(url.indexOf(first) == 1 && url.indexOf(last)>=0){           
 		      $(this).parent('li').addClass('disable')
 		    }
 		  })
