@@ -30,7 +30,7 @@ $ # Windows用户
 $ qrsync.exe conf.json
 ```
 
-"uconf.json"是配置文件，包含上传所需的参数，用于控制文件上传：
+"conf.json"是配置文件，包含上传所需的参数，用于控制文件上传：
 
 ```
 {
