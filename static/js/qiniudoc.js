@@ -1,31 +1,29 @@
 // Init sidebar
 $(function() {
-  var activeItem,
-      helpList = $('#js-sidebar .js-topic'),
-      firstOccurance = true
-
-  // hide list items at startup
-  if($('body.api') && window.location){
-    var reg = /\/\/[^\/]+(\/.+)/g,
-        docUrl = reg.exec(window.location.toString())
-    if(docUrl){
-      $('#js-sidebar .js-topic a').each(function(){
-        var url = $(this).attr('href').toString()
-        var cleanDocUrl = docUrl[1].split('#')[0]
-        if(url.indexOf(cleanDocUrl) >= 0 && url.length == cleanDocUrl.length){
-          $(this).parent('li').addClass('disable')
-        }
-      })
-    }
-  }
-  $.scrollUp({
+	if($('body.api') && window.location){
+		var reg = /\/\/[^\/]+(\/.+)/g,
+		docUrl = reg.exec(window.location.toString())
+		var cleanDocUrl = docUrl[1].split('#')[0]
+		var Urls = cleanDocUrl.split('/')
+		first=Urls[1]       
+		last=Urls[Urls.length-1]
+		if(docUrl){
+		  $('#js-sidebar .js-topic a').each(function(){
+		    var url = $(this).attr('href').toString()        
+		    if(url.indexOf(first) >= 0 && url.indexOf(last)>=0){           
+		      $(this).parent('li').addClass('disable')
+		    }
+		  })
+		}
+  	}
+      $.scrollUp({
 	  scrollName: 'scrollUp',
-	  topDistance: '300',
+	  topDistance: '500',
 	  topSpeed: 300, 
 	  animation: 'fade',
 	  animationInSpeed: 200, 
 	  animationOutSpeed: 200,
 	  scrollText: '',
 	  activeOverlay: false
-  });
+     });
 });
