@@ -1,5 +1,14 @@
 ## CHANGE LOG
 
+### v6.1.1
+
+2013-07-24 issues [32](https://github.com/qiniu/docs.qiniu.com/pull/32)
+
+- 1. 修复perl-sdk无效链接
+- 2. 去除指向qiniutek.com的链接
+- 3. 调整边栏sdk次序
+- 4. 修复js bug
+
 ### v6.1.0
 
 2013-07-20 issue [#27](https://github.com/qiniu/docs.qiniu.com/pull/27)
