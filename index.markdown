@@ -64,11 +64,11 @@ $ qrsync.exe conf.json
 
 如果用户有一些特殊的使用方式，而现有SDK无法满足，可以直接通过[API](http://docs.qiniu.com/api/index.html)访问七牛云存储。
 
-很多开发网络应用的用户需要从他们自己的客户端访问七牛云存储。传统上，用户会将数据上传至他们的业务服务器，然后由业务服务器转发至云存储。这种做法增加了客户业务服务器的压力，并且增加了用户的流量成本。七牛云存储允许用户[从客户端直接上传数据](http://docs.qiniu.com/api/put.html#upload-without-callback)，而无需到业务服务器中转。这种模式具有更广泛的用途和灵活性。
+很多开发网络应用的用户需要从他们自己的客户端访问七牛云存储。传统上，用户会将数据上传至他们的业务服务器，然后由业务服务器转发至云存储。这种做法增加了客户业务服务器的压力，并且增加了用户的流量成本。七牛云存储允许用户[从客户端直接上传数据](http://docs.qiniu.com/api/v6/put.html#upload-without-callback)，而无需到业务服务器中转。这种模式具有更广泛的用途和灵活性。
 
-在客户端直接上传数据的基础上，为方便用户业务服务器和客户端的信息交互，七牛云存储还提供了[回调业务服务器](http://docs.qiniu.com/api/put.html#upload-with-callback)的功能。用户可以在一次数据上传请求中，完成客户端和业务服务器的数据交换。在此基础上，七牛云存储还允许用户利用[魔法变量](http://docs.qiniu.com/api/put.html#MagicVariables)和[自定义变量](http://docs.qiniu.com/api/put.html#xVariables)设定回调中所传递的数据。
+在客户端直接上传数据的基础上，为方便用户业务服务器和客户端的信息交互，七牛云存储还提供了[回调业务服务器](http://docs.qiniu.com/api/put.html#upload-with-callback)的功能。用户可以在一次数据上传请求中，完成客户端和业务服务器的数据交换。在此基础上，七牛云存储还允许用户利用[魔法变量](http://docs.qiniu.com/api/v6/put.html#MagicVariables)和[自定义变量](http://docs.qiniu.com/api/v6/put.html#xVariables)设定回调中所传递的数据。
 
-用户可以将一个空间（Bucket）设置为公有，任何人都可以[无需授权下载它的内容](http://docs.qiniu.com/api/get.html#public-download)。或者将空间设为私有，以授权访问的方式，对外提供[授权下载](http://docs.qiniu.com/api/get.html#private-download)。用户可以根据自己的应用对安全性的要求，灵活使用这两种方式。
+用户可以将一个空间（Bucket）设置为公有，任何人都可以[无需授权下载它的内容](http://docs.qiniu.com/api/v6/get.html#public-download)。或者将空间设为私有，以授权访问的方式，对外提供[授权下载](http://docs.qiniu.com/api/v6/get.html#private-download)。用户可以根据自己的应用对安全性的要求，灵活使用这两种方式。
 
 七牛云存储不仅仅提供数据存储服务，用户还可以在七牛云存储的服务平台上，直接对所存储的服务进行数据处理。七牛云存储提供了多种数据处理功能，包括：
 
