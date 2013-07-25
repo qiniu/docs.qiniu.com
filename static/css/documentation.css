@@ -119,7 +119,7 @@ a img {
 
 #header a.logo {
   float: left;
-  margin-top: 30px;
+  margin-top: 15px;
   font-size:30px;
   display: inline-block;
 }
@@ -245,7 +245,6 @@ div.sidebar-module > ul h3.disable {
 }
 
 
-div.sidebar-module > ul h3 a,
 div.sidebar-module > ul h3.disable span {
   padding: 8px 0px 8px 10px;
   color: #666;
