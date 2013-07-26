@@ -72,9 +72,11 @@ $ qrsync.exe conf.json
 
 七牛云存储不仅仅提供数据存储服务，用户还可以在七牛云存储的服务平台上，直接对所存储的服务进行数据处理。七牛云存储提供了多种数据处理功能，包括：
 
-1. [图像处理](http://docs.qiniu.com/api/image-process.html)
+1. [图片处理](http://docs.qiniu.com/api/image-process.html)
 1. [音视频处理](http://docs.qiniu.com/api/audio-video-hls-process.html)
-1. [文档转换](http://docs.qiniu.com/api/markdown-convert.html)
+1. [文档转换](http://docs.qiniu.com/api/office-process.html)
+1. [管道](http://docs.qiniu.com/api/pipeline.html)
+1. [杂项](http://docs.qiniu.com/api/misk-file-process.html)
 
 等等，并且在不断扩展中。在这些数据处理功能的基础上，七牛云存储还允许用户将它们以[Pipeline](http://docs.qiniu.com/api/pipeline.html)的形式串联起来，执行更加复杂的数据处理操作。比如，先从视频中摘取一帧缩略图，然后进行裁剪和旋转，并且打上水印。这一组操作可以在一次请求中完成，更加快捷方便。
 
