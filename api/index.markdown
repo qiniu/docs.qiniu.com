@@ -9,7 +9,7 @@ title: 七牛云存储API使用指南
 1. [下载文件](http://docs.qiniu.com/api/get.html)
 1. [文件管理操作](http://docs.qiniu.com/api/rs.html)
 1. [数据处理(图片篇)](http://docs.qiniu.com/api/image-process.html)
-1. [数据处理(音频/视频/流媒体篇)](http://docs.qiniu.com/api/streaming-media-process.html)
+1. [数据处理(音频/视频/流媒体篇)](http://docs.qiniu.com/api/audio-video-hls-process.html)
 1. [数据处理(文档/办公篇)](http://docs.qiniu.com/api/office-process.html)
 1. [数据处理(杂项篇)](http://docs.qiniu.com/api/misc-file-process.html)
 1. [数据处理(管道篇)](http://docs.qiniu.com/api/pipeline.html)
