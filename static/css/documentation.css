@@ -180,7 +180,7 @@ div.sidebar-module {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   display: block;
-  width: 202px;
+  width: 182px;
   margin-bottom: 20px;
   font-size: 12px;
 }
@@ -436,7 +436,7 @@ div.sidebar-module ul ul li span {
 }
 
 .content {
-  width: 690px;
+  width: 710px;
   position: relative;
   float: left;
   color: #393939;
