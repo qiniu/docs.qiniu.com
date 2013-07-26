@@ -59,7 +59,6 @@ h6 {
 a {
   color: #4183C4;
   text-decoration: none;
-  word-break: break-all;
 }
 
 a:hover,
@@ -441,6 +440,7 @@ div.sidebar-module ul ul li span {
   float: left;
   color: #393939;
   z-index: 2;
+  word-break: break-all;
 }
 
 .content dl {
