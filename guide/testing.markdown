@@ -42,7 +42,7 @@ title: "测试指南"
 
 **水印**（将蟬游记LOGO打到原图上去）:
 
-- <http://goo.gl/29i2B> (可点击查看完整URL)
+- <http://t.cn/zQIqIGi> (可点击查看完整URL)
 
 ![水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
 
@@ -64,13 +64,13 @@ title: "测试指南"
 
 **缩略图3** (缩略、裁剪、旋转)
 
-- <http://goo.gl/4eJff> (可点击查看完整URL)
+- <http://t.cn/zQIqJPv> (可点击查看完整URL)
 
 ![缩略图3缩略、裁剪、旋转](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageMogr/auto-orient/thumbnail/!310x310r/gravity/center/crop/!310x310/quality/80/rotate/45)
 
 **缩略图4** (API链式处理，基于缩略图打水印)
 
-- <http://goo.gl/kkxGe> (可点击查看完整URL)
+- <http://t.cn/zQIq6O8> (可点击查看完整URL)
 
 ![API链式处理，基于缩略图打水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast)
 
