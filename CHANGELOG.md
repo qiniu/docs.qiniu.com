@@ -2,7 +2,7 @@
 
 ### v6.1.2
 
-2013-07-26 issues [42](https://github.com/qiniu/docs.qiniu.com/pull/42)
+2013-07-26 issues [#42](https://github.com/qiniu/docs.qiniu.com/pull/42)
 
 - 1. 增加docs.qiniu.com的主页，增加api，tools的主页，修改sdk的主页。Issues #2997,#2894
 - 2. 调整右边栏api各章节的次序和文字。Issues #2894
@@ -13,7 +13,7 @@
 
 ### v6.1.1
 
-2013-07-24 issues [32](https://github.com/qiniu/docs.qiniu.com/pull/32)
+2013-07-24 issues [#32](https://github.com/qiniu/docs.qiniu.com/pull/32)
 
 - 1. 修复perl-sdk无效链接
 - 2. 去除指向qiniutek.com的链接
