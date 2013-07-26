@@ -59,7 +59,6 @@ h6 {
 a {
   color: #4183C4;
   text-decoration: none;
-  word-break: break-all;
 }
 
 a:hover,
@@ -119,7 +118,7 @@ a img {
 
 #header a.logo {
   float: left;
-  margin-top: 30px;
+  margin-top: 15px;
   font-size:30px;
   display: inline-block;
 }
@@ -180,7 +179,7 @@ div.sidebar-module {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   display: block;
-  width: 202px;
+  width: 182px;
   margin-bottom: 20px;
   font-size: 12px;
 }
@@ -243,7 +242,6 @@ div.sidebar-module > ul h3.disable {
   background-image: linear-gradient(top, #e1e1e1, #d1d1d1);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e1e1e1', EndColorStr='#d1d1d1');
 }
-
 
 div.sidebar-module > ul h3 a,
 div.sidebar-module > ul h3.disable span {
@@ -437,11 +435,12 @@ div.sidebar-module ul ul li span {
 }
 
 .content {
-  width: 690px;
+  width: 710px;
   position: relative;
   float: left;
   color: #393939;
   z-index: 2;
+  word-break: break-all;
 }
 
 .content dl {
