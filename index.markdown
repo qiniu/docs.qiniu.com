@@ -26,16 +26,16 @@ title: 七牛云存储使用指南
 
 七牛云存储提供以下SDK：
 
-1. [Objective-C (iOS)](http://docs.qiniu.com/ios-sdk/index.html)
-1. [Java (Android)](http://docs.qiniu.com/android-sdk/index.html)
-1. [Java](http://docs.qiniu.com/java-sdk/index.html)
-1. [PHP](http://docs.qiniu.com/php-sdk/index.html)
-1. [Python](http://docs.qiniu.com/python-sdk/index.html)
-1. [Ruby](http://docs.qiniu.com/ruby-sdk/index.html)
-1. [Node.js](http://docs.qiniu.com/nodejs-sdk/index.html)
-1. [C#](http://docs.qiniu.com/csharp-sdk/index.html)
-1. [C/C++](http://docs.qiniu.com/c-sdk/index.html)
-1. [Go](http://docs.qiniu.com/go-sdk/index.html)
+- [Objective-C (iOS)](http://docs.qiniu.com/ios-sdk/index.html)
+- [Java (Android)](http://docs.qiniu.com/android-sdk/index.html)
+- [Java](http://docs.qiniu.com/java-sdk/index.html)
+- [PHP](http://docs.qiniu.com/php-sdk/index.html)
+- [Python](http://docs.qiniu.com/python-sdk/index.html)
+- [Ruby](http://docs.qiniu.com/ruby-sdk/index.html)
+- [Node.js](http://docs.qiniu.com/nodejs-sdk/index.html)
+- [C#](http://docs.qiniu.com/csharp-sdk/index.html)
+- [C/C++](http://docs.qiniu.com/c-sdk/index.html)
+- [Go](http://docs.qiniu.com/go-sdk/index.html)
 
 这些SDK遵循共同接口规范。用户可以用同样的方式使用不同的SDK，方便那些同时使用多种语言的用户。
 
@@ -49,16 +49,16 @@ title: 七牛云存储使用指南
 
 七牛云存储不仅仅提供数据存储服务，用户还可以在七牛云存储的服务平台上，直接对所存储的服务进行数据处理。七牛云存储提供了多种数据处理功能，包括：
 
-1. [图片处理](http://docs.qiniu.com/api/image-process.html)
-1. [音视频处理](http://docs.qiniu.com/api/audio-video-hls-process.html)
-1. [文档转换](http://docs.qiniu.com/api/office-process.html)
-1. [管道](http://docs.qiniu.com/api/pipeline.html)
-1. [杂项](http://docs.qiniu.com/api/misc-file-process.html)
+- [图片处理](http://docs.qiniu.com/api/image-process.html)
+- [音视频处理](http://docs.qiniu.com/api/audio-video-hls-process.html)
+- [文档转换](http://docs.qiniu.com/api/office-process.html)
+- [管道](http://docs.qiniu.com/api/pipeline.html)
+- [杂项](http://docs.qiniu.com/api/misc-file-process.html)
 
 等等，并且在不断扩展中。在这些数据处理功能的基础上，七牛云存储还允许用户将它们以[Pipeline](http://docs.qiniu.com/api/pipeline.html)的形式串联起来，执行更加复杂的数据处理操作。比如，先从视频中摘取一帧缩略图，然后进行裁剪和旋转，并且打上水印。这一组操作可以在一次请求中完成，更加快捷方便。
 
 
 如果在使用七牛云存储各类服务的过程中，有问题或建议，欢迎随时通过如下途径向我们反馈：
 
-1. 在七牛云存储的[开发者平台](https://portal.qiniu.com/)，点击右侧的“咨询和建议”；
-1. 在七牛云存储的[客户支持平台](http://support.qiniu.com/home)提交你的问题和建议。
+- 在七牛云存储的[开发者平台](https://portal.qiniu.com/)，点击右侧的“咨询和建议”；
+- 在七牛云存储的[客户支持平台](http://support.qiniu.com/home)提交你的问题和建议。
