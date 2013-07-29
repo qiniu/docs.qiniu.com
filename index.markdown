@@ -20,30 +20,7 @@ title: 七牛云存储使用指南
 
 七牛云存储的使用非常简单。根据不同的用况，用户可以选择适合自身的方式。
 
-最简单快捷的数据上传是使用[qrsync](http://docs.qiniu.com/tools/qrsync.html)命令行工具：
-
-```
-$ # Unix/Linux/MacOS用户
-$ qrsync conf.json
-
-$ # Windows用户
-$ qrsync.exe conf.json
-```
-
-"conf.json"是配置文件，包含上传所需的参数，用于控制文件上传：
-
-```
-{
-    "access_key": "Please apply your access key here",
-    "secret_key": "Dont send your secret key to anyone",
-    "bucket": "Bucket name on qiniu resource storage",
-    "sync_dir": "Local directory to upload",
-    "async_ops": "fop1;fop2;fopN",
-    "debug_level": 1
-}
-```
-
-详见[qrsync使用说明](http://docs.qiniu.com/tools/qrsync.html)。qrsync工具可以用于整个目录内文件的上传，对于仅需使用七牛云存储进行数据备份的用户而言，是最佳的选择。
+最简单快捷的数据上传是使用[qrsync](http://docs.qiniu.com/tools/qrsync.html)命令行工具。qrsync工具可以用于单个文件的上传，也可用于整个目录内文件的上传，对于仅需使用七牛云存储进行数据备份的用户而言，是最佳的选择。
 
 如果用户需要在自己的业务逻辑中向七牛云存储上传数据，则有更多的选择。用户可以根据自己使用的服务端语言，选择一种[SDK](http://docs.qiniu.com/sdk/index.html)方便地实现数据上传操作。
 
