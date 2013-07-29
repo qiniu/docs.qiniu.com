@@ -15,6 +15,10 @@ body {
   padding: 0px;
   height: 100%;
 }
+thead{
+    background-color:#efefef;
+    text-align:center;
+}
 
 p {
   margin: 1em 0;
@@ -215,6 +219,7 @@ div.sidebar-module > ul > li:hover {
 }
 
 
+div.sidebar-module > ul div ,
 div.sidebar-module > ul h3 {
   margin: 0px;
   color: #666;
@@ -440,7 +445,6 @@ div.sidebar-module ul ul li span {
   float: left;
   color: #393939;
   z-index: 2;
-  word-break: break-all;
 }
 
 .content dl {
@@ -458,6 +462,11 @@ div.sidebar-module ul ul li span {
 
 .content ul {
   list-style-type: disc;
+}
+
+.content ul li {
+    word-break:break-all;
+    word-wrap:break-word;
 }
 
 .content img {
@@ -881,7 +890,7 @@ div.expandable > ul h3 > a.expanded:hover {
   height: 28px;
 }
 .spapi{
-	margin-left:10px;
+    padding: 8px 0 8px 10px;
 }
 /* @end */
 #version{
