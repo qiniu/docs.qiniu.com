@@ -189,8 +189,7 @@ div.sidebar-module {
   display: block;
   width: 202px;
   margin-bottom: 20px;
-  font-size: 12px;
-}
+  font-size: 12px;}
 
 div.sidebar-module > ul {
   background: #fafafb;
@@ -953,4 +952,7 @@ div.expandable > ul h3 > a.expanded:hover {
     bottom: -11px;
     left: 50%;
     margin-left: -11px;
+}
+.imgwrap{
+	text-align:center;
 }
