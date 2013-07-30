@@ -17,7 +17,11 @@ body {
 }
 thead{
     background-color:#efefef;
-    text-align:center;
+}
+thead td{
+	white-space:nowrap;
+	font-weight: bold;
+    text-align: center;
 }
 
 p {
@@ -902,11 +906,11 @@ div.expandable > ul h3 > a.expanded:hover {
     margin: 0 10px;
 }
 #scrollUp {
-								bottom: 20px;
-								right: 20px;
-								height: 38px;
-								width: 38px;
-								background: url("../img/top.png") no-repeat;
+	bottom: 20px;
+	right: 20px;
+	height: 38px;
+	width: 38px;
+	background: url("../img/top.png") no-repeat;
 }
 .popover {
     background-clip: padding-box;
@@ -925,16 +929,16 @@ div.expandable > ul h3 > a.expanded:hover {
 		display:none;
 }
 .popover-title {
-				padding: 8px 14px;
-				margin: 0;
-				font-size: 14px;
-				font-weight: normal;
-				line-height: 18px;
-				background-color: #f7f7f7;
-				border-bottom: 1px solid #ebebeb;
-				-webkit-border-radius: 5px 5px 0 0;
-				-moz-border-radius: 5px 5px 0 0;
-				border-radius: 5px 5px 0 0;
+	padding: 8px 14px;
+	margin: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 18px;
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #ebebeb;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
 }
 #popover-content{
 		padding:10px;
