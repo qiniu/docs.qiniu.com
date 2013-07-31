@@ -16,4 +16,4 @@ title: 七牛云存储SDK使用指南
 1. [C/C++](http://docs.qiniu.com/c-sdk/index.html)
 1. [Go](http://docs.qiniu.com/go-sdk/index.html)
 
-所有SDK遵循共同的接口规范，用户可以没有障碍地在不同语言之间切换。
+所有SDK遵循共同的[接口规范](http://github.com/qiniu/sdkspec)，用户可以没有障碍地在不同语言之间切换。
