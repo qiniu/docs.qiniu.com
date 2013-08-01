@@ -1,5 +1,14 @@
 ## CHANGE LOG
 
+### v6.1.3 issues [#52](https://github.com/qiniu/docs.qiniu.com/pull/52)
+
+- 更换真实图片，解决文本图片错乱问题。Issues #2997
+- 解决表格错误折行和右侧padding问题。Issues #3030
+- 去除右边栏小三角。Issues #3036
+- 去除主页qrsync的示例。Issues #3036
+- 解决标点位于行首的问题。Issues #3036
+- 加入favicon.ioc
+
 ### v6.1.2
 
 2013-07-26 issues [#42](https://github.com/qiniu/docs.qiniu.com/pull/42)
