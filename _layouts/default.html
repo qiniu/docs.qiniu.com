@@ -42,6 +42,21 @@
 			</div>
 
 			<div id="js-sidebar" class="sidebar-shell">
+				<div class="sidebar-module">
+					<script>
+					(function() {
+					    var cx = '008350784836136414708:ya3ebjnyhhm';
+					    var gcse = document.createElement('script');
+					    gcse.type = 'text/javascript';
+					    gcse.async = true;
+					    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+					        '//www.google.com/cse/cse.js?cx=' + cx;
+					    var s = document.getElementsByTagName('script')[0];
+					    s.parentNode.insertBefore(gcse, s);
+					  })();
+					</script>
+					<gcse:search></gcse:search>
+				</div>
 				<div class="js-toggle-list sidebar-module expandable">
 					<ul>
 						<li class="js-topic">
@@ -130,17 +145,8 @@
 		   		}
 		 	}
 		  	showZenBox = function() {
-		    postData({
-		    email: email
-		    },"/api/biz/developer/get", function(res){
-		      var d = new Developer(res);
-		      zenboxInit(d.fullname, d.email);
-		    }, function(err){
 		      zenboxInit("", "");
-		      log("empty init, user has not logged in yet!");
-		    });
 		  }
-
 		  $(function(){
 		    showZenBox();
 		  });
@@ -156,5 +162,28 @@
 					ga('create', 'UA-40857860-3', 'qiniu.com');
 					ga('send', 'pageview');
 		 </script>
+		 <!--fix google search style-->
+		 <style type="text/css">
+			.gsc-search-box table td{
+				vertical-align: middle;
+				padding: 0px;
+				border: 0px solid #ccc;
+				height: 28px;
+			}
+			.cse form.gsc-search-box, form.gsc-search-box{
+				padding:0px;
+			}
+			.cse .gsc-control-cse, .gsc-control-cse{
+				padding:0em;
+				background-color: #FAFAFB;
+			}
+			.cse form.gsc-search-box, form.gsc-search-box{
+				padding:0px;
+				margin: 0px;
+			}
+			table.gsc-search-box{
+				margin: 0px;
+			}
+		</style>
 	 </body>
  </html>
