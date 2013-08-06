@@ -19,6 +19,8 @@
 		<link href="/static/css/uv_active4d.css" rel="stylesheet" type="text/css" />
 		<link href="/static/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
 		<link href="/static/css/zenbox.css" media="screen" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/static/css/highlight.css">
+		<script src="/static/js/highlight.js"></script>		
 	</head>
 	<body class="api">
 		<div id="header-wrapper">
@@ -124,13 +126,7 @@
 		<script src="/static/js/jquery.scrollUp.min.js"></script>
 		<script src="/static/js/zenbox.js"></script>
 		<script type="text/javascript">
-			var email;
-		    email = 'icattlecoder@gmail.com';
-			function Developer(d) {
-			    this.email = d.email;
-			    this.fullname = d.fullname;
-			}
-		  	zenboxInit = function(_username, _email){
+			zenboxInit = function(_username, _email){
 		    	if (typeof(Zenbox) !== "undefined") {
 			     	Zenbox.init({
 			        	dropboxID:   "20173506",
@@ -145,11 +141,13 @@
 		   		}
 		 	}
 		  	showZenBox = function() {
-		      zenboxInit("", "");
-		  }
-		  $(function(){
-		    showZenBox();
-		  });
+		     	zenboxInit("", "");
+		  	}
+		  	$(function(){
+		    	showZenBox();
+		  	});
+		  	hljs.tabReplace = '    ';
+  			hljs.initHighlightingOnLoad();
 		</script>
 		<script type="text/javascript">
 			   //var sdkName = "{{ .page.title}}"
