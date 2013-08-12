@@ -1,5 +1,10 @@
 ## CHANGE LOG
 
+### v6.1.4 issues [#59](https://github.com/qiniu/docs.qiniu.com/pull/59)
+
+- 增加了代码高亮效果
+- 修改了首页介绍内容
+
 ### v6.1.3 issues [#52](https://github.com/qiniu/docs.qiniu.com/pull/52)
 
 - 更换真实图片，解决文本图片错乱问题。Issues #2997
