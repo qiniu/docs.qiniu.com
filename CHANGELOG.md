@@ -1,5 +1,11 @@
 ## CHANGE LOG
 
+### v6.1.5 issues [#61](https://github.com/qiniu/docs.qiniu.com/pull/61)
+
+- 增加术语表
+- 增加错误代码表
+- 增加fop的saveas说明
+
 ### v6.1.4 issues [#59](https://github.com/qiniu/docs.qiniu.com/pull/59)
 
 - 增加了代码高亮效果
