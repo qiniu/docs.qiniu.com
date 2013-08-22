@@ -24,10 +24,17 @@ thead {
     background-color: #efefef;
 }
 .disable {
-background-image: url(../img/active-arrow.png);
-background-position: left center;
-background-repeat: no-repeat;
+    background-image: url(../img/active-arrow.png);
+    background-position: left center;
+    background-repeat: no-repeat;
 }
 .unstyled li {
     padding-left: 20px;
+}
+#version {
+    background-color: green;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    font-size: 14px;
+    margin: 0 10px;
 }
