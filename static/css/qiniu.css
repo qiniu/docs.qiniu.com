@@ -38,3 +38,7 @@ thead {
     font-size: 14px;
     margin: 0 10px;
 }
+.content ul li {
+word-break: break-all;
+word-wrap: break-word;
+}
