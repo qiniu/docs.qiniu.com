@@ -5,7 +5,7 @@ title: 资源列表
 
 # 七牛资源
 
-- [七牛知识库](http://kb.qiniu.com/_list)，用户可以通过知识库找到在使用七牛服务时遇到的常见问题的答案，例如：[如何申请防盗链](http://kb.qiniu.com/52irs1co)、[七牛计费方法](http://kb.qiniu.com/charging)等。
+- [七牛知识库](http://kb.qiniu.com/_list)，用户可以通过知识库找到在使用七牛服务过程中遇到的常见问题的答案，例如：[如何申请防盗链](http://kb.qiniu.com/52irs1co)、[七牛计费方法](http://kb.qiniu.com/charging)等。
 
 - [七牛云存储问答](http://segmentfault.com/qiniu)，七牛云存储联合SegmentFault共同推出技术问答专区，为开发者提供社区支持和帮助
 
