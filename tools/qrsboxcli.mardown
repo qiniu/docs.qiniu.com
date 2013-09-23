@@ -28,7 +28,7 @@ qrsboxcli init <AccessKey> <SecretKey> <SyncDir> <Bucket> [<KeyPrefix>]
 
 ### 2.启动
 
-配置完成后，键入以下命令开始同步：
+配置完成后，键入如下命令开始同步：
 
 ``` shell
 qrsboxcli sync &
