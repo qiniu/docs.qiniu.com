@@ -1,6 +1,6 @@
 ## CHANGE LOG
 
-### v6.1.5 issues [#69](https://github.com/qiniu/docs.qiniu.com/pull/69)
+### v6.1.6 issues [#69](https://github.com/qiniu/docs.qiniu.com/pull/69)
 
 - 更新资源列表
 - 增加api使用概述
