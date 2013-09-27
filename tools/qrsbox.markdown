@@ -1,23 +1,23 @@
 ---
 layout: default
-title: QRSBox 同步工具
+title: qrsbox 同步工具
 ---
 
 
 ## 简介
 
-QRSBox 是七牛云存储的Windows GUI版 同步上传客户端，支持大文件上传，增量同步，它可将用户本地的某目录的文件同步到七牛云存储中,QRSBox支持监控目录变化(注意：不会同步删除文件操作)，要删除文件，建议到七牛的 [portal 后台](https://portal.qiniu.com/)去删除，这有点麻烦，但是反过来也有另外的好处，就是你同步完一个文件后，本地就可以直接删除它以释放本地的磁盘空间。。
+qrsbox 是七牛云存储的Windows GUI版 同步上传客户端，支持大文件上传，增量同步，它可将用户本地的某目录的文件同步到七牛云存储中,qrsbox支持监控目录变化(注意：不会同步删除文件操作)，要删除文件，建议到七牛的 [portal 后台](https://portal.qiniu.com/)去删除，这有点麻烦，但是反过来也有另外的好处，就是你同步完一个文件后，本地就可以直接删除它以释放本地的磁盘空间。
 
 
 ## 下载
 
-QRSBox 下载地址：
+qrsbox 下载地址：
 
   <http://open.qiniudn.com/qrsbox-v0.6.0.zip>
 
 ## 使用方法
 
-下载QRSBox保存至任意位置并解压，进入解压后的文件，双击qrsbox.exe，弹出如下图所求的界面：
+下载qrsbox保存至任意位置并解压，进入解压后的文件，双击qrsbox.exe，弹出如下图所求的界面：
 
 <div class="imgwrap"><img src="img/qrsbox-demo.png" alt="qrsbox"/></div>
 
