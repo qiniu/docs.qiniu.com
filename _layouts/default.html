@@ -1,199 +1,214 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="robots" content="all" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="description" content="七牛云存储API和SDK文档" />
-		<meta name="keywords" content="七牛, 七牛云存储, 七牛云存储API, 七牛云存储SDK, qrsync, qboxrsctl, QinuRS, S3" />
-		<meta name="author" content="qiniu.com" />
-		<meta name="copyright" content="qiniu.com" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="Content-Language" content="zh-cn" />
-		<meta http-equiv="imagetoolbar" content="false" />
-		<meta name="MSSmartTagsPreventParsing" content="true" />
-		<title>{{ .page.title }} | 七牛云存储</title>
-		<link href="/favicon.ico" rel="shortcut icon">
-		<link href="/static/css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="/static/css/960.css" rel="stylesheet" type="text/css" />
-		<link href="/static/css/uv_active4d.css" rel="stylesheet" type="text/css" />
-		<link href="/static/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
-		<!-- <link href="/static/css/zenbox.css" media="screen" rel="stylesheet" type="text/css"> -->
-		<link rel="stylesheet" href="/static/css/highlight.css">
-	</head>
-	<body class="api">
-		<div id="header-wrapper">
-			<div id="header">
-				<div>
-					<a class="logo" href="/"><img src="/static/img/logo_docs.png" alt="七牛云存储"/></a>
-					<ul class="nav">
-						<li><a href="https://portal.qiniu.com" target="_blank">开发者平台</a></li>
-						<li><a href="http://www.qiniu.com" target="_blank">七牛官网</a></li>
-					</ul>
-				</div>
-			</div><!-- #header -->
-		</div><!-- #header-wrapper -->
 
-		<div id="wrapper">
-			<div class="content">	
-				<h1>{{ .page.title }}<span id="version">{{ .page.version}}</span></h1>
-				<article>
-				{{ .content }}
-				</article>
-			</div>
+<head>
+    <meta name="robots" content="all" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="七牛云存储API和SDK文档" />
+    <meta name="keywords" content="七牛, 七牛云存储, 七牛云存储API, 七牛云存储SDK, qrsync, qboxrsctl, QinuRS, S3" />
+    <meta name="author" content="qiniu.com" />
+    <meta name="copyright" content="qiniu.com" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="zh-cn" />
+    <meta http-equiv="imagetoolbar" content="false" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <title>{{ .page.title }} | 七牛云存储</title>
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/highlight.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/qiniu.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="/static/css/zenbox.css" media="screen" rel="stylesheet" type="text/css"> -->
+</head>
 
-			<div id="js-sidebar" class="sidebar-shell">
-				<!-- <div class="sidebar-module"> 
-					<script>
-					(function() {
-					    var cx = '008350784836136414708:ya3ebjnyhhm';
-					    var gcse = document.createElement('script');
-					    gcse.type = 'text/javascript';
-					    gcse.async = true;
-					    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-					        '//www.google.com/cse/cse.js?cx=' + cx;
-					    var s = document.getElementsByTagName('script')[0];
-					    s.parentNode.insertBefore(gcse, s);
-					  })();
-					</script>
-					<gcse:search></gcse:search>
-				</div> -->
-				<div class="js-toggle-list sidebar-module expandable">
-					<ul>
-						<li class="js-topic">
-						<div class="spapi">新手上路</div>
-						<ul class="js-guides">
-							<li><a href="/guide/testing.html">测试指南</a></li>
-						</ul>
-						</li>
-						<li class="js-topic">
-						<h3><a href="/api/index.html">API</a></h3>
-						<ul class="js-guides">
-							<li><a href="/api/put.html">上传文件</a></li>
-							<li><a href="/api/get.html">下载文件</a></li>
-							<li><a href="/api/rs.html">资源管理操作</a></li>
-							<li><a href="/api/image-process.html">数据处理(图片篇)</a></li>
-							<li><a href="/api/audio-video-hls-process.html">数据处理(音频/视频/流媒体篇)</a></li>
-							<li><a href="/api/office-process.html">数据处理(文档/办公篇)</a></li>
-							<li><a href="/api/pipeline.html">数据处理(管道篇)</a></li>
-							<li><a href="/api/misc-file-process.html">数据处理(杂项篇)</a></li>
-							<li><a href="/api/terminology.html">概念和术语</a></li>
-							<li><a href="/api/errno.html">错误码参照表</a></li>
-						</ul>
-						</li>
-						<li class="js-topic">
-						<h3><a href="/sdk/index.html">SDK</a></h3>
-						<ul class="js-guides">
-							<li><a href="/ios-sdk/index.html">Objective-C (iOS)</a></li>
-							<li><a href="/android-sdk/index.html">Java (Android)</a></li>
-							<li><a href="/java-sdk/index.html">Java</a></li>
-							<li><a href="/php-sdk/index.html">PHP</a></li>
-							<li><a href="/python-sdk/index.html">Python</a></li>
-							<li><a href="/ruby-sdk/index.html">Ruby</a></li>
-							<li><a href="/nodejs-sdk/index.html">Node.js</a></li>
-							<li><a href="/csharp-sdk/index.html">C#</a></li>
-							<li><a href="/c-sdk/index.html">C/C++</a></li>
-							<li><a href="/go-sdk/index.html">Go</a></li>
-						</ul>
-						</li>
-						<li class="js-topic">
-						<h3><a href="/tools/index.html">工具集</a></h3>
-						<ul class="js-guides">
-							<li><a href="/tools/qrsync.html">qrsync</a></li>
-							<li><a href="/tools/qboxrsctl.html">qboxrsctl</a></li>
-							<li><a href="/tools/qiniu-autosync.html">qiniu-autosync</a></li>
-						</ul>
-						</li>
-					</ul>
-				</div> <!-- /sidebar-module -->
-				<div class="sidebar-module">
-					<p>帮助联系: <a href="mailto:support@qiniu.com">support@qiniu.com</a></p>
-				</div>
-			</div><!-- /sidebar-shell -->
+<body>
+    <header class="navbar navbar-fixed-top qiniu-header">
+        <div class="container">
+            <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="qiniu-logo qiniu-logo-docs pull-left" href="/" title="七牛开发者文档中心"></a>
+            <div class="nav-collapse collapse pull-right">
+                <ul class="nav">
+                    <li>
+                        <a class="pull-right qiniu-link" href="https://portal.qiniu.com/" title="七牛开发者平台" target="_blank">七牛开发者平台</a>
+                    </li>
+                    <li>
+                        <a class="pull-right qiniu-link" href="http://www.qiniu.com/" title="七牛官网" target="_blank">七牛官网</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-		</div><!-- #wrapper -->
+    <div class="container qiniu-body">
+        <div class="row">
+            <div class="span3 pull-right">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne"><i class="icon-chevron-down"></i></a>
+                            <span>新手上路</span>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <ul class="unstyled">
+                                    <li><a href="/guide/testing.html">测试指南</a> </li>
+                                     <li><a href="/res-list/index.html">资源列表</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#collapseTwo"><i class="icon-chevron-down"></i></a><a href="/api/index.html">API</a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <ul class="unstyled">
+                                    <li><a href="/api/gen-use.html">API使用概述</a>
+                                    </li>
+                                    <li><a href="/api/put.html">上传文件</a>
+                                    </li>
+                                    <li><a href="/api/get.html">下载文件</a>
+                                    </li>
+                                    <li><a href="/api/rs.html">资源管理操作</a>
+                                    </li>
+                                    <li><a href="/api/image-process.html">数据处理(图片篇)</a>
+                                    </li>
+                                    <li><a href="/api/audio-video-hls-process.html">数据处理(音频/视频/流媒体篇)</a>
+                                    </li>
+                                    <li><a href="/api/video-watermark.html">数据处理(视频水印)</a>
+                                    </li>
+                                    <li><a href="/api/office-process.html">数据处理(文档/办公篇)</a>
+                                    </li>
+                                    <li><a href="/api/pipeline.html">数据处理(管道篇)</a>
+                                    </li>
+                                    <li><a href="/api/misc-file-process.html">数据处理(杂项篇)</a>
+                                    </li>
+                                    <li><a href="/api/terminology.html">概念和术语</a>
+                                    </li>
+                                    <li><a href="/api/errno.html">错误码参照表</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree"><i class="icon-chevron-down"></i></a><a href="/sdk/index.html">SDK</a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <ul class="unstyled">
+                                    <li><a href="/ios-sdk/index.html">Objective-C (iOS)</a>
+                                    </li>
+                                    <li><a href="/android-sdk/index.html">Java (Android)</a>
+                                    </li>
+                                    <li><a href="/java-sdk/index.html">Java</a>
+                                    </li>
+                                    <li><a href="/php-sdk/index.html">PHP</a>
+                                    </li>
+                                    <li><a href="/python-sdk/index.html">Python</a>
+                                    </li>
+                                    <li><a href="/ruby-sdk/index.html">Ruby</a>
+                                    </li>
+                                    <li><a href="/nodejs-sdk/index.html">Node.js</a>
+                                    </li>
+                                    <li><a href="/csharp-sdk/index.html">C#</a>
+                                    </li>
+                                    <li><a href="/c-sdk/index.html">C/C++</a>
+                                    </li>
+                                    <li><a href="/go-sdk/index.html">Go</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a data-toggle="collapse" class="accordion-toggle" href="#collapseFour"><i class="icon-chevron-down"></i></a><a href="/tools/index.html">工具集</a>
+                        </div>
+                        <div id="collapseFour" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <ul class="unstyled">
+                                    <li><a href="/tools/qrsync.html">qrsync</a>
+                                    </li>
+                                    <li><a href="/tools/qboxrsctl.html">qboxrsctl</a>
+                                    </li>
+                                    <li><a href="/tools/qiniu-autosync.html">qiniu-autosync</a>
+                                    </li>
+                                    <li><a href="/tools/qrsbox.html">QRSBox</a>
+                                    </li>
+                                    <li><a href="/tools/qrsboxcli.html">QRSBoxCli</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="mailto:support@qiniu.com">帮助联系: support@qiniu.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span7">
+                <div class="content">
+                    <h1>{{ .page.title }}
+                        <span id="version">{{ .page.version}}</span>
+                    </h1>
+                    <article>
+                        {{ .content }}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<div id="footer" >
-			<div class="lower_footer">
-				<div class="footer_inner clearfix">
-					<p>&copy; <span id="year">2013</span>七牛云存储，版权所有。本站点使用<a href="http://www.qiniu.com" target="_blank">七牛云存储</a>托管. <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备11037377号-5</a></p>
-				</div><!-- /.site -->
-			</div><!-- /.lower_footer -->
-		</div><!-- /#footer -->
+    <footer class="qiniu-footer">
+        <div class="container">
+            <div class="qiniu-bottom-logo"></div>
+            <div class="qiniu-bottom-copyrights"></div>
+            <div class="qiniu-bottom-links">
+                <a href="#">七牛云存储</a>
+                <a href="#">招贤纳士</a>
+                <a href="#">关于七牛</a>
+                <span>沪ICP备11037377号-5</span>
+            </div>
+        </div>
+    </footer>
 
-		<!-- <div class="popover fade top in"><div class="arrow"></div><h3 class="popover-title">{{.page.title}}</h3><div id="popover-content"></div></div> -->
-		<script src="/static/js/jquery.js" type="text/javascript"></script>
-		<script src="/static/js/qiniudoc.js" type="text/javascript"></script>
-		<script src="/static/js/jquery.scrollUp.min.js"></script>
-		<script src="/static/js/highlight.js"></script>		
-		<!--
-		<script src="/static/js/zenbox.js"></script>
-		<script type="text/javascript">
-			zenboxInit = function(_username, _email){
-		    	if (typeof(Zenbox) !== "undefined") {
-			     	Zenbox.init({
-			        	dropboxID:   "20173506",
-			        	url:         "https://qiniu.zendesk.com",
-			        	tabTooltip:  "技术支持",
-			        	tabImageURL: "/static/img/feedback.png",
-			        	tabColor:    "00a0de",
-				        tabPosition: "Right",
-				        requester_name: _username,
-				        requester_email: _email
-			    	});
-		   		}
-		 	}
-		  	showZenBox = function() {
-		     	zenboxInit("", "");
-		  	}
-		  	$(function(){
-		    	showZenBox();
-		  	});
-		</script>
-		-->
-		<script type="text/javascript">
-		  	hljs.tabReplace = '    ';
-  			hljs.initHighlightingOnLoad();
-			   //var sdkName = "{{ .page.title}}"
-				 //$("#popover-content").html($("article ul")[0].outerHTML)
-				 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-					})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <!-- <div class="popover fade top in"><div class="arrow"></div><h3 class="popover-title">{{.page.title}}</h3><div id="popover-content"></div></div> -->
+    <script src="/static/js/jquery.scrollUp.min.js"></script>
+    <script src="/static/js/highlight.js"></script>
+    <script src="/static/js/qiniudoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    hljs.tabReplace = '    ';
+    hljs.initHighlightingOnLoad();
+    //var sdkName = "{{ .page.title}}"
+    //$("#popover-content").html($("article ul")[0].outerHTML)
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-					ga('create', 'UA-40857860-3', 'qiniu.com');
-					ga('send', 'pageview');
-		 </script>
-		 <!--fix google search style-->
-		 <style type="text/css">
-			.gsc-search-box table td{
-				vertical-align: middle;
-				padding: 0px;
-				border: 0px solid #ccc;
-				height: 28px;
-			}
-			.cse form.gsc-search-box, form.gsc-search-box{
-				padding:0px;
-			}
-			.cse .gsc-control-cse, .gsc-control-cse{
-				padding:0em;
-				background-color: #FAFAFB;
-			}
-			.cse form.gsc-search-box, form.gsc-search-box{
-				padding:0px;
-				margin: 0px;
-			}
-			table.gsc-search-box{
-				margin: 0px;
-			}
+    ga('create', 'UA-40857860-3', 'qiniu.com');
+    ga('send', 'pageview');
+    </script>
 
-			.gsc-results-wrapper-visible table td{
-				border: 0px solid #ccc;
-				padding:5px;
-			}
-			.gsc-clear-button{
-				display: none;
-			}
-		</style>
-	 </body>
- </html>
+</body>
+
+</html>
