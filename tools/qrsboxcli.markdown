@@ -1,16 +1,16 @@
 ---
 layout: default
-title: QRSBoxCli 七牛云存储同步上传客户端
+title: qrsboxcli 七牛云存储同步上传客户端
 ---
 
 
 ## 简介
 
-QRSBoxCli 是 QRSBox 的命令行版。相比 qrsync 命令行工具而言，QRSBoxCli 额外具备目录监控能力，自然也就更好用 :-)
+qrsboxcli 是 QRSBox 的命令行版。相比 qrsync 命令行工具而言，qrsboxcli 额外具备目录监控能力，自然也就更好用 :-)
 
 ## 下载
 
-QRSBoxCli 命令行辅助同步工具下载地址：
+qrsboxcli 命令行辅助同步工具下载地址：
 
 - Mac OS: <http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli>
 - Linux 32bits: <http://open.qiniudn.com/devtools/v2.5.20130921/linux_386/qrsboxcli>
