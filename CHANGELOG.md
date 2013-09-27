@@ -1,5 +1,16 @@
 ## CHANGE LOG
 
+### v6.1.5 issues [#69](https://github.com/qiniu/docs.qiniu.com/pull/69)
+
+- 更新资源列表
+- 增加api使用概述
+- 更新上传文件文档
+- 更新下载文件文档
+- 添加视频水印文档
+- 添加qrsbox,qrsboxcli文档
+- 添加断点续传文档
+- 应用新版style
+
 ### v6.1.5 issues [#61](https://github.com/qiniu/docs.qiniu.com/pull/61)
 
 - 增加术语表
