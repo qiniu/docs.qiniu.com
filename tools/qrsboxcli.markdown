@@ -8,6 +8,8 @@ title: qrsboxcli 七牛云存储同步上传客户端
 
 qrsboxcli 是 QRSBox 的命令行版。相比 qrsync 命令行工具而言，qrsboxcli 额外具备目录监控能力，自然也就更好用 :-)
 
+**注意：被同步的文件名和路径必须是utf8编码，非utf8的文件名和路径将会同步失败**
+
 ## 下载
 
 qrsboxcli 命令行辅助同步工具下载地址：
