@@ -7,6 +7,8 @@ title: qiniu-autosync 自动同步工具
 
 qiniu-autosync 是一段 bash shell script，可用于监控 Linux/Unix 上指定的文件夹，并将此文件夹内的新增或改动文件自动同步到七牛云存储，可设定同步删除。
 
+**注意：被同步的文件名和路径必须是utf8编码，非utf8的文件名和路径将会同步失败**
+
 ## 安装
 
 1. 需先安装 inotify-tools - <https://github.com/rvoicilas/inotify-tools/wiki>
