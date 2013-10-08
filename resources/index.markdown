@@ -19,13 +19,13 @@ title: 资源列表
 
 ## SDK类
 
-- [php-sdk](http://github.com/sinkcup/php-sdk/tree/pear)，作者：[sink_cup](http://www.cnblogs.com/sink_cup/)
-- [scala-sdk](http://git.oschina.net/livehl/qiniu-scala-sdk.git)，作者：[livehl](http://git.oschina.net/livehl)
-- [Node.js SDK](http://github.com/qiniu/node-qiniu)，作者：小问
-- [Node.js SDK](http://github.com/fengmk2/qn)，作者：[Python发烧友](http://github.com/fengmk2)
+- [PHP SDK](http://github.com/sinkcup/php-sdk/tree/pear)，作者：[sink_cup](http://www.cnblogs.com/sink_cup/)
 - [PHP SDK](http://github.com/zither/simple-qiniu-sdk)，作者：[Minimee](http://github.com/zither)
 - [PHP SDK](http://github.com/hfcorriez/php-qiniu)，作者：[飞扬](http://github.com/hfcorriez)
 - [Python SDK](http://github.com/yueyoum/seven-cow)，作者：[yueyoum](http://github.com/yueyoum)
+- [Scala SDK](http://git.oschina.net/livehl/qiniu-scala-sdk.git)，作者：[livehl](http://git.oschina.net/livehl)
+- [Node.js SDK](http://github.com/iwillwen/node-qiniu)，作者：[小问](http://github.com/iwillwen)
+- [Node.js SDK](http://github.com/fengmk2/qn)，作者：[Python发烧友](http://github.com/fengmk2)
 
 ## 工具类
 
