@@ -28,4 +28,4 @@ title: 资源列表
 
 ## 其他
 
--- [staticfile.org](http://staticfile.org)， 开放静态文件CDN，为开源库稳定、快速的加速， 由七牛云存储提供存储和加速
+- [staticfile.org](http://staticfile.org)， 开放静态文件CDN，为开源库稳定、快速的加速， 由七牛云存储提供存储和加速
