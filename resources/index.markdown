@@ -21,6 +21,11 @@ title: 资源列表
 
 - [php-sdk](https://github.com/sinkcup/php-sdk/tree/pear)，作者：[sink_cup](http://www.cnblogs.com/sink_cup/)
 - [scala-sdk](http://git.oschina.net/livehl/qiniu-scala-sdk.git)，作者：livehl
+- [Node.js SDK](https://github.com/qiniu/node-qiniu)，作者：小问
+- [Node.js SDK](https://github.com/fengmk2/qn)，作者：Python发烧友
+- [PHP SDK](https://github.com/zither/simple-qiniu-sdk)，作者：Minimee
+- [PHP SDK](https://github.com/hfcorriez/php-qiniu)，作者：飞扬
+- [Python SDK](https://github.com/yueyoum/seven-cow)，作者：yueyoum
 
 ## 工具类
 
