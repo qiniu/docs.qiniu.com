@@ -5,11 +5,9 @@ title: 资源列表
 
 # 七牛资源
 
-- [七牛知识库](http://kb.qiniu.com/_list)，用户可以通过知识库找到在使用七牛服务过程中遇到的常见问题的答案，例如：[如何申请防盗链](http://kb.qiniu.com/52irs1co)、[七牛计费方法](http://kb.qiniu.com/charging)等。
+- [SDK](http://docs.qiniu.com/sdk/index.html)，七牛云存储提供的官方SDK。
 
-- [七牛云存储问答](http://segmentfault.com/qiniu)，七牛云存储联合SegmentFault共同推出技术问答专区，为开发者提供社区支持和帮助
-
-- [staticfile.org](http://staticfile.org)， 开放静态文件CDN，为开源库稳定、快速的加速， 由七牛云存储提供存储和加速
+- [工具集](http://docs.qiniu.com/tools/v6/index.html)，七牛云存储所提供的开发和支持工具。、
 
 # 第三方资源列表
 
@@ -28,3 +26,7 @@ title: 资源列表
 ## 工具类
 
 - [backup2qiniu](https://github.com/lidaobing/backup2qiniu)，将数据备份至七牛云存储。作者:[李道兵](http://blog.lidaobing.com)
+
+## 其他
+
+-- [staticfile.org](http://staticfile.org)， 开放静态文件CDN，为开源库稳定、快速的加速， 由七牛云存储提供存储和加速
