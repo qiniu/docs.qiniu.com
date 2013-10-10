@@ -54,7 +54,7 @@ qrsbox是Windows版的同步上传客户端，拥有GUI界面，使用方便。
 
 qrsbox启动后会常驻内存，在Windows的任务栏中显示托盘 ![托盘](img/qrsbox-icon.png) 。
 
-如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以邮件单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
+如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以右键单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
 
 ## qrsboxcli使用方法
 
