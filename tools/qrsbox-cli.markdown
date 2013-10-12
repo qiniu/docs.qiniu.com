@@ -17,12 +17,13 @@ QRSBox可将用户本地的某个目录的文件同步到七牛云存储中，�
 
 QRSBox下载地址：
 
-- Windows GUI: [qrsbox v0.6.0 windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
+- Windows GUI: [qrsbox windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
 
 - 命令行工具：
-  - Mac 64bits: [qrsboxcli v2.5.20130921 darwin_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli)
-  - Linux 64bits: [qrsboxcli v2.5.20130921 linux_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/linux_amd64/qrsboxcli)
-  - Linux 32bits: [qrsboxcli v2.5.20130921 linux_386](http://open.qiniudn.com/devtools/v2.5.20130921/linux_386/qrsboxcli)
+    - Mac OS X: [qrsboxcli darwin_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli)
+    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip)
+    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip)
+    - Windows 32bits: [qrsboxcli Windows 32bit](ttp://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip)
 
 
 ## QRSBox使用方法
