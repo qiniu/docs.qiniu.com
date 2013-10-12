@@ -17,12 +17,13 @@ QRSBox可将用户本地的某个目录的文件同步到七牛云存储中，�
 
 QRSBox下载地址：
 
-- Windows GUI: [qrsbox v0.6.0 windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
+- Windows GUI: [qrsbox windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
 
 - 命令行工具：
-  - Mac 64bits: [qrsboxcli v2.5.20130921 darwin_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli)
-  - Linux 64bits: [qrsboxcli v2.5.20130921 linux_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/linux_amd64/qrsboxcli)
-  - Linux 32bits: [qrsboxcli v2.5.20130921 linux_386](http://open.qiniudn.com/devtools/v2.5.20130921/linux_386/qrsboxcli)
+    - Mac OS X: [qrsboxcli darwin_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli)
+    - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip)
+    - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip)
+    - Windows 32bits: [qrsboxcli Windows 32bit](http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip)
 
 
 ## QRSBox使用方法
@@ -97,7 +98,6 @@ QRSBox 命令行工具的使用方式如下：
 
 ```
     qrsboxcli stop
-    
 ```
 
 如果用户希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
