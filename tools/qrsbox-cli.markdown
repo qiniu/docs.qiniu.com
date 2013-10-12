@@ -54,7 +54,7 @@ QRSBox包含 Windows GUI 和 命令行工具两部分。前者可在 Windows中�
 
 QRSBox 启动后会常驻内存，在 Windows 的任务栏中显示托盘 ![托盘](img/qrsbox-icon.png) 。
 
-如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以邮件单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
+如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以右键单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
 
 ### 命令行使用方法
 
