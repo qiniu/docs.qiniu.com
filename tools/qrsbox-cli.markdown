@@ -1,37 +1,37 @@
 ---
 layout: default
-title: qrsbox 和 qrsboxcli 同步工具
+title: QRSBox 同步工具
 ---
 
 
 ## 简介
 
-七牛云存储提供一组同步上传的客户端工具，包括qrsbox和qrsboxcli。qrsbox 是同步上传客户端的 Windows GUI 版，而 qrsboxcli 是同步上传客户端的命令行版。
-同步上传客户端可将用户本地的某目录的文件同步到七牛云存储中，支持大文件上传，支持增量同步。此外，它们能够监控目录变化，将目录中新增的文件上传至七牛云存储。
-需要注意的是，这两个同步上传客户端不会同步文件的删除操作。也就是，如果被监控的目录中文件被删除，已上传至七牛云存储的文件将仍旧保留。如果用户确实需要删除该文件，可以到七牛的 [portal 后台](https://portal.qiniu.com/) 中删除。采用这种方式的目的是为了防止用户误删文件造成数据丢失。同时，另外的一个好处是，就是同步完一个文件后，本地就可以直接删除它以释放本地的磁盘空间。
+QRSBox是七牛云存储提供同步上传的客户端工具，可以用于Linux、OSX、Windows等操作系统。
+QRSBox可将用户本地的某个目录的文件同步到七牛云存储中，支持大文件上传，支持增量同步。此外，它还能够监控目录变化，将目录中新增的文件上传至七牛云存储。
+需要注意的是，QRSBox不会同步文件的删除操作。也就是，如果被监控的目录中文件被删除，已上传至七牛云存储的文件将仍旧保留。如果用户确实需要删除该文件，可以到七牛的 [开发者平台](https://portal.qiniu.com/) 中删除。采用这种方式的目的是为了防止用户误删文件造成数据丢失。同时，另外的一个好处是，就是同步完一个文件后，本地就可以直接删除它以释放本地的磁盘空间。
 
-关于这两个同步客户端的一些疑问，可以在[疑问简答](http://kb.qiniu.com/537ps105)中找到答案。
+关于QRSBox的一些疑问，可以在[疑问简答](http://kb.qiniu.com/537ps105)中找到答案。
 
 
 ## 下载
 
-qrsbox下载地址：
+QRSBox下载地址：
 
-  - Windows: [qrsbox v0.6.0 windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
+- Windows GUI: [qrsbox v0.6.0 windows_386](http://open.qiniudn.com/qrsbox-v0.6.0.zip)
 
-qrsboxcli下载地址：
-
+- 命令行工具：
   - Mac 64bits: [qrsboxcli v2.5.20130921 darwin_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/darwin_amd64/qrsboxcli)
   - Linux 64bits: [qrsboxcli v2.5.20130921 linux_amd64](http://open.qiniudn.com/devtools/v2.5.20130921/linux_amd64/qrsboxcli)
   - Linux 32bits: [qrsboxcli v2.5.20130921 linux_386](http://open.qiniudn.com/devtools/v2.5.20130921/linux_386/qrsboxcli)
-  - Windows: [qrsboxcli v2.5.20130921 windows_386](http://open.qiniudn.com/devtools/v2.5.20130921/windows_386/qrsboxcli.exe)
 
 
-## qrsbox使用方法
+## QRSBox使用方法
 
-qrsbox是Windows版的同步上传客户端，拥有GUI界面，使用方便。
+QRSBox包含 Windows GUI 和 命令行工具两部分。前者可在 Windows中使用，由于拥有GUI界面，使用更加方便。后者适合 Linux/OS X 等类 Unix 操作系统使用。当然，命令行工具也有 Windows 版，可在 Windows 的命令行使用。
 
-首先，下载qrsbox，并解压。
+### Windows GUI 的使用
+
+首先，下载 QRSBox 的 Windows GUI，并解压。
 
 然后，在资源管理器中，进入解压后的文件，双击qrsbox.exe，弹出如下图所求的界面：
 
@@ -46,21 +46,21 @@ qrsbox是Windows版的同步上传客户端，拥有GUI界面，使用方便。
 
 `空间名(bucket)` 是你在七牛云存储上希望保存数据的 Bucket 名（类似于数据库的表），这个自己选择一个合适的就可以，要求是只能由字母、数字、下划线等组成。
 
-完成这些设置后，点击确认，qrsbox便会开始进行初始化。初始化完成后，就开始文件的同步。用户可以在qrsbox的界面上看到同步的进程，大致如下图所示：
+完成这些设置后，点击确认，QRSBox 便会开始进行初始化。初始化完成后，就开始文件的同步。用户可以在qrsbox的界面上看到同步的进程，大致如下图所示：
 
 ![查看同步进程](img/qrsbox-sync.png)
 
 随着文件同步的进行，用户可以在[开发者平台](https://portal.qiniu.com/)的空间管理中看到已上传的文件。
 
-qrsbox启动后会常驻内存，在Windows的任务栏中显示托盘 ![托盘](img/qrsbox-icon.png) 。
+QRSBox 启动后会常驻内存，在 Windows 的任务栏中显示托盘 ![托盘](img/qrsbox-icon.png) 。
 
 如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以右键单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
 
-## qrsboxcli使用方法
+### 命令行使用方法
 
-qrboxcli是命令行版的同步上传客户端，可以在多种操作系统上使用，包括：Linux、OS X、Windows等。
+QRSBox 命令行工具的使用方式如下：
 
-首先，下载qrsboxcli，并解压。
+首先，下载 QRSBox 命令行工具，并解压。
 
 然后，执行以下命令，进行初始化：
 
@@ -87,10 +87,19 @@ qrboxcli是命令行版的同步上传客户端，可以在多种操作系统上
 
 这里使用了 `&` 符号，让同步客户端进程运行在后台。
 
-用户可以通过已下命令查看同步过程：
+用户可以通过以下命令查看同步过程：
 
 ```
     qrsboxcli log
 ```
 
-如果用户希望改变同步的目录，只需要用新的目录路径重新运行 qrsboxcli 初始化命令，并重启同步进程，qrsboxcli会立刻将新目录的文件同步至七牛云存储。
+如果用户需要停止后台运行的qrsboxcli，可以使用如下命令：
+
+```
+    qrsboxcli stop
+    
+```
+
+如果用户希望改变同步的目录、bucket等运行参数，需要先用 `stop` 命令停止 qrsboxcli 的后台程序，重新用新的参数运行初始化命令，然后再次启动同步程序，qrsboxcli会立刻按新的配置将新目录的文件同步至七牛云存储。
+
+
