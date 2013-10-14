@@ -1,5 +1,9 @@
 ## CHANGE LOG
 
+### v6.2.0 issue [#86](https://github.com/qiniu/docs.qiniu.com/pull/86)
+
+- 新增QRSBox文档
+
 ### v6.1.6 issues [#69](https://github.com/qiniu/docs.qiniu.com/pull/69)
 
 - 更新资源列表
