@@ -1,0 +1,118 @@
+//文档具体页  具体内容样式\相关资源样式
+.api-content{
+	width: 652px;
+	padding: 25px;
+	h2 {
+		color: rgb(12,148,222);
+		margin-bottom: 25px;
+		font-size: 24px;
+	}
+	h3 {
+		color: @64;
+		font-size: 16px;
+		margin:20px 0;
+	}
+	h4 {
+		color: @64;
+		margin:15px 0;
+		text-indent: 5px;
+		font-weight: normal;
+	}
+	div,p,ul,pre,ol{
+		margin:20px 0 20px 24px;
+		color: @64;
+	}
+	div {
+		line-height: 21px;
+	}
+	li {
+		margin:6px 0;
+	}
+	a {
+		color: @153;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		border:1px solid @230;
+		margin-left: 24px;
+		thead {
+			th{
+				background-color: #fafafa;
+			}
+		}
+		td,th,caption {
+			padding: 10px 20px;
+			border:1px solid @230;
+			text-align: center;
+			vertical-align: middle;
+		}
+		caption {
+			border-bottom: none;
+		}
+	}
+	pre {
+		display: block;
+		padding: 12.5px;
+		font-size: 12px;
+		line-height: 15px;
+		word-break: break-all;
+		word-wrap: break-word;
+		white-space: pre;
+		white-space: pre-wrap;
+		background-color: #fafafa;
+		border: 1px solid @233;
+		.border-radius( 3px);	
+		code {
+			font-size: 12px;
+			padding: 0;
+			color: inherit;
+			white-space: pre;
+			white-space: pre-wrap;
+			background-color: transparent;
+			border: 0;					
+		}			
+	}			
+}
+.api-resource {
+	width: 130px;
+	padding: 25px;
+	position: absolute;
+	right: 25px;
+	top: 25px;
+	padding: 0 20px;
+	background-color: #FCFCFC;
+	color:@153;
+	>span.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	a {
+		color: @153;
+	}
+	.resource-box {
+		padding-bottom: 15px;
+		padding-top: 15px;
+		.title {
+			margin-bottom: 15px;
+			color: @64;
+		}
+		.download {
+			margin-bottom: 10px;
+		}
+		span {
+			margin-right: 5px;
+		}
+	}
+	.pulic-resource {
+		border-bottom: 1px solid @230;
+	}
+	.social-resource {
+		.author {
+			margin-top:5px;
+			margin-bottom: 15px;
+			text-indent: 20px;
+		}
+	}
+}

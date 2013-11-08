@@ -1,0 +1,364 @@
+//资源下载页样式
+.container.resource {
+        .cell {
+            margin-top: 20px;
+            .cell-head {
+                padding: 0 25px;
+                height: 46px;
+                line-height: 46px;
+                border-bottom: 1px solid @233;
+                margin-bottom: 0;
+                a {
+                    .border-radius(3px);
+                    .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+                    font-size: 12px;
+                    font-weight: normal;
+                    float: right;
+                    height: 26px;
+                    width: 90px;
+                    line-height: 26px;
+                    color:@64;
+                    border:1px solid #e9e9e9;
+                    text-align: center;
+                    -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    transition: background-color .218s,border-color .218s,box-shadow .218s;
+                    -webkit-user-select: none;
+                    outline: none;
+                    margin-top: 10px;
+                    &:hover {
+                        .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+                        border-color: #d5d5d5;
+                        text-decoration: none;
+                    }
+                }                
+            }
+            .cell-body {
+                .cell-line {
+                    overflow: hidden;
+                    border-top: 1px solid @233;                    
+                    .resource-card {
+                        float: left;
+                        border-right: 1px solid @233;
+                        padding:25px 20px 20px 20px;
+                        &.nail {
+                            border-right: none;                       
+                        }
+                        .logo,.content {
+                            float: left;
+                        }
+                        .logo {
+                            width: 70px;
+                            text-align: center;
+                            span {
+                                vertical-align: top;
+                                margin-top: -5px;
+                            }
+                        }
+                        .content {
+                            div {
+                                color:@64;
+                            }
+                            .name {
+                                margin-bottom: 12px;
+                                text-indent: 5px;
+                                font-weight: bold;
+                                a {
+                                    color: #404040;
+                                }                               
+                            }
+                            .version,.update-date {
+                                line-height: 21px;
+                                text-indent: 5px;
+                            }
+
+                            .url {
+                                overflow: hidden;
+                                margin-top: 12px;
+                                padding-bottom: 1px;
+                                a {
+                                    .border-radius(3px);
+                                    .box-shadow(0 1px 0 rgba(243,243,243,0.75));
+                                    display: block;
+                                    float: left;
+                                    margin-left:8px;
+                                    height: 26px;
+                                    width: 60px;
+                                    line-height: 26px;
+                                    color:@64;
+                                    border:1px solid #e9e9e9;
+                                    text-align: center;
+                                    -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                                    transition: background-color .218s,border-color .218s,box-shadow .218s;
+                                    -webkit-user-select: none;
+                                    outline: none;
+
+                                    &:first-child {
+                                        margin-left: 0;
+                                    }
+                                    &:hover {
+                                        .box-shadow(0 1px 0 rgba(230,230,230,0.75));
+                                        border-color: #d5d5d5;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .cell-line:first-child {
+                    border-top:none;
+                }
+            }
+        }
+        .small.cell .cell-body .cell-line{
+            .resource-card {
+                width: 284px;
+                height: 109px;
+                padding:25px 15px 20px 20px;                
+                &.nail {
+                    width: 283px;
+                }
+                .content {
+                    margin-left: 10px;
+                }
+            }
+        }
+        .large.cell .cell-body .cell-line{
+            .resource-card {
+                width: 434px;
+                height: 128px;
+                &.nail {
+                    width: 433px;
+                }
+                .content {
+                    width:356px; 
+                    .describe,.info{
+                        margin-left: 5px;
+                        line-height: 21px;
+                    }
+                    .info {
+                        .version {
+                            margin-right: 15px;
+                        }
+                    }
+                    .url {
+                        margin-left: 154px;
+                    }
+                }
+            }            
+        }
+        .community-plugin.cell, .community-sdk.cell{
+            position: relative;
+        }
+        .community-plugin.cell  .cell-body .cell-line,
+        .community-sdk.cell  .cell-body .cell-line{
+            .resource-card {
+                .content {
+                    .author{                    
+                        color: @153;
+                        a {
+                            color: @153;
+                        }
+                    }
+                    
+                }
+            }            
+        }
+    }
+//资源下载页 提交插件 SDK
+
+.docs-add-resource {
+    width: 590px;
+    margin:40px auto;
+    .box-shadow(0 0 40px rgba(0,0,0,.2));
+    position: relative;
+    .resource-box {
+        background-color: #fff;
+        .border-radius(3px);
+    }
+    span.icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .box-head {
+        padding:0 25px;        
+        line-height: 70px;    
+        height: 70px;
+        h2 {
+            font-weight: bold;
+            font-size: 20px;
+            color: @38;
+        }
+    }
+    .box-body {
+        padding:0 25px;             
+        font-size: 14px;
+        p {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .resource {
+            margin-top: 15px;
+            .ops-line {
+                padding-top:5px;
+                padding-bottom:5px;
+                label {
+                    display: inline-block;
+                    width: 84px;
+                }
+                input ,textarea{
+                    padding: 5px 10px;
+                    height: 20px;
+                    line-height: 20px;
+                    background: #fff;
+                    border: 1px solid #e4e4e4;
+                    color: #404040;
+                    resize: none;
+                    background: #fff;
+                    .box-shadow(inset 0 2px 4px 0 rgba(0,0,0,.04));
+                    .placeholder(@153);
+                    font-size: 12px;
+                    &:hover,&:active,&:focus{
+                        outline: none;
+                        border: 1px solid #d7d7d7;
+                        .box-shadow(inset 0 2px 4px 0 rgba(0,0,0,.05));   
+                    }
+                    &:focus:hover {
+                        .box-shadow(inset 2px 2px 4px 0 rgba(0,0,0,.04));
+                    }
+                    &.need {
+                        background-color: #ffdada;
+                    }
+                }
+                input.input-small {
+                    width: 178px;
+                }
+                input.input-large,textarea.input-large  {
+                    width: 428px;
+                }  
+                textarea {
+                    height: 45px;
+                }  
+                div.need,span.need {                    
+                    color:rgb(255, 110, 110);
+                    font-size: 12px;
+                }   
+                div.need {
+                    padding-left: 16.5%;
+                    padding-top: 5px;
+                    display: none;
+                }         
+                &:first-child {
+                    margin-top: 0;
+                }
+                .email-tip {
+                    margin-left: 10px;
+                }
+            }
+            .ops-line.special-line {
+                label {
+                    vertical-align: top;
+                    margin-top: 7px;
+                }
+            }
+        }
+        .resource-mask {
+            height: 200px;
+            text-align: center;
+            display:none;
+            .resource-success {
+                display: none;
+                padding-top: 30px;
+                line-height: 30px;
+            }
+            .resource-error {
+                line-height: 200px;   
+                display: none;
+                color: red;             
+            }
+            .resource-loading {
+                display: none;
+                padding-top: 75px; 
+            }
+        }
+    }
+    .box-foot {
+        height: 80px;
+        line-height: 74px;
+        text-align: center;
+        .btn {
+            width: 190px;
+            height: 38px;
+            line-height: 38px;
+            background-color: #55A744;
+            font-weight: bold;
+            font-size: 14px;
+            color: #fff;
+            border:none;
+            cursor: pointer;
+            padding: 0;
+            .box-shadow(0 1px 0 rgba(0,0,0,.05));
+            .border-radius(3px);
+            background-image: -webkit-linear-gradient(top,transparent,transparent);
+            background-image: linear-gradient(top,transparent,transparent);
+            text-shadow: none;
+            outline: none;
+            &:hover {
+                background: #65b045;                
+                background-image: -webkit-linear-gradient(top,transparent,transparent);
+                background-image: linear-gradient(top,transparent,transparent);
+                text-shadow: none;
+                outline: none;
+            }
+            &:active {
+                .box-shadow(inset 0 1px 0 #2f6124);
+                background: #3e802f;
+                outline: none;
+            }
+        }
+    }
+}
+
+
+
+//针对资源下载页分页效果的样式，暂时未用到，勿删
+.bx-controls {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+}
+.bx-wrapper .bx-pager {
+    text-align: center;
+    font-size: .85em;
+    font-family: Arial;
+    font-weight: bold;
+    color: #666;
+    padding-top: 20px;
+}
+.bx-wrapper .bx-pager .bx-pager-item, .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+    display: inline-block;
+}
+.bx-wrapper .bx-pager.bx-default-pager a {
+    background: rgb(180,180,180);
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 0 5px;
+    outline: 0;
+    .border-radius(3px);
+    text-align: center;
+    line-height: 14px;
+    color: #fff;
+
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: rgb(12,148,222);
+    text-decoration: none;
+}
