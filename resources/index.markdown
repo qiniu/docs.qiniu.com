@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: resource_layout.html
 title: 资源列表
 ---
 

@@ -26,28 +26,7 @@
 
 <body>
     <header>
-        <div class="container">
-            <h1 class="pull-left">
-                <a href="http://docs.qiniu.com/" target="_blank">
-                    <img src="static/image/logo.png" alt="">
-                </a>
-            </h1>
-            <nav class="pull-left nav-home">
-                <a href="/views/index/index.html" class="active">首页</a>
-                <a href="https://portal.qiniu.com/develop/tutorial">新手上路</a>
-                <a href="/views/api/index.html">文档</a>
-                <a href="/views/resource/index.html">资源下载</a>
-            </nav>
-            <div class="pull-left search">
-                <input type="text" name="search" id="search" placeholder="全站搜索">
-                <span class="global_search_default_sprited"></span>
-            </div>
-            <nav class="pull-right nav-top">
-                <a href="http://segmentfault.com/qiniu" target="_blank">问答社区</a>
-                <a href="https://portal.qiniu.com/" target="_blank">开发者平台</a>
-                <a href="http://www.qiniu.com/" target="_blank">七牛官网</a>
-            </nav>
-        </div>
+        {{.includes.header}}
     </header>
     <div class="container index">
         <ul class="intro line">
@@ -75,31 +54,47 @@
         <div class="main pull-left cell article-cell">
             <div class="cell-head">
                 <h2 class="pull-left">开发文档</h2>
-                <a href="/api/docs.html" class="more">更多>></a>
+                <a href="/api/" class="more">更多>></a>
             </div>
             <div class="cell-body">
-            {% include article-list.html %}
-            {{ .content}}
+                {{ .content}}
             </div>
         </div>
         <div class="side-bar pull-right cell">
             <div class="cell-head">
                 <h2 class="pull-left">资源下载</h2>
-                <a href="/resource/resource.html" class="more">更多>></a>
+                <a href="/resources/" class="more">更多>></a>
             </div>
             <div class="cell-body resource-sdk">
-                {% include sdk-list.html %}
+                <h3 class="en">官方SDK</h3>
+                <ul class="sdk-list">
+                    {{range .data.resource.sdk}}
+                    <li>
+                        <a href="" title="{{.name}} sdk">
+                            <img src="/static/image/index/sdk-{{.name}}.png" alt="{{.name}} sdk">
+                        </a>
+                    </li>
+                    {{end}}
+                    <!-- <li class="nail"><a href=""><img src="/static/image/index/sdk-perl.png" alt="perl sdk"></a></li> -->
+                </ul>
             </div>
             <div class="cell-body resource-tool">
-                {% include devtools.html %}
+                <h3 class="">官方工具</h3>
+                {{range .data.resource.devtools}}
+                <div>
+                    <h4>
+                        <span class="icon index_{{.name}}_sprited"></span><a href="{{.download}}">{{.label}}</a>
+                    </h4>
+                    <p>{{.description}}</p>
+                </div>
+                {{end}}
             </div>
             <div class="cell-body resource-community">
-                {% include community-resource.html %}
+                {{ .includes.community_resource }}
             </div>
         </div>
     </div>
     <footer>
-        {% include footer.html %}
     </footer>
 
     <script src="static/js/jquery-1.9.1.min.js" type="text/javascript">

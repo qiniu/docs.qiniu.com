@@ -1,5 +1,51 @@
 $(function() {
 
+    var url = window.location.pathname;
+
+    if (url.indexOf("/sdk/") === 0) {
+
+        //通过js移动文档导行到右边索引边栏
+        //first level
+        $(".api-content ul :first").attr("class", "panel-list  level-two nav");
+        $('.api-content ul :first').children().each(function() {
+            //li
+            //second level
+            $(this).children("ul").each(function() {
+                //ul
+                $(this).attr("class", "panel-list level-three nav");
+            });
+        });
+        var href = url;
+        var shref = href.split("/");
+        var sdk = shref[shref.length - 1];
+        sdk = sdk.substring(0, sdk.length - 5);
+        $("#" + sdk).html($('.api-content ul :first'));
+
+
+        addIndex = function(ul, idx) {
+            $(ul).children("li").each(function(i) {
+                i = i + 1;
+                var ii;
+                if (idx) {
+                    ii = idx + "." + i++;
+                } else {
+                    ii = i++;
+                }
+                var a = $(this).children("a");
+                var nhref = a.attr("href");
+                nhref = nhref.substring(1);
+                var nhtml = $('a[name="' + nhref + '"]').parent().next();
+                nhtml.html(ii + "." + a.html());
+                a.html(ii + ". " + a.html());
+                $(this).children("ul").each(function(o, oo) {
+                    addIndex(oo, ii)
+                });
+            });
+        }
+
+        addIndex($("#" + sdk + " ul :first"), "")
+    }
+
     //顶部栏样式
     var url = window.location.pathname;
     $('.nav-home a').each(function() {

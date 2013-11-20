@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_layout.html
 title: qrsync 命令行同步工具
 ---
 
