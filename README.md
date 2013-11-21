@@ -1,7 +1,6 @@
 ## 本地运行文档
 
 ``` bash
-make
 make test
 ```
 
