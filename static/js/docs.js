@@ -49,9 +49,9 @@ $(function() {
     //顶部栏样式
     var url = window.location.pathname;
     $('.nav-home a').each(function() {
-        var path = url.split('/')[2];
+        var path = url.split('/')[1];
         var href = $(this).attr('href').toLowerCase();
-        var pathname = href.split('/')[2];
+        var pathname = href.split('/')[1];
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
