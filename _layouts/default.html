@@ -57,7 +57,17 @@
                 <a href="/api/" class="more">更多>></a>
             </div>
             <div class="cell-body">
-                {{ .content}}
+                <ul>
+                    {{range .pages.guide}}
+                    <li>
+                        <h3>
+                            <span class="icon index_resource_sprited"></span>
+                            <a href="{{.url}}">{{.title}}</a>
+                        </h3>
+                        <p>{{.snapshot}}</p>
+                    </li>
+                    {{end}}
+                </ul>
             </div>
         </div>
         <div class="side-bar pull-right cell">

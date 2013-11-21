@@ -57,7 +57,7 @@
                     <h2 class="pull-left">API参考手册</h2>
                 </div>
                 <div class="cell-body">
-                    {{range .data.apimenu.Items}}
+                    {{range .data.apiref.Items}}
                     <span><a href="/{{.Href}}">{{.Title}}</a> 
                     </span>
                     {{end}}
@@ -68,34 +68,10 @@
                     <h2 class="pull-left">SDK参考手册</h2>
                 </div>
                 <div class="cell-body">
-                    <div class="list">
-                        <span><a href="">iOS</a>
-                        </span>
-                        <span><a href="">Android</a>
-                        </span>
-                        <span><a href="/views/api/java.html">Java</a>
-                        </span>
-                    </div>
-                    <div class="list">
-                        <span><a href="/views/api/php-sdk.html">PHP</a>
-                        </span>
-                        <span><a href="">Python</a>
-                        </span>
-                        <span><a href="">Ruby</a>
-                        </span>
-                    </div>
-                    <div class="list">
-                        <span><a href=""> Node.js</a>
-                        </span>
-                        <span><a href="">C#</a>
-                        </span>
-                        <span><a href="">C/C++</a>
-                        </span>
-                    </div>
-                    <div class="list">
-                        <span><a href="">Go</a>
-                        </span>
-                    </div>
+                    {{range .data.resource.sdk}}
+                    <span><a href="/sdk/{{.name}}-sdk.html">{{.name}}</a> 
+                    </span>
+                    {{end}}
                 </div>
             </div>
             <div class="pull-left cell nail">
@@ -103,18 +79,10 @@
                     <h2 class="pull-left">工具手册</h2>
                 </div>
                 <div class="cell-body">
-                    <div class="list">
-                        <span><a href="">工具概览  </a>
-                        </span>
-                    </div>
-                    <div class="list">
-                        <span><a href="">qboxrsctl</a>
-                        </span>
-                        <span><a href="">qrsync</a>
-                        </span>
-                        <span><a href="">qautosync</a>
-                        </span>
-                    </div>
+                    {{range .data.resource.devtools}}
+                    <span><a href="/tools/{{.label}}.html">{{.label}}</a> 
+                    </span>
+                    {{end}}
                 </div>
             </div>
         </div>
