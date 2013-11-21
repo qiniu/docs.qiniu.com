@@ -218,7 +218,8 @@ a.more {
 .panel > .panel-body li .link.active {
   color: #0c94de;
 }
-.panel > .panel-body li.active {
+.panel > .panel-body li.active,
+.panel > .panel-body a.active {
   color: #404040;
 }
 .panel .level-three li,
@@ -1081,15 +1082,6 @@ div.api-resource .social-resource .author {
   border-color: #d5d5d5;
   text-decoration: none;
 }
-.container.resource .cell .cell-x1 {
-  position: absolute;
-}
-.container.resource .cell .cell-x2 {
-  position: relative;
-  top: 1px;
-  width: 100%;
-  height: 100%;
-}
 .container.resource .cell .cell-body {
   overflow: hidden;
   position: relative;
@@ -1180,9 +1172,6 @@ div.api-resource .social-resource .author {
 .container.resource .large.cell .cell-body .resource-card {
   width: 439px;
   height: 128px;
-}
-.container.resource .large.cell .cell-body .resource-card.nail {
-  width: 438px;
 }
 .container.resource .large.cell .cell-body .resource-card .content {
   width: 356px;

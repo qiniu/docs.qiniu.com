@@ -32,16 +32,6 @@
                     }
                 }                
             }
-            .cell-x1 {
-                position: absolute;
-
-            }
-            .cell-x2 {
-                position: relative;
-                top: 1px;
-                width: 100%;
-                height: 100%;
-            }
             .cell-body {
                 overflow: hidden;
                 position: relative;
@@ -52,15 +42,10 @@
                 .resource-card {
                     float: left;
                     border-right: 1px solid @233;
-                    //border-left: 1px solid @233;
                     border-top: 1px solid @233;
                     border-bottom: 1px solid @233;
                     margin-top: -1px;
-                    //margin-left: -1px;
                     padding:25px 20px 20px 20px;
-                    &.nail {
-                        //border-right: none;                       
-                    }
                     .logo,.content {
                         float: left;
                     }
@@ -129,9 +114,6 @@
                 width: 284px;
                 height: 109px;
                 padding:25px 15px 20px 20px;                
-                &.nail {
-                    //width: 283px;
-                }
                 .content {
                     margin-left: 10px;
                 }
@@ -141,9 +123,6 @@
             .resource-card {
                 width: 439px;
                 height: 128px;
-                &.nail {
-                    width: 438px;
-                }
                 .content {
                     width:356px; 
                     .describe,.info{
@@ -183,12 +162,11 @@
 
 .docs-add-resource {
     width: 590px;
-    //line-height: 871px;
     margin:40px auto;
     margin-top: 140px;
     .box-shadow(0 0 40px rgba(0,0,0,.2));
     position: relative;
-    //top:50%;
+
 
     .resource-box {
         background-color: #fff;
