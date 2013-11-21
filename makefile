@@ -1,13 +1,13 @@
 all:
 	#成生菜单所需的json文件
-	./genMenu api/overview > _data/apiview.json 
-	./genMenu api/reference > _data/apiref.json 
-	./jkl --qiniu-config _jekyll_qiniu.yml  --qiniu --verbose
+	./_genMenu api/overview > _data/apiview.json 
+	./_genMenu api/reference > _data/apiref.json 
 
-test:
-	./jkl --server
+test: all
+	./_jkl --server
 
-install: all
+install: 
+	./_jkl --qiniu-config _jekyll_qiniu.yml  --qiniu --verbose
 	@echo
 
 clean:
