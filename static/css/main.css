@@ -741,15 +741,21 @@ footer .copyright {
   width: 652px;
   padding: 25px;
 }
-.api-content h2 {
+.api-content h1 {
   color: #0c94de;
   margin-bottom: 25px;
   font-size: 24px;
 }
-.api-content h3 {
+.api-content h2 {
   color: #404040;
   font-size: 16px;
   margin: 20px 0;
+}
+.api-content h3 {
+  color: #404040;
+  margin: 15px 0;
+  text-indent: 5px;
+  font-weight: normal;
 }
 .api-content h4 {
   color: #404040;
@@ -765,7 +771,9 @@ footer .copyright {
   margin: 20px 0 20px 24px;
   color: #404040;
 }
-.api-content div {
+.api-content div,
+.api-content p,
+.api-content li {
   line-height: 21px;
 }
 .api-content li {
@@ -780,16 +788,27 @@ footer .copyright {
   border: 1px solid #e6e6e6;
   margin-left: 24px;
 }
-.api-content table thead th {
+.api-content table thead th,
+.api-content table thead td {
   background-color: #fafafa;
+  text-align: center;
 }
 .api-content table td,
 .api-content table th,
 .api-content table caption {
   padding: 10px 20px;
   border: 1px solid #e6e6e6;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
+}
+.api-content table tbody tr:nth-child(even) {
+  background: #f3f3f3;
+}
+.api-content table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.api-content table tbody tr:hover {
+  background-color: #f5f5f5;
 }
 .api-content table caption {
   border-bottom: none;
@@ -818,6 +837,17 @@ footer .copyright {
   white-space: pre-wrap;
   background-color: transparent;
   border: 0;
+}
+.api-content code {
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  white-space: nowrap;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 div.api-resource {
   float: right;
