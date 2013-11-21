@@ -50,7 +50,7 @@ $(function() {
     var url = window.location.pathname;
     $('.nav-home a').each(function() {
         var path = url.split('/')[2];
-        var href = $(this).attr('href').toLowerCase();;
+        var href = $(this).attr('href').toLowerCase();
         var pathname = href.split('/')[2];
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
@@ -72,7 +72,7 @@ $(function() {
         return false;
     });
 
-    //API页面侧边栏操作
+    //API页面侧边栏操作 --  一级导航点击
     $('.panel-default > .panel-heading').on('click', function() {
         var $next = $(this).next('.panel-body');
         var $siblings = $(this).parents('.panel').siblings('.panel');
@@ -85,7 +85,6 @@ $(function() {
                 var scrollTop = $(window).scrollTop() - 70;
                 var height = $('.panel-box').height();
                 var mainHeight = $('.main').height();
-                var windowHeight = $(window).height();
                 var dHeight = scrollTop + height - mainHeight;
                 if (dHeight > 0) {
                     window.scrollTo($(window).scrollLeft(), $(window).scrollTop() - 1);
@@ -100,26 +99,13 @@ $(function() {
         }
         return false;
     });
-    $('.panel-body .link').each(function() {
-        var params = url.split('/');
-        var path = params[2];
-        var fileName = params[params.length - 1];
-        var href = $(this).attr('href').toLowerCase();;
-        if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            $(this).parents('.panel-body').siblings('.panel-heading').click();
-            $(this).parents('.panel-heading').siblings('.panel-body').slideDown();
 
-            $(this).addClass('active');
-            $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
-            $(this).next('.icon').addClass('api_down2_sprited');
-        }
-    });
     $('.panel-body .api_down2_sprited').on('click', function() {
         var params = url.split('/');
         var path = params[2];
         var fileName = params[params.length - 1];
         var $link = $(this).siblings('a');
-        var href = $link.attr('href').toLowerCase();;
+        var href = $link.attr('href').toLowerCase();
         if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
             $(this).parents('.panel-heading').siblings('.panel-body').slideUp();
 
@@ -149,6 +135,31 @@ $(function() {
             return false;
         }
     });
+    //API页面侧边栏---显示当前页的导航
+    $('.panel-body a').each(function() {
+        var params = url.split('/');
+        var path = params[2];
+        var fileName = params[params.length - 1];
+        var href = $(this).attr('href').toLowerCase();
+        var isMatch = url === href || (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0)
+        if (isMatch) {
+            $(this).parents('.panel-body').siblings('.panel-heading').click();
+            $(this).addClass('active');
+            if ($(this).parents('.panel-heading').length > 0) {
+                $(this).parents('.panel-heading').siblings('.panel-body').slideDown();
+                $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                $(this).next('.icon').addClass('api_down2_sprited');
+            } else {
+                $(this).parents('.panel-body').show();
+                $(this).parents('.panel-body').siblings('.panel-heading').find('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
+                $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
+            }
+        }
+        // if (url === href) {
+
+        // }
+    });
 
     // API页固定侧边栏
     $('.container.api .side-bar').hcSticky({
@@ -158,7 +169,7 @@ $(function() {
 
     // API页高亮代码
     $('pre code').each(function(i, e) {
-        hljs.highlightBlock(e)
+        hljs.highlightBlock(e);
     });
 
     //API具体页标志当前锚点功能
