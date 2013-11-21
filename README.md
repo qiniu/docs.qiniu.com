@@ -1,3 +1,21 @@
+## 本地运行文档
+
+``` sh
+make
+make test
+```
+
+浏览器中访问[localhost:4000](localhost:4000)
+
+## 上传文档至七牛空间
+
+编辑 `_jekyll_qiniu.yml` ,填写正确的access Key、secretKey以及bucket
+
+``` sh
+make 
+make install
+```
+
 ## Markdown Editor
 
 ### Mac
