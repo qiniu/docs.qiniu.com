@@ -1,6 +1,6 @@
 ---
 layout: api_layout
-title: 获取资源信息
+title: 资源管理
 ---
 
 <a name="stat"></a>

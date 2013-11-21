@@ -13,6 +13,9 @@ $(function() {
             $(this).children("ul").each(function() {
                 //ul
                 $(this).attr("class", "panel-list level-three nav");
+                $(this).children("ul").each(function(){
+                    $(this).attr("class", "panel-list level-four nav");
+                });
             });
         });
         var href = url;

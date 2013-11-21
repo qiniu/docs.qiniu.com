@@ -1,3 +1,8 @@
+---
+layout: api_layout
+title: 凭证算法
+---
+
 <a name="token-algorithm"></a>
 ## 凭证算法
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: api_layout
 title: "测试指南"
 snapshot: "为了方便测试，我们已经人工上传了一个测试音频，同时将文件所在的存储空间暂设为公开属性。公开属性表示我们上传的文件能够以 HTTP 的方式公开提供下载。"
 ---
@@ -39,7 +39,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
  
 - <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg>
 
-![原图](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg)
+![原图](img/123.jpg)
 
 **水印**（将蟬游记LOGO打到原图上去）:
 

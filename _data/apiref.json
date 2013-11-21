@@ -8,7 +8,7 @@
 			"Order": 0
 		},
 		{
-			"Title": "HTTP扩展字段",
+			"Title": "HTTP错误码",
 			"Href": "api/reference/err.html",
 			"Child": null,
 			"Order": 0
@@ -57,18 +57,12 @@
 			"Order": 0
 		},
 		{
-			"Title": "七牛云存储API使用指南",
-			"Href": "api/reference/index.html",
-			"Child": null,
-			"Order": 0
-		},
-		{
-			"Title": "rs",
-			"Href": "",
+			"Title": "资源管理",
+			"Href": "api/reference/rs",
 			"Child": [
 				{
-					"Title": "",
-					"Href": "",
+					"Title": "获取资源信息",
+					"Href": "api/reference/rs/stat.html",
 					"Child": null,
 					"Order": 0
 				}
@@ -86,26 +80,26 @@
 					"Order": 0
 				},
 				{
-					"Title": "",
+					"Title": "下载授权",
 					"Href": "api/reference/security/download-token.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
-					"Title": "",
-					"Href": "",
+					"Title": "上传策略",
+					"Href": "api/reference/security/put-policy.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
-					"Title": "",
-					"Href": "",
+					"Title": "凭证算法",
+					"Href": "api/reference/security/token-algorithm.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
-					"Title": "",
-					"Href": "",
+					"Title": "上传凭证",
+					"Href": "api/reference/security/upload-token.html",
 					"Child": null,
 					"Order": 0
 				}
@@ -113,26 +107,26 @@
 			"Order": 0
 		},
 		{
-			"Title": "up",
-			"Href": "",
+			"Title": "资源上传",
+			"Href": "api/reference/up",
 			"Child": [
 				{
-					"Title": "",
+					"Title": "块上传",
+					"Href": "api/reference/up/mkblk.html",
+					"Child": null,
+					"Order": 100
+				},
+				{
+					"Title": "片上传",
 					"Href": "api/reference/up/bput.html",
 					"Child": null,
-					"Order": 0
+					"Order": 90
 				},
 				{
-					"Title": "",
+					"Title": "生成文件",
 					"Href": "api/reference/up/mkfile.html",
 					"Child": null,
-					"Order": 0
-				},
-				{
-					"Title": "",
-					"Href": "",
-					"Child": null,
-					"Order": 0
+					"Order": 10
 				}
 			],
 			"Order": 0

@@ -1,3 +1,8 @@
+---
+layout: api_layout
+title: 上传凭证
+---
+
 <a name="upload-token"></a>
 ## 上传凭证（UploadToken）
 

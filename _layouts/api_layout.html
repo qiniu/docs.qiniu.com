@@ -42,20 +42,15 @@
                     </div>
                     <div class="panel-body">
                         <ul class="panel-list level-one">
+                            {{range .data.guide.Items}}
                             <li>
                                 <span class="icon api_unselect_sprited">
                                 </span>
-                                <a class="link" href="/views/guide/1.html">
-                                        加速和存储网站的static文件
+                                <a class="link" href="/{{.Href}}">
+                                {{.Title}}
                                     </a>
                             </li>
-                            <li>
-                                <span class="icon api_unselect_sprited">
-                                </span>
-                                <a class="link" href="/views/guide/course.html">
-                                        什么是原图保护
-                                    </a>
-                            </li>
+                            {{end}}
                         </ul>
                     </div>
                 </div>

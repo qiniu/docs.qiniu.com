@@ -1,3 +1,8 @@
+---
+layout: api_layout
+title: 上传策略
+---
+
 <a name="put-policy"></a>
 
 ## 上传策略（PutPolicy）

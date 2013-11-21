@@ -1,6 +1,6 @@
 ---
 layout: api_layout
-title: HTTP扩展字段
+title: HTTP错误码
 ---
 
 <a name="extended-headers"></a>

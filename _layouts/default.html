@@ -38,7 +38,7 @@
             </li>
             <li class="pull-left cell quality">
                 <span class="icon index_book_sprited"></span>
-                <h2><a href="">云存储质量评估指南</a>
+                <h2><a href="/guide/testing.html">云存储质量评估指南</a>
                 </h2>
                 <div>如何系统性的判断一个云存储服务的整体质量，这篇文档给出了相对清晰而客观的指引。</div>
             </li>
@@ -80,7 +80,7 @@
                 <ul class="sdk-list">
                     {{range .data.resource.sdk}}
                     <li>
-                        <a href="" title="{{.name}} sdk">
+                        <a href="/sdk/{{.name}}-sdk.html" title="{{.name}} sdk">
                             <img src="/static/image/index/sdk-{{.name}}.png" alt="{{.name}} sdk">
                         </a>
                     </li>
@@ -93,7 +93,7 @@
                 {{range .data.resource.devtools}}
                 <div>
                     <h4>
-                        <span class="icon index_{{.name}}_sprited"></span><a href="{{.download}}">{{.label}}</a>
+                        <span class="icon index_{{.name}}_sprited"></span><a href="/tools/{{.label}}.html">{{.label}}</a>
                     </h4>
                     <p>{{.description}}</p>
                 </div>
@@ -105,6 +105,7 @@
         </div>
     </div>
     <footer>
+    {{.includes.footer}}
     </footer>
 
     <script src="static/js/jquery-1.9.1.min.js" type="text/javascript">
