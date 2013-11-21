@@ -1,6 +1,6 @@
 ## 本地运行文档
 
-``` sh
+``` bash
 make
 make test
 ```
@@ -11,7 +11,7 @@ make test
 
 编辑 `_jekyll_qiniu.yml` ,填写正确的access Key、secretKey以及bucket
 
-``` sh
+``` bash
 make 
 make install
 ```
