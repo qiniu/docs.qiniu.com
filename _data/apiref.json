@@ -1,12 +1,6 @@
 {
-	"Name": "api/reference/",
+	"Name": "api/reference",
 	"Items": [
-		{
-			"Title": "HTTP状态码",
-			"Href": "api/reference/codes.html",
-			"Child": null,
-			"Order": 0
-		},
 		{
 			"Title": "",
 			"Href": "api/reference/err.html",
@@ -135,6 +129,12 @@
 					"Order": 0
 				}
 			],
+			"Order": 0
+		},
+		{
+			"Title": "",
+			"Href": "",
+			"Child": null,
 			"Order": 0
 		}
 	]
