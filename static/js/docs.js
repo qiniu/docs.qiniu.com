@@ -2,7 +2,7 @@ $(function() {
 
     var url = window.location.pathname;
 
-    if (url.indexOf("/sdk/") === 0) {
+    if ((url.indexOf("/docs/sdk/") === 0)||(url.indexOf("/docs/tools/") === 0)) {
 
         //通过js移动文档导行到右边索引边栏
         //first level
