@@ -39,11 +39,11 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
  
 - <http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg>
 
-![原图](img/123.jpg)
+![原图](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg)
 
 **水印**（将蟬游记LOGO打到原图上去）:
 
-- <http://t.cn/zQIqIGi> (可点击查看完整URL)
+- <http://goo.gl/29i2B> (可点击查看完整URL)
 
 ![水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast/dx/20/dy/20)
 
@@ -65,13 +65,13 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 **缩略图3** (缩略、裁剪、旋转)
 
-- <http://t.cn/zQIqJPv> (可点击查看完整URL)
+- <http://goo.gl/4eJff> (可点击查看完整URL)
 
 ![缩略图3缩略、裁剪、旋转](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageMogr/auto-orient/thumbnail/!310x310r/gravity/center/crop/!310x310/quality/80/rotate/45)
 
 **缩略图4** (API链式处理，基于缩略图打水印)
 
-- <http://t.cn/zQIq6O8> (可点击查看完整URL)
+- <http://goo.gl/kkxGe> (可点击查看完整URL)
 
 ![API链式处理，基于缩略图打水印](http://cyj.qiniudn.com/22734/1359639667984p17i8ddoi31ara1ccp1njsq319s62.jpg?imageView/1/w/310/h/187/q/80|watermark/1/image/aHR0cDovL2N5anMucWluaXVkbi5jb20vYXNzZXRzL3RvcC1sb2dvLTViMTY2MWVhZmVhODY5NDY3YjgzM2Y0Yjk3MjgyNDNiLnBuZw==/dissolve/85/gravity/SouthEast)
 
@@ -166,7 +166,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 
 实际情况下，若您的业务偏 UGC(User Generate Content)，可以使用 [七牛提供的SDK](https://github.com/qiniu) 让终端用户直传图片/音频/视频/文件到七牛云存储。
 
-若不想用测试帐号，也可自行注册申请帐号。注册地址：<https://portal.qiniu.com/signup>
+若不想用测试帐号，也可自行注册申请帐号。注册地址：<https://portal-beta.qiniu.com/signup>
 
 为方便测试，我们在测试帐号申里边创建了一个名为 `qtestbucket` 的存储空间。
 
@@ -226,4 +226,3 @@ key 一般是具体的文件名称或路径（非“/”开头）。比如 `samp
 ## 结束语
 
 以上测试方案仅适用非编程环境，如果需要更深入的编程接入或其他测试，可以根据具体需求提供。请与我们保持联系！[support@qiniu.com](mailto:support@qiniu.com)
-
