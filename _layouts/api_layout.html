@@ -30,6 +30,54 @@
     <div class="container cell api">
         <div class="side-bar pull-left">
             <div class="panel-box">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#">
+                                    技术文章
+                                </a>
+                            <span class="icon api_default_sprited">
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="panel-list level-one">
+                            {{range .data.techArticles.Items}}
+                            <li>
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        <span class="icon api_unselect_sprited">
+                                        </span>
+                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                        <span class="icon"></span>
+                                    </h5>
+                                </div>
+                                <div class="panel-body">
+                                    {{if isnot_nil_or_empty .Child}}
+                                    <ul class="panel-list level-three nav">
+                                        {{range .Child}}
+                                        <li>
+                                            <a href="/{{.Href}}"> {{.Title}} </a>
+                                            {{if isnot_nil_or_empty .Child}}
+                                            <ul class="panel-list level-four nav">
+                                                {{range .Child}}
+                                                <li>
+                                                    <a href="/{{.Href}}">{{.Title}} </a>
+                                                </li>
+                                                {{end}}
+                                            </ul>
+                                            {{end}}
+                                        </li>
+                                        {{end}}
+                                    </ul>
+                                    {{end}}
+                                </div>
+                            </li>
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -54,6 +102,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -211,7 +260,7 @@
         </div>
         <div class="main pull-right">
             <div class="api-content">
-            <!--
+                <!--
                 <div class="api-resource cell">
                     <span class="icon api_resource_sprited">
                     </span>

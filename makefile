@@ -3,6 +3,7 @@ all:
 	./_genMenu api/overview > _data/apiview.json 
 	./_genMenu api/reference > _data/apiref.json 
 	./_genMenu guide > _data/guide.json 
+	./_genMenu techArticles > _data/techArticles.json 
 
 test: all
 	./_jkl --server
