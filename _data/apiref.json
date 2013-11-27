@@ -1,21 +1,59 @@
 {
-	"Name": "api/reference",
+	"Name": "docs/api/reference",
 	"Items": [
 		{
+			"Title": "资源上传",
+			"Href": "docs/api/reference/up",
+			"Child": [
+				{
+					"Title": "块上传",
+					"Href": "docs/api/reference/up/mkblk.html",
+					"Child": null,
+					"Order": 100
+				},
+				{
+					"Title": "片上传",
+					"Href": "docs/api/reference/up/bput.html",
+					"Child": null,
+					"Order": 90
+				},
+				{
+					"Title": "生成文件",
+					"Href": "docs/api/reference/up/mkfile.html",
+					"Child": null,
+					"Order": 10
+				}
+			],
+			"Order": 100
+		},
+		{
+			"Title": "资源管理",
+			"Href": "docs/api/reference/rs",
+			"Child": [
+				{
+					"Title": "获取资源信息",
+					"Href": "docs/api/reference/rs/stat.html",
+					"Child": null,
+					"Order": 0
+				}
+			],
+			"Order": 90
+		},
+		{
 			"Title": "HTTP状态码",
-			"Href": "api/reference/codes.html",
+			"Href": "docs/api/reference/codes.html",
 			"Child": null,
 			"Order": 0
 		},
 		{
 			"Title": "HTTP错误码",
-			"Href": "api/reference/err.html",
+			"Href": "docs/api/reference/err.html",
 			"Child": null,
 			"Order": 0
 		},
 		{
 			"Title": "HTTP扩展字段",
-			"Href": "api/reference/extended-headers.html",
+			"Href": "docs/api/reference/extended-headers.html",
 			"Child": null,
 			"Order": 0
 		},
@@ -25,25 +63,19 @@
 			"Child": [
 				{
 					"Title": "",
-					"Href": "api/reference/fop/audio.html",
+					"Href": "docs/api/reference/fop/audio.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "",
-					"Href": "api/reference/fop/image.html",
+					"Href": "docs/api/reference/fop/image.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "",
-					"Href": "api/reference/fop/misc.html",
-					"Child": null,
-					"Order": 0
-				},
-				{
-					"Title": "",
-					"Href": "",
+					"Href": "docs/api/reference/fop/misc.html",
 					"Child": null,
 					"Order": 0
 				},
@@ -52,17 +84,10 @@
 					"Href": "",
 					"Child": null,
 					"Order": 0
-				}
-			],
-			"Order": 0
-		},
-		{
-			"Title": "资源管理",
-			"Href": "api/reference/rs",
-			"Child": [
+				},
 				{
-					"Title": "获取资源信息",
-					"Href": "api/reference/rs/stat.html",
+					"Title": "",
+					"Href": "",
 					"Child": null,
 					"Order": 0
 				}
@@ -75,58 +100,33 @@
 			"Child": [
 				{
 					"Title": "",
-					"Href": "api/reference/security/access-token.html",
+					"Href": "docs/api/reference/security/access-token.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "下载授权",
-					"Href": "api/reference/security/download-token.html",
+					"Href": "docs/api/reference/security/download-token.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "上传策略",
-					"Href": "api/reference/security/put-policy.html",
+					"Href": "docs/api/reference/security/put-policy.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "凭证算法",
-					"Href": "api/reference/security/token-algorithm.html",
+					"Href": "docs/api/reference/security/token-algorithm.html",
 					"Child": null,
 					"Order": 0
 				},
 				{
 					"Title": "上传凭证",
-					"Href": "api/reference/security/upload-token.html",
+					"Href": "docs/api/reference/security/upload-token.html",
 					"Child": null,
 					"Order": 0
-				}
-			],
-			"Order": 0
-		},
-		{
-			"Title": "资源上传",
-			"Href": "api/reference/up",
-			"Child": [
-				{
-					"Title": "块上传",
-					"Href": "api/reference/up/mkblk.html",
-					"Child": null,
-					"Order": 100
-				},
-				{
-					"Title": "片上传",
-					"Href": "api/reference/up/bput.html",
-					"Child": null,
-					"Order": 90
-				},
-				{
-					"Title": "生成文件",
-					"Href": "api/reference/up/mkfile.html",
-					"Child": null,
-					"Order": 10
 				}
 			],
 			"Order": 0

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: homepage
 title: 七牛云存储使用指南
 ---
 

@@ -1,21 +1,21 @@
 {
-	"Name": "guide",
+	"Name": "docs/guide",
 	"Items": [
 		{
-			"Title": "F&Q",
-			"Href": "guide/faq.html",
+			"Title": "快速入门(高级开发者篇)",
+			"Href": "docs/guide/advincedWithQiniu.html",
+			"Child": null,
+			"Order": 0
+		},
+		{
+			"Title": "快速入门(初级开发者篇)",
+			"Href": "docs/guide/getStartedWithQiniu.html",
 			"Child": null,
 			"Order": 0
 		},
 		{
 			"Title": "使用七牛加速静态文件",
-			"Href": "guide/speed_up_staticfile.html",
-			"Child": null,
-			"Order": 0
-		},
-		{
-			"Title": "测试指南",
-			"Href": "guide/testing.html",
+			"Href": "docs/guide/speed_up_staticfile.html",
 			"Child": null,
 			"Order": 0
 		}

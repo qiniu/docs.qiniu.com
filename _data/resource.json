@@ -80,14 +80,14 @@
         "doc": "",
         "source": "https://github.com/qiniu/api"
     }],
-    "devtools":[ {
+    "devtools": [{
         "name": "upload",
         "label": "qrsync",
         "download": "http://xxxx",
         "version": "v6",
         "date": "2013-09-12",
         "doc": "",
-        "description":"命令行辅助上传同步工具，支持断点续上传，增量同步上传，增量同步上传。"
+        "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传，增量同步上传。"
     }, {
         "name": "cmd",
         "label": "qboxrsctl",
@@ -95,7 +95,7 @@
         "version": "v6",
         "date": "2013-09-12",
         "doc": "",
-        "description":"命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
+        "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
     }, {
         "name": "sync",
         "label": "qrsbox",
@@ -103,141 +103,141 @@
         "version": "v6",
         "date": "2013-09-12",
         "doc": "",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。"
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。"
     }],
-    "third_plugin":  [{
+    "third_plugin": [{
         "name": "wordpress",
         "label": "wordpress插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "drupal",
         "label": "drupal插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "opoopress",
         "label": "opoopress插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "octopress",
         "label": "octopress插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "discuz",
         "label": "discuz插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "phpwind",
         "label": "phpwind插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "emlog",
         "label": "emlog插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "typecho",
         "label": "typecho插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "django",
         "label": "django插件",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
     }],
-    "third_sdk":  [{
+    "third_sdk": [{
         "name": "PHP",
         "label": "PHP SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "PHP",
         "label": "PHP SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "PHP",
         "label": "PHP SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "python",
         "label": "Python SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "Scala",
         "label": "Scala SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "Nodejs",
         "label": "Node.js SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "Nodejs",
         "label": "Node.js SDK",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
         "doc": ""
-    },{
+    }, {
         "name": "django",
         "label": "django Package",
-        "description":"用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
+        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "http://xxxx",
         "author": "牛小七",
         "date": "2013-09-12",
