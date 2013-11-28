@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 获取资源信息（stat）
 order: 900
 ---

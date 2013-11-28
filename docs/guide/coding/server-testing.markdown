@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 测试一下服务端
 order: 400
 ---

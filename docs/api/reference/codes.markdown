@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 状态码
 order: 300
 ---

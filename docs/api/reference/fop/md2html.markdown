@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: MD转HTML（md2html）
 order: 110
 ---

@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 移动资源（move）
 order: 700
 ---

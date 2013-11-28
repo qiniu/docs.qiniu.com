@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 管理操作
 order: 340
 ---

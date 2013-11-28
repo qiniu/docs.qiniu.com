@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 水印（watermark）
 order: 160
 ---

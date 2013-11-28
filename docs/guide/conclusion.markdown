@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 开发小结
 order: 100
 ---

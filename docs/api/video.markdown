@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 视频处理
 order: 140
 ---

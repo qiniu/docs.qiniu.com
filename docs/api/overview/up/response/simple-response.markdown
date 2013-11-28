@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 简单反馈
 order: 515
 ---

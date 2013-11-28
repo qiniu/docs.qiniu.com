@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 获取异步处理结果（p）
 order: 200
 ---

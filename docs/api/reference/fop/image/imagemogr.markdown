@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 高级图片处理（imageMogr）
 order: 174
 ---

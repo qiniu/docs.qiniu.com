@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 上传模型
 order: 550
 ---

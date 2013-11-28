@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 处理已存在资源（pfop）
 order: 300
 ---

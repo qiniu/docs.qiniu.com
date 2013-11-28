@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 附录
 order: 100
 ---

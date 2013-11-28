@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 二维码（qrcode）
 order: 110
 ---

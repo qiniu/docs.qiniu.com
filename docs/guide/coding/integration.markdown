@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 集成调试
 order: 100
 ---

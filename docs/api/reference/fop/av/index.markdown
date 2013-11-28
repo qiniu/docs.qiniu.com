@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 音视频
 order: 160
 ---

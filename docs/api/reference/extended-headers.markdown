@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: HTTP扩展字段
 order: 200
 ---

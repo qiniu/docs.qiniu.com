@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 追加上传
 order: 520
 ---

@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 选择开发技术
 order: 600
 ---

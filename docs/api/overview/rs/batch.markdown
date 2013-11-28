@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 批量操作
 order: 330
 ---

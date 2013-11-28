@@ -1,4 +1,4 @@
 ---
-layout: api_layout
+layout: docs
 title: 教程
 ---

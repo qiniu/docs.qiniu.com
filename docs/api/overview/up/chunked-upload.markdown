@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 分片上传
 order: 530
 ---

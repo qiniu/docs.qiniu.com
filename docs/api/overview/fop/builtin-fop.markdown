@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 内置数据处理功能
 order: 250
 ---

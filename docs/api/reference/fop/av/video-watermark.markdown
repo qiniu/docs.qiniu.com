@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 视频水印（vwatermark）
 order: 139
 ---

@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 凭证算法
 order: 990
 ---

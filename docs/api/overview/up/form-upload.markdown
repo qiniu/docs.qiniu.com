@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 表单上传
 order: 540
 ---

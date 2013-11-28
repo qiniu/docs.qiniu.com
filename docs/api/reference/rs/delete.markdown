@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 删除资源（delete）
 order: 600
 ---

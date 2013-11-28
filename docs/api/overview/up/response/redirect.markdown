@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 301重定向
 order: 513
 ---

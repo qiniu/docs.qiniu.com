@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 图片EXIF信息（exif）
 order: 172
 ---

@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 下载设置
 order: 320
 ---

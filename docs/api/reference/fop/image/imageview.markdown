@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 图片处理（imageView）
 order: 175
 ---

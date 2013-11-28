@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 异步数据处理
 order: 510
 ---

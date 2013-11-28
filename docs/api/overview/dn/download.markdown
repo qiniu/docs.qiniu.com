@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 资源下载
 order: 480
 ---

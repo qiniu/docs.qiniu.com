@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: Web端展现
 order: 300
 ---

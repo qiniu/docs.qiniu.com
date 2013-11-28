@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 图片基本信息（imageInfo）
 order: 173
 ---

@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 自定义响应内容
 order: 513
 ---

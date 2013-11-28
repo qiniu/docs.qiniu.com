@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 服务端
 order: 500
 ---

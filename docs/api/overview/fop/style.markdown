@@ -1,5 +1,5 @@
 ---
-layout: api_layout
+layout: docs
 title: 样式
 order: 255
 ---
