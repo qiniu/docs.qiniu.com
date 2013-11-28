@@ -1,0 +1,17 @@
+{
+	"Name": "docs/kb",
+	"Items": [
+		{
+			"Title": "F&Q",
+			"Href": "docs/kb/faq.html",
+			"Child": null,
+			"Order": 0
+		},
+		{
+			"Title": "测试指南",
+			"Href": "docs/kb/testing.html",
+			"Child": null,
+			"Order": 0
+		}
+	]
+}

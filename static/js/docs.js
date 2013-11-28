@@ -2,7 +2,7 @@ $(function() {
 
     var url = window.location.pathname;
 
-    if (url.indexOf("/sdk/") === 0) {
+    if ((url.indexOf("/docs/sdk/") === 0)||(url.indexOf("/docs/tools/") === 0)) {
 
         //通过js移动文档导行到右边索引边栏
         //first level
@@ -13,6 +13,9 @@ $(function() {
             $(this).children("ul").each(function() {
                 //ul
                 $(this).attr("class", "panel-list level-three nav");
+                $(this).children("ul").each(function(){
+                    $(this).attr("class", "panel-list level-four nav");
+                });
             });
         });
         var href = url;
