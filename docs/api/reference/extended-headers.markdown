@@ -1,6 +1,7 @@
 ---
-layout: docs
+layout: api_layout
 title: HTTP扩展字段
+order: 200
 ---
 
 <a name="extended-headers"></a>

@@ -1,6 +1,7 @@
 ---
-layout: docs
-title: 获取资源信息
+layout: api_layout
+title: 获取资源信息（stat）
+order: 900
 ---
 
 <a name="stat"></a>

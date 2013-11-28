@@ -1,14 +1,19 @@
+---
+layout: api_layout
+title: 变量
+order: 512
+---
 <a name="vars"></a>
 ## 变量
 
 变量是七牛云存储同用户交换数据的机制，引入变量概念的目的在于更灵活的控制上传后续动作中的内容组织和传递。可以认为变量是一种占位符，七牛云存储会将占位符按约定替换为实际内容。
 
-在构造[上传策略]()时，可在上传策略的`returnBody`和`callbackBody`字段内容中使用变量。
+在构造[上传策略](/api/reference/security/put-policy.html)时，可在上传策略的`returnBody`和`callbackBody`字段内容中使用变量。
 
 变量分为两种：[魔法变量](#magicvar)和[自定义变量](#xvar)。魔法变量是系统提供的一系列预定义变量，可直接使用，而自定义变量则由调用方指定，通常应对应于上传时的表单参数。服务端会将这些上传参数的具体值返回给调用方。
 
 <a name="magicvar"></a>
-### 魔法变量（MagicVariable）
+### 魔法变量
 
 魔法变量是一组预先定义的变量，可以使用 `$(var)` 或 `$(var.field_name)` 形式求值。
 
@@ -46,10 +51,10 @@ imageInfo    | 是     | 获取所上传图片的基本信息。<p>该变量包�
 
 > TODO: imageInfo的类型结构。
 
-> TODO: 描述一下，如果变量取值失败会怎么样。
+如果变量取值失败（比如在上传策略中指定了一个并不存在的魔法变量），响应内容中对应的变量将被赋予空值。
 
 <a name="xvar"></a>
-### 自定义变量（xVariable）
+### 自定义变量
 
 应用客户端则在上传请求中设定自定义变量的值。七牛云存储收到这些变量信息后，置换掉`returnBody`和`callbackBody`中的自定义变量设置，形成最终的反馈结果。
 
@@ -87,6 +92,6 @@ name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm- \
 RlQx_4O2&location=Shanghai&price=1500.00
 ```
 
-然后，七牛云存储将此结果进行[URL安全的Base64编码]()，作为回调请求的Body调用`callbackUrl`指定的回调服务器。
+然后，七牛云存储将此结果进行[URL安全的Base64编码](/api/overview/appendix.html#urlsafe-base64)，作为回调请求的Body调用`callbackUrl`指定的回调服务器。
 
-> TODO: 描述一下，如果变量取值失败会怎么样。
+如果变量取值失败（比如在上传策略中指定了一个并不存在的表单变量），响应内容中对应的变量将被赋予空值。

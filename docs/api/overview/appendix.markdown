@@ -1,3 +1,9 @@
+---
+layout: api_layout
+title: 附录
+order: 100
+---
+
 <a name="appendix"></a>
 ## 附录
 
@@ -8,3 +14,15 @@ URL安全的Base64编码适用于以URL方式传递Base64编码结果的场景�
 
 详细编码规范请参见[RFC4648](http://www.ietf.org/rfc/rfc4648.txt)标准中的相关描述。
 
+<a name="domain-binding"></a>
+### 域名绑定
+
+每个空间都可以绑定一个到多个自定义域名，以便于更方便的访问资源。
+
+比如`www.qiniu.com`的所有静态资源均存放于一个叫`qiniu-resources`的公开空间中。并将该空间绑定到一个二级域名`i1.qiniu.com`，那么如果要在一个HTML页面中引用该空间的`logo.png`资源，大概的写法如下：
+
+```
+<img source="http://i1.qiniu.com/logo.png"></img>
+```
+
+这样既可以在一定程度上隐藏正在使用七牛云存储的事实，但更大的好处是如果需要从一个云存储迁移到另一个云存储，只需要修改域名DNS的CNAME设置，而无需更新网页源代码。

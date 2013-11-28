@@ -1,3 +1,8 @@
+---
+layout: api_layout
+title: 简单反馈
+order: 515
+---
 <a name="simple-response"></a>
 ### 简单反馈
 

@@ -1,9 +1,14 @@
+---
+layout: api_layout
+title: 回调
+order: 514
+---
 <a name="callback"></a>
 ## 回调（callback）
 
 开发者可以要求七牛云存储在某文件上传完成后向特定的URL发起一个回调请求。七牛云存储会将该回调的响应内容作为文件上传响应的一部分一并返回给客户端。回调的流程如下图所示：
 
-> TODO: 插入回调的流程图。
+![带回调的上传流程](img/upload-with-callback.png)
 
 要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略]()中的`callbackUrl`字段。如果希望控制回调的内容，还可以同时设置`callbackBody`字段。
 
@@ -12,11 +17,9 @@
 
 通过设定上传策略中的`callbackUrl`字段为一个有效的地址，即可让七牛云存储在文件上传完成后向该地址发起回调请求。
 
-该地址可以是一个HTTP或者HTTPS的URL，需要在公网可以访问。
+该地址可以是一个HTTP或者HTTPS的URL，需要在公网可以访问。可以通过设置该服务器的防盗链白名单为`*。qiniu.com`来防止其他非期望的访问来源。
 
-> TODO: 如果只有`callbackUrl`而没有`callbackBody`，回调服务器到底会收到什么缺省的信息？
-
-如果需要传递复杂的内容而不仅仅是一个简单的通知，开发者可以考虑配合使用上传策略中的`callbackBody`字段。
+如果需要传递自定义的请求内容，开发者可以考虑配合使用上传策略中的`callbackBody`字段。如果只有`callbackUrl`而没有`callbackBody`，回调服务器收到的请求内容将为空。
 
 <a name="callback-body"></a>
 ### 回调内容
@@ -33,7 +36,7 @@
 put_policy = '{
     ...
     "callbackBody" : "name=$(fname)&hash=$(etag)& \
-    location=$(x:location)&=$(x:price)"
+    location=$(x:location)&price=$(x:price)"
     ...
 }'
 ```
@@ -51,16 +54,16 @@ put_policy = '{
 </form>
 ```
 
-其中，发送了自定义变量的值`x:location = Shanghai`和`x:price = Shanghai`，而魔法变量`$(fname)`和`$(etag)`七牛云存储将根据上传资源的实际情况求值填写。
+其中，发送了自定义变量的值`x:location = Shanghai`和`x:price = 1500.00`，且七牛云存储将根据上传资源的实际情况填写魔法变量`$(fname)`和`$(etag)`的值。
 
-七牛云存储完成上传后，便可以构造出回调的反馈信息：
+完成上传后，七牛云存储便会构造出如下的回调信息：
 
 ```
 name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm- \
 RlQx_4O2&location=Shanghai&price=1500.00
 ```
 
-之后，再对其进行[URL安全的Base64编码]()，结果如下：
+之后，再对其进行[URL安全的Base64编码](/api/overview/appendix.html#urlsafe-base64)，结果如下：
 
 ```
 bmFtZT1zdW5mbG93Z...zZT0xNTAwLjAw
@@ -104,12 +107,12 @@ Cache-Control: no-store
 }
 ```
 
-如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579]()以及详细的失败信息。
+如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](/api/reference/codes.html)以及详细的失败信息。
 
 <a name="callback-security"></a>
 ### 安全性
 
-因为[上传凭证]()可有效防止七牛云存储从客户端收到伪造的回调请求，因此回调接受方（通常是业务服务器）可以认为来自七牛云存储的调用是可信的。
+因为[上传凭证](/api/reference/security/upload-token.html)可有效防止七牛云存储从客户端收到伪造的回调请求，因此回调接受方（通常是业务服务器）可以认为来自七牛云存储的调用是可信的。
 
 但由于回调请求中可能用变量等方式请求一些敏感的用户信息，这个调用过程应识别非可信方的请求，并在必要的时候用HTTPS的方式防止传输中途被截取内容。回调URL直接支持HTTPS协议。
 

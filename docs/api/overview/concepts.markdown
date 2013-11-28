@@ -1,5 +1,34 @@
+---
+layout: api_layout
+title: 关键概念
+order: 800
+---
 <a name="concepts"></a>
-## 概念
+## 关键概念
+
+<a name="user"></a>
+### 开发者、客户、用户
+
+本文档中会经常性的提到几个角色。
+
+开发者是云存储服务的使用者，因此在文档中提到的客户等同于开发者。用户则是开发者所推出产品的直接使用者，也是云存储服务的间接使用者。
+
+![用户场景](img/usecase.png "用户场景")
+
+<a name="key-value"></a>
+### 键值对（key-value）
+
+键值对（key-value，简称kv）是一个常用的数据结构概念，通常又被称为字典（dictionary）或映射（map）。每个存放到该数据结构中的数据（value）都对应到一个全局唯一的键（key）。该数据结构的特征是以空间换时间，通过键查询值通常可以是一个比较快速的过程。
+
+在存储系统中，键值对是和树形文件系统（file system，简称fs）对应的一个概念。一般人所了解的文件系统类型，比如Windows系统的FAT32和NTFS、Linux系统的EXT3等，都是树形文件系统的示例。树形文件系统的特征是以文件夹和文件的方式管理存储内容。
+
+树形文件系统从早期比较符合常规的使用场景，让用户可以对大量内容进行有效的归类，比如桌面操作系统通常会缺省创建这些文件夹：图片、视频、文档、下载等。但树形文件系统的设计对于节点（即文件和文件夹）数量有一些限制，当节点数达到一个级数后，文件系统的性能将急剧下降到不可用的程度，因此操作系统一般会对文件夹中可包含的子节点数目设置一个上限。
+
+在设计海量存储系统时，树形文件系统的两个缺陷就会凸显出来：性能限制、无法横向无限扩展。在这种考虑下，海量存储系统一般设计为键值对方式。键可以是一个任意字符串（有些设计中可能会保留一些字符），值就是一个具体文件。写入文件时，用户可以自行指定键（比如看起来接近于文件系统的格式：`/data/imgs/2011/1/1/img001.jpg`），或者让存储系统自动生成一个唯一的键并返回。使用者只需要知道使用入口（比如七牛的上传域名是`up.qiniu.com`），而无需了解文件具体会被存放到哪个机房的哪个设备，也无需知道存放的形式。要读取时用标准的HTTP GET方式访问对应的URL即可，如：
+
+```
+GET http://imgs.qiniu.com/data/imgs/2011/1/1/img001.jpg
+```
 
 <a name="resource"></a>
 ### 资源（resource）
@@ -11,13 +40,13 @@
 使用者可以在上传资源时为其指定一个方便管理的标识，比如通过设计好的前缀来达到类似于文件目录的分类和层次效果。比如对于一个网站的资源，我们可以命名如下的资源列表：
 
 ```
-/index.html
-/features/index.html
-/features/feature1.html
-/features/feature2.html
-/imgs/features/feature1.png
-/imgs/features/feature2.png
-/about.html
+index.html
+features/index.html
+features/feature1.html
+features/feature2.html
+imgs/features/feature1.png
+imgs/features/feature2.png
+about.html
 ```
 
 假设这些资源都位于某个绑定了域名`example.com`的公开空间中，则用户可以通过组合这样的URL访问这些资源：
@@ -39,22 +68,8 @@ http://www.example.com/features
 
 常见的设置有如下：
 
-- 将空间设置为公有或私有，以控制访问权限；
-- 绑定若干个域名，以便于使用自定义的域名来访问存储的资源；
-- 设置资源的处理样式（style），以便于用简短的方式
-
-<a name="domain-binding"></a>
-### 域名绑定
-
-每个空间都可以绑定一个到多个自定义域名，以便于更方便的访问资源。
-
-比如`www.qiniu.com`的所有静态资源均存放于一个叫`qiniu-resources`的公开空间中。并将该空间绑定到一个二级域名`i1.qiniu.com`，那么如果要在一个HTML页面中引用该空间的`logo.png`资源，大概的写法如下：
-
-```
-<img source="http://i1.qiniu.com/logo.png"></img>
-```
-
-这样既可以在一定程度上隐藏正在使用七牛云存储的事实，但更大的好处是如果需要从一个云存储迁移到另一个云存储，只需要修改域名DNS的CNAME设置，而无需更新网页源代码。
+- 将空间设置为公开或私有，以控制空间内资源的访问权限；
+- 设置资源的数据处理样式（style），以便于用简短的方式对资源进行处理；
 
 <a name="fop"></a>
 ### 数据处理（fop）
@@ -70,11 +85,21 @@ http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
 多个数据处理操作可以通过管道（pipe）进行连接，比如我们可以在一次请求中完成先对图片进行缩放，然后再在图片右下角添加一个透明图片水印。缩放和添加水印分别是一个数据处理操作。
 
 <a name="style"></a>
-### 资源样式（style）
+### 数据处理样式（style）
 
-样式是对一个或一组数据处理操作的命名，假如我们定义了一个名为`small`的图片样式，用来将目标图片转换为特定尺寸，我们可以这样使用来获取符合期望的转换后图片：
+如果觉得`url?<fop1>|<fop2>|<fop3>|<fopN>`这样的形式够冗长，还可以为这些串行的`<fop>`集合定义一个友好别名，之后可以用这个友好的别名来取代冗长的指令和参数。我们称这个别名为样式（style）。样式是对一个或一组数据处理操作的命名。
+
+假如我们需要从目标视频中截取指定的一帧图片，并对该图片打上一个水印后最为该视频的封面图片，该数据处理的示例URL如下所示：
 
 ```
-http://i1.qiniu.com/sample1.png-small
+http://open.qiniu.com/thinkingingo.mp4?vframe/jpg/offset/7/w/480/h/360
+|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
 ```
 
+这个URL看起来非常长且难以理解目的。我们可以定义一个名为`coverpic`的样式，对应到相应的数据处理内容，则之后我们可以用如下使用方式：
+
+```
+http://open.qiniu.com/thinkingingo.mp4-coverpic
+```
+
+显然相比清晰很多也方便很多。
