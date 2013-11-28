@@ -1,3 +1,8 @@
+---
+layout: docs
+title: 上传模型
+order: 550
+---
 <a name="upload-models"></a>
 ## 上传模型
 

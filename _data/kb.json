@@ -2,8 +2,14 @@
 	"Name": "docs/kb",
 	"Items": [
 		{
-			"Title": "F&Q",
+			"Title": "常见问题",
 			"Href": "docs/kb/faq.html",
+			"Child": null,
+			"Order": 0
+		},
+		{
+			"Title": "使用七牛加速静态文件",
+			"Href": "docs/kb/speed_up_staticfile.html",
 			"Child": null,
 			"Order": 0
 		},

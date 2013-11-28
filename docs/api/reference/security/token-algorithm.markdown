@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: 凭证算法
+order: 990
 ---
 
 <a name="token-algorithm"></a>

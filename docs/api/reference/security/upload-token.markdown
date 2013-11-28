@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: 上传凭证
+order: 970
 ---
 
 <a name="upload-token"></a>
