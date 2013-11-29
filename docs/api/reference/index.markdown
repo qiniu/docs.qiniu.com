@@ -1,10 +1,7 @@
 ---
-layout: docs
+layout: api_index_layout
 title: 七牛云存储API使用指南
-order: 100
 ---
-
-![sss](http://abcdea.qiniudn.com/2013/11/opppon1.jpg)
 
 <a name="extended-headers"></a>
 ## HTTP扩展字段

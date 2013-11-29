@@ -1,9 +1,9 @@
 ---
 layout: docs
-title: "F&Q"
+title: 常见问题
 ---
 
-## F&Q
+## FAQ
 
 ### 1. 七牛云存储支持目录或文件夹概念么？
 
