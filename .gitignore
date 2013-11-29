@@ -6,3 +6,6 @@ jkl
 jkl-bin
 genMenu
 _jekyll_qiniu.yml
+Gruntfile.coffee
+node_modules
+package.json

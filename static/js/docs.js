@@ -1,8 +1,8 @@
 $(function() {
 
-    var url = window.location.pathname;
+    var url = window.location.pathname.toLowerCase();
 
-    if ((url.indexOf("/docs/sdk/") === 0)||(url.indexOf("/docs/tools/") === 0)) {
+    if ((url.indexOf("/docs/sdk/") === 0) || (url.indexOf("/docs/tools/") === 0)) {
 
         //通过js移动文档导行到右边索引边栏
         //first level
@@ -13,7 +13,7 @@ $(function() {
             $(this).children("ul").each(function() {
                 //ul
                 $(this).attr("class", "panel-list level-three nav");
-                $(this).children("ul").each(function(){
+                $(this).children("ul").each(function() {
                     $(this).attr("class", "panel-list level-four nav");
                 });
             });
@@ -50,11 +50,10 @@ $(function() {
     }
 
     //顶部栏样式
-    var url = window.location.pathname;
     $('.nav-home a').each(function() {
-        var path = url.split('/')[2];
-        var href = $(this).attr('href').toLowerCase();;
-        var pathname = href.split('/')[2];
+        var path = url.split('/')[1];
+        var href = $(this).attr('href').toLowerCase();
+        var pathname = href.split('/')[1];
         if (pathname === path) {
             $(this).addClass('active').siblings().removeClass('active');
         }
@@ -75,12 +74,21 @@ $(function() {
         return false;
     });
 
-    //API页面侧边栏操作
+
+    //调整API页面容器高度，若侧边栏超高，则调整
+    function adjustApiBoxHeight() {
+        var sidebarHeight = $('.side-bar.pull-left').height();
+        var contentHeight = $('.main.pull-right').height();
+        var height = sidebarHeight > contentHeight ? sidebarHeight - 1 : contentHeight;
+        $('.main.pull-right').height(height);
+    };
+    adjustApiBoxHeight();
+    //API页面侧边栏操作 --  一级导航点击
     $('.panel-default > .panel-heading').on('click', function() {
         var $next = $(this).next('.panel-body');
         var $siblings = $(this).parents('.panel').siblings('.panel');
         if ($next.is(':visible')) {
-            $next.slideUp('fast');
+            $next.slideUp('fast', adjustApiBoxHeight);
             $(this).find('span.api_down_sprited').removeClass('api_down_sprited').addClass('api_default_sprited');
             $(this).find('a').removeClass('active');
         } else {
@@ -88,49 +96,36 @@ $(function() {
                 var scrollTop = $(window).scrollTop() - 70;
                 var height = $('.panel-box').height();
                 var mainHeight = $('.main').height();
-                var windowHeight = $(window).height();
                 var dHeight = scrollTop + height - mainHeight;
                 if (dHeight > 0) {
                     window.scrollTo($(window).scrollLeft(), $(window).scrollTop() - 1);
                     window.scrollTo($(window).scrollLeft(), $(window).scrollTop() + 1);
                 }
+                adjustApiBoxHeight();
             });
             $(this).find('span.api_default_sprited').removeClass('api_default_sprited').addClass('api_down_sprited');
             $(this).find('a').addClass('active');
             $siblings.children('.panel-heading').find('.icon').removeClass('api_down_sprited').addClass('api_default_sprited');
             $siblings.children('.panel-heading').find('a').removeClass('active');
-            $siblings.children('.panel-body').slideUp();
+            $siblings.children('.panel-body').slideUp(adjustApiBoxHeight);
         }
         return false;
     });
-    $('.panel-body .link').each(function() {
-        var params = url.split('/');
-        var path = params[2];
-        var fileName = params[params.length - 1];
-        var href = $(this).attr('href').toLowerCase();;
-        if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            $(this).parents('.panel-body').siblings('.panel-heading').click();
-            $(this).parents('.panel-heading').siblings('.panel-body').slideDown();
 
-            $(this).addClass('active');
-            $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
-            $(this).next('.icon').addClass('api_down2_sprited');
-        }
-    });
     $('.panel-body .api_down2_sprited').on('click', function() {
         var params = url.split('/');
         var path = params[2];
         var fileName = params[params.length - 1];
         var $link = $(this).siblings('a');
-        var href = $link.attr('href').toLowerCase();;
+        var href = $link.attr('href').toLowerCase();
         if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            $(this).parents('.panel-heading').siblings('.panel-body').slideUp();
-
+            $(this).parents('.panel-heading').siblings('.panel-body').slideUp(adjustApiBoxHeight);
             $link.removeClass('active');
             $link.siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
             $link.next('.icon').removeClass('api_down2_sprited');
         }
     });
+
     $('.panel-body .link').on('click', function() {
         var params = url.split('/');
         var path = params[2];
@@ -139,17 +134,35 @@ $(function() {
         if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
             var $panelBody = $(this).parents('.panel-heading').siblings('.panel-body');
             if ($panelBody.is(':visible')) {
-                $panelBody.slideUp();
+                $panelBody.slideUp(adjustApiBoxHeight);
                 $(this).removeClass('active');
                 $(this).siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
                 $(this).next('.icon').removeClass('api_down2_sprited');
             } else {
-                $(this).parents('.panel-heading').siblings('.panel-body').slideDown();
+                $(this).parents('.panel-heading').siblings('.panel-body').slideDown(adjustApiBoxHeight);
                 $(this).addClass('active');
                 $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
                 $(this).next('.icon').addClass('api_down2_sprited');
             }
             return false;
+        }
+    });
+    //API页面侧边栏---显示当前页的导航
+    $('.panel-body a').each(function() {
+        var href = $(this).attr('href').toLowerCase();
+        if (url === href) {
+            $(this).parents('.panel-body').siblings('.panel-heading').click();
+            $(this).addClass('active');
+            if ($(this).parents('.panel-heading').length > 0) {
+                $(this).parents('.panel-heading').siblings('.panel-body').slideDown(adjustApiBoxHeight);
+                $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                $(this).next('.icon').addClass('api_down2_sprited');
+            } else {
+                $(this).parents('.panel-body').show(adjustApiBoxHeight);
+                $(this).parents('.panel-body').siblings('.panel-heading').find('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
+                $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
+            }
         }
     });
 
@@ -161,7 +174,7 @@ $(function() {
 
     // API页高亮代码
     $('pre code').each(function(i, e) {
-        hljs.highlightBlock(e)
+        hljs.highlightBlock(e);
     });
 
     //API具体页标志当前锚点功能
