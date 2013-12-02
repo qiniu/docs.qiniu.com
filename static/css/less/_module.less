@@ -117,6 +117,22 @@ a.more {
 //文档具体页侧边栏样式
 .panel {
     width: 258px;
+    &.special-panel {
+        width: 233px;
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        background-color: #FAFAFA;
+        font-size: 12px;
+        padding: 0 0 0 25px;
+        text-align: left;
+        &.active {
+            font-weight: bold;
+        }
+        a {
+            color:#262626;
+        }
+    }    
     >.panel-heading {
         cursor: pointer;
         height: 36px;
