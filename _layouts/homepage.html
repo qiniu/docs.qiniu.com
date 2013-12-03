@@ -13,6 +13,32 @@
     <meta http-equiv="Content-Language" content="zh-cn" />
     <meta http-equiv="imagetoolbar" content="false" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
+    <style type="text/css">
+    .autocomplete-suggestions {
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 432px;
+    }
+    .autocomplete-suggestions {
+        border: 1px solid #999;
+        background: #FFF;
+        overflow: auto;
+    }
+    .autocomplete-suggestion {
+        padding: 2px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .autocomplete-selected {
+        background: #0c94de;
+        color:white;
+    }
+    .autocomplete-suggestions strong {
+        font-weight: normal;
+        color: #3399FF;
+    }
+    </style>
     <title>
         {{ .page.title }} | 七牛云存储
     </title>
@@ -123,6 +149,16 @@
     </script>
     <script type="text/javascript" src="https://dn-portal-static.qbox.me/v105/static/theme/default/js/zendesk/init.js"></script>
     <script type="text/javascript" src="static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="/static/js/fc.js" type="text/javascript"></script>
+    <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $('#search').autocomplete({
+        lookup: fc.fc,
+        onSelect: function(suggestion) {
+            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        }
+    });
+    </script>
 </body>
 
 </html>
