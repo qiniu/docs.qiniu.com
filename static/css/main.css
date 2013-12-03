@@ -879,6 +879,12 @@ footer .copyright {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+.api-content img[alt] {
+  max-width: 628px;
+}
+.api-content .center {
+  text-align: center;
+}
 div.api-resource {
   float: right;
   width: 130px;
