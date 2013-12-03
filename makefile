@@ -4,12 +4,17 @@ all:
 	./_genMenu docs/api/reference > _data/apiref.json 
 	./_genMenu docs/guide > _data/guide.json 
 	./_genMenu docs/kb > _data/kb.json 
+fc:
+	#分词索引
+	./_jkl --plugin 'fc _dictionary.txt static/js/fc.js' --server
+	
+
 
 test: all
 	./_jkl --server
 
 install: 
-	./_jkl --qiniu-config _jekyll_qiniu.yml  --qiniu --verbose
+	./_jkl --qiniu-config _jekyll_qiniu.yml --plugin 'fc _dictionary.txt static/js/fc.js' --qiniu --verbose
 	@echo
 
 clean:

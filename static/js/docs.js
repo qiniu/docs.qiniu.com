@@ -13,9 +13,6 @@ $(function() {
             $(this).children("ul").each(function() {
                 //ul
                 $(this).attr("class", "panel-list level-three nav");
-                $(this).children("ul").each(function() {
-                    $(this).attr("class", "panel-list level-four nav");
-                });
             });
         });
         var href = url;
@@ -51,11 +48,14 @@ $(function() {
 
     //顶部栏样式
     $('.nav-home a').each(function() {
-        var path = url.split('/')[1];
-        var href = $(this).attr('href').toLowerCase();
-        var pathname = href.split('/')[1];
-        if (pathname === path) {
-            $(this).addClass('active').siblings().removeClass('active');
+        if ($('.nav-home a').index($(this)) !== 1) {
+            //若新手上路链接改为站内链接，此判断可清除
+            var path = url.split('/')[1];
+            var href = $(this).attr('href').toLowerCase();
+            var pathname = href.split('/')[1];
+            if (pathname === path) {
+                $(this).addClass('active').siblings().removeClass('active');
+            }
         }
     });
 
@@ -74,6 +74,11 @@ $(function() {
         return false;
     });
 
+    // API页固定侧边栏
+    $('.container.api .side-bar').hcSticky({
+        bottomEnd: -1,
+        top: 0
+    });
 
     //调整API页面容器高度，若侧边栏超高，则调整
     function adjustApiBoxHeight() {
@@ -88,11 +93,11 @@ $(function() {
         var $next = $(this).next('.panel-body');
         var $siblings = $(this).parents('.panel').siblings('.panel');
         if ($next.is(':visible')) {
-            $next.slideUp('fast', adjustApiBoxHeight);
+            $next.hide('fast', adjustApiBoxHeight);
             $(this).find('span.api_down_sprited').removeClass('api_down_sprited').addClass('api_default_sprited');
             $(this).find('a').removeClass('active');
         } else {
-            $next.slideDown('fast', function() {
+            $next.show('fast', function() {
                 var scrollTop = $(window).scrollTop() - 70;
                 var height = $('.panel-box').height();
                 var mainHeight = $('.main').height();
@@ -107,7 +112,7 @@ $(function() {
             $(this).find('a').addClass('active');
             $siblings.children('.panel-heading').find('.icon').removeClass('api_down_sprited').addClass('api_default_sprited');
             $siblings.children('.panel-heading').find('a').removeClass('active');
-            $siblings.children('.panel-body').slideUp(adjustApiBoxHeight);
+            $siblings.children('.panel-body').hide('fast', adjustApiBoxHeight);
         }
         return false;
     });
@@ -119,7 +124,7 @@ $(function() {
         var $link = $(this).siblings('a');
         var href = $link.attr('href').toLowerCase();
         if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            $(this).parents('.panel-heading').siblings('.panel-body').slideUp(adjustApiBoxHeight);
+            $(this).parents('.panel-heading').siblings('.panel-body').hide('fast', adjustApiBoxHeight);
             $link.removeClass('active');
             $link.siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
             $link.next('.icon').removeClass('api_down2_sprited');
@@ -134,12 +139,12 @@ $(function() {
         if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
             var $panelBody = $(this).parents('.panel-heading').siblings('.panel-body');
             if ($panelBody.is(':visible')) {
-                $panelBody.slideUp(adjustApiBoxHeight);
+                $panelBody.hide('fast', adjustApiBoxHeight);
                 $(this).removeClass('active');
                 $(this).siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
                 $(this).next('.icon').removeClass('api_down2_sprited');
             } else {
-                $(this).parents('.panel-heading').siblings('.panel-body').slideDown(adjustApiBoxHeight);
+                $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
                 $(this).addClass('active');
                 $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
                 $(this).next('.icon').addClass('api_down2_sprited');
@@ -154,11 +159,11 @@ $(function() {
             $(this).parents('.panel-body').siblings('.panel-heading').click();
             $(this).addClass('active');
             if ($(this).parents('.panel-heading').length > 0) {
-                $(this).parents('.panel-heading').siblings('.panel-body').slideDown(adjustApiBoxHeight);
+                $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
                 $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
                 $(this).next('.icon').addClass('api_down2_sprited');
             } else {
-                $(this).parents('.panel-body').show(adjustApiBoxHeight);
+                $(this).parents('.panel-body').show('fast', adjustApiBoxHeight);
                 $(this).parents('.panel-body').siblings('.panel-heading').find('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
                 $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
                 $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
@@ -166,11 +171,7 @@ $(function() {
         }
     });
 
-    // API页固定侧边栏
-    $('.container.api .side-bar').hcSticky({
-        bottomEnd: -1,
-        top: 0
-    });
+
 
     // API页高亮代码
     $('pre code').each(function(i, e) {
