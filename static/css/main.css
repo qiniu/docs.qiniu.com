@@ -158,10 +158,6 @@ a.more {
 }
 .panel.special-panel a {
   color: #262626;
-  display: inline-block;
-  width: 233px;
-  cursor: pointer;
-  height: 36px;
 }
 .panel > .panel-heading {
   cursor: pointer;
@@ -242,11 +238,9 @@ a.more {
 .panel > .panel-body a.active {
   color: #404040;
 }
-.panel .level-three li {
+.panel .level-three li,
+.panel .level-four li {
   text-indent: 24px;
-}
-.panel .level-three ul {
-  padding-left: 24px;
 }
 .panel:first-child .panel-heading {
   border-top: none;
@@ -777,7 +771,7 @@ footer .copyright {
   color: #404040;
   margin: 15px 0;
   text-indent: 5px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 12px;
 }
 .api-content h4 {
@@ -792,7 +786,7 @@ footer .copyright {
 .api-content ul,
 .api-content pre,
 .api-content ol {
-  margin: 15px 0 20px 24px;
+  margin: 20px 0 20px 24px;
   color: #404040;
 }
 .api-content div,
@@ -800,14 +794,8 @@ footer .copyright {
 .api-content li {
   line-height: 21px;
 }
-.api-content ol {
-  padding-left: 24px;
-}
 .api-content li {
   margin: 6px 0;
-}
-.api-content li p {
-  margin: 5px 0 ;
 }
 .api-content a {
   color: #999999;
