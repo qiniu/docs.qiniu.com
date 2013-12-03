@@ -41,12 +41,12 @@ $(function() {
                 nhtml.html(ii + "." + a.html());
                 a.html(ii + ". " + a.html());
                 $(this).children("ul").each(function(o, oo) {
-                    addIndex(oo, ii)
+                    addIndex(oo, ii);
                 });
             });
-        }
+        };
 
-        addIndex($("#" + sdk + " ul :first"), "")
+        addIndex($("#" + sdk + " ul :first"), "");
     }
 
     //顶部栏样式
@@ -77,14 +77,20 @@ $(function() {
         return false;
     });
 
+    //给API页面所有图片的父元素添加一个居中类
+    $('.api-content img').each(function() {
+        $(this).parent().addClass('center');
+    })
 
     //调整API页面容器高度，若侧边栏超高，则调整
     function adjustApiBoxHeight() {
         var sidebarHeight = $('.side-bar.pull-left').height();
-        var contentHeight = $('.main.pull-right').height();
-        var height = sidebarHeight > contentHeight ? sidebarHeight - 1 : contentHeight;
-        $('.main.pull-right').height(height);
-    };
+        var contentHeight = $('.api-content').height();
+        if (sidebarHeight > contentHeight) {
+            var height = sidebarHeight;
+            $('.api-content').height(height);
+        }
+    }
     adjustApiBoxHeight();
     //API页面侧边栏操作 --  一级导航点击
     $('.panel-default > .panel-heading').on('click', function() {
@@ -193,6 +199,7 @@ $(function() {
             break;
         }
     }
+    console.log(target);
     if ($('body').scrollspy) {
         $('body').scrollspy({
             target: '#' + target
