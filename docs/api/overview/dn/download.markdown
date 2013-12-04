@@ -4,10 +4,10 @@ title: 资源下载
 order: 480
 ---
 <a name="download"></a>
-## 资源下载
+# 资源下载
 
 <a name="download-models"></a>
-### 下载机制
+## 下载机制
 
 资源的下载采用`HTTP GET`方式（详见[RFC2616 标准](<http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>)）。下载过程所需的参数作为URL参数：
 
@@ -26,7 +26,7 @@ Range: bytes=<first-byte-pos>-<last-byte-pos>
 在移动应用我们经常看到一个设置叫__只在WIFI连接时下载__。这个功能就可以通过资源下载对`Range`字段的支持而比较容易的实现。客户端通过在网络连接切换时判断当前连接类型而自动判断是否应该暂停下载，这样可以避免因为大资源的下载而耗尽3G流量（比如安装包的下载）。
  
 <a name="download-response"></a>
-### 下载响应
+## 下载响应
 
 资源下载的响应符合HTTP GET的规范，比如200表示下载成功。除了标准的HTTP字段比如`Content-Type`、`Content-Length`外还会携带一些扩展字段，如`ETag`、`X-Log`、`X-Reqid`等。这些扩展字段非常有助于排查问题。
 

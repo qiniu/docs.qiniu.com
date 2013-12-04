@@ -5,7 +5,7 @@ order: 175
 ---
 
 <a name="imageView"></a>
-## 图片处理（imageView）
+# 图片处理（imageView）
 
 **请求**
 

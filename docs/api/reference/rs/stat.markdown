@@ -5,7 +5,7 @@ order: 900
 ---
 
 <a name="stat"></a>
-#获取资源信息（stat）
+# 获取资源信息（stat）
 
 <a name="description"></a>
 ## 描述

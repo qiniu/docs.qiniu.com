@@ -4,7 +4,7 @@ title: 处理结果另存为（saveas）
 order: 185
 ---
 <a name="saveas"></a>
-## 处理结果另存为（saveas）
+# 处理结果另存为（saveas）
 
 七牛云存储的云处理API满足如下规格:
 
@@ -30,7 +30,7 @@ sign            | string | 是   | 生成的签名部分，算法见下方。
 
 <a name="saveas-sample"></a>
 
-### 样例
+## 样例
 
 1. 原资源是一个图片
  - http://t-test.qiniudn.com/Ship.jpg
@@ -67,7 +67,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 
 <a name="saveas-apx"></a>
 
-### 备注
+## 备注
 
 - `urlsafe_base64_encode()` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
 - 这里的签名内容是不包含scheme字段，与download token签名不一样。
