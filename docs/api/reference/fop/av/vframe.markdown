@@ -5,7 +5,7 @@ order: 149
 ---
 
 <a name="video-thumbnail"></a>
-## 视频帧缩略图
+# 视频帧缩略图
 
 **请求**
 
