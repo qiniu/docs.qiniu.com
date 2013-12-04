@@ -5,7 +5,7 @@ order: 110
 ---
 
 <a name="qrcode"></a>
-## 二维码（qrcode）
+# 二维码（qrcode）
 
 生成二维码功能可以为存放在七牛云存储上的资源的url生成一个二维码图片，方便用户在各种客户端之间传播资源。所生成的二维码图片格式为png。
 
@@ -23,7 +23,7 @@ order: 110
 
 <a name="qrcode-api"></a>
 
-### API 规格
+## API 规格
 
 **请求**
 
@@ -54,7 +54,7 @@ L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体�
 
 <a name="qrcode-sample"></a>
 
-### 样例
+## 样例
 
 示例1: Mode=0 时，基于 URL 生成二维码
 
@@ -74,7 +74,7 @@ L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体�
 
 <a name="qrcode-adv"></a>
 
-### 高级用法
+## 高级用法
 
 二维码+Logo，可以使用七牛云存储的 [Pipeline API](pipeline.html) 和 [图像水印接口](image-process.html#watermark) 操作实现。例如，
 

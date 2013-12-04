@@ -4,12 +4,12 @@ title: 流媒体播放
 order: 240
 ---
 <a name="streaming"></a>
-## 流媒体播放
+# 流媒体播放
 
 七牛云存储以HTTP Live Streaming方式提供流媒体播放支持。
 
 <a name="streaming-model"></a>
-### 流媒体基本机制
+## 流媒体基本机制
 
 [HTTP Live Streaming](https://developer.apple.com/streaming/)（以下简称为HLS）是基于HTTP的流媒体传输协议。它将一整个音视频流切割成一个个小的音视频文件，并生成一个播放列表（m3u8）。客户端只需要获取资源的播放列表即可以流的方式播放音视频。
 
@@ -36,7 +36,7 @@ Content-Type: application/x-mpegurl
 合理的用法是使用[处理结果持久化功能]()，在播放前事先以异步方式创建播放列表并切割小文件，然后将两类文件均持久化存储在空间中。
 
 <a name="streaming-pfop"></a>
-### 流媒体处理结果持久化
+## 流媒体处理结果持久化
 
 HLS相关的数据处理操作如下所示：
 
@@ -54,7 +54,7 @@ avthumb/m3u8[/segtime/<SegSeconds>][/<fop_cmd>/<fop_params>]
 我们可以配合[处理结果持久化]()功能使用以上的音视频处理命令，以达到预处理流播放内容的目的。当然，我们也可以使用`persistentId`来获取特定音视频文件的转换和切割进度。
 
 <a name="streaming-preset-pfop"></a>
-### 预设处理指令
+## 预设处理指令
 
 为了方便使用，我们提供了一系列的预设数据处理指令，可以用`preset`指令直接调用。比如以下这个预设值可以将音频的码率转为32K：
 
@@ -65,7 +65,7 @@ avthumb/m3u8/segtime/10/preset/audio_32k
 请参见[音频预设集]()和[视频预设集]()了解完整的预设数据处理指令。
 
 <a name="streaming-custom-pfop"></a>
-### 自定义处理指令
+## 自定义处理指令
 
 流媒体处理指令也支持完全自定义的音视频处理参数，如下所示：
 

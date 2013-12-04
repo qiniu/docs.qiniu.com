@@ -2,6 +2,12 @@
 	"Name": "docs/kb",
 	"Items": [
 		{
+			"Title": "绘图规范和工具",
+			"Href": "docs/kb/drawing-tools.html",
+			"Child": null,
+			"Order": 0
+		},
+		{
 			"Title": "常见问题",
 			"Href": "docs/kb/faq.html",
 			"Child": null,

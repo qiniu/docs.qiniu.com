@@ -5,7 +5,7 @@ order: 100
 ---
 
 <a name="mkblk"></a>
-#创建块（mkblk）
+# 创建块（mkblk）
 
 <a name="description"></a>
 ## 描述
@@ -149,6 +149,6 @@ X-Reqid: swEAAMipp-5bIjMT
 <a name="related-resources"></a>
 ## 相关资源
 
-- [上传凭证（UploadToken）规范](http://docs.qiniu.com/#)
-- [上传片数据（bput）]()
-- [创建资源（mkfile）]()
+- [上传凭证（UploadToken）规范](../security/upload-token.html)
+- [上传片数据（bput）](bput.html)
+- [创建资源（mkfile）](mkfile.html)

@@ -5,10 +5,10 @@ order: 150
 ---
 
 <a name="avthumb"></a>
-## 音视频处理（avthumb）
+# 音视频处理（avthumb）
 
 <a name="audio-convert"></a>
-### 音频转换
+## 音频转换
 
 **请求**
 
@@ -58,7 +58,7 @@ order: 150
 
 <a name="video-preset"></a>
 
-### 视频转换预设集
+## 视频转换预设集
 
 视频转换预设集是七牛云存储提供的一组预设的视频转码设置。用户可以方便地使用这些预设的转码设置，面向特定格式进行转码。
 
@@ -100,7 +100,7 @@ webm | libvpx | webm | | 700k | libvorbis | 128k | 48k
 
 <a name="self-def-video-convert"></a>
 
-### 视频自定义转换
+## 视频自定义转换
 
 **请求**
 

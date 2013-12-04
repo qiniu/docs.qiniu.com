@@ -4,10 +4,10 @@ title: 视频水印（vwatermark）
 order: 139
 ---
 <a name="vwatermark"></a>
-## 视频水印（vwatermark）
+# 视频水印（vwatermark）
 
 <a name="vwatermark-spec"></a>
-### 视频水印规格
+## 视频水印规格
 
 视频水印的请求规格如下：
 
@@ -38,7 +38,7 @@ Content-Type: <VideoMimeType>
 ```
 
 <a name="vwatermark-examples"></a>
-### 视频水印示例
+## 视频水印示例
 
 ```
 [GET] http://api-demo.qiniudn.com/test.mov?vwatermark/1
