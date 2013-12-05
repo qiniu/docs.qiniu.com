@@ -5,12 +5,12 @@ order: 160
 ---
 
 <a name="watermark"></a>
-## 水印（watermark）
+# 水印（watermark）
 
 图像水印接口支持两种加水印的方式：图片水印和文字水印。
 
 <a name="watermark-spec"></a>
-### 水印规格
+## 水印规格
 
 添加水印的请求规格如下：
 
@@ -61,9 +61,9 @@ order: 160
 `urlsafe_base64_encode(string)` 函数的实现符合 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 标准，开发者可以参考 <https://github.com/qiniu> 上各SDK的样例代码。
 
 <a name="watermark-examples"></a>
-### 水印示例
+## 水印示例
 
-#### 图片水印样例
+### 图片水印样例
 
  - 水印图片: <http://www.b1.qiniudn.com/images/logo-2.png>
      - `ImageURL = "http://www.b1.qiniudn.com/images/logo-2.png"`
@@ -77,7 +77,7 @@ order: 160
 
 右键获取以上图片获得链接可以查看水印生成的具体规格参数。
 
-#### 文字水印样例
+### 文字水印样例
 
 - 水印文本：`七牛云存储`
 - 水印文本字体：`宋体`
@@ -90,7 +90,7 @@ order: 160
 
 右键获取以上图片获得链接可以查看水印生成的具体规格参数。
 
-### 优化建议
+## 优化建议
 
 - 1.图片上传完毕后，可异步进行水印预转，这样不必在初次访问时进行水印处理，访问速度更快。
 

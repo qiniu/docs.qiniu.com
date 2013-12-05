@@ -4,7 +4,7 @@ title: 安全机制
 order: 600
 ---
 <a name="security"></a>
-## 安全机制
+# 安全机制
 
 数据安全性是云存储服务的重中之重。云存储的安全机制需要考虑主要以下几个因素：
 
@@ -27,7 +27,7 @@ order: 600
 ![凭证创建和使用流程](img/token.png)
 
 <a name="aksk"></a>
-### 密钥（AccessKey/SecretKey）
+## 密钥（AccessKey/SecretKey）
 
 密钥用于以上几种凭证的生成。在非对称加密机制（PKI）中有公钥和私钥的概念，与云存储中的AccessKey和SecretKey是对应关系。
 
@@ -36,7 +36,7 @@ order: 600
 在具体描述各种凭证的详细生成过程中我们会看到AccessKey和SecretKey是如何被使用的。
 
 <a name="upload-token"></a>
-### 上传凭证（UploadToken）
+## 上传凭证（UploadToken）
 
 客户端上传前需要先获取从服务端颁发的上传凭证，并在上传资源时将上传凭证包含为请求内容的一部分。不带凭证或带非法凭证的请求将返回HTTP错误码401，代表认证失败。
 
@@ -53,7 +53,7 @@ order: 600
 我们使用一个[上传策略（PutPolicy）结构](/api/reference/security/put-policy.html)来保存和传递这些设置。关于上传策略和上传凭证的生成细节，请查看[上传凭证规格](/api/reference/security/upload-token.html)。关于上传凭证的具体使用方法，请参见[资源上传](/api/overview/up/index.html)。
 
 <a name="download-token"></a>
-### 下载凭证（DownloadToken）
+## 下载凭证（DownloadToken）
 
 下载私有资源的请求需要带一个合法的下载凭证。不带凭证或带非法凭证的请求将返回HTTP错误码401，代表认证失败。
 
@@ -65,7 +65,7 @@ order: 600
 关于下载凭证的生成细节，请查看[下载凭证规格]()。关于下载凭证的具体使用方法，请参见[私有资源下载](/api/overview/dn/security.html#download-private-resource)。
 
 <a name="anti-leech"></a>
-### 防盗链
+## 防盗链
 
 下载还有一种常见的场景，即公开资源的防盗链，比如禁止特定来源域名的访问，禁止非浏览器发起的访问等。
 
@@ -74,7 +74,7 @@ order: 600
 防盗链是一个系统设置，不影响开发工作。如发现有盗链情况，开发者可在[开发者平台](https://portal.qiniu.com/)的空间设置页面进行相应的设置。
 
 <a name="accesstoken"></a>
-### 管理凭证（AccessToken）
+## 管理凭证（AccessToken）
 
 在管理现有资源时（如查看资源元数据、删除或移动资源等）通常需要带一个合法的管理凭证。不带凭证或带非法凭证的管理请求将返回HTTP错误码401，代表认证失败。
 
