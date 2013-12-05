@@ -12,7 +12,7 @@ order: 513
 
 在生成[上传凭证](/api/reference/security/upload-token.html)时，开发者可以通过设置[上传策略](/api/reference/security/put-policy.html)中的`returnBody`字段指定需要返回的信息，比如资源的大小、类型，图片的尺寸等等。
 
-`returnBody`实际上是一个用户定义的反馈信息模板，用JSON格式表达。下面是一个示例：
+`returnBody`实际上是一个用户定义的反馈信息模板，**内容必须用JSON格式表达**。下面是一个示例：
 
 ```
 {
