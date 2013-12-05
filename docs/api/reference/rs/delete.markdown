@@ -64,9 +64,6 @@ Content-Type: application/json
 Cache-Control: no-store
 ```
 
-<a name="response"></a>
-## 响应
-
 <a name="response-headers"></a>
 ### 头部信息
 头部名称      | 说明                              
