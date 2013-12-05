@@ -38,6 +38,7 @@
 	}
 	ol {
 		padding-left: 24px;
+		list-style-type: decimal;
 	}
 	ul {
 		list-style: disc;
@@ -53,23 +54,26 @@
 		color: @153;
 	}
 	table {
-		border-collapse: collapse;
-		border-spacing: 0;
 		border:1px solid @230;
 		margin-left: 24px;
 		max-width: 628px;
+		border-collapse: collapse;
+		border-spacing: 0;		
+		max-width: 100%;
 		thead {
 			th,td{
 				background-color: #fafafa;
 				text-align: center;
-				
+				white-space: nowrap;
+				padding: 10px 20px;				
 			}
 		}
 		td,th,caption {
-			padding: 10px 20px;
+			padding: 10px 8px;
 			border:1px solid @230;
 			text-align: left;
 			vertical-align: middle;
+			line-height: 21px;
 		}
 		tbody {
 			tr:nth-child(even) {
@@ -107,6 +111,11 @@
 			background-color: transparent;
 			border: 0;					
 		}			
+	}
+	blockquote {
+		border: 1px solid @233;
+    	page-break-inside: avoid;
+		background-color: #fafafa;    	
 	}
 	code {
 		padding: 2px 4px;
