@@ -21,9 +21,10 @@ order: 90
 
 ```
 POST /bput/<ctx>/<next_chunk_size> HTTP/1.1
+Host:           <selectUpHost>
+Content-Type:   application/octet-stream
 Content-Length: <next_chunk_size>
-Host: <selectUpHost>
-Authorization: UpToken <UploadToken>
+Authorization:  UpToken <UploadToken>
 
 <next_chunk_binary>
 ```
@@ -46,9 +47,10 @@ next_chunk_size | int64  | 当前片大小
 Host           | 上一次响应内容中夹带的后续上传接收地址 | 是
 Content-Type   | 必须为application/octet-stream         | 是
 Content-Length | 当前片的内容长度，单位为字节。         | 是
-Authorization  | 该参数应严格按照[上传凭证（UploadToken）]()格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UploadToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
+Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
-在使用本API时无需设置额外的头部信息。其他可用的请求头部信息请参见[常用请求头部信息]()。
+使用本API无需设置额外头部信息。  
+其它可用请求头部信息请参考[常用请求头部信息]()。
 
 <a name="request-body"></a>
 ### 请求内容
@@ -58,18 +60,19 @@ Authorization  | 该参数应严格按照[上传凭证（UploadToken）]()格式
 <a name="request-auth"></a>
 ### 访问权限
 
-[上传凭证（UploadToken）](http://docs.qiniu.com/api/v6/rs.html#digest-auth)方式。
+[上传凭证（UploadToken）][uploadTokenHref]方式。
 
 <a name="response"></a>
 ## 响应
 
 <a name="response-headers"></a>
 ### 头部信息
-参数名称      | 说明                              
-:------------ | :-----------------------------------------------------------------------
-Content-Type  | 正常情况下，该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-关于其他可能出现的头部信息，请参见：[常用请求响应头部信息]()。
+头部名称      | 说明                              
+:------------ | :--------------------------------------------------------------------
+Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+
+其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a name="response-body"></a>
 ### 响应内容
@@ -100,11 +103,14 @@ selectUpHost   | string | 后续上传接收地址。
 
 <a name="error-messages"></a>
 ### 错误消息
-HTTP Code | 含义
-:-------- | :--------------------------
-200       | 上传成功
-401       | UploadToken无效
-701       | 后续上传接收地址无效，或ctx信息已过期
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 创建块成功
+400	       | 请求参数错误
+401        | 上传凭证无效
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+701        | 后续上传接收地址不正确，或ctx信息已过期
 
 <a name="remarks"></a>
 ## 附注
@@ -114,6 +120,10 @@ HTTP Code | 含义
 <a name="related-resources"></a>
 ## 相关资源
 
-- [上传凭证（UploadToken）规范](../security/upload-token.html)
+- [上传凭证（UploadToken）][uploadTokenHref]
 - [创建块（mkblk）](mkblk.html)
 - [创建资源（mkfile）](mkfile.html)
+
+[sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[uploadTokenHref]               ../security/upload-token.html                    "上传凭证"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
