@@ -40,7 +40,7 @@ EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 
 该请求须指定以下头部信息。
 
-参数名称      | 说明                              | 必填
+头部名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
 Authorization | 该参数应严格按照[AccessToken][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
@@ -57,7 +57,8 @@ Authorization | 该参数应严格按照[AccessToken][accessTokenHref]格式进�
 
 <a name="response-headers"></a>
 ### 头部信息
-参数名称      | 说明                              
+
+头部名称      | 说明                              
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
