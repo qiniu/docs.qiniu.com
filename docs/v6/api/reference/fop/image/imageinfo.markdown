@@ -50,8 +50,8 @@ Cache-Control: no-store
 字段名称       | 类型   | 说明
 :------------- | :----- | :------------------------------
 format         | string | 图片类型，如png、jpeg、gif、bmp等
-width          | int    | 图片宽度（单位：像素）
-height         | int    | 图片高度（单位：像素）
+width          | int    | 图片宽度，单位：像素（px）
+height         | int    | 图片高度，单位：像素（px）
 colorModel     | string | 彩色空间，如palette16、ycbcr等
 
 如果请求失败，具体信息请参考响应状态码。
