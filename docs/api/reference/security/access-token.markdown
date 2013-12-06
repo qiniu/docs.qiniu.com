@@ -20,7 +20,7 @@ order: 950
     FormatStr = "<path>?<query>\n<body>"
     ```
 
-2. 用SecretKey对待加密字符串进行HMAC-SHA1加密，并且做URL安全的Base64编码：
+2. 用SecretKey对待加密字符串进行HMAC-SHA1加密，并且做[URL安全的Base64编码][urlsafeBase64]：
 
     ```
     Sign = hmac_sha1(SecretKey, FormatStr)
@@ -38,3 +38,4 @@ order: 950
 ```
 // TODO: 代码示例goes here.
 ```
+[urlsafeBase64]: http://docs.qiniu.com/api/v6/terminology.html#URLSafeBase64 "URL安全的Base64编码"
