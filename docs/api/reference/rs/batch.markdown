@@ -19,9 +19,9 @@ order: 500
 
 ```
 POST /batch HTTP/1.1
-Host: rs.qiniu.com
-Content-Type: application/x-www-form-urlencoded
-Authorization: QBox <AccessToken>
+Host:           rs.qiniu.com
+Content-Type:   application/x-www-form-urlencoded
+Authorization:  QBox <AccessToken>
 
 op=<Operation>&op=<Operation>&...
 ```
@@ -32,7 +32,7 @@ EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[Enco
 <a name="request-auth"></a>
 ### 访问权限
 
-[AccessToken][accessTokenHref]方式。
+[访问凭证（AccessToken）][accessTokenHref]方式。
 
 <a name="request-params"></a>
 ### 请求参数
@@ -42,14 +42,15 @@ EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[Enco
 <a name="request-headers"></a>
 ### 头部信息
 
-根据具体需要，请求可以包含以下头部信息。
+该请求必须指定以下头部信息。
 
 头部名称      | 说明                              | 必填
-:---------- | :------------------------------- | :-------:
-Content-Type | application/x-www-form-urlencoded | 是
-Authorization | 该参数应严格按照[AccessToken][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
+:------------ | :-------------------------------- | :--------
+Content-Type  | application/x-www-form-urlencoded | 是
+Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
-使用本API时无需设置额外头部信息。  
+使用本API无需设置额外头部信息。  
+其它可用请求头部信息请参考[常用请求头部信息]()。
 
 <a name="request-body"></a>
 ### 请求内容
@@ -92,9 +93,13 @@ Cache-Control: no-store
 
 <a name="response-headers"></a>
 ### 头部信息
+
+
 头部名称      | 说明                              
-:----------- | :------------------------------- 
-Content-Type | 正常情况下，该值将被设为`application/json`，表示返回JSON格式的文本信息。
+:------------ | :--------------------------------------------------------------------
+Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+
+其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a name="response-body"></a>
 ### 响应内容
@@ -103,9 +108,9 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 
 ```
 [
-    { "code": <HTTP Code>, "data": <Data> },
-    { "code": <HTTP Code>, "data": <Data> },
-    { "code": <HTTP Code>, "data": { "error": <ErrorMessage string> } },
+    { "code": <HttpCode int>, "data": <Data> },
+    { "code": <HttpCode int>, "data": <Data> },
+    { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },
     ...
 ]
 ```
@@ -114,9 +119,9 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 
 ```
 [
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code>, "data": { "error": <ErrorMessage string> } },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },
     ...
 ]
 ```
@@ -125,9 +130,9 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 
 ```
 [
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code>, "data": { "error": <ErrorMessage string> } },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },
     ...
 ]
 ```
@@ -136,20 +141,23 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 
 ```
 [
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code> },
-    { "code": <HTTP Code>, "data": { "error": <ErrorMessage string> } },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },
     ...
 ]
 ```
 
 <a name="error-messages"></a>
 ### 错误消息
-HTTP Code | 含义
-:-------- | :--------------------------
-200       | 所有请求操作都已成功完成
-298       | 部分或所有请求操作失败（出错信息参看上述响应内容）
-401       | AccessToken无效
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 所有请求操作都已成功完成
+298        | 部分或所有请求操作失败（出错信息参看上述响应内容）
+400	       | 请求参数错误
+401        | 访问凭证无效
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 <a name="remarks"></a>
 ## 附注
@@ -159,8 +167,9 @@ HTTP Code | 含义
 <a name="related-resources"></a>
 ## 相关资源
 
-- [AccessToken格式][accessTokenHref]
+- [访问凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
-[accessTokenHref]: http://docs.qiniu.com/api/v6/rs.html#digest-auth "AccessToken格式"
-[encodedEntryURIHref]: http://docs.qiniu.com/api/v6/rs.html#words "EncodedEntryURI格式"
+[sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
+[encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"

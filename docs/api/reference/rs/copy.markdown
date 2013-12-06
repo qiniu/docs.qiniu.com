@@ -29,7 +29,7 @@ EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式
 <a name="request-auth"></a>
 ### 访问权限
 
-[AccessToken][accessTokenHref]方式。
+[访问凭证（AccessToken）][accessTokenHref]方式。
 
 <a name="request-params"></a>
 ### 请求参数
@@ -43,7 +43,7 @@ EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式
 
 头部名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
-Authorization | 该参数应严格按照[AccessToken][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
+Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
@@ -92,7 +92,7 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 复制成功
 400	       | 请求参数错误
-401        | AccessToken无效
+401        | 访问凭证无效
 404        | 待复制资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在
@@ -142,9 +142,9 @@ X-Reqid: wxIAAD3btw-v3TwT
 <a name="related-resources"></a>
 ## 相关资源
 
-- [AccessToken格式][accessTokenHref]
+- [访问凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志        "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth    "AccessToken格式"
+[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth    "访问凭证"
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words          "EncodedEntryURI格式"
