@@ -1,67 +1,67 @@
 {
-	"Name": "docs/guide",
+	"Name": "docs/v6/tutorial",
 	"Items": [
 		{
 			"Title": "概述",
-			"Href": "docs/guide/overview.html",
+			"Href": "docs/v6/tutorial/overview.html",
 			"Child": null,
 			"Order": 900
 		},
 		{
 			"Title": "做一个有意思的产品",
-			"Href": "docs/guide/product.html",
+			"Href": "docs/v6/tutorial/product.html",
 			"Child": null,
 			"Order": 800
 		},
 		{
 			"Title": "架构设计",
-			"Href": "docs/guide/architecture.html",
+			"Href": "docs/v6/tutorial/architecture.html",
 			"Child": null,
 			"Order": 700
 		},
 		{
 			"Title": "选择开发技术",
-			"Href": "docs/guide/technology.html",
+			"Href": "docs/v6/tutorial/technology.html",
 			"Child": null,
 			"Order": 600
 		},
 		{
 			"Title": "环境准备",
-			"Href": "docs/guide/environment.html",
+			"Href": "docs/v6/tutorial/environment.html",
 			"Child": null,
 			"Order": 500
 		},
 		{
 			"Title": "编码阶段",
-			"Href": "docs/guide/coding",
+			"Href": "docs/v6/tutorial/coding",
 			"Child": [
 				{
 					"Title": "服务端",
-					"Href": "docs/guide/coding/server.html",
+					"Href": "docs/v6/tutorial/coding/server.html",
 					"Child": null,
 					"Order": 500
 				},
 				{
 					"Title": "测试一下服务端",
-					"Href": "docs/guide/coding/server-testing.html",
+					"Href": "docs/v6/tutorial/coding/server-testing.html",
 					"Child": null,
 					"Order": 400
 				},
 				{
 					"Title": "Web端展现",
-					"Href": "docs/guide/coding/web.html",
+					"Href": "docs/v6/tutorial/coding/web.html",
 					"Child": null,
 					"Order": 300
 				},
 				{
 					"Title": "移动端",
-					"Href": "docs/guide/coding/mobile.html",
+					"Href": "docs/v6/tutorial/coding/mobile.html",
 					"Child": null,
 					"Order": 200
 				},
 				{
 					"Title": "集成调试",
-					"Href": "docs/guide/coding/integration.html",
+					"Href": "docs/v6/tutorial/coding/integration.html",
 					"Child": null,
 					"Order": 100
 				}
@@ -70,29 +70,29 @@
 		},
 		{
 			"Title": "产品上线与运维",
-			"Href": "docs/guide/op",
+			"Href": "docs/v6/tutorial/op",
 			"Child": [
 				{
 					"Title": "部署",
-					"Href": "docs/guide/op/deployment.html",
+					"Href": "docs/v6/tutorial/op/deployment.html",
 					"Child": null,
 					"Order": 400
 				},
 				{
 					"Title": "系统监控",
-					"Href": "docs/guide/op/monitoring.html",
+					"Href": "docs/v6/tutorial/op/monitoring.html",
 					"Child": null,
 					"Order": 300
 				},
 				{
 					"Title": "运维安全",
-					"Href": "docs/guide/op/security.html",
+					"Href": "docs/v6/tutorial/op/security.html",
 					"Child": null,
 					"Order": 200
 				},
 				{
 					"Title": "数据分析与统计",
-					"Href": "docs/guide/op/analytics.html",
+					"Href": "docs/v6/tutorial/op/analytics.html",
 					"Child": null,
 					"Order": 100
 				}
@@ -101,13 +101,13 @@
 		},
 		{
 			"Title": "下一步：还可以做哪些有意思的事情",
-			"Href": "docs/guide/future.html",
+			"Href": "docs/v6/tutorial/future.html",
 			"Child": null,
 			"Order": 200
 		},
 		{
 			"Title": "开发小结",
-			"Href": "docs/guide/conclusion.html",
+			"Href": "docs/v6/tutorial/conclusion.html",
 			"Child": null,
 			"Order": 100
 		}

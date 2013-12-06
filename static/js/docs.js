@@ -83,20 +83,28 @@ $(function() {
     // API页固定侧边栏
     $('.container.api .side-bar').hcSticky({
         bottomEnd: -1,
-        top: 0
+        top: 0,
+        innerTop: 0,
+        followScroll: false
     });
 
+    // API页侧边栏点击a后添加active样式
+    $('.nav a').click(function() {
+        $(this).parents('.nav').find('a').removeClass('active');
+        $(this).addClass('active');
+    });
 
-    //调整API页面容器高度，若侧边栏超高，则调整
+    //调整API页面容器高度，若侧边栏超高，则调整.
     function adjustApiBoxHeight() {
         var sidebarHeight = $('.side-bar.pull-left').height();
         var contentHeight = $('.api-content').height();
         if (sidebarHeight > contentHeight) {
-            var height = sidebarHeight;
+            var height = sidebarHeight - 1;
             $('.api-content').height(height);
         }
     }
     adjustApiBoxHeight();
+
     //API页面侧边栏操作 --  一级导航点击
     $('.panel-default > .panel-heading').on('click', function() {
         var $next = $(this).next('.panel-body');
