@@ -31,7 +31,10 @@ Authorization: UpToken <UploadToken>
 <a name="request-params"></a>
 ### 请求参数
 
-该请求无需设置任何参数。
+参数名称        | 类型   | 说明
+:-------------- | :----- | :------------------------------
+ctx             | string | 上次返回的服务端上传控制字段
+next_chunk_size | int64  | 当前片大小
 
 <a name="request-headers"></a>
 ### 头部信息
@@ -93,7 +96,7 @@ crc32          | int64  | 上传块Crc32,客户可通过此字段对上传块的
 offset         | int64  | 下一个上传块在切割块中的偏移。
 selectUpHost   | string | 后续上传接收地址。
 
-如果请求失败，请参见[常见错误码]()。
+如果请求失败，请参见错误消息。
 
 <a name="error-messages"></a>
 ### 错误消息
