@@ -38,7 +38,7 @@ EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 <a name="request-headers"></a>
 ### 头部信息
 
-该请求须指定以下头部信息。
+该请求必须指定以下头部信息。
 
 头部名称      | 说明                              | 必填
 :------------ | :-------------------------------- | :-------
@@ -91,6 +91,7 @@ putTime        | int64  | 文件上传时的服务器端Epoch时间戳，单位�
 
 <a name="error-messages"></a>
 ### 错误消息
+
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 移动成功
@@ -158,8 +159,8 @@ X-Reqid: swEAAMipp-5bIjMT
 - [EncodedEntryURI格式](encodedEntryURIHref)
 - [自定义返回内容]()
 
-[sendBugReportHref]: mailto:support@qiniu.com?subject=599错误日志 "发送错误报告"
-[mimeMediaTypesHref]: http://www.iana.org/assignments/media-types "MIME媒体类型"
-[accessTokenHref]: http://docs.qiniu.com/api/v6/rs.html#digest-auth "AccessToken格式"
-[encodedEntryURIHref]: http://docs.qiniu.com/api/v6/rs.html#words "EncodedEntryURI格式"
-[commonHttpResponseHeaderHref]: ../extended-headers.html "常见响应头部信息"
+[sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[mimeMediaTypesHref]:           http://www.iana.org/assignments/media-types      "MIME媒体类型"
+[accessTokenHref]:              http://docs.qiniu.com/api/v6/rs.html#digest-auth "AccessToken格式"
+[encodedEntryURIHref]:          http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
