@@ -20,9 +20,10 @@ order: 100
 
 ```
 POST /mkblk/<block_size> HTTP/1.1
+Host:           up.qiniu.com
+Content-Type:   application/octet-stream
 Content-Length: <first_chunk_size>
-Host: up.qiniu.com
-Authorization: UpToken <UploadToken>
+Authorization:  UpToken <UploadToken>
 
 <first_chunk_binary>
 ```
@@ -30,7 +31,7 @@ Authorization: UpToken <UploadToken>
 <a name="request-auth"></a>
 ### 访问权限
 
-[上传凭证（UploadToken）](http://docs.qiniu.com/api/v6/rs.html#digest-auth)方式。
+[上传凭证（UploadToken）][uploadTokenHref]方式。
 
 <a name="request-params"></a>
 ### 请求参数
@@ -42,12 +43,14 @@ Authorization: UpToken <UploadToken>
 
 该请求须指定以下头部信息。
 
-参数名称      | 说明                              | 必填
-:---------- | :------------------------------- | :-------:
-Authorization | 该参数应严格按照[上传凭证（UploadToken）]()格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UploadToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
-Content-Length | 第一个片的内容长度，单位为字节。 | 是
+参数名称       | 说明                              | 必填
+:------------- | :-------------------------------- | :-------
+Content-Type   | 必须为application/octet-stream    | 是
+Content-Length | 第一个片的内容长度，单位为字节。  | 是
+Authorization | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
-在使用本API时无需设置额外的头部信息。其他可用的请求头部信息请参见[常用请求头部信息]()。
+使用本API无需设置额外头部信息。  
+其它可用请求头部信息请参考[常用请求头部信息]()。
 
 <a name="request-body"></a>
 ### 请求内容
@@ -59,11 +62,12 @@ Content-Length | 第一个片的内容长度，单位为字节。 | 是
 
 <a name="response-headers"></a>
 ### 头部信息
-参数名称      | 说明                              
-:----------- | :------------------------------- 
-Content-Type | 正常情况下，该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-关于其他可能出现的头部信息，请参见：[常用请求响应头部信息]()。
+头部名称      | 说明                              
+:------------ | :--------------------------------------------------------------------
+Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
+
+其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
 <a name="response-body"></a>
 ### 响应内容
@@ -72,38 +76,50 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 
 ```
 {
-	ctx: <Ctx string>, 
-    checksum: <Checksum string>,
-    crc32: <Crc32 int64>,
-    offset: <Offset int64>,
-    selectUpHost: <SelectUpHost string>
+	"ctx":          "<Ctx           string>", 
+    "checksum":     "<Checksum      string>",
+    "crc32":         <Crc32         int64>,
+    "offset":        <Offset        int64>,
+    "selectUpHost": "<SelectUpHost  string>"
 }
 ```
 
 参数含义如下：
 
-参数名称       | 类型 | 说明
-:------------ | :----: | :------------------------------
-ctx | string | 服务端上传控制字段,后继上传及生成文件(mkfile)时用到。
-checksum | string | 上传块校验码。
-crc32 | int64 | 上传块Crc32,客户可通过此字段对上传块的完整性进行较验。
-offset | int64 | 下一个上传块在切割块中的偏移。
-selectUpHost | string | 后续上传接收地址。
+参数名称       | 类型   | 说明
+:------------- | :----- | :------------------------------
+ctx            | string | 服务端上传控制字段，后继上传及生成文件(mkfile)时用到。
+checksum       | string | 上传块校验码。
+crc32          | int64  | 上传块Crc32,客户可通过此字段对上传块的完整性进行较验。
+offset         | int64  | 下一个上传块在切割块中的偏移。
+selectUpHost   | string | 后续上传接收地址。
 
-如果请求失败，请参见[常见错误码]()。
+如果请求失败，请参考[错误消息](#error-messages)。
+
+<a name="error-messages"></a>
+### 错误消息
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 创建块成功
+400	       | 请求参数错误
+401        | 访问凭证无效
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 <a name="examples"></a>
 ## 示例
 
-我们拿一个小文件作为示例，这个文件的大小适合作为一次
+我们拿一个小文件作为示例，该文件的大小适合作为一次完整上传展示。  
 
 <a name="example1-command"></a>
 ### 命令行示例
 
 ```
-curl -H "Authorization: UpToken QNJi_bYJlmO5LeY..." \
--H "Content-Length: 1024"
--i "http://up.qiniu.com/mkblk/1024"
+curl -i \
+     --data-binary '@test.txt' \
+     -H "Authorization: UpToken QNJi_bYJlmO5LeY..." \
+     -H "Content-Length: 1024" \
+     "http://up.qiniu.com/mkblk/1024"
 ```
 
 <a name="example1-request"></a>
@@ -120,7 +136,7 @@ Authorization: UpToken QNJi_bYJlmO5LeY08FfoNj9w_r...(过长已省略)
 <a name="example1-response"></a>
 ### 响应示例
 
-以下响应中JSON字符串经过格式化，以方便查看。
+以下响应中JSON字符串经过格式化，以便查看。
 
 ```
 HTTP/1.1 200 OK
@@ -134,11 +150,11 @@ X-Log: qtbl.get;RS
 X-Reqid: swEAAMipp-5bIjMT
 
 {
-	ctx: "ctx", 
-    checksum: "checksum",
-    crc32: 1345,
-    offset: 0,
-    selectUpHost: "up.qiniu.com"
+	"ctx":          "ctx", 
+    "checksum":     "checksum",
+    "crc32":        1345,
+    "offset":       0,
+    "selectUpHost": "http://up.qiniu.com"
 }
 ```
 
@@ -150,6 +166,10 @@ X-Reqid: swEAAMipp-5bIjMT
 <a name="related-resources"></a>
 ## 相关资源
 
-- [上传凭证（UploadToken）规范](../security/upload-token.html)
+- [上传凭证（UploadToken）][uploadTokenHref]
 - [上传片数据（bput）](bput.html)
 - [创建资源（mkfile）](mkfile.html)
+
+[sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
+[uploadTokenHref]               ../security/upload-token.html                    "上传凭证"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
