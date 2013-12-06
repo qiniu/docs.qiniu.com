@@ -2,7 +2,7 @@ $(function() {
 
     var url = window.location.pathname.toLowerCase();
 
-    if ((url.indexOf("/docs/sdk/") === 0) || (url.indexOf("/docs/tools/") === 0)) {
+    if ((url.indexOf("/docs/v6/sdk/") === 0) || (url.indexOf("/docs/v6/tools/") === 0)) {
 
         //通过js移动文档导行到右边索引边栏
         //first level
@@ -44,6 +44,14 @@ $(function() {
         };
 
         addIndex($("#" + sdk + " ul :first"), "");
+
+        //API具体页标志当前锚点功能
+        if ($('body').scrollspy) {
+            $('body').scrollspy({
+                target: '#' + sdk
+            });
+        }
+
     }
 
     //顶部栏样式
@@ -84,12 +92,11 @@ $(function() {
     $('.container.api .side-bar').hcSticky({
         bottomEnd: -1,
         top: 0,
-        innerTop: 0,
         followScroll: false
     });
 
     // API页侧边栏点击a后添加active样式
-    $('.nav a').click(function() {
+    $('.nav a').on('click', function() {
         $(this).parents('.nav').find('a').removeClass('active');
         $(this).addClass('active');
     });
@@ -153,20 +160,23 @@ $(function() {
         var path = params[2];
         var fileName = params[params.length - 1];
         var href = $(this).attr('href').toLowerCase();
-        if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            var $panelBody = $(this).parents('.panel-heading').siblings('.panel-body');
-            if ($panelBody.is(':visible')) {
-                $panelBody.hide('fast', adjustApiBoxHeight);
-                $(this).removeClass('active');
-                $(this).siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
-                $(this).next('.icon').removeClass('api_down2_sprited');
-            } else {
-                $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
-                $(this).addClass('active');
-                $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
-                $(this).next('.icon').addClass('api_down2_sprited');
+        if (url !== '/docs/v6/') {
+            //api index page jump direct
+            if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
+                var $panelBody = $(this).parents('.panel-heading').siblings('.panel-body');
+                if ($panelBody.is(':visible')) {
+                    $panelBody.hide('fast', adjustApiBoxHeight);
+                    $(this).removeClass('active');
+                    $(this).siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
+                    $(this).next('.icon').removeClass('api_down2_sprited');
+                } else {
+                    $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
+                    $(this).addClass('active');
+                    $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                    $(this).next('.icon').addClass('api_down2_sprited');
+                }
+                return false;
             }
-            return false;
         }
     });
     //API页面侧边栏---显示当前页的导航
@@ -194,26 +204,6 @@ $(function() {
     $('pre code').each(function(i, e) {
         hljs.highlightBlock(e);
     });
-
-    //API具体页标志当前锚点功能
-    var targetArr = ['ios-sdk', 'android-sdk', 'java-sdk', 'php-sdk', 'python-sdk', 'ruby-sdk', 'nodejs-sdk', 'csharp-sdk', 'c-sdk', 'go-sdk',
-        'qrsync', 'qboxrsctl', 'qrsbox'
-    ];
-    var target, regx;
-    var urlArr = url.split('/');
-    for (var i = 0, len = targetArr.length; i < len; i++) {
-        regx = new RegExp(targetArr[i]);
-        if (regx.test(urlArr[1]) || regx.test(urlArr[urlArr.length - 1])) {
-            target = targetArr[i];
-            break;
-        }
-    }
-    console.log(target);
-    if ($('body').scrollspy) {
-        $('body').scrollspy({
-            target: '#' + target
-        });
-    }
 
     // 资源下载页提交社区SDK/插件
     $('.js-add-resource').on('click', function() {
