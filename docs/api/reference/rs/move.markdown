@@ -64,9 +64,6 @@ Content-Type: application/json
 Cache-Control: no-store
 ```
 
-<a name="response"></a>
-## 响应
-
 <a name="response-headers"></a>
 ### 头部信息
 头部名称      | 说明                              
@@ -76,7 +73,17 @@ Content-Type | 正常情况下，该值将被设为`application/json`，表示�
 <a name="response-body"></a>
 ### 响应内容
 
-该响应不返回任何内容。  
+操作成功时：该响应不返回任何内容。  
+操作失败时：返回一个JSON格式字符串，包含错误号与错误消息。
+
+<a name="error-messages"></a>
+### 错误消息
+HTTP Code | 含义
+:-------- | :--------------------------
+200       | 移动成功
+401       | AccessToken无效
+404       | 待移动资源不存在
+614       | 目标资源已存在
 
 <a name="example1-command"></a>
 ### 命令行示例
