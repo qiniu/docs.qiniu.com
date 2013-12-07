@@ -193,3 +193,27 @@ Content-Type: <MimeType>
     Content-Type: application/x-mpegurl
     Body: <M3U8File>
 ```
+
+<a name="upload-fop"></a>
+### 上传预转
+
+由于在线音视频频转换或将音视频切割成多个小文件并生成M3U8播放列表是一个相对耗时的操作，为了保证良好的用户体验，需要配合上传预转机制使用。实际上，七牛官方推荐音视频在线编解码都通过上传预转的方式进行。  
+
+上传预转参考文档：[音视频上传预转 - asyncOps](put.html#uploadToken-asyncOps)  
+
+接上述示例，已知`m3u8_audio`的API规格定义，将其作为上传授权凭证（`uploadToken`）预转参数（`asyncOps`）的值即可。
+
+```
+asyncOps = "http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_32k"
+```
+
+可以设置多个预转指令，用分号“;”隔开即可:
+
+```
+asyncOps = "http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_32k;
+           http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_48k"
+```
+
+实际情况下，`example.qiniudn.com` 换成存储空间（bucket）绑定的域名即可。  
+同样，视频预转的操作方式也一样。  
+设置预转后，当文件上传完毕即可异步执行预转指令操作。第一次访问该资源时，就无需再转换了，访问到的即已经转换好的资源。  
