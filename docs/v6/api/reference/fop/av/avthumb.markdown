@@ -208,7 +208,6 @@ avthumb/<Format>
 `/vb/<VideoBitRate>`    | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等 |
 `/vcodec/<VideoCodec>`  | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等 |
 `/acodec/<AudioCodec>`  | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等 |
-`/segtime/<SegSeconds>` | 用于HLS自定义每一小段音/视频流的播放时长，取值范围为: 10-60秒，缺省为10秒 |
 `/ss/<SeekStart>`       | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频 |
 `/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
 `/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
