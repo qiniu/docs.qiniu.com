@@ -10,291 +10,287 @@ order: 150
 <a name="audio-convert"></a>
 ## 音频转换
 
-**请求**
+<a name="audio-preset-description"></a>
+### 描述
 
-    [GET] <AudioDownloadURL>?avthumb/<Format>
-                             /ab/<BitRate>
-                             /aq/<AudioQuality>
-                             /ar/<SamplingRate>
+音频转码是七牛云存储提供的云处理功能。  
+使用音频转码功能，用户可以对存放在七牛云存储的音频资源进行编码和转换处理。  
 
-参数释义参考: [音视频API参数详解](#args)
+<a name="audio-spec"></a>
+### 接口规格（audioSpec）  
 
-**响应**
+```
+avthumb/<Format>
+       /ab/<BitRate>
+       /aq/<AudioQuality>
+       /ar/<SamplingRate>
+```
 
-    HTTP/1.1 200 OK
-    Body: <AudioBinaryData>
+参数名称             | 说明                                                                | 必填
+:------------------- | :------------------------------------------------------------------ | :-----
+`<Format>`           | 目标音频的格式（比如mp3、aac、m4a等），参考[支持转换的音频格式](http://ffmpeg.org/general.html#Audio-Codecs) | 是
+`/ab/<BitRate>`      | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
+`/aq/<AudioQuality>` | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
+`/ar/<SamplingRate>` | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
 
-<a name="audio-convert-args"></a>
+<a name="audio-request"></a>
+### 请求
 
-**示例**
+<a name="audio-request-syntax"></a>
+#### 请求语法
 
-示例1：将 wav 音频格式转换为 mp3 格式：
+```
+GET <AudioDownloadURI>?<audioSpec> HTTP/1.1
+Host: <AudioDownloadHost>
+```
 
-    [GET] http://apitest.qiniudn.com/sample.wav?avthumb/mp3
+<a name="audio-response"></a>
+### 响应
 
-示例2：将 wav 音频格式转换为 mp3 格式，并指定比特率为 192k：
+<a name="audio-response-syntax"></a>
+#### 响应语法
 
-    [GET] http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ab/192k
+```
+HTTP/1.1 200 OK
+Content-Type: <AudioMimeType>
 
-示例3：将 wav 音频格式转换为 mp3 格式，并指定 VBR 参数为3，采样频率为44100：
+<AudioBinaryData>
+```
 
-    [GET] http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ar/44100/aq/3
+<a name="audio-samples"></a>
+### 示例
 
-**支持的格式**
+#### 将wav音频转换为mp3格式
 
-支持转换的音频格式详见：<http://ffmpeg.org/general.html#Audio-Codecs>
+```
+http://apitest.qiniudn.com/sample.wav?avthumb/mp3
+```
 
-支持的音频 Codec 有：libmp3lame，libfaac，libvorbis 。
+[点击收听效果](http://apitest.qiniudn.com/sample.wav?avthumb/mp3)
 
-**优化建议**
+1. 将wav音频转换为mp3格式，比特率为192k
+
+	```
+    http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ab/192k
+	```
+
+	[点击收听效果](http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ab/192k)
+
+2. 将wav音频转换为mp3格式，VBR参数为3，采样频率为44100
+
+	```
+    http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ar/44100/aq/3
+	```
+
+	[点击收听效果](http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ar/44100/aq/3)
+
+<a name="audio-remarks"></a>
+### 附注
+
+支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+
+<a name="audio-optimization"></a>
+### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)
 
 <a name="video-convert"></a>
-
 ## 视频转码
 
-视频转码是七牛云存储提供的云处理功能。使用视频转码功能，用户可以对存放在七牛云存储的视频资源进行编码和转换处理。视频转码包括两种方式： [视频转换预设集](#video-preset)和[视频自定义转换](#self-def-video-convert)。
+视频转码是七牛云存储提供的云处理功能。  
+使用视频转码功能，用户可以对存放在七牛云存储的视频资源进行编码和转换处理。  
+视频转码包括两种方式：[视频转换预设集](#video-preset)和[视频自定义转换](#self-def-video-convert)。  
 
 <a name="video-preset"></a>
-
 ## 视频转换预设集
 
-视频转换预设集是七牛云存储提供的一组预设的视频转码设置。用户可以方便地使用这些预设的转码设置，面向特定格式进行转码。
+<a name="video-preset-description"></a>
+### 描述
 
-**请求**
+视频转换预设集是七牛云存储预先设置的一组视频转码设置，适用于特定业务场景。  
+用户可以方便地使用这些预设的转码设置，面向特定格式进行转码。  
 
-    [GET] <VideoDownloadURL>?avthumb/<Preset>
+<a name="video-preset-spec"></a>
+### 接口规格（videoPresetSpec）  
 
-**响应**
+```
+avthumb/<Preset>
+```
 
-    HTTP/1.1 200 OK
-    Body: <VideoBinaryData>
+预设集列表：  
 
-**示例**
+预设集       | 视频编码器 | 视频格式 | 分辨率   | 视频码率 | 音频编码器 | 音频码率 | 音频采样率
+:----------- | :--------- | :------- | :------- | :------- | :--------- | :------- | :---------
+android_high | libx264    | mp4      | 480x320  | 700k     | libfaac    | 128k     | 48k
+android_low  | libx264    | mp4      | 480x320  | 96k      | libfaac    | 64k      | 48k
+android      | libx264    | mp4      | 480x320  | 512k     | libfaac    | 128k     | 48k
+flash        | flv        | flv      | 320x240  | 512k     | libmp3lame | 64k      | 44100
+ipad_high    | libx264    | mp4      | 1024x768 | 1200k    | libfaac    | 128k     | 48k
+ipad_low     | libx264    | mp4      | 1024x768 | 512k     | libfaac    | 128k     | 48k
+ipad         | libx264    | mp4      | 1024x768 | 700k     | libfaac    | 128k     | 48k
+iphone_high  | libx264    | mp4      | 480x320  | 700k     | libfaac    | 128k     | 48k
+iphone_low   | libx264    | mp4      | 480x320  | 96k      | libfaac    | 64k      | 48k
+iphone       | libx264    | mp4      | 480x320  | 512k     | libfaac    | 128k     | 48k
+webm         | libvpx     | webm     |          | 700k     | libvorbis  | 128k     | 48k
 
-示例1：将 mp4 视频格式转换为 `iphone` 格式：
+<a name="video-request"></a>
+### 请求
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/iphone
+<a name="video-request-syntax"></a>
+#### 请求语法
 
-示例2：将 mp4 视频格式转换为 `andriod-high` ：
+```
+GET <VideoDownloadURI>?<videoPresetSpec> HTTP/1.1
+Host: <VideoDownloadHost>
+```
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/android_high
-    
-预设集列表：
+<a name="video-response"></a>
+### 响应
 
-预设集 | 视频编码器 | 视频格式 | 解析率 | 视频码率 | 音频编码器 | 音频码率 | 音频采样率
-------|-----------|---------|-------|---------|-----------|---------|---------------
-android_high | libx264 | mp4 | 480x320 | 700k | libfaac | 128k | 48k
-android_low | libx264 | mp4 | 480x320 | 96k | libfaac | 64k | 48k
-android | libx264 | mp4 | 480x320 | 512k | libfaac | 128k | 48k
-flash | flv | flv | 320x240 | 512k | libmp3lame | 64k | 44100
-ipad_high | libx264 | mp4 | 1024x768 | 1200k | libfaac | 128k | 48k
-ipad_low | libx264 | mp4 | 1024x768 | 512k | libfaac | 128k | 48k
-ipad | libx264 | mp4 | 1024x768 | 700k | libfaac | 128k | 48k
-iphone_high | libx264 | mp4 | 480x320 | 700k | libfaac | 128k | 48k
-iphone_low | libx264 | mp4 | 480x320 | 96k | libfaac | 64k | 48k
-iphone | libx264 | mp4 | 480x320 | 512k | libfaac | 128k | 48k
-webm | libvpx | webm | | 700k | libvorbis | 128k | 48k
+<a name="video-response-syntax"></a>
+#### 响应语法
 
+```
+HTTP/1.1 200 OK
+Content-Type: <VideoMimeType>
 
-<a name="self-def-video-convert"></a>
+<VideoBinaryData>
+```
 
+<a name="audio-samples"></a>
+### 示例
+
+1. 将mp4视频转换为`iphone`格式：  
+
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/iphone
+	```
+
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/iphone)
+
+2. 将mp4视频格式转换为`andriod-high`格式：  
+
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/android_high
+	```
+
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/android_high)
+
+<a name="video-selfdef-convert"></a>
 ## 视频自定义转换
 
-**请求**
+<a name="video-preset-description"></a>
+### 描述
 
-    [GET] <VideoDownloadURL>?avthumb/<Format>
-                             /r/<FrameRate>
-                             /vb/<VideoBitRate>
-                             /vcodec/<VideoCodec>
-                             /acodec/<AudioCodec>
-                             /ab/<BitRate>
-                             /aq/<AudioQuality>
-                             /ar/<SamplingRate>
+七牛云存储还支持使用自定义参数进行视频转码。  
 
-参数释义参考: [音视频API参数详解](#args)
+<a name="video-selfdef-spec"></a>
+### 接口规格（videoSelfDefSpec）  
 
-**响应**
+```
+avthumb/<Format>
+       /r/<FrameRate>
+       /vb/<VideoBitRate>
+       /vcodec/<VideoCodec>
+       /acodec/<AudioCodec>
+       /ab/<BitRate>
+       /aq/<AudioQuality>
+       /ar/<SamplingRate>
+```
 
-    HTTP/1.1 200 OK
-    Body: <VideoBinaryData>
+参数名称                | 说明                                                                | 必填
+:---------------------- | :------------------------------------------------------------------ | :-----
+`<Format>`              | 目标视频的格式（比如flv、mp4等），参考[支持转换的视频格式](http://ffmpeg.org/general.html#File-Formats) | 是
+`/ab/<BitRate>`         | 静态码率（CBR），单位：比特每秒（bit/s），常用码率：64k，128k，192k，256k，320k等 |
+`/aq/<AudioQuality>`    | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
+`/ar/<SamplingRate>`    | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
+`/r/<FrameRate>`        | 视频帧率，每秒显示的帧数，单位：赫兹（Hz），常用帧率：24，25，30等，一般用默认值 |
+`/vb/<VideoBitRate>`    | 视频比特率，单位：比特每秒（bit/s），常用视频比特率：128k，1.25m，5m等 |
+`/vcodec/<VideoCodec>`  | 视频编码方案，支持方案：libx264，libvpx，libtheora，libxvid等 |
+`/acodec/<AudioCodec>`  | 音频编码方案，支持方案：libmp3lame，libfaac，libvorbis等 |
+`/segtime/<SegSeconds>` | 用于HLS自定义每一小段音/视频流的播放时长，取值范围为: 10-60秒，缺省为10秒 |
+`/ss/<SeekStart>`       | 指定视频截取的开始时间，单位：秒。用于视频截取，从一段视频中截取一段视频 |
+`/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
+`/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
 
-**示例**
+<a name="video-request"></a>
+### 请求
 
-示例1：将 mp4 视频格式转换为 flv 格式，帧率为 24，使用 x264 进行视频编码：
+<a name="video-request-syntax"></a>
+#### 请求语法
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv/r/24/vcodec/libx264
+```
+GET <VideoDownloadURI>?<videoSelfDefSpec> HTTP/1.1
+Host: <VideoDownloadHost>
+```
 
-示例2：将 mp4 视频格式转换为 avi 格式，使用 mp3 进行音频编码，且音频比特率为64k：
+<a name="video-response"></a>
+### 响应
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/avi/ab/64k/acodec/libmp3lame
+<a name="video-response-syntax"></a>
+#### 响应语法
 
-示例3：将 mp4 视频格式转换为 flv 格式，帧率 30，视频比特率 256k，使用 x264 进行视频编码，音频采样频率 22050，音频比特率 64k，使用 mp3 进行音频编码：
+```
+HTTP/1.1 200 OK
+Content-Type: <VideoMimeType>
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv
-                                                     /r/30
-                                                     /vb/256k
-                                                     /vcodec/libx264
-                                                     /ar/22050
-                                                     /ab/64k
-                                                     /acodec/libmp3lame
+<VideoBinaryData>
+```
 
-示例4：将 mp4 视频格式转换为 ogv 格式，帧率 30，视频比特率 1800k，使用 libtheora 进行视频编码，音频采样频率 44100，音频比特率 128k，使用 libvorbis 进行音频编码：
+<a name="audio-samples"></a>
+### 示例
 
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv
-                                                     /r/30
-                                                     /vb/1800k
-                                                     /vcodec/libtheora
-                                                     /ar/44100
-                                                     /ab/128k
-                                                     /acodec/libvorbis
+1. 将mp4视频转换为flv格式，帧率为24，使用x264进行视频编码：  
 
-**支持的格式**
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv/r/24/vcodec/libx264
+	```
+	
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv/r/24/vcodec/libx264)
 
-支持转换的视频格式详见：<http://ffmpeg.org/general.html#File-Formats>
+2. 将mp4视频转换为avi格式，使用mp3进行音频编码，且音频比特率为64k：  
 
-支持的视频 Codec 有：libx264，libvpx，libtheora，libxvid 。
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/avi/ab/64k/acodec/libmp3lame
+	```
 
-支持的音频 Codec 有：libmp3lame，libfaac，libvorbis 。
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/avi/ab/64k/acodec/libmp3lame)
 
-**优化建议**
+3. 将mp4视频转换为flv格式，帧率为30，视频比特率为256k，使用x264进行视频编码，音频采样频率为22050，音频比特率为64k，使用mp3进行音频编码：  
+
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv
+                                                      /r/30
+                                                      /vb/256k
+                                                      /vcodec/libx264
+                                                      /ar/22050
+                                                      /ab/64k
+                                                      /acodec/libmp3lame
+	```
+
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/flv/r/30/vb/256k/vcodec/libx264/ar/22050/ab/64k/acodec/libmp3lame)
+
+4. 将mp4视频转换为ogv格式，帧率为30，视频比特率为1800k，使用libtheora进行视频编码，音频采样频率为44100，音频比特率为128k，使用libvorbis进行音频编码：  
+
+	```
+    http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv
+                                                      /r/30
+                                                      /vb/1800k
+                                                      /vcodec/libtheora
+                                                      /ar/44100
+                                                      /ab/128k
+                                                      /acodec/libvorbis
+	```
+
+	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv/r/30/vb/1800k/vcodec/libtheora/ar/44100/ab/128k/acodec/libvorbis)
+
+<a name="audio-remarks"></a>
+### 附注
+
+支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
+支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
+
+<a name="audio-optimization"></a>
+### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)
-
-
-<a name="video-thumbnail"></a>
-
-## 视频帧缩略图
-
-**请求**
-
-    GET <VideoDownloadURL>?vframe/<Format>
-                           /offset/<Second>
-                           /w/<Width>
-                           /h/<Height>
-
-**响应**
-
-    HTTP/1.1 200 OK
-    Body: <ImageBinaryData>
-
-**请求参数详解**
-
-参数   | 说明
--------|--------------------------------------
-Format | 要输出的目标缩略图格式，支持 jpg，png
-Second | 取视频的第几秒
-Width  | 缩略图宽度，范围为 1 ~ 1920
-Height | 缩略图高度，范围为 1 ~ 1080
-
-**示例**
-
-示例：取视频第 7 秒的截图，图片格式为 jpg，宽度为 480px，高度为 360px：
-
-    [GET] http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg
-                                                     /offset/7
-                                                     /w/480
-                                                     /h/360
-
-上述示例效果如下：
-
-![Go——基于连接与组合的语言](http://open.qiniudn.com/thinking-in-go.mp4?vframe/jpg/offset/7/w/480/h/360)
-
-
-<a name="hls"></a>
-
-## HTTP Live Streaming
-
-HTTP Live Streaming 是由 Apple 提出的基于 HTTP 的流媒体传输协议。
-它将一整个音视频流切割成可由 HTTP 下载的一个个小的音视频流，并生成一个播放列表（M3U8），客户端只需要获取资源的 M3U8 播放列表即可播放音视频。
-
-以下用 HLS 代指 HTTP Live Streaming 。
-
-<a name="hls-usage"></a>
-
-### 使用七牛提供的 HLS 服务
-
-HLS 必须使用友好风格的 URL，可以使用命令行工具 `qboxrsctl` 配置 HLS 友好风格。
-
-下载 [qboxrsctl](/tools/qboxrsctl.html)
-
-下载 qboxrsctl 之后，我们需要先了解该命令行工具的3个指令。
-
-注意:
-
- - qboxrsctl 工具需在命令行模式下使用
- - 尖括号注明的参数是需要自行替换的内容
-
-指令1，登录授权:
-
-    qboxrsctl login <注册邮箱> <登录密码>
-
-指令2，设置友好风格的 URL 分隔符:
-
-    qboxrsctl separator <空间名称> <分隔符字符>
-
-指令3，设置 API 规格别名:
-
-    qboxrsctl style <空间名称> <API规格别名> <API规格定义字符串>
-
-示例
-
-    // 设置分隔符为点号（“.”) 
-    qboxrsctl separator <空间名称> .
-
-    // 设置风格名为 m3u8_audio，代表音频的 HLS, 码率为32k
-    qboxrsctl style <空间名称> m3u8_audio avthumb/m3u8/preset/audio_32k
-
-    // 设置风格名为 m3u8_video，代表视频的 HLS, 长宽比为16x9，码率为150k
-    qboxrsctl style <空间名称> m3u8_video avthumb/m3u8/preset/video_16x9_150k
-
-
-已知文件上传到七牛后，下载方式如下:
-
-公开资源
-
-    [GET] http://<Domain>/<Key>
-
-私有资源
-
-    [GET] http://<Domain>/<Key>?token=<DownloadToken>
-
-
-上述示例设置完之后就可以用以下 URL 来访问 HLS 资源：
-
-    // 公开资源
-    [GET] http://<Domain>/<Key>.m3u8_audio
-    [GET] http://<Domain>/<Key>.m3u8_video
-
-    // 私有资源（m3u8私有资源访问暂不支持）
-    [GET] http://<Domain>/<Key>.m3u8_audio?token=<DownloadToken>
-    [GET] http://<Domain>/<Key>.m3u8_video?token=<DownloadToken>
-
-    HTTP/1.1 200 OK
-    Content-Type: application/x-mpegurl
-    Body: <M3U8File>
-
-
-<a name="upload-fop"></a>
-
-**上传预转**
-
-由于在线音视频频转换或将音视频切割成多个小文件并生成 M3U8 播放列表是一个相对耗时的操作，为了保证良好的用户体验，需要配合上传预转机制使用。实际上，七牛官方推荐音视频在线编解码都通过上传预转的方式进行。
-
-上传预转参考文档：[音视频上传预转 - asyncOps](put.html#uploadToken-asyncOps)
-
-接上述示例，已知 `m3u8_audio` 的 API 规格定义，将其作为上传授权凭证（`uploadToken`）预转参数（`asyncOps`）的值即可。
-
-    asyncOps = "http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_32k"
-
-可以设置多个预转指令，用分号“;”隔开即可:
-
-    asyncOps = "http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_32k;
-                http://example.qiniudn.com/$(key)?avthumb/m3u8/preset/audio_48k"
-
-实际情况下，`example.qiniudn.com` 换成存储空间（bucket）绑定的域名即可。
-
-同样，视频预转的操作方式也一样。
-
-设置预转后，当文件上传完毕即可异步执行预转指令操作。第一次访问该资源时，就无需再转换了，访问到的即已经转换好的资源。
