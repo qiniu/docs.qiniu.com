@@ -1,16 +1,20 @@
 ---
 layout: default
-title: 音视频片段（segtime）
+title: 音视频切片（segtime）
 order: 148
 ---
 
 <a name="segtime"></a>
-# 音视频片段（segtime）
+# 音视频切片（segtime）
 
 <a name="audio-preset-description"></a>
 ### 描述
 
-音视频切片是七牛云存储提供的云处理功能，用于支持HLS回放。  
+音视频切片是七牛云存储提供的云处理功能，用于支持HTTP Live Streaming回放。  
+HTTP Live Streaming是由Apple提出的基于HTTP的流媒体传输协议。  
+它将一整个音视频流切割成可由HTTP下载的一个个小的音视频流，并生成一个播放列表（M3U8），客户端只需要获取资源的 M3U8 播放列表即可播放音视频。  
+以下用 HLS 代指 HTTP Live Streaming 。
+
 HLS API规格支持两种形式：预设集和自定义两种。  
 
 <a name="segtime-preset"></a>
@@ -46,10 +50,10 @@ video_4x3_240k  | 码率为240K，长宽比为4x3，推荐在 3G 环境下使用
 video_4x3_440k  | 码率为440K，长宽比为4x3，推荐在 WIFI 环境下使用
 video_4x3_640k  | 码率为640K，长宽比为4x3，推荐在 WIFI 环境下使用
 
-<a name="segtiem-preset-request"></a>
+<a name="segtime-preset-request"></a>
 ### 请求
 
-<a name="segtiem-preset-request-syntax"></a>
+<a name="segtime-preset-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -57,10 +61,10 @@ GET <DownloadURI>?<presetSpec> HTTP/1.1
 Host: <DownloadHost>
 ```
 
-<a name="segtiem-preset-response"></a>
+<a name="segtime-preset-response"></a>
 ### 响应
 
-<a name="segtiem-preset-response-syntax"></a>
+<a name="segtime-preset-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -98,10 +102,10 @@ avthumb/m3u8/segtime/<SegSeconds>
 
 注意：以上参数若不指定参数值，参数及其值都不必在API接口中设置。  
 
-<a name="segtiem-selfdef-request"></a>
+<a name="segtime-selfdef-request"></a>
 ### 请求
 
-<a name="segtiem-selfdef-request-syntax"></a>
+<a name="segtime-selfdef-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -109,10 +113,10 @@ GET <DownloadURI>?<selfDefSpec> HTTP/1.1
 Host: <DownloadHost>
 ```
 
-<a name="segtiem-selfdef-response"></a>
+<a name="segtime-selfdef-response"></a>
 ### 响应
 
-<a name="segtiem-selfdef-response-syntax"></a>
+<a name="segtime-selfdef-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -120,4 +124,72 @@ HTTP/1.1 200 OK
 Content-Type: <MimeType>
 
 <BinaryData>
+```
+
+<a name="segtime-alias"></a>
+### 别名
+
+七牛云存储还支持为音视频切片规格设置别名，以使得下载URL更为友好。  
+可以使用命令行工具[qboxrsctl](/tools/qboxrsctl.html)配置这类别名。
+
+```
+指令1，登录授权:
+
+    qboxrsctl login <注册邮箱> <登录密码>
+
+指令2，设置友好风格的 URL 分隔符:
+
+    qboxrsctl separator <空间名称> <分隔符字符>
+
+指令3，设置 API 规格别名:
+
+    qboxrsctl style <空间名称> <API规格别名> <API规格定义字符串>
+```
+
+注意:
+
+- qboxrsctl工具需在命令行模式下使用
+- 尖括号注明的参数是需要自行替换的内容
+
+
+示例：  
+
+```
+    // 设置分隔符为点号（“.”) 
+    qboxrsctl separator <空间名称> .
+
+    // 设置风格名为 m3u8_audio，代表音频的 HLS, 码率为32k
+    qboxrsctl style <空间名称> m3u8_audio avthumb/m3u8/preset/audio_32k
+
+    // 设置风格名为 m3u8_video，代表视频的 HLS, 长宽比为16x9，码率为150k
+    qboxrsctl style <空间名称> m3u8_video avthumb/m3u8/preset/video_16x9_150k
+```
+
+已知文件上传到七牛后，下载方式如下:
+
+```
+公开资源
+
+    [GET] http://<Domain>/<Key>
+
+私有资源
+
+    [GET] http://<Domain>/<Key>?token=<DownloadToken>
+```
+
+则上述示例设置完之后就可以用以下URL来访问HLS资源：  
+
+```
+
+    // 公开资源
+    [GET] http://<Domain>/<Key>.m3u8_audio
+    [GET] http://<Domain>/<Key>.m3u8_video
+
+    // 私有资源（m3u8私有资源访问暂不支持）
+    [GET] http://<Domain>/<Key>.m3u8_audio?token=<DownloadToken>
+    [GET] http://<Domain>/<Key>.m3u8_video?token=<DownloadToken>
+
+    HTTP/1.1 200 OK
+    Content-Type: application/x-mpegurl
+    Body: <M3U8File>
 ```
