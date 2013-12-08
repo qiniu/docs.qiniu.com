@@ -3,49 +3,73 @@ layout: docs
 title: 处理结果另存为（saveas）
 order: 185
 ---
+
 <a name="saveas"></a>
-# 处理结果另存为（saveas）
+# 处理结果另存（saveas）
 
-七牛云存储的云处理API满足如下规格:
+<a name="tag"></a>
+## 标签
+
+[辅助功能](helperHref)
+
+<a name="description"></a>
+## 描述
+
+七牛云存储的云处理API接口均支持如下串行处理规格:
 
 ```
-[GET] url?<fop1>|<fop2>|<fop3>|<fopN>
+<DownloadUrl>?<fop1>|<fop2>|<fop3>|<fopN>
 ```
 
-云处理操作，是七牛服务器通过相应的处理程序计算而得，我们提供了一个云处理操作`saveas`,来把传入的云处理的结果保存到用户指定的空间内，从而达到云处理结果的持久化保存。
-当保存成功后，下一次可直接通过指定的key来访问该资源。
+可以看到每一步的输出都是下一步的输入，而最后一步的输出即为最终下载到的资源内容。  
+每调用一次这类串行化接口，就必须实时地按序执行所有接口，有可能引起不必要的计算耗时。  
 
-`saveas` 接口的规格如下
+我们提供名为`saveas`的云处理操作，将云处理结果作为资源保存到指定空间内，并赋以指定Key。保存成功后，下一次可直接通过指定Key来访问该资源，以达到提升下载速度的效果。  
+
+<a name="specification"></a>
+## 接口规格（saveasSpec）  
 
 ```
-[GET] url?<fop1>|<fop2>|<fopN>|saveas/<encodedEntryURI>/sign/<sign>
+saveas/<EncodedEntryURI>/sign/<Sign>
 ```
 
-**参数**
+参数名称            | 类型   | 说明                                                          | 必填
+:------------------ | :----- | :------------------------------------------------------------ | :-----
+`<EncodedEntryURI>` | string | 以[EncodedEntryURI格式][encodedEntryURIHref]组织的Bucket与Key | 是
+`/sign/<Sign>`      | string | 请求签名部分，算法见下方。                                    | 是
 
-名称            | 类型   | 必须 | 说明
-----------------|--------|------|------------------------------------------------------------------------------
-encodedEntryURI | string | 是   | 保存资源的bucket和key，`encodedEntryURI = urlsafe_base64_encode("bucket:key")`
-sign            | string | 是   | 生成的签名部分，算法见下方。
+<a name="sign-algorithm"></a>
+## 签名算法
 
-<a name="saveas-sample"></a>
+### 算法描述
 
-## 样例
+1. 在下载URL（不含Scheme部分，即去除`http://`）后附加`saveas`接口（不含签名部分）：  
 
-1. 原资源是一个图片
- - http://t-test.qiniudn.com/Ship.jpg
-2. 将图片做缩略处理 
- - http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200
-3. 对上述云处理结果进行持久化保存
- - entryURI：`t-test:Ship-thumb.jpg`,那么encodedEntryURI结果为：`dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==`
- - 需要签名的内容是:`t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==`, 签名方法`urlsafe_base64_encode(hmac_sha1(secretKey,<signContent>))`
-4. 完整的请求URL
- - http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==/sign/iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ=
-5. 保存的转码后的资源可通过如下访问
- - http://t-test.qiniudn.com/Ship-thumb-200.jpg
+	```
+    NewURL = URL + "|saveas/<EncodedEntryURI"
+	```
 
+2. 使用`SecretKey`对新的下载URL进行HMAC1_SHA1签名：  
 
-生成saveas请求的完整go代码如下：
+	```
+    Sign = hmac_sha1(SecretKey, NewURL)
+	```
+
+3. 对签名进行URL安全的Base64编码：
+
+	```
+    EncodedSign = urlsafe_base64_encode(Sign)
+	```
+
+4. 在新的下载URL后拼接签名参数：
+
+	```
+    FinalURL = NewURL + "/sign/<EncodedSign>"
+	```
+
+### 算法实例
+
+生成saveas请求的完整go代码如下：  
 
 ```{go}
 func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey string) string {
@@ -55,21 +79,66 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 	URL += "|saveas/" + encodedEntryURI
 
 	h := hmac.New(sha1.New, secretKey)
-	//签名内容不包括 scheme
+
+	// 签名内容不包括 Scheme
 	u, _ := url.Parse(URL)
 	io.WriteString(h, u.Host + u.RequestURI())
 	d := h.Sum(nil)
 	sign := accessKey + ":" + base64.URLEncoding.EncodeToString(d)
 
 	return URL + "/sign/" + sign
+
 }
 ```
 
-<a name="saveas-apx"></a>
-
-## 备注
+<a name="remarks"></a>
+## 附注
 
 - `urlsafe_base64_encode()` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
-- 这里的签名内容是不包含scheme字段，与download token签名不一样。
+- 此处签名内容不包含Scheme部分，与DownloadToken签名不一样。
 - 当要持久化保存的fop耗时较长时候，saveas请求会返回CDN超时，但是只要保证发送的saveas请求合法，七牛服务器还是会对请求做正确处理。
 
+<a name="samples"></a>
+## 示例
+
+1. 原资源是一个图片：  
+
+	```
+    http://t-test.qiniudn.com/Ship.jpg
+	```
+
+2. 将图片做缩略处理：  
+
+	```
+    http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200
+	```
+
+3. 对上述云处理结果进行持久化保存：  
+
+	```
+    另存操作的目标空间与资源名
+    entryURI        = "t-test:Ship-thumb.jpg"
+
+    编码结果
+    encodedEntryURI = "dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
+
+    需要签名的部分
+    signingStr = "t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
+
+    签名结果
+    sign       = "iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ="
+	```
+
+4. 最终得到的完整下载URL：  
+
+	```
+    http://t-test.qiniudn.com/Ship.jpg?imageView/2/w/200/h/200|saveas/dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw==/sign/iguImegxd6hbwF8J6ij2dlLIgycyU4thjg-xmu9q:38kMkgw3We96NWSgUHJz9C72noQ=
+	```
+
+5. 保存转码后资源可通过如下URL访问：  
+
+	```
+    http://t-test.qiniudn.com/Ship-thumb.jpg
+	```
+
+[encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
