@@ -17,18 +17,6 @@ order: 50
 
 `upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。  
 
-<a name="upload-specification"></a>
-## 接口规格
-
-```
-http://up.qiniu.com/upload
-```
-
-<a name="upload-specification-params"></a>
-### 接口参数
-
-无。  
-
 ---
 
 <a name="upload-request"></a>
@@ -36,6 +24,8 @@ http://up.qiniu.com/upload
 
 <a name="upload-request-struct"></a>
 ### 请求报文格式
+
+请求报文的内容以`multipart/form-data`格式组织，具体细节请参考[multipart格式][multipartFrontierHref]。  
 
 ```
 POST /upload HTTP/1.1
@@ -45,35 +35,20 @@ Content-Length: <multipartContentLength>
 
 --<frontier>
 Content-Disposition:       form-data; name="auth"
-Content-Type:              text/plain
 
 <uploadToken>
 --<frontier>
 Content-Disposition:       form-data; name="action"
-Content-Type:              text/plain
 
 /rs-put/<encodedEntryUri>/mimeType/<encodedFileMimeType>/meta/<encodedMeta>
 --<frontier>
 Content-Disposition:       form-data; name="params"
-Content-Type:              text/plain
 
 <callbackParams>
 --<frontier>
-Content-Disposition:       form-data; name="<userDefinedVariableName1>"
-Content-Type:              text/plain
+Content-Disposition:       form-data; name="<userDefinedVariableName>"
 
-<userDefinedVariableValue1>
---<frontier>
-Content-Disposition:       form-data; name="<userDefinedVariableName2>"
-Content-Type:              text/plain
-
-<userDefinedVariableValue2>
-...
---<frontier>
-Content-Disposition:       form-data; name="<userDefinedVariableNameN>"
-Content-Type:              text/plain
-
-<userDefinedVariableValueN>
+<userDefinedVariableValue>
 --<frontier>
 Content-Disposition:       form-data; name="file"; filename="<fileName>"
 Content-Type:              application/octet-stream
@@ -89,13 +64,8 @@ Content-Transfer-Encoding: binary
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 上传服务器域名，固定为up.qiniu.com
-Content-Type   | 是   | 固定为multipart/form-data
+Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte） 
-
-头部参数名称                  | 必填 | 说明
-:---------------------------- | :--- | :-----------------------------------------
-`<frontier>`                  | 是   | [Multipart分隔符][multipartFrontierHref]，必须是一个任何Multipart消息都没有包含的字符串
-`<multipartContentLength>`    | 是   | 整个Multipart内容的总长度，单位：字节（Byte）
 
 <a name="upload-request-params"></a>
 ### 请求动作
@@ -121,10 +91,12 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 :---------------------------- | :--- | :-----------------------------------------
 `<uploadToken>`               | 是   | [上传凭证][uploadTokenHref]，位于`auth`消息中
 `<callbackParams>`            |      | [上传策略][uploadPolicyHref]中指定callbackUrl时，须将相应的callackParams放置在`params`消息中
-`<userDefinedVariableNameN>`  |      | [用户自定义变量][userDefinedVariableHref]的名字
-`<userDefinedVariableValueN>` |      | [用户自定义变量][userDefinedVariableHref]的值
+`<userDefinedVariableName>`   |      | [用户自定义变量][userDefinedVariableHref]的名字
+`<userDefinedVariableValue>`  |      | [用户自定义变量][userDefinedVariableHref]的值
 `<fileName>`                  | 是   | 目标资源名（Key）
 `<fileBinaryData>`            | 是   | 上传文件的完整内容
+
+注意：用户自定义变量可以有多对。  
 
 ---
 
@@ -160,8 +132,8 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
 ```
 {
-    "hash": "<hash      string>",
-    "key":  "<key       string>"
+    "hash": "<hash  string>",
+    "key":  "<key   string>"
 }
 ```
 
