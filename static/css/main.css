@@ -817,6 +817,10 @@ footer .copyright {
 .api-content li p {
   margin: 5px 0 ;
 }
+.api-content li pre,
+.api-content li blockquote {
+  margin-left: -24px;
+}
 .api-content a {
   color: #999999;
 }
@@ -826,7 +830,8 @@ footer .copyright {
   max-width: 628px;
   border-collapse: collapse;
   border-spacing: 0;
-  max-width: 100%;
+  max-width: 96.1%;
+  width: 96.1%;
 }
 .api-content table thead th,
 .api-content table thead td {
@@ -843,6 +848,11 @@ footer .copyright {
   text-align: left;
   vertical-align: middle;
   line-height: 21px;
+}
+.api-content table td p,
+.api-content table th p,
+.api-content table caption p {
+  margin: 0;
 }
 .api-content table tbody tr:nth-child(even) {
   background: #f3f3f3;
@@ -882,9 +892,13 @@ footer .copyright {
   border: 0;
 }
 .api-content blockquote {
+  padding: 12.5px;
   border: 1px solid #e9e9e9;
   page-break-inside: avoid;
   background-color: #fafafa;
+}
+.api-content blockquote p {
+  margin: 0;
 }
 .api-content code {
   padding: 2px 4px;

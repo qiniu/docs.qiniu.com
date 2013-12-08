@@ -49,6 +49,9 @@
 		p {
 			margin:5px 0 ;
 		}
+		pre,blockquote {
+			margin-left: -24px;
+		}
 	}
 	a {
 		color: @153;
@@ -59,7 +62,8 @@
 		max-width: 628px;
 		border-collapse: collapse;
 		border-spacing: 0;		
-		max-width: 100%;
+		max-width: 96.1%;
+		width: 96.1%;
 		thead {
 			th,td{
 				background-color: #fafafa;
@@ -74,6 +78,9 @@
 			text-align: left;
 			vertical-align: middle;
 			line-height: 21px;
+			p {
+				margin: 0;
+			}
 		}
 		tbody {
 			tr:nth-child(even) {
@@ -113,9 +120,13 @@
 		}			
 	}
 	blockquote {
+		padding: 12.5px;
 		border: 1px solid @233;
     	page-break-inside: avoid;
-		background-color: #fafafa;    	
+		background-color: #fafafa;   
+		p {
+			margin: 0;
+		} 	
 	}
 	code {
 		padding: 2px 4px;
