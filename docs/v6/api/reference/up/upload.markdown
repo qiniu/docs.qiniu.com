@@ -191,6 +191,7 @@ HTTP状态码 | 含义
 - [MIME类型](mimeTypeHref)
 - [MIME清单](mimeTypeListHref)
 
+[encodedEntryURIHref]:      http://docs.qiniu.com/api/v6/rs.html#words                   "EncodedEntryURI格式"
 [uploadTokenHref]:          ../token/upload.html                                         "上传凭证"
 [uploadPolicyHref]:         ../token/upload.html#upload-policy                           "上传策略"
 [userDefinedVariableHref]:  ../variable/user-defined.html                                "用户自定义变量"
