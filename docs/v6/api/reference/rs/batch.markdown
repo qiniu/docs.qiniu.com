@@ -79,6 +79,15 @@ op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&op=/move/<EncodedEntryURISrc
 op=/delete/<EncodedEntryURI>&op=/delete/<EncodedEntryURI>&...
 ```
 
+#### 混合多种操作
+
+```
+op=/stat/<EncodedEntryURI>
+&op=/copy/<EncodedEntryURISrc>/<EncodedEntryURIDest>
+&op=/move/<EncodedEntryURISrc>/<EncodedEntryURIDest>&...
+&op=/delete/<EncodedEntryURI>&...
+```
+
 <a name="response"></a>
 ## 响应
 
@@ -141,6 +150,19 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 ```
 [
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int> },
+    { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },
+    ...
+]
+```
+
+#### 混合多种操作
+
+```
+[
+    { "code": <HttpCode int>, "data": <Data> },
+    { "code": <HttpCode int> },
     { "code": <HttpCode int> },
     { "code": <HttpCode int> },
     { "code": <HttpCode int>, "data": { "error": "<ErrorMessage string>" } },

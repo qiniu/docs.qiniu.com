@@ -7,107 +7,409 @@ order: 174
 <a name="imageMogr"></a>
 # 高级图像处理
 
-除了能够方便的生成图像缩略图之外，七牛云存储提供了其它高级图像处理接口，包含缩略、裁剪、旋转等一系列的功能。imageMogr第二版的接口规格如下：
+<a name="tag"></a>
+## 标签
 
-**请求**
+[缩略图](thumbnailHref)
 
-    [GET] <ImageDownloadURL>?imageMogr/v2
-          /auto-orient
-          /thumbnail/<ImageSizeGeometry>
-          /gravity/<GravityType>
-          /crop/<ImageSizeAndOffsetGeometry>
-          /quality/<ImageQuality>
-          /rotate/<RotateDegree>
-          /format/<DestinationImageFormat>
+<a name="description"></a>
+## 描述
 
-**响应**
+除了能简便地生成缩略图外，七牛云处理服务还提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等，称为imageMogr。  
 
-    200 OK
-    <ImageBinaryData>
+<a name="specification"></a>
+## 接口规格（imageMogrSpecV2）  
 
-**参数**
+建议优先使用第二版`imageMogr`，其规格是：
+```
+imageMogr/v2/auto-orient
+            /thumbnail/<ImageSizeGeometry>
+            /gravity/<GravityType>
+            /crop/<ImageSizeAndOffsetGeometry>
+            /quality/<ImageQuality>
+            /rotate/<RotateDegree>
+            /format/<DestinationImageFormat>
+```
 
-名称                 | 必填 | 说明
----------------------|------|-----------------------------------------------------
-`<ImageSizeGeometry>`  | 否   | 缩略图大小，详解见下。
-`<GravityType>`      | 否   | 位置偏移，只会使其后的裁剪偏移({offset})受到影响。默认值为 `NorthWest`（左上角）。可选值：`NorthWest`, `North`, `NorthEast`, `West`, `Center`, `East`, `SouthWest`, `South`, `SouthEast` 。
-`<ImageSizeAndOffsetGeometry>`  | 否   | 裁剪大小和偏移，详解见下。
-`<ImageQuality>`         | 否   | 图片质量，取值范围是[1, 100]。
-`<RotateDegree>`         | 否   | 旋转角度。
-`<DestinationImageFormat>`          | 否   | 输出格式，可选为jpg, gif, png, bmp, tiff, webp等。
+第一版`imageMogr`兼容保留，其规格是：
 
-如下是 `/thumbnail/<ImageSizeGeometry>` 和 `/crop/<ImageSizeAndOffsetGeometry>` 参数规格详解。
+```
+imageMogr/auto-orient
+         /thumbnail/<ImageSizeGeometry>
+         /gravity/<GravityType>
+         /crop/<ImageSizeAndOffsetGeometry>
+         /quality/<ImageQuality>
+         /rotate/<RotateDegree>
+         /format/<DestinationImageFormat>
+```
 
-指定图片缩略或裁剪后的尺寸：
+参数名称                             | 说明                                                 | 必填 
+:----------------------------------- | :--------------------------------------------------- | :--- 
+`/auto-orient`                       | 根据原图EXIF信息自动旋正，便于后续处理，建议放在首位 |
+`/thumbnail/<ImageSizeGeometry>`     | 参看缩放操作参数表，缺省为不缩放                     |
+`/gravity/<GravityType>`             | 参看裁剪锚点参数表，只影响其后的裁剪偏移参数，缺省为左上角（NorthWest） |
+`/crop/<ImageSizeAndOffsetGeometry>` | 参看裁剪操作参数表，缺省为不裁剪                     |
+`/quality/<ImageQuality>`            | 图片质量，取值范围1-100，缺省为85                    |
+`/rotate/<RotateDegree>`             | 旋转角度，取值范围1-360，缺省为不旋转                |
+`/format/<DestinationImageFormat>`   | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式  |
 
-  size | 规格说明 | 样例                                                    | 取值范围
--------| -------- | ------------------------------------------------------| --------
-  scale% | 基于原图大小，按照指定的百分比进行缩放。 | [50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!50p) | (0, 1000)
-  scale-x%xscale-y% | 以百分比的形式指定缩略图的宽或高，另一边自适应等比缩放，只能使用一个 % 限定。 | [50%x](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!50p) [x50%](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x50p) | (0, 1000)
-  width | 限定缩略图宽度，高度等比自适应。 | [200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200) | (0, 10000)
-  xheight | 限定缩略图高度，宽度等比自适应。 | [x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x100) | (0, 10000)
-  widthxheight | 限定长边，短边自适应，将缩略图的大小限定在指定的宽高矩形内。若指定的宽度大于指定的高度，以指定的高度为基准，宽度自适应等比缩放；若指定的宽度小于指定的高度，以指定的宽度为基准，高度自适应等比缩放。 | [100x200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200) [200x100](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100) | (0, 10000)
-  widthxheight^ | 限定短边，长边自适应，目标缩略图大小会超出指定的宽高矩形。若指定的宽度大于指定的高度，以指定的宽度为基准，高度自适应等比缩放；若指定的宽度小于指定的高度，以指定的高度为基准，宽度自适应等比缩放。 | [100x200^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200^) [200x100^](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100^) | (0, 10000)
-  widthxheight! | 限定缩略图宽和高。缩略图按照指定的宽和高强行缩略，忽略原图宽和高的比例，可能会变形。 | [100x200!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200!) [200x100!](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100!) | (0, 10000)
-  widthxheight> | 当原图尺寸超出给定的宽度或高度时，按照给定的 widthxheight 规格进行缩略。 | [100x200>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/100x200%3E) [1000x2000>](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/1000x2000%3E) | (0, 10000)
-  widthxheight< | 当原图尺寸低于给定的宽度和高度时，按照给定的 widthxheight 规格进行拉伸。 | [100x200<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x100<) [1000x2000<](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/2000x1000<) | (0, 10000)
-  area@ | 缩略图按原始图片高宽比例等比缩放，但缩放后的宽乘高的总分辨率不超过给定的总像素。 | [20000@](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/20000@) | (1, 1E8)
+<a name="thumbnail-spec"></a>
+### 缩放操作参数表
 
-指定图片缩略或裁剪前相对于原图的起始坐标：
+参数名称                        | 说明                                                 | 必填
+:------------------------------ | :--------------------------------------------------- | :---  
+`/thumbnail/!<Scale>p`          | 基于原图大小，按指定百分比缩放。<p>取值范围0-1000 |  
+`/thumbnail/!<Scale>px`         | 以百分比形式指定目标图片宽度，高度等比缩放。<p>取值范围0-1000 |
+`/thumbnail/!x<Scale>p`         | 以百分比形式指定目标图片高度，宽度等比缩放。<p>取值范围0-1000 |
+`/thumbnail/<Width>x`           | 指定目标图片宽度，高度等比缩放。<p>取值范围0-10000 |
+`/thumbnail/x<Height>`          | 指定目标图片高度，宽度等比缩放。<p>取值范围0-10000 |
+`/thumbnail/<Width>x<Height>`   | 限定长边，短边自适应缩放，将目标图片限制在指定宽高矩形内。<p>取值范围0-10000 |
+`/thumbnail/!<Width>x<Height>r` | 限定短边，长边自适应缩放，目标图片会延伸至指定宽高矩形外。<p>取值范围0-10000 |
+`/thumbnail/<Width>x<Height>!`  | 限定目标图片宽高值，忽略原图宽高比例，按照指定宽高值强行缩略，可能导致目标图片变形。<p>取值范围0-10000  |
+`/thumbnail/<Width>x<Height>>`  | 当原图尺寸大于给定的宽度或高度时，按照给定宽高值缩小。<p>取值范围0-10000 |
+`/thumbnail/<Width>x<Height><`  | 当原图尺寸小于给定的宽度或高度时，按照给定宽高值放大。<p>取值范围0-10000 | 
+`/thumbnail/<Area>@`            | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<p>取值范围0-100000000 |  
 
-{size}{offset}   | 指定偏移量 (缺省是 +0+0)，{size} 代表上述表格中的任意规格
------------------|-------------------------------------------------------------
-{size}{+-}x{+-}y | 指定子图片相对于源图片的坐标，x代表横轴，y代表纵轴，单位像素。偏移量会且仅会受**之前的** gravity 参数的影响，不受 {size} 操作符比如 % 的影响。
 
-x 为正数时为从源图区域左上角的横坐标，为负数时，左上角坐标为0，然后从截出的子图片右边减去x象素宽度。
-y 为正数时为从源图区域左上角的纵坐标，为负数时，左上角坐标为0，然后从截出的子图片上边减去y象素高度。
+<a name="crop-size-spec"></a>
+### 裁剪操作参数表（CropSize）
 
-例如，
+参数名称                 | 说明                                         | 必填 
+:----------------------- | :------------------------------------------- | :--- 
+`/crop/<Width>x`         | 指定目标图片宽度，高度不变。取值范围0-10000  |
+`/crop/x<Height>`        | 指定目标图片高度，宽度不变。取值范围0-10000  |
+`/crop/<Width>x<Height>` | 同时指定目标图片宽高。取值范围0-10000        |  
 
-`/crop/!300x400a10a10` 表示从源图坐标为 x:10 y:10 截取 300x400 的子图片。
-`/crop/!300x400-10a10` 表示从源图坐标为 x:0  y:10 截取 290x400 的子图片。
+<a name="crop-offset-spec"></a>
+### 裁剪偏移参数表（CropOffset）
 
-**注意**
+参数名称                                  | 说明                                         | 必填 
+:---------------------------------------- | :------------------------------------------- | :--- 
+`/crop/!{CropSize}a<dx>a<dy>` | 相对于偏移锚点，向右偏移<dx>个像素，同时向下偏移<dy>个像素。<p>取值范围0－1000 |
+`/crop/!{CropSize}-<dx>a<dy>` | 相对于偏移锚点，向下偏移<dy>个像素，同时从指定宽度中减去<dx>个像素。<p>取值范围0－1000 |
+`/crop/!{CropSize}a<dx>-<dy>` | 相对于偏移锚点，向右偏移<dx>个像素，同时从指定高度中减去<dy>个像素。<p>取值范围0－1000 |
+`/crop/!{CropSize}-<dx>-<dy>` | 相对于偏移锚点，从指定宽度中减去<dx>个像素，同时从指定高度中减去<dy>个像素。<p>取值范围0－1000 |
+
+例如，  
+
+`/crop/!300x400a10a10` 表示从源图坐标为 x:10,y:10 截取 300x400 的子图片。  
+`/crop/!300x400-10a10` 表示从源图坐标为 x:0,y:10 截取 290x400 的子图片。  
+
+注意1：必须同时指定横轴偏移和纵轴偏移。  
+注意2：计算偏移值会受到位置偏移指示符（/gravity/<GravityType>）影响。默认为相对于左上角计算偏移值（即NorthWest），参看下表。  
+
+<a name="anchor-spec"></a>
+### 裁剪锚点参数表
+
+注意：不区分大小写。  
+
+```
+NorthWest     |     North      |     NorthEast
+              |                |    
+              |                |    
+--------------+----------------+--------------
+              |                |    
+West          |     Center     |          East 
+              |                |    
+--------------+----------------+--------------
+              |                |    
+              |                |    
+SouthWest     |     South      |     SouthEast
+```
+
+<a name="escape-sequence"></a>
+### 转义说明
+
+部分参数以“!”开头，表示参数将被转义。为便于阅读，我们采用特殊转义方法，如下所示：
+
+```
+p => % (percent)
+r => ^ (reverse)
+a => + (add)
+```
+
+即`!50x50r`实际代表`50x50^`这样一个字符串。  
+而`!50x50`实际代表`50x50`这样一个字符串（该字符串并不需要转义）。  
+`<ImageSizeAndOffsetGeometry>`中的OffsetGeometry部分可以省略，缺省为`+0+0`。  
+就是`/crop/50x50`等价于`/crop/!50x50a0a0`，执行`-crop 50x50+0+0`语义。
+
+<a name="request"></a>
+## 请求
+
+<a name="request-syntax"></a>
+### 请求语法
+
+```
+GET <ImageDownloadURI>?<imageMogrSpecV2> HTTP/1.1
+Host: <ImageDownloadHost>
+```
+
+<a name="response"></a>
+## 响应
+
+<a name="response-syntax"></a>
+### 响应语法
+
+```
+HTTP/1.1 200 OK
+Content-Type: <ImageMimeType>
+
+<ImageBinaryData>
+```
+
+如果请求失败，具体信息请参考响应状态码。
+
+<a name="response-code"></a>
+### 响应状态码
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 缩放成功
+400	       | 请求语法错误
+404        | 资源不存在
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+
+<a name="remarks"></a>
+## 附注
 
 - `auto-orient` 参数是和图像处理顺序相关的，一般建议放在首位（根据原图EXIF信息自动旋正）。
 - `thumbnail` 和 `crop` 之间的操作可以链式处理，即可以先对图进行缩略再裁剪，或者先裁剪再缩略。
-- `gravity` 只会使其后的裁剪偏移({offset})受到影响，建议放在`crop`选项之前。
-- 当处理多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大。如果您有许多多帧gif图片需要处理，可在图片上传完成后异步进行预转，这样不必在初次访问时进行图片处理，访问速度更快。
-    - 参考 [uploadToken 之 asyncOps](put.html#uploadToken-asyncOps) 。
+- `gravity` 只会使其后的裁剪偏移(CropOffset)受到影响，建议放在`crop`选项之前。
+- 当处理多帧gif图片时，可能处理所需的时间较长并且输出的图片体积较大。如果您有多张多帧gif图片需要处理，可在图片上传完成后异步进行预转，这样不必在初次访问时进行图片处理，访问速度更快。
+    - 参考[uploadToken之asyncOps](put.html#uploadToken-asyncOps)。
 - 第一版的`imageMogr`对gif图片仅反回原图，不做处理，
 
-第一版的`imageMogr`规格是：
+<a name="samples"></a>
+## 示例
 
-    [GET] <ImageDownloadURL>?imageMogr
-          /auto-orient
-          /thumbnail/<ImageSizeGeometry>
-          /gravity/<GravityType>
-          /crop/<ImageSizeAndOffsetGeometry>
-          /quality/<ImageQuality>
-          /rotate/<RotateDegree>
-          /format/<DestinationImageFormat>
-          
-第一版的imageMogr兼容保留。
+### 缩放
 
+1. 生成480x320缩略图
 
-**转义**
+	```
+等比缩小75%
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p
+	```
 
-部分参数以 ! 开头，这是参数被转义的标识。为了方便阅读，我们采用了特殊的转义方法。以下是转义符号列表：
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p)
 
-    p => % (percent)
-    r => ^ (reverse)
-    a => + (add)
+	```
+按原宽度75%等比缩小
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px
+	```
 
-也就是 !50x50r 其实代表 50x50^ 这样一个字符串。!50x50 代表 50x50 这样一个字符串（实际上这个字符串不需要转义）。`<ImageSizeAndOffsetGeometry>` 中的 OffsetGeometry 部分可以省略，缺省为 +0+0。也就是 /crop/50x50 等价于 /crop/!50x50a0a0，执行 -crop 50x50+0+0 语义。
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px)
 
-**示例**
+	```
+按原高度75%等比缩小
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p
+	```
 
-    [GET] http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2
-                /auto-orient
-                /thumbnail/!256x256r
-                /gravity/center
-                /crop/!256x256
-                /quality/80
-                /rotate/45
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p)
 
-![高级图像处理](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/auto-orient/thumbnail/!256x256r/gravity/center/crop/!256x256/quality/80/rotate/45)
+2. 生成700x467放大图
+
+	```
+指定新宽度为700px
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x)
+
+	```
+指定新高度为467px
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467)
+
+3. 限定长边，生成不超过300x300的缩略图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/300x300)
+
+4. 限定短边，生成不小于200x200的缩略图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!200x200r)
+
+5. 强制生成200x300的缩略图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300!)
+
+6. 原图大于指定长宽矩形，按长边自动缩小为200x133缩略图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/200x300>)
+
+7. 原图小于指定长宽矩形，按长边自动拉伸为700x467放大图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x600<)
+
+8. 生成图的像素总数小于指定值
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/350000@)
+
+### 裁剪
+
+1. 生成300x427裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x)
+
+2. 生成640x200裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/x200
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/x200)
+
+3. 生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/300x300)
+
+4. 生成300x300裁剪图，偏移距离30x100
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30a100)
+
+5. 生成300x200裁剪图，偏移距离30x0
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300a30-100)
+
+6. 生成270x300裁剪图，偏移距离0x100
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30a100)
+
+7. 生成270x200裁剪图，偏移距离0x0
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/crop/!300x300-30-100)
+
+8. 锚点在左上角（NorthWest），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthWest/crop/300x300)
+
+9. 锚点在正上方（North），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/North/crop/300x300)
+
+10. 锚点在右上角（NorthEast），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/NorthEast/crop/300x300)
+
+11. 锚点在正左方（West），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/West/crop/300x300)
+
+12. 锚点在正中（Center），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/Center/crop/300x300)
+
+13. 锚点在正右方（East），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/East/crop/300x300)
+
+14. 锚点在左下角（SouthWest），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthWest/crop/300x300)
+
+15. 锚点在正下方（South），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/South/crop/300x300)
+
+16. 锚点在右下角（SouthEast），生成300x300裁剪图
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/gravity/SouthEast/crop/300x300)
+
+### 旋转
+
+1. 顺时针旋转45度
+
+	```
+    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/rotate/45
+	```
+
+	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/rotate/45)
+
+[thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
+[sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

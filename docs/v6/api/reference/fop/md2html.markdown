@@ -4,19 +4,22 @@ title: MD转HTML（md2html）
 order: 110
 ---
 
+<a name="md2html"></a>
 # MD转HTML（md2html）
 
-Markdown 转 HTML 接口的规格如下
+<a name="description"></a>
+## 描述
 
-    [GET] url?md2html/<mode>/css/<EncodedCSSURL>
+七牛云存储支持直接将Markdown类型的资源转为HTML文件并返回。  
 
-`url` 获取可以参考 [下载接口](get.html)
+<a name="specification"></a>
+## 接口规格（md2htmlSpec）
 
-**参数**
+```
+md2html/<Mode>/css/<EncodedCSSURL>
+```
 
-名称          | 类型   | 必须 | 说明
---------------|--------|------|------------------------------------------------------------------------------
-mode          | int    | 否   | `0` 表示转为完整的 HTML(head+body) 输出; `1` 表示只转为HTML Body，缺省值：`0`
-EncodedCSSURL | string | 否   | CSS 样式的URL，`EncodedCSSURL = urlsafe_base64_encode(CSSURL)`
-
-`urlsafe_base64_encode(string)` 函数的实现符合 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 标准，开发者可以参考 <https://github.com/qiniu> 上各SDK的样例代码。
+参数名称          | 类型   | 说明                                                                          | 必填 
+:---------------- | :----- | :---------------------------------------------------------------------------- | :---
+`<Mode>`          | int    | `0`表示转为完整的 HTML(head+body) 输出<p>`1`表示只转为HTML Body<p>缺省值为`0` |
+`<EncodedCSSURL>` | string | CSS 样式的URL，`EncodedCSSURL = urlsafe_base64_encode(CSSURL)`                |

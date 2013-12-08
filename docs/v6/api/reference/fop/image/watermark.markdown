@@ -7,62 +7,70 @@ order: 160
 <a name="watermark"></a>
 # 水印（watermark）
 
-图像水印接口支持两种加水印的方式：图片水印和文字水印。
+<a name="description"></a>
+## 描述
 
-<a name="watermark-spec"></a>
-## 水印规格
+七牛云存储提供两种水印接口：图片水印和文字水印。  
 
-添加水印的请求规格如下：
+<a name="pic-watermark"></a>
+## 图片水印
 
-```
-[GET] <ImageDownloadURL>?watermark/<Mode>/xxx
-```
-
-其中，`<ImageDownloadURL>`为需要加水印的源图片地址，该地址必须是有效的，且能够返回一张图片。
-
-`<Mode>`为1时，表示需要添加的是图片水印，完整的图片水印规格如下：
+<a name="pic-watermark-spec"></a>
+### 规格接口规格（picWaterMarkSpec）  
 
 ```
-[GET] <ImageDownloadURL>?watermark/1
-                         /image/<EncodedImageURL>
-                         /dissolve/<Dissolve>
-                         /gravity/<Gravity>
-                         /dx/<DistanceX>
-                         /dy/<DistanceY>
+watermark/1/image/<EncodedImageURL>
+           /dissolve/<Dissolve>
+           /gravity/<Gravity>
+           /dx/<DistanceX>
+           /dy/<DistanceY>
 ```
 
-`<Mode>`为2时，表示需要添加的是文字水印，完整的文字水印规格如下：
+参数名称             | 说明                                                                | 必填
+:------------------- | :------------------------------------------------------------------ | :-----
+`<EncodedImageURL>`  | 水印源图片网址（经过URL安全的Base64编码），必须有效且返回一张图片   | 是
+`<Dissolve>`         | 透明度，取值范围1-100，缺省值100（完全不透明）                      |
+`<Gravity>`          | 水印位置，参考水印位置参数表，缺省值SouthEast（右下角）             |
+`<DistanceX>`        | 横轴边距，单位:像素(px)，缺省值10                                   |
+`<DistanceY>`        | 纵轴边距，单位:像素(px)，缺省值10                                   | 
 
-[GET] <ImageDownloadURL>?watermark/2
-                         /text/<EncodedText>
-                         /font/<EncodedFontName>
-                         /fontsize/<FontSize>
-                         /fill/<EncodedTextColor>
-                         /dissolve/<Dissolve>
-                         /gravity/<Gravity>
-                         /dx/<DistanceX>
-                         /dy/<DistanceY>
+<a name="request"></a>
+### 请求
 
+<a name="request-syntax"></a>
+#### 请求语法
 
-以上规格中提到的各参数的说明和具体用法详见下表。
+```
+GET <ImageDownloadURI>?<picWaterMarkSpec> HTTP/1.1
+Host: <ImageDownloadHost>
+```
 
-名称                 | 必填 | 说明
----------------------|------|-----------------------------------------------------
-`<EncodedImageURL>`  | 是   | 水印图片，使用图片水印时需指定用于水印的远程图片URL。`EncodedImageURL = urlsafe_base64_encode(ImageURL)`
-`<EncodedText>`      | 是   | 水印文本，文字水印时必须。`EncodedText = urlsafe_base64_encode(Text)`
-`<EncodedFontName>`  | 否   | 字体名，若水印文本为非英文字符（比如中文）构成，则必须。`EncodedFontName = urlsafe_base64_encode(FontName)`
-`<FontSize>`         | 否   | 字体大小，0 表示默认，单位: 缇，等于 1/20 磅。
-`<EncodedTextColor>` | 否   | 字体颜色。`EncodedTextColor = urlsafe_base64_encode(TextColor)`。RGB格式，可以是颜色名称（比如 `red`）或十六进制（比如 `#FF0000`），参考 [RGB颜色编码表](http://www.rapidtables.com/web/color/RGB_Color.htm)
-`<Dissolve>`         | 否   | 透明度，取值范围 1-100，默认值 `100`，即表示 100%（不透明）。
-`<Gravity>`          | 否   | 位置，默认值为 `SouthEast`（右下角）。可选值：`NorthWest`, `North`, `NorthEast`, `West`, `Center`, `East`, `SouthWest`, `South`, `SouthEast` 。
-`<DistanceX>`        | 否   | 横向边距，单位：像素（px），默认值为 10。
-`<DistanceY>`        | 否   | 纵向边距，单位：像素（px），默认值为 10。
+<a name="response"></a>
+### 响应
 
-`urlsafe_base64_encode(string)` 函数的实现符合 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 标准，开发者可以参考 <https://github.com/qiniu> 上各SDK的样例代码。
+<a name="response-syntax"></a>
+#### 响应语法
 
-<a name="watermark-examples"></a>
-## 水印示例
+```
+HTTP/1.1 200 OK
+Content-Type: <ImageMimeType>
 
+<ImageBinaryData>
+```
+
+如果请求失败，具体信息请参考响应状态码。
+
+<a name="response-code"></a>
+### 响应状态码
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 添加水印成功
+400	       | 请求语法错误
+404        | 资源不存在
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+
+<a name="pic-watermark-sample"></a>
 ### 图片水印样例
 
  - 水印图片: <http://www.b1.qiniudn.com/images/logo-2.png>
@@ -75,8 +83,73 @@ order: 160
 
 ![图片水印](http://qiniuphotos.qiniudn.com/gogopher.jpg?watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==/dissolve/50/gravity/SouthEast/dx/20/dy/20)
 
-右键获取以上图片获得链接可以查看水印生成的具体规格参数。
+右键拷贝图片链接查看水印生成的具体规格参数。
 
+<a name="text-watermark"></a>
+## 文字水印
+
+<a name="text-watermark-spec"></a>
+### 规格接口规格（textWaterMarkSpec）  
+
+```
+watermark/2/text/<EncodedText>
+           /font/<EncodedFontName>
+           /fontsize/<FontSize>
+           /fill/<EncodedTextColor>
+           /dissolve/<Dissolve>
+           /gravity/<Gravity>
+           /dx/<DistanceX>
+           /dy/<DistanceY>
+```
+
+参数名称             | 说明                                                                | 必填
+:------------------- | :------------------------------------------------------------------ | :-----
+`<EncodedText>`      | 水印文字内容（经过URL安全的Base64编码）                             | 是
+`<EncodedFontName>`  | 水印文字字体（经过URL安全的Base64编码），缺省为黑体                 |
+`<FontSize>`         | 水印文字大小，单位: [缇](http://en.wikipedia.org/wiki/Twip)，等于1/20磅，缺省值0（默认大小）             |
+`<EncodedTextColor>` | 水印文字颜色，RGB格式，可以是颜色名称（比如`red`）或十六进制（比如`#FF0000`），参考[RGB颜色编码表](http://www.rapidtables.com/web/color/RGB_Color.htm)，缺省为白色(TODO) |
+`<Dissolve>`         | 透明度，取值范围1-100，缺省值100（完全不透明）                      |
+`<Gravity>`          | 水印位置，参考水印位置参数表，缺省值SouthEast（右下角）             |
+`<DistanceX>`        | 横轴边距，单位:像素(px)，缺省值10                                   |
+`<DistanceY>`        | 纵轴边距，单位:像素(px)，缺省值10                                   | 
+
+<a name="request"></a>
+### 请求
+
+<a name="request-syntax"></a>
+#### 请求语法
+
+```
+GET <ImageDownloadURI>?<textWaterMarkSpec> HTTP/1.1
+Host: <ImageDownloadHost>
+```
+
+<a name="response"></a>
+### 响应
+
+<a name="response-syntax"></a>
+#### 响应语法
+
+```
+HTTP/1.1 200 OK
+Content-Type: <ImageMimeType>
+
+<ImageBinaryData>
+```
+
+如果请求失败，具体信息请参考响应状态码。
+
+<a name="response-code"></a>
+### 响应状态码
+
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 添加水印成功
+400	       | 请求语法错误
+404        | 资源不存在
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
+
+<a name="text-watermark-sample"></a>
 ### 文字水印样例
 
 - 水印文本：`七牛云存储`
@@ -88,13 +161,13 @@ order: 160
 
 ![文字水印](http://qiniuphotos.qiniudn.com/gogopher.jpg?watermark/2/text/5LiD54mb5LqR5a2Y5YKo/font/5a6L5L2T/fontsize/1000/fill/d2hpdGU=/dissolve/85/gravity/SouthEast/dx/20/dy/20)
 
-右键获取以上图片获得链接可以查看水印生成的具体规格参数。
+右键拷贝图片链接查看水印生成的具体规格参数。
 
 ## 优化建议
 
-- 1.图片上传完毕后，可异步进行水印预转，这样不必在初次访问时进行水印处理，访问速度更快。
+- 图片上传完毕后，可异步进行水印预转，避免初次访问时进行水印处理，访问速度更快。
 
-- 2.给图片链接中的水印规格添加别名，使得URL更加友好。
+- 使用[qboxrsctl][qtoolsHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
 
 	```
     qboxrsctl login <email> <password>
@@ -102,9 +175,8 @@ order: 160
     qboxrsctl style <bucket> watermarked.jpg watermark/2/text/<EncodedText>
 
     qboxrsctl separator <bucket> -
-	```
 	
-  此时，如下两个 URL 等价:
+  此时，如下两个URL等价:
 
 	```
     http://<Domain>/<Key>?watermark/2/text/<EncodedText>
@@ -112,7 +184,7 @@ order: 160
     http://<Domain>/<Key>-watermarked.jpg
 	```
 
-- 3.设置原图保护，仅限使用缩略图样式别名的友好URL形式来访问目标图片。
+- 设置[原图保护][resourceProtectHref]，仅限使用缩略图样式别名的友好URL形式来访问目标图片。
 
   设置原图保护后，原图不能访问：
 
@@ -125,3 +197,7 @@ order: 160
   此时只能访问指定规格的图片资源：
 
     http://<Domain>/<Key>-watermarked.jpg
+
+[qtoolsHref]:          ../qtools.html                                  "七牛工具"
+[resourceProtectHref]: ../resource-protect.html                        "原图保护"
+[sendBugReportHref]:   mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"

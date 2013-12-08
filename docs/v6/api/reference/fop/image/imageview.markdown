@@ -7,63 +7,110 @@ order: 175
 <a name="imageView"></a>
 # 图片处理（imageView）
 
-**请求**
+<a name="tag"></a>
+## 标签
 
-    [GET] <ImageDownloadURL>?imageView/<mode>
-                             /w/<Width>
-                             /h/<Height>
-                             /q/<Quality>
-                             /format/<Format>
+[缩略图](thumbnailHref)。
 
+<a name="description"></a>
+## 描述
 
-**响应**
+imageView是七牛云存储提供的一种简易却强大的图片处理接口，只需要填写少数几个参数即可对图片进行缩放操作，生成各种缩略图。  
 
-    200 OK
-    <ImageBinaryData>
+<a name="specification"></a>
+## 接口规格（imageViewSpec）  
 
-**请求参数详解**
+```
+imageView/<Mode>/w/<Width>/h/<Height>/q/<Quality>/format/<Format>
+```
 
 参数名称    | 说明
-------------|-------------------------------------------------------------------
-`<mode>`    | 图像缩略处理的模式
-`<Width>`   | 指定目标缩略图的宽度，单位：像素（px）
-`<Height>`  | 指定目标缩略图的高度，单位：像素（px）
-`<Quality>` | 指定目标缩略图的图像质量，取值范围 1-100
-`<Format>`  | 指定目标缩略图的输出格式，取值范围：jpg, gif, png, webp 等图片格式
-
+:---------- | :-----------------------------------------------------------------
+`<mode>`    | 图像缩放处理模式
+`<Width>`   | 目标图片的宽度，单位：像素（px）
+`<Height>`  | 目标图片的高度，单位：像素（px）
+`<Quality>` | 目标图片的图像质量，取值范围：1-100，缺省为85
+`<Format>`  | 目标图片的输出格式，取值范围：jpg，gif，png，webp等，缺省为原图格式
 
 其中 `<mode>` 分为如下几种情况：
 
 模式         | 说明
--------------|------------------------------------------------------------------------------------------------
-`<mode>=1` | 表示限定目标缩略图的宽度和高度，放大并从缩略图中央处裁剪为指定 `<Width>x<Height>` 大小的图片。
-`<mode>=2` | 指定 `<Width>` 和 `<Height>`，表示限定目标缩略图的长和宽，将缩略图的大小限定在指定的宽高矩形内。
-`<mode>=2` | 指定 `<Width>` 但不指定 `<Height>`，表示限定目标缩略图的宽度，高度等比缩略自适应。
-`<mode>=2` | 指定 `<Height>` 但不指定 `<Width>`，表示限定目标缩略图的高度，宽度等比缩略自适应。
+:----------- | :----------------------------------------------------------------------------------------------
+`<mode>=1`   | 同时指定宽度和高度，等比裁剪原图正中部分并缩放为<Width>x<Height>大小的新图片
+`<mode>=2`   | 同时指定宽度和高度，原图缩小为不超出<Width>x<Height>大小的缩略图，避免裁剪长边
+`<mode>=2`   | 仅指定宽度，高度等比缩小
+`<mode>=2`   | 仅指定高度，宽度等比缩小
 
-**示例**
+<a name="request"></a>
+## 请求
 
-示例1：针对原图进行缩略，并从缩略图的中央部位裁剪为 200x200 的缩略图：
+<a name="request-syntax"></a>
+### 请求语法
 
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200
+```
+GET <ImageDownloadURI>?<imageViewSpec> HTTP/1.1
+Host: <ImageDownloadHost>
+```
 
-![200x200](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200)
+<a name="response"></a>
+## 响应
 
-示例2：针对原图进行缩略，并限定目标缩略图的长边为 200 px，短边自适应，缩略图宽和高都不会超出 200px：
+<a name="response-syntax"></a>
+### 响应语法
 
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200
+```
+HTTP/1.1 200 OK
+Content-Type: <ImageMimeType>
 
-![限定长边为 200px，短边自适应，宽和高都不会超出 200px](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200/h/200)
+<ImageBinaryData>
+```
 
-示例3：针对原图进行缩略，并限定目标缩略图的宽度为 200px，高度等比缩略自适应：
+如果请求失败，具体信息请参考响应状态码。
 
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200
+<a name="response-code"></a>
+### 响应状态码
 
-![限定宽度为 200px, 高度等比缩略自适应](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200)
+HTTP状态码 | 含义
+:--------- | :--------------------------
+200        | 缩放成功
+400	       | 请求语法错误
+404        | 资源不存在
+599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-示例4：针对原图进行缩略，并限定目标缩略图的高度为 200px，宽度等比缩略自适应：
+<a name="sample"></a>
+## 示例
 
-    http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200
+### 裁剪正中部分，等比缩小生成200x200缩略图
 
-![限定高度为 200px, 宽度等比缩略自适应](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200)
+```
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200
+```
 
+![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/200/h/200)
+
+### 裁剪正中部分，等比放大生成500x500放大图
+
+```
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/500/h/500
+```
+
+![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/1/w/500/h/500)
+
+### 宽度固定为200px，高度等比缩小，生成200x133缩略图
+
+```
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200
+```
+
+![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/w/200)
+
+### 高度固定为200px，宽度等比缩小，生成300x200缩略图
+
+```
+http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200
+```
+
+![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageView/2/h/200)
+
+[thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
+[sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
