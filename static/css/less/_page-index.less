@@ -1,0 +1,190 @@
+//首页样式
+.intro {
+	.cell {
+        width: 305px;
+        height: 168px;		
+		span {
+			position: absolute;
+			left: 30px;
+			top:25px;
+		}
+		h2 {
+			font-size: 14px;
+			position: absolute;
+			top: 60px;
+			display: inline-block;
+			a {
+				color: rgb(12, 148, 222);				
+			}
+		}
+		div {
+			line-height: 21px;
+			color:@88;
+			position: absolute;
+			left: 38px;
+			bottom: 35px;						
+		}
+	}
+	.cell:first-child {
+		margin-left: 0;
+		span {
+			margin-left: -5px;
+		}
+		h2 {
+			left: 90px;
+		}
+		div {
+			margin-right: 27px;
+		}
+	}
+	.cell.quality {
+		width: 305px;
+		span {
+			margin-left: -5px;
+		}
+		h2 {
+			left: 98px;
+		}
+		div {
+			margin-right: 25px;
+		}
+	}
+	.cell.nail {
+		width:304px;
+		span {
+			margin-left: -10px;		
+		}
+		h2 {
+			left: 85px;
+		}
+		div {
+			margin-right: 28px;
+		}		
+	}
+}
+
+.container.index {
+    .cell-head {
+        text-align: right;
+    }	
+	.side-bar {
+		margin-top: 20px;
+		&.cell {
+			padding: 25px 25px 0;
+		}
+	}
+	.main {		
+		&.cell {
+			width: 582px;
+		}
+	}
+	.side-bar {
+		&.cell {
+			width: 254px;
+		}
+		.cell-body {
+			padding: 25px 0;
+			border-top:1px solid @240;
+			h2 {
+				margin-bottom: 5px;
+			}
+			h3 {
+				margin-bottom: 16px;
+			}
+			p {
+				line-height: 20px;
+				margin-left: 35px;
+			}
+			>div {
+				margin-top: 25px;				
+				span.icon {
+					margin-right: 16px;
+					position: relative;
+					top:1px;
+				}
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+			a {
+				color: @64;
+			}			
+		}
+		.resource-sdk {
+			border-top: none;
+			padding-bottom: 15px;
+			.sdk-list {
+				li {
+					display: inline-block;
+					height: 38px;
+					width: 80px;
+					margin-bottom: 5px;
+					text-align: center;
+					vertical-align: middle;
+					border:1px solid #fff;
+					&.nail {
+						margin-right: 0;
+					}
+					a {
+						display: block;
+						vertical-align: middle;
+						img {
+							vertical-align: middle;
+						}					
+					}
+					&:hover {
+						border: 1px solid rgb(230,230,230);	
+					}
+				}
+			}
+		}
+		.resource-tool {
+			height: 250px;
+			p {
+				color: @64;
+				line-height: 18px;
+			}
+			>div {
+				height: 53px;
+			}
+		}
+		.resource-community {
+			height: 240px;
+			span {
+				display: inline-block;
+				vertical-align: top;
+				margin-top:5px;
+			}
+			>div {
+				margin-top: 20px;
+				height: 55px;
+			}
+			h4 {
+				font-weight: normal;
+				color: @64;
+				display: inline-block;
+				width: 215px;
+				a {
+					display: block;
+					line-height: 20px;
+				}				
+			}
+			p {
+				line-height: 18px;
+				color:@153;
+				a {
+					color:@153;
+				}
+			}
+		}
+	}
+}
+
+.container.index {
+	.main {		
+		height: 873px;
+	}	
+	.side-bar {
+		height: 873px;
+	}
+}
