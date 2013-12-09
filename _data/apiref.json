@@ -121,14 +121,14 @@
 					"Href": "docs/v6/api/reference/fop/pfop",
 					"Child": [
 						{
-							"Title": "处理已存在资源（pfop）",
+							"Title": "对既存资源进行云处理并持久化（pfop）",
 							"Href": "docs/v6/api/reference/fop/pfop/pfop.html",
 							"Child": null,
 							"Order": 300
 						},
 						{
-							"Title": "获取异步处理结果（p）",
-							"Href": "docs/v6/api/reference/fop/pfop/p.html",
+							"Title": "查询异步云处理及持久化状态（prefop）",
+							"Href": "docs/v6/api/reference/fop/pfop/prefop.html",
 							"Child": null,
 							"Order": 200
 						}
@@ -189,7 +189,7 @@
 							"Order": 149
 						},
 						{
-							"Title": "音视频片段（segtime）",
+							"Title": "音视频切片（segtime）",
 							"Href": "docs/v6/api/reference/fop/av/segtime.html",
 							"Child": null,
 							"Order": 148
@@ -210,7 +210,7 @@
 					"Order": 110
 				},
 				{
-					"Title": "二维码（qrcode）",
+					"Title": "资源下载二维码（qrcode）",
 					"Href": "docs/v6/api/reference/fop/qrcode.html",
 					"Child": null,
 					"Order": 110
