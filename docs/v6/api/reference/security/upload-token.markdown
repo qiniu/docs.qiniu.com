@@ -7,13 +7,18 @@ order: 970
 <a name="upload-token"></a>
 # 上传凭证（UploadToken）
 
-上传凭证是七牛云存储用于验证上传请求合法性的机制。用户通过上传凭证授权客户端，使其具备访问指定资源的能力。
+上传凭证是七牛云存储用于验证上传请求合法性的机制。  
+用户通过上传凭证授权客户端，使其具备访问指定资源的能力。  
 
-上传凭证的算法如下：
+<a name="upload-token-algorithm"></a>
+## 算法
 
-1. 构造[上传策略]()。用户根据业务需求，确定上传策略的要素，构造出具体的上传策略。比如，有用户需要向空间 `my-bucket` 上传一个名为 `sunflower.jpg` 的图片，有效期是到 `2015-12-31 00:00:00`，并且希望得到图片的名称、大小、宽、高和校验值。那么相应的上传策略的字段分别为：
+1. 构造[上传策略][putPolicyHref]：  
 
-    ```
+	用户根据业务需求，确定上传策略要素，构造出具体的上传策略。  
+	比如，有用户需要向空间`my-bucket`上传一个名为`sunflower.jpg`的图片，授权有效期截止到`2015-12-31 00:00:00`，并且希望得到图片的名称、大小、宽高和校验值。那么相应的上传策略各字段分别为：  
+
+	```
     scope = "my-bucket:sunflower.jpg"
     deadline = 1451491200
     returnBody = '{
@@ -21,55 +26,81 @@ order: 970
       "size": $(fsize),
       "w": $(imageInfo.width),
       "h": $(imageInfo.height),
-      "hash": $(etag),
+      "hash": $(etag)
     }'
-    ```
+	```
 
-1. 将上传策略序列化成为json格式。用户可以使用各种语言的json库，也可以手工地拼接字符串。序列化后，可以得到：
+2. 将上传策略序列化成为[JSON格式][jsonHref]：  
 
-    ```
-    put_policy = '{"scope":"my-bucket:sunflower.jpg","deadline":1451491200,"returnUrl":"{\"name\": $(fname),\"size\": $(fsize),\"w\": $(imageInfo.width),\"h\": $(imageInfo.height),\"hash\": $(etag),}"}'
-    ```
+	用户可以使用各种语言的JSON库，也可以手工地拼接字符串。  
+	序列化后，应得到如下形式的字符串  
 
-1. 对json序列化后的上传策略进行[URL安全的Base64编码](http://docs.qiniu.com/api/v6/terminology.html#URLSafeBase64)：
+	```
+    putPolicy = '{"scope":"my-bucket:sunflower.jpg","deadline":1451491200,"returnUrl":"{\"name\":$(fname),\"size\":$(fsize),\"w\":$(imageInfo.width),\"h\":$(imageInfo.height),\"hash\":$(etag)}"}'
+	```
 
-    ```
-    encoded = urlsafe_base64_encode(put_policy)
-    ```
+3. 对JSON序列化后的上传策略进行[URL安全的Base64编码][urlsafeBase64Href]：  
 
-    得到
+	```
+    encodedPutPolicy = urlsafe_base64_encode(putPolicy)
+	```
 
-    ```
-    "eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjogJChmbmFtZSksXCJzaXplXCI6ICQoZnNpemUpLFwid1wiOiAkKGltYWdlSW5mby53aWR0aCksXCJoXCI6ICQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6ICQoZXRhZyksfSJ9"
-    ```
+	应得到
 
-1. 用SecretKey对编码后的上传策略进行HMAC-SHA1加密，并且做URL安全的Base64编码：
+	```
+    'eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjokKGZuYW1lKSxcInNpemVcIjokKGZzaXplKSxcIndcIjokKGltYWdlSW5mby53aWR0aCksXCJoXCI6JChpbWFnZUluZm8uaGVpZ2h0KSxcImhhc2hcIjokKGV0YWcpfSJ9'
+	```
 
-    ```
-    signature = hmac_sha1(SecretKey, encoded)
-    encode_signed = urlsafe_base64_encode(signature)
-    ```
+4. 用`SecretKey`对编码后的上传策略进行[HMAC-SHA1加密][hmacSha1Href]，并对加密再做[URL安全的Base64编码][urlsafeBase64Href]：  
 
-    假设用户的 `SecretKey="Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0"` 加密后的结果是：
+	```
+    sign = hmac_sha1(SecretKey, encodedPutPolicy)
+    encodedSign = urlsafe_base64_encode(sign)
+	```
 
-    ```
-    "5Cr3Nrw0qkyYKfQicd_ejAdIrfs="
-    ```
+	假设用户的`SecretKey`是'Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0'，则加密后的结果应为  
 
-1. 最后，将 `AccessKey`、`encode_signed` 和 `encoded` 用 “:” 连接起来：
+	```
+    'jFfzQtTQhvfM1sP1_yPO2WoO8gg='
+	```
 
-    ```
-    upload_token = AccessKey + ":" + encode_signed + ":" + encoded
-    ```
-    
-    假设用户的 `AccessKey="j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo"` 。最后得到的上传凭证为：
+5. 最后，将`AccessKey`、`encodedSign`和`encodedPutPolicy`用“:”连接起来：  
 
-    ```
-    j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:5Cr3Nrw0qkyYKfQicd_ejAdIrfs=:eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjogJChmbmFtZSksXCJzaXplXCI6ICQoZnNpemUpLFwid1wiOiAkKGltYWdlSW5mby53aWR0aCksXCJoXCI6ICQoaW1hZ2VJbmZvLmhlaWdodCksXCJoYXNoXCI6ICQoZXRhZyksfSJ9
-    ```
+	```
+    uploadToken = AccessKey + ':' + encodedSign + ':' + encodedPutPolicy
+	```
 
+	假设用户的`AccessKey`为'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo'，则最后得到的上传凭证应为  
+
+	```
+    'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:jFfzQtTQhvfM1sP1_yPO2WoO8gg=:eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjokKGZuYW1lKSxcInNpemVcIjokKGZzaXplKSxcIndcIjokKGltYWdlSW5mby53aWR0aCksXCJoXCI6JChpbWFnZUluZm8uaGVpZ2h0KSxcImhhc2hcIjokKGV0YWcpfSJ9'
+	```
+
+<a name="upload-token-remarks"></a>
+## 附注
+
+- 为确保客户端、业务服务器和七牛服务器对于授权截止时间的理解保持一致，需要同步校准各自的时钟。频繁返回401状态码时请先检查时钟同步性与生成deadline值的代码逻辑。  
+
+<a name="upload-token-samples"></a>
 ## 代码示例
 
 ```
 // TODO: 代码示例goes here.
 ```
+
+<a name="upload-internal-resources"></a>
+## 内部参考资源
+
+- [上传策略][putPolicyHref]
+
+<a name="upload-external-resources"></a>
+## 外部参考资源
+
+- [HMAC-SHA1加密][hmacSha1Href]
+- [URL安全的Base64编码][urlsafeBase64Href]
+
+[putPolicyHref]:            put-policy.html "上传策略"
+
+[jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
+[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
+[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
