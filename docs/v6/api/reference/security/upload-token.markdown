@@ -51,7 +51,7 @@ order: 970
     'eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjokKGZuYW1lKSxcInNpemVcIjokKGZzaXplKSxcIndcIjokKGltYWdlSW5mby53aWR0aCksXCJoXCI6JChpbWFnZUluZm8uaGVpZ2h0KSxcImhhc2hcIjokKGV0YWcpfSJ9'
 	```
 
-4. 用`SecretKey`对编码后的上传策略进行[HMAC-SHA1加密][hmacSha1Href]，并对加密再做[URL安全的Base64编码][urlsafeBase64Href]：  
+4. 用`SecretKey`对编码后的上传策略进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：  
 
 	```
     sign = hmac_sha1(SecretKey, encodedPutPolicy)
