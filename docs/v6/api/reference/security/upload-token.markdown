@@ -19,7 +19,7 @@ order: 970
 	比如，有用户需要向空间`my-bucket`上传一个名为`sunflower.jpg`的图片，授权有效期截止到`2015-12-31 00:00:00`，并且希望得到图片的名称、大小、宽高和校验值。那么相应的上传策略各字段分别为：  
 
 	```
-    scope = "my-bucket:sunflower.jpg"
+    scope = 'my-bucket:sunflower.jpg'
     deadline = 1451491200
     returnBody = '{
       "name": $(fname),
