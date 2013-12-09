@@ -56,15 +56,15 @@ $(function() {
 
     //顶部栏样式
     $('.nav-home a').each(function() {
-        if ($('.nav-home a').index($(this)) !== 1) {
-            //若新手上路链接改为站内链接，此判断可清除
-            var path = url.split('/')[1];
-            var href = $(this).attr('href').toLowerCase();
-            var pathname = href.split('/')[1];
-            if (pathname === path) {
-                $(this).addClass('active').siblings().removeClass('active');
-            }
+        //if ($('.nav-home a').index($(this)) !== 1) {
+        //若新手上路链接改为站内链接，此判断可清除
+        var path = url.split('/')[1];
+        var href = $(this).attr('href').toLowerCase();
+        var pathname = href.split('/')[1];
+        if (pathname === path) {
+            $(this).addClass('active').siblings().removeClass('active');
         }
+        //}
     });
 
     //顶部搜索框
