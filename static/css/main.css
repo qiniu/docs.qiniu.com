@@ -676,6 +676,7 @@ header .container {
 }
 header .container h1 {
   width: 200px;
+  height: 39px;
 }
 header .container h1 img {
   display: inline-block;
@@ -773,7 +774,7 @@ header .container .search {
   position: relative;
   line-height: 39px;
   width: 227px;
-  margin-right: 5px;
+  margin-right: 2px;
 }
 header .container .search input {
   width: 215px;
@@ -1770,6 +1771,7 @@ div.api-resource .social-resource .author {
   margin: 2px 0 0;
   list-style: none;
   width: 150px;
+  background-color: #0c94de;
   background-color: rgba(12, 148, 222, 0.9);
 }
 .dropdown-menu.pull-right {
