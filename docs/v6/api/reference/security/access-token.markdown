@@ -10,32 +10,75 @@ order: 950
 管理凭证是七牛云存储用于验证管理请求合法性的机制。  
 建议仅在业务服务器使用这一类凭证，避免意外授权导致滥用。  
 
-管理凭证的算法如下：  
+<a name="access-token-algorithm"></a>
+## 算法
 
-1. 抽取请求URL中`<path>?<query>`的部分与请求内容，用“\n”连接起来。如无请求内容，该部分为空字符串。  
+1. 生成待签名字符串：  
 
-    ```
-    FormatStr = "<path>?<query>\n"
+	抽取请求URL中`<path>`或`<path>?<query>`的部分与请求内容，用“\n”连接起来。  
+	如无请求内容，该部分必须为空字符串。  
+
+	```
+    signingStr = '<path>?<query>\n'
     或
-    FormatStr = "<path>?<query>\n<body>"
-    ```
+    signingStr = '<path>?<query>\n<body>'
+	```
 
-2. 用SecretKey对待加密字符串进行HMAC-SHA1加密，并且做[URL安全的Base64编码][urlsafeBase64]：
+	假设有如下的管理请求  
 
-    ```
-    Sign = hmac_sha1(SecretKey, FormatStr)
-    EncodedSign = urlsafe_base64_encode(Sign)
-    ```
+	```
+    http://rs.qiniu.com/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=
+	```
 
-3. 最后，将`AccessKey`和`EncodedSign`用 “:” 连接起来：  
+	待签名的字符串是  
 
-    ```
-    <AccessKey>:<EncodedSign>
-    ```
+	```
+    '/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=\n'
+	```
 
+2. 用`SecretKey`对待签名字符串进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：
+
+	```
+    sign = hmac_sha1(SecretKey, signingStr)
+    encodedSign = urlsafe_base64_encode(sign)
+	```
+
+    假设`SecretKey`为'Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0'，签名结果应为  
+
+	```
+    'Ubf-hoK7DkUJQv_P0vyQORA_7IY='
+	```
+
+3. 最后，将`AccessKey`和`EncodedSign`用“:”连接起来：  
+
+	```
+    <AccessKey>:<encodedSign>
+	```
+
+    假设`AccessKey`为'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo'，最终结果应为  
+
+    
+	```
+    'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:Ubf-hoK7DkUJQv_P0vyQORA_7IY='
+	```
+
+<a name="access-token-remarks"></a>
+## 附注
+
+无。
+
+<a name="access-token-samples"></a>
 ## 代码示例
 
 ```
 // TODO: 代码示例goes here.
 ```
-[urlsafeBase64]: http://docs.qiniu.com/api/v6/terminology.html#URLSafeBase64 "URL安全的Base64编码"
+
+<a name="access-external-resources"></a>
+## 外部参考资源
+
+- [HMAC-SHA1加密][hmacSha1Href]
+- [URL安全的Base64编码][urlsafeBase64Href]
+
+[hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
+[urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
