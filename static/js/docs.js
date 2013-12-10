@@ -56,14 +56,11 @@ $(function() {
 
     //顶部栏样式
     $('.nav-home a').each(function() {
-        if ($('.nav-home a').index($(this)) !== 1) {
-            //若新手上路链接改为站内链接，此判断可清除
-            var path = url.split('/')[1];
-            var href = $(this).attr('href').toLowerCase();
-            var pathname = href.split('/')[1];
-            if (pathname === path) {
-                $(this).addClass('active').siblings().removeClass('active');
-            }
+        var path = url.split('/')[1];
+        var href = $(this).attr('href').toLowerCase();
+        var pathname = href.split('/')[1];
+        if (pathname === path) {
+            $(this).addClass('active').siblings().removeClass('active');
         }
     });
 
@@ -179,6 +176,7 @@ $(function() {
             }
         }
     });
+
     //API页面侧边栏---显示当前页的导航
     $('.panel-body a').each(function() {
         var href = $(this).attr('href').toLowerCase();
@@ -197,7 +195,6 @@ $(function() {
             }
         }
     });
-
 
 
     // API页高亮代码
