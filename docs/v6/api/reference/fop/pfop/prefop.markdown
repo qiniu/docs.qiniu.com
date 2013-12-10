@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 查询异步云处理及持久化状态（prefop）
+title: 查询异步处理状态（prefop）
 order: 200
 ---
 
 <a name="prefop"></a>
-# 查询异步云处理及持久化状态（prefop）
+# 查询异步处理状态（prefop）
 
 <a name="prefop-description"></a>
 ## 描述

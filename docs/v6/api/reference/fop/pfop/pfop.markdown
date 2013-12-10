@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 对既存资源进行云处理并持久化（pfop）
+title: 触发异步处理（pfop）
 order: 300
 ---
 
 <a name="pfop-existing-resource"></a>
-# 对既存资源进行云处理并持久化（pfop）
+# 触发异步处理（pfop）
 
 <a name="pfop-description"></a>
 ## 描述
