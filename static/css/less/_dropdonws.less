@@ -36,9 +36,6 @@
   }
 
   // Dividers (basically an hr) within the dropdown
-  .divider {
-    // .nav-divider(@dropdown-divider-bg);
-  }
   >li {
       border-top: 1px solid rgba(255,255,255,0.7);
   }
@@ -67,29 +64,8 @@
   }
 }
 
-// Active state
-.dropdown-menu > .active > a {
-  &,
-  &:hover,
-  &:focus {
-    // color: @dropdown-link-active-color;
-    // text-decoration: none;
-    // outline: 0;
-    // background-color: @dropdown-link-active-bg;
-  }
-}
-
 // Disabled state
-//
-// Gray out text and ensure the hover/focus state remains gray
 
-.dropdown-menu > .disabled > a {
-  &,
-  &:hover,
-  &:focus {
-    // color: @dropdown-link-disabled-color;
-  }
-}
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a {
   &:hover,
@@ -119,9 +95,6 @@
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  // font-size: @font-size-small;
-  // line-height: @line-height-base;
-  // color: @dropdown-header-color;
 }
 
 // Backdrop to catch body clicks on mobile, etc.
@@ -131,7 +104,6 @@
   right: 0;
   bottom: 0;
   top: 0;
- // z-index: @zindex-dropdown - 10;
 }
 
 // Right aligned dropdowns
@@ -150,7 +122,6 @@
   // Reverse the caret
   .caret {
     border-top: 0;
-   // border-bottom: @caret-width-base solid;
     content: "";
   }
   // Different positioning for bottom up menu
@@ -160,17 +131,3 @@
     margin-bottom: 1px;
   }
 }
-
-
-// Component alignment
-//
-// Reiterate per navbar.less and the modified component alignment there.
-
-// @media (min-width: @grid-float-breakpoint) {
-//   .navbar-right {
-//     .dropdown-menu {
-//       .pull-right > .dropdown-menu();
-//     }
-//   }
-// }
-
