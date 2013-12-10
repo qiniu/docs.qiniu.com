@@ -7,14 +7,38 @@ header {
 		font-size: 12px;
 	}
 	.container {
-		overflow: hidden;
+		height: 39px;
 	}
 }
 header .container h1 {
 	width: 200px;
+	height: 39px;	
+	img {
+		display: inline-block;
+	}
+	>a{
+		outline: none;
+		display: inline-block;
+		line-height: 39px;	
+		height: 39px;	
+	}
+	>a.btn {
+		width: 30px;	
+		  position: relative;
+		  top:-15px;
+		  left:2px;			
+		span {
+		  display: inline-block;
+		}	
+		&:hover {
+			span {
+				.arrow_on;
+			}
+		}	
+	}
+
 }
 header .container nav.nav-home {
-	width: 265px;
 	a {
 		color:rgb(255,255,255);
 		text-decoration: none;
@@ -23,9 +47,6 @@ header .container nav.nav-home {
 		position: relative;
 		&:hover,&.active {
 			height: 36px;
-		}
-		&:hover {
-			//border-bottom:3px solid rgba(183,230,255,0.4);
 		}
 		&.active {
 			font-weight: bold;
@@ -89,9 +110,10 @@ header .container nav.nav-home {
 header .container .search {
 	position: relative;
 	line-height: 39px;
-	width: 187px;
+	width: 227px;
+	margin-right: 2px;
 	input {
-		width: 175px;
+		width: 215px;
 		height: 14px;
 		padding:4px 5px;
 		line-height: 14px;
