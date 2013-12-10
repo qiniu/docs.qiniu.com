@@ -90,7 +90,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 参数名称                      | 必填 | 说明
 :---------------------------- | :--- | :-----------------------------------------
 `<uploadToken>`               | 是   | [上传凭证][uploadTokenHref]，位于`auth`消息中
-`<callbackParams>`            |      | [上传策略][uploadPolicyHref]中指定callbackUrl时，须将相应的callackParams放置在`params`消息中
+`<callbackParams>`            |      | [上传策略][putPolicyHref]中指定callbackUrl时，须将相应的callackParams放置在`params`消息中
 `<userDefinedVariableName>`   |      | [用户自定义变量][userDefinedVariableHref]的名字
 `<userDefinedVariableValue>`  |      | [用户自定义变量][userDefinedVariableHref]的值
 `<fileName>`                  | 是   | 目标资源名（Key）
@@ -179,7 +179,7 @@ HTTP状态码 | 含义
 <a name="upload-internal-resources"></a>
 ## 内部参考资源
 
-- [上传策略][uploadPolicyHref]
+- [上传策略][putPolicyHref]
 - [上传凭证][uploadTokenHref]
 - [用户自定义变量][userDefinedVariableHref]
 
@@ -193,7 +193,7 @@ HTTP状态码 | 含义
 
 [encodedEntryURIHref]:      http://docs.qiniu.com/api/v6/rs.html#words                   "EncodedEntryURI格式"
 [uploadTokenHref]:          ../token/upload.html                                         "上传凭证"
-[uploadPolicyHref]:         ../token/upload.html#upload-policy                           "上传策略"
+[putPolicyHref]:            ../token/upload.html#upload-policy                           "上传策略"
 [userDefinedVariableHref]:  ../variable/user-defined.html                                "用户自定义变量"
 
 [multipartFrontierHref]:    http://en.wikipedia.org/wiki/MIME#Multipart_messages           "Multipart分隔符"
