@@ -13,32 +13,6 @@
     <meta http-equiv="Content-Language" content="zh-cn" />
     <meta http-equiv="imagetoolbar" content="false" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
-    <style type="text/css">
-    .autocomplete-suggestions {
-        background-color: white;
-        padding: 10px;
-        border: 1px solid #ccc;
-        width: 432px;
-    }
-    .autocomplete-suggestions {
-        border: 1px solid #999;
-        background: #FFF;
-        overflow: auto;
-    }
-    .autocomplete-suggestion {
-        padding: 2px 5px;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .autocomplete-selected {
-        background: #0c94de;
-        color:white;
-    }
-    .autocomplete-suggestions strong {
-        font-weight: normal;
-        color: #3399FF;
-    }
-    </style>
     <title>
         {{ .page.title }} | 七牛云存储
     </title>
@@ -64,7 +38,7 @@
             </li>
             <li class="pull-left cell quality">
                 <span class="icon index_book_sprited"></span>
-                <h2><a href="/guide/testing.html">云存储质量评估指南</a>
+                <h2><a href="/docs/v6/guide/testing.html">云存储质量评估指南</a>
                 </h2>
                 <div>如何系统性的判断一个云存储服务的整体质量，这篇文档给出了相对清晰而客观的指引。</div>
             </li>
@@ -99,19 +73,17 @@
         <div class="side-bar pull-right cell">
             <div class="cell-head">
                 <h2 class="pull-left">资源下载</h2>
-                <a href="/resources/" class="more">更多>></a>
+                <a href="docs/v6/resources/" class="more">更多>></a>
             </div>
             <div class="cell-body resource-sdk">
                 <h3 class="en">官方SDK</h3>
                 <ul class="sdk-list">
                     {{range .data.resource.sdk}}
                     <li>
-                        <a href="/sdk/{{.name}}-sdk.html" title="{{.name}} sdk">
-                            <img src="/static/image/index/sdk-{{.name}}.png" alt="{{.name}} sdk">
+                        <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="{{.name}} sdk" class="sdk-{{.name}}">
                         </a>
                     </li>
                     {{end}}
-                    <!-- <li class="nail"><a href=""><img src="/static/image/index/sdk-perl.png" alt="perl sdk"></a></li> -->
                 </ul>
             </div>
             <div class="cell-body resource-tool">
@@ -119,7 +91,7 @@
                 {{range .data.resource.devtools}}
                 <div>
                     <h4>
-                        <span class="icon index_{{.name}}_sprited"></span><a href="/tools/{{.label}}.html">{{.label}}</a>
+                        <span class="icon index_{{.name}}_sprited"></span><a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
                     </h4>
                     <p>{{.description}}</p>
 
@@ -137,10 +109,7 @@
 
     <script src="static/js/jquery-1.9.1.min.js" type="text/javascript">
     </script>
-    <script src="static/js/jquery.mCustomScrollbar/jquery.mCustomScrollbar.min.js" type="text/javascript">
-    </script>
-    <script src="static/js/jquery.mCustomScrollbar/jquery.mousewheel.min.js" type="text/javascript">
-    </script>
+    <script src="/static/js/dropdown.js" type="text/javascript"></script>   
     <script src="static/js/jquery.hcsticky-min.js" type="text/javascript">
     </script>
     <script src="static/js/highlight/highlight.js" type="text/javascript">

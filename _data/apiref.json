@@ -55,6 +55,12 @@
 					"Order": 90
 				},
 				{
+					"Title": "直传文件（upload）",
+					"Href": "docs/v6/api/reference/up/upload.html",
+					"Child": null,
+					"Order": 50
+				},
+				{
 					"Title": "创建文件（mkfile）",
 					"Href": "docs/v6/api/reference/up/mkfile.html",
 					"Child": null,

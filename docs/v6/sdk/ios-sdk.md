@@ -3,12 +3,24 @@ layout: docs
 title: iOS SDK
 ---
 
+- [下载](#download)
+- [上传文件](#simpleuploader)
+- [上传进度](#uploaddelegate)
+- [使用方法](#usage)
+- [注意事项](#tips)
+- [贡献代码](#contributing)
+- [许可证](#license)
+
+<a name="download"></a> 
+## 下载 
+
 - iOS SDK 下载地址：<https://github.com/qiniu/ios-sdk/tags>
 - iOS SDK 源码地址：<https://github.com/qiniu/ios-sdk> (请注意非 master 分支的代码在规格上可能承受变更)
 
 本SDK目前只提供了一个简单版本的上传功能，在类QiniuSimpleUploader中实现。
 
-## QiniuSimpleUploader
+<a name="simpleuploader"></a>
+## 上传文件
 
 QiniuSimpleUploader 类提供了简单易用的iOS端文件上传功能。它的基本用法非常简单：
 
@@ -77,7 +89,8 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
     // upload
     [uploader uploadFile:_filePath key:@"test.png" extra:extra];
 	
-## QiniuUploadDelegate
+<a name="uploaddelegate"></a>
+## 上传事件
 
 这个 delegate 接口由调用者实现，以获取上传的结果和进度信息。
 
@@ -104,6 +117,7 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
 
 	@interface QiniuViewController : UIViewController<QiniuUploadDelegate, …>
 
+<a name="usage"></a>
 ## 使用方法
 
 因为当前的SDK只包含了很少的源文件，为避免需要管理工程依赖关系，开发者完全可以直接将所提供的这几个文件直接添加到自己的工程中，当然，也需要添加对应的依赖包：JSONKit、ASIHttpRequest和GTMBase64。
@@ -112,6 +126,7 @@ checkCrc 为 0 时，服务端不会校验 crc32 值，checkCrc 为 1 时，服�
 
 运行QiniuDemo之前需要先设置代码中的三个配置项：QiniuAccessKey、QiniuSecretKey 和 QiniuBucketName。相应的值都可以在我们的[开发者平台]( https://portal.qiniu.com/)上操作和获取。
 
+<a name="tips"></a>
 ## 注意事项
 
 如果以静态链接库的方式使用该SDK，请注意您的工程设置中需要设置-ObjC标志，这是因为该SDK中使用了Objective-C category功能来实现JSON字符串的序列化和反序列化，而没有-ObjC标志的话Objective-C category功能将不能正常工作，错误表现为直接异常退出。

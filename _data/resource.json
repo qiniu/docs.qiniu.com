@@ -83,164 +83,204 @@
     "devtools": [{
         "name": "upload",
         "label": "qrsync",
-        "download": "http://xxxx",
+        "download": "/docs/v6/tools/qrsync.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "",
+        "doc": "/docs/v6/tools/qrsync.html",
         "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传，增量同步上传。"
     }, {
         "name": "cmd",
         "label": "qboxrsctl",
-        "download": "http://xxxx",
+        "download": "/docs/v6/tools/qboxrsctl.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "",
+        "doc": "/docs/v6/tools/qboxrsctl.html",
         "description": "命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能"
     }, {
         "name": "sync",
         "label": "qrsbox",
-        "download": "http://xxxx",
+        "download": "/docs/v6/tools/qrsbox.html#download",
         "version": "v6",
         "date": "2013-09-12",
-        "doc": "",
+        "doc": "/docs/v6/tools/qrsbox.html",
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。"
     }],
     "third_plugin": [{
         "name": "wordpress",
         "label": "wordpress插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "一键实现 WordPress 博客静态文件 CDN 加速",
+        "download": "http://downloads.wordpress.org/plugin/wpjam-qiniu.zip",
+        "author": "我爱水煮鱼",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "http://blog.wpjam.com/project/wpjam-qiniutek/"
     }, {
         "name": "drupal",
         "label": "drupal插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
-        "date": "2013-09-12",
-        "doc": ""
+        "description": "如何在Drupal接入七牛云存储的CDN服务",
+        "download": "#",
+        "author": "dansboy",
+        "date": "2013-08-25",
+        "doc": "https://groups.drupal.org/node/354683"
     }, {
         "name": "opoopress",
         "label": "opoopress插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
-        "date": "2013-09-12",
-        "doc": ""
+        "description": "将 OpooPress 静态博客部署到七牛云存储",
+        "download": "#",
+        "author": "Alex Lin",
+        "date": "2013-10-12",
+        "doc": "https://opoo.org/deploy-opoopress-to-qiniu/"
     }, {
         "name": "octopress",
         "label": "octopress插件",
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "download": "#",
+        "author": "allen",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html"
     }, {
         "name": "discuz",
         "label": "discuz插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "DiscuzX使用七牛云存储",
+        "download": "http://www.discuz.net/forum.php?mod=attachment&aid=MTQxNzkxNnxlNzkzNWExM3wxMzg2NjU0MTIzfDB8MzM5OTU2OQ%3D%3D",
+        "author": "discuz",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "http://www.discuz.net/thread-3399569-1-1.html"
     }, {
         "name": "phpwind",
         "label": "phpwind插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "phpwind插件",
+        "download": "http://chajian.u.qiniudn.com/qiniu-phpwind.zip",
+        "author": "",
         "date": "2013-09-12",
         "doc": ""
     }, {
         "name": "emlog",
         "label": "emlog插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "emlog插件",
+        "download": "http://cuelog.qiniudn.com/wp-content/uploads/2013/09/qiniu.zip",
+        "author": "",
         "date": "2013-09-12",
         "doc": ""
     }, {
         "name": "typecho",
         "label": "typecho插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
-        "date": "2013-09-12",
-        "doc": ""
+        "description": "七牛云存储镜像加速插件Typecho版",
+        "download": "http://kvdb.qiniudn.com/QiniuCDN.zip?download",
+        "author": "Young",
+        "date": "2013-07-27",
+        "doc": "http://www.microhu.com/qiniu-upload-plugin-for-typecho.html"
     }, {
         "name": "django",
         "label": "django插件",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "django插件",
+        "download": "https://github.com/piglei/django-qiniu",
+        "author": "piglei",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/piglei/django-qiniu"
+    }, {
+        "name": "ueditor",
+        "label": "ueditor(java)",
+        "description": "ueditor上传图片到七牛云存储（form api,java）",
+        "download": "http://git.oschina.net/duoduo3_69/QiNiuWithUeditor.git",
+        "author": "duoduo3_69",
+        "date": "2013-11-06",
+        "doc": "http://my.oschina.net/duoduo3369/blog/174655"
+    }, {
+        "name": "uploadify",
+        "label": "uploadify插件",
+        "description": "uploadify和七牛云存储的结合",
+        "download": "http://www.widuu.com/archives/11/832.html",
+        "author": "widuu",
+        "date": "2013-11-06",
+        "doc": "http://www.widuu.com/archives/11/832.html"
+    },{
+        "name": "solo",
+        "label": "七牛solo插件",
+        "description": "七牛solo插件",
+        "download": "http://blog.qiniudn.com/qiniu4b3log.zip",
+        "author": "symphony",
+        "date": "2013-11-28",
+        "doc": "http://symphony.b3log.org/article/1385649507137"
+    },{
+        "name": "startbbs",
+        "label": "STB",
+        "description": "七牛云(STB版)",
+        "download": "http://www.startbbs.com/topic/1198",
+        "author": "StartBBS",
+        "date": "2013-11-28",
+        "doc": "http://www.startbbs.com/topic/1198"
+    },{
+        "name": "paperclip",
+        "label": "PaperClip",
+        "description": "PaperClip",
+        "download": "https://github.com/lidaobing/paperclip-qiniu",
+        "author": "lidaobing",
+        "date": "2013-11-28",
+        "doc": "https://github.com/lidaobing/paperclip-qiniu"
+    },{
+        "name": "packup2qiniu",
+        "label": "Packup to qiniu",
+        "description": "Packup to qiniu",
+        "download": "https://github.com/lidaobing/backup2qiniu",
+        "author": "lidaobing",
+        "date": "2013-11-28",
+        "doc": "https://github.com/lidaobing/backup2qiniu"
     }],
     "third_sdk": [{
         "name": "PHP",
         "label": "PHP SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "七牛云储存简化版 PHP SDK",
+        "download": "https://github.com/zither/simple-qiniu-sdk",
+        "author": "zither",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/zither/simple-qiniu-sdk"
     }, {
         "name": "PHP",
         "label": "PHP SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "七牛云存储非官方SDK，采用PSR规范，支持Composer安装",
+        "download": "https://github.com/hfcorriez/php-qiniu",
+        "author": "hfcorriez",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/hfcorriez/php-qiniu"
     }, {
         "name": "PHP",
         "label": "PHP SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "七牛的php-sdk简化版",
+        "download": "https://github.com/guoking/qiniu-php-sdk",
+        "author": "guoking",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/guoking/qiniu-php-sdk"
     }, {
         "name": "python",
         "label": "Python SDK",
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "download": "https://github.com/yueyoum/seven-cow",
+        "author": "yueyoum",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/yueyoum/seven-cow"
     }, {
         "name": "Scala",
         "label": "Scala SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "description": "scala版七牛的SDK",
+        "download": "http://git.oschina.net/livehl/qiniu-scala-sdk",
+        "author": "livehl",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "http://git.oschina.net/livehl/qiniu-scala-sdk"
     }, {
         "name": "Nodejs",
-        "label": "Node.js SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "label": "Nodejs SDK",
+        "description": "Nodejs SDK",
+        "download": "https://github.com/qiniu/node-qiniu",
+        "author": "小问",
         "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/qiniu/node-qiniu"
     }, {
         "name": "Nodejs",
-        "label": "Node.js SDK",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
+        "label": "Nodejs SDK",
+        "description": "Nodejs SDK",
+        "download": "https://github.com/fengmk2/qn",
+        "author": "fengmk2",
         "date": "2013-09-12",
-        "doc": ""
-    }, {
-        "name": "django",
-        "label": "django Package",
-        "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
-        "download": "http://xxxx",
-        "author": "牛小七",
-        "date": "2013-09-12",
-        "doc": ""
+        "doc": "https://github.com/fengmk2/qn"
     }]
 }
