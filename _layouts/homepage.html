@@ -38,7 +38,7 @@
             </li>
             <li class="pull-left cell quality">
                 <span class="icon index_book_sprited"></span>
-                <h2><a href="/guide/testing.html">云存储质量评估指南</a>
+                <h2><a href="/docs/v6/guide/testing.html">云存储质量评估指南</a>
                 </h2>
                 <div>如何系统性的判断一个云存储服务的整体质量，这篇文档给出了相对清晰而客观的指引。</div>
             </li>
@@ -73,14 +73,14 @@
         <div class="side-bar pull-right cell">
             <div class="cell-head">
                 <h2 class="pull-left">资源下载</h2>
-                <a href="/resources/" class="more">更多>></a>
+                <a href="docs/v6/resources/" class="more">更多>></a>
             </div>
             <div class="cell-body resource-sdk">
                 <h3 class="en">官方SDK</h3>
                 <ul class="sdk-list">
                     {{range .data.resource.sdk}}
                     <li>
-                        <a href="/sdk/{{.name}}-sdk.html" title="{{.name}} sdk" class="sdk-{{.name}}">
+                        <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="{{.name}} sdk" class="sdk-{{.name}}">
                         </a>
                     </li>
                     {{end}}
@@ -91,7 +91,7 @@
                 {{range .data.resource.devtools}}
                 <div>
                     <h4>
-                        <span class="icon index_{{.name}}_sprited"></span><a href="/tools/{{.label}}.html">{{.label}}</a>
+                        <span class="icon index_{{.name}}_sprited"></span><a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
                     </h4>
                     <p>{{.description}}</p>
 
