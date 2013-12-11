@@ -1229,6 +1229,7 @@ div.api-resource .social-resource .author {
 .container.index .side-bar .resource-sdk .sdk-list li a {
   display: block;
   vertical-align: middle;
+  margin-left: 7.5px;
 }
 .container.index .side-bar .resource-sdk .sdk-list li a img {
   vertical-align: middle;
