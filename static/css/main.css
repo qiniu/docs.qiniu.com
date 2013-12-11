@@ -1007,10 +1007,11 @@ footer .copyright {
   border: 0;
 }
 .api-content blockquote {
-  padding: 12.5px;
-  border: 1px solid #e9e9e9;
+  padding: 6px;
+  border: 1px solid #faebcc;
   page-break-inside: avoid;
-  background-color: #fafafa;
+  background-color: #fcf8e3;
+  color: #8a6d3b;
 }
 .api-content blockquote p {
   margin: 0;
