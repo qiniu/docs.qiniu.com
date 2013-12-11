@@ -22,7 +22,7 @@ order: 50
 <a name="upload-request"></a>
 ## 请求报文
 
-<a name="upload-request-struct"></a>
+<a name="upload-request-syntax"></a>
 ### 请求报文格式
 
 请求报文的内容以`multipart/form-data`格式组织，具体细节请参考[multipart格式][multipartFrontierHref]。  
@@ -103,7 +103,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 <a name="upload-response"></a>
 ## 响应报文
 
-<a name="upload-response-struct"></a>
+<a name="upload-response-syntax"></a>
 ### 响应报文格式
 
 ```
@@ -154,7 +154,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#upload-response-status)
-`<errMsg>`   | 是   | 目标资源的最终名字，可由七牛云存储[自动命名]()
+`<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
 <a name="upload-response-status"></a>
 ### 响应状态
