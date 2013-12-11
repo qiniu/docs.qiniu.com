@@ -120,7 +120,7 @@ HTTP状态码 | 含义
 <a name="imageView-remarks"></a>
 ## 附注
 
-- imageView生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]。  
+- imageView生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
 
 <a name="imageView-samples"></a>
 ## 示例
@@ -164,9 +164,11 @@ HTTP状态码 | 含义
 
 - [域名绑定][cnameBindingHref]
 - [触发异步处理][pfopHref]
+- [saveas处理][saveasHref]
 
 [cnameBindingHref]:             ../../../overview/service/cname-binding.html     "域名绑定"
 [pfopHref]:                     ../fop/pfop/pfop.html                            "触发异步处理"
+[saveasHref]:                   ../saveas.html                                   "saveas处理"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
