@@ -1198,6 +1198,7 @@ div.api-resource .social-resource .author {
 }
 .container.index .cell.sdk ul li {
   border-left: 1px solid #f0f0f0;
+  width: 94px;
 }
 .container.index .cell.sdk ul li:first-child {
   border-left: none;
@@ -1801,7 +1802,7 @@ div.api-resource .social-resource .author {
 .container.docs {
   overflow: hidden;
 }
-.container.docs .pull-left .side-bar {
+.container.docs .side-bar {
   margin-top: 20px;
   background-color: #fff;
   border: 1px solid #e9e9e9;
@@ -1810,8 +1811,11 @@ div.api-resource .social-resource .author {
   margin-left: 20px;
   width: 680px;
 }
-.container.docs .pull-right {
-  width: 681px;
+.container.docs .main .cell.sdk ul li {
+  width: 88px;
+}
+.container.docs .main .cell.cli ul li {
+  width: 208px;
 }
 .dropdown {
   position: relative;
