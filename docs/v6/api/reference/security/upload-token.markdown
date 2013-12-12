@@ -39,32 +39,9 @@ order: 970
     putPolicy = '{"scope":"my-bucket:sunflower.jpg","deadline":1451491200,"returnUrl":"{\"name\":$(fname),\"size\":$(fsize),\"w\":$(imageInfo.width),\"h\":$(imageInfo.height),\"hash\":$(etag)}"}'
 	```
 
-3. 对JSON序列化后的上传策略进行[URL安全的Base64编码][urlsafeBase64Href]：  
+3. 将JSON编码的上传策略作为[凭证算法][tokenAlgorithmHref]的原始数据进行计算，得到上传凭证，我们称之为`encodedSign`。
 
-	```
-    encodedPutPolicy = urlsafe_base64_encode(putPolicy)
-	```
-
-	应得到
-
-	```
-    'eyJzY29wZSI6Im15LWJ1Y2tldDpzdW5mbG93ZXIuanBnIiwiZGVhZGxpbmUiOjE0NTE0OTEyMDAsInJldHVyblVybCI6IntcIm5hbWVcIjokKGZuYW1lKSxcInNpemVcIjokKGZzaXplKSxcIndcIjokKGltYWdlSW5mby53aWR0aCksXCJoXCI6JChpbWFnZUluZm8uaGVpZ2h0KSxcImhhc2hcIjokKGV0YWcpfSJ9'
-	```
-
-4. 用`SecretKey`对编码后的上传策略进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：  
-
-	```
-    sign = hmac_sha1(SecretKey, encodedPutPolicy)
-    encodedSign = urlsafe_base64_encode(sign)
-	```
-
-	假设用户的`SecretKey`是'Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0'，则加密后的结果应为  
-
-	```
-    'jFfzQtTQhvfM1sP1_yPO2WoO8gg='
-	```
-
-5. 最后，将`AccessKey`、`encodedSign`和`encodedPutPolicy`用“:”连接起来：  
+4. 将`AccessKey`、`encodedSign`和`encodedPutPolicy`用`:`连接起来：  
 
 	```
     uploadToken = AccessKey + ':' + encodedSign + ':' + encodedPutPolicy
@@ -100,7 +77,7 @@ order: 970
 - [URL安全的Base64编码][urlsafeBase64Href]
 
 [putPolicyHref]:            put-policy.html "上传策略"
-
+[tokenAlgorithmHref]:       token-algorithm.html "上传策略"
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"

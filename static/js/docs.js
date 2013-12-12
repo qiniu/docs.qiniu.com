@@ -115,7 +115,7 @@ $(function() {
         var $siblings = $(this).parents('.panel').siblings('.panel');
         if ($next.is(':visible')) {
             $next.hide('fast', adjustApiBoxHeight);
-            $(this).find('span.api_down_sprited').removeClass('api_down_sprited').addClass('api_default_sprited');
+            $(this).find('span.api_down').removeClass('api_down').addClass('api_default');
             $(this).find('a').removeClass('active');
         } else {
             $next.show('fast', function() {
@@ -129,26 +129,19 @@ $(function() {
                 }
                 adjustApiBoxHeight();
             });
-            $(this).find('span.api_default_sprited').removeClass('api_default_sprited').addClass('api_down_sprited');
+            $(this).find('span.api_default').removeClass('api_default').addClass('api_down');
             $(this).find('a').addClass('active');
-            $siblings.children('.panel-heading').find('.icon').removeClass('api_down_sprited').addClass('api_default_sprited');
+            $siblings.children('.panel-heading').find('.icon').removeClass('api_down').addClass('api_default');
             $siblings.children('.panel-heading').find('a').removeClass('active');
             $siblings.children('.panel-body').hide('fast', adjustApiBoxHeight);
         }
         return false;
     });
 
-    $('.panel-body .api_down2_sprited').on('click', function() {
-        var params = url.split('/');
-        var path = params[2];
-        var fileName = params[params.length - 1];
-        var $link = $(this).siblings('a');
-        var href = $link.attr('href').toLowerCase();
-        if (href.indexOf(path) >= 0 && href.indexOf(fileName) >= 0) {
-            $(this).parents('.panel-heading').siblings('.panel-body').hide('fast', adjustApiBoxHeight);
-            $link.removeClass('active');
-            $link.siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
-            $link.next('.icon').removeClass('api_down2_sprited');
+    $('.panel-status').each(function() {
+        if (!$(this).children().length > 0) {
+            console.log('hahhaha');
+            $(this).siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('off_1');
         }
     });
 
@@ -164,13 +157,22 @@ $(function() {
                 if ($panelBody.is(':visible')) {
                     $panelBody.hide('fast', adjustApiBoxHeight);
                     $(this).removeClass('active');
-                    $(this).siblings('.api_selected_sprited').removeClass('api_selected_sprited').addClass('api_unselect_sprited');
-                    $(this).next('.icon').removeClass('api_down2_sprited');
+                    //$(this).siblings('.on_2').removeClass('on_2').addClass('off_2');
+                    //$(this).next('.icon').removeClass('api_down2_sprited');
+                    if ($(this).siblings('.on_2').length > 0) {
+                        $(this).siblings('.on_2').removeClass('on_2').addClass('off_2');
+                    } else {
+                        $(this).siblings('.on_1').removeClass('on_1').addClass('off_1');
+                    }
                 } else {
                     $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
                     $(this).addClass('active');
-                    $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
-                    $(this).next('.icon').addClass('api_down2_sprited');
+                    $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
+                    if ($(this).siblings('.off_2').length > 0) {
+                        $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
+                    } else {
+                        $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
+                    }
                 }
                 return false;
             }
@@ -185,11 +187,11 @@ $(function() {
             $(this).addClass('active');
             if ($(this).parents('.panel-heading').length > 0) {
                 $(this).parents('.panel-heading').siblings('.panel-body').show('fast', adjustApiBoxHeight);
-                $(this).siblings('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
-                $(this).next('.icon').addClass('api_down2_sprited');
+                $(this).siblings('.off_2').removeClass('off_2').addClass('on_2');
+                $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
             } else {
                 $(this).parents('.panel-body').show('fast', adjustApiBoxHeight);
-                $(this).parents('.panel-body').siblings('.panel-heading').find('.api_unselect_sprited').removeClass('api_unselect_sprited').addClass('api_selected_sprited');
+                $(this).parents('.panel-body').siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('on_2');
                 $(this).parents('.panel-body').siblings('.panel-heading').find('span:last').addClass('api_down2_sprited');
                 $(this).parents('.panel-body').siblings('.panel-heading').find('a').addClass('active');
             }
