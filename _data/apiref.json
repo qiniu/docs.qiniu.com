@@ -3,7 +3,7 @@
 	"Items": [
 		{
 			"Title": "安全机制",
-			"Href": "docs/v6/api/reference/security",
+			"Href": "docs/v6/api/reference/security/",
 			"Child": [
 				{
 					"Title": "凭证算法",
@@ -40,7 +40,7 @@
 		},
 		{
 			"Title": "上传",
-			"Href": "docs/v6/api/reference/up",
+			"Href": "docs/v6/api/reference/up/",
 			"Child": [
 				{
 					"Title": "创建块（mkblk）",
@@ -71,7 +71,7 @@
 		},
 		{
 			"Title": "资源管理",
-			"Href": "docs/v6/api/reference/rs",
+			"Href": "docs/v6/api/reference/rs/",
 			"Child": [
 				{
 					"Title": "获取资源信息（stat）",
@@ -108,7 +108,7 @@
 		},
 		{
 			"Title": "数据处理",
-			"Href": "docs/v6/api/reference/fop",
+			"Href": "docs/v6/api/reference/fop/",
 			"Child": [
 				{
 					"Title": "预设数据处理指令",
@@ -124,7 +124,7 @@
 				},
 				{
 					"Title": "异步处理",
-					"Href": "docs/v6/api/reference/fop/pfop",
+					"Href": "docs/v6/api/reference/fop/pfop/",
 					"Child": [
 						{
 							"Title": "触发异步处理（pfop）",
@@ -143,7 +143,7 @@
 				},
 				{
 					"Title": "图片",
-					"Href": "docs/v6/api/reference/fop/image",
+					"Href": "docs/v6/api/reference/fop/image/",
 					"Child": [
 						{
 							"Title": "图片处理（imageView）",
@@ -180,7 +180,7 @@
 				},
 				{
 					"Title": "音视频",
-					"Href": "docs/v6/api/reference/fop/av",
+					"Href": "docs/v6/api/reference/fop/av/",
 					"Child": [
 						{
 							"Title": "音视频处理（avthumb）",

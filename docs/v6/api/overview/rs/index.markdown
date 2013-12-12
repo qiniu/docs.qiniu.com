@@ -10,4 +10,3 @@ order: 300
 
 * [安全机制](security.html)
 * [管理操作](rs.html)
-* [批量操作](batch.html)

@@ -33,7 +33,7 @@
 		},
 		{
 			"Title": "编码阶段",
-			"Href": "docs/v6/tutorial/coding",
+			"Href": "docs/v6/tutorial/coding/",
 			"Child": [
 				{
 					"Title": "服务端",
@@ -70,7 +70,7 @@
 		},
 		{
 			"Title": "产品上线与运维",
-			"Href": "docs/v6/tutorial/op",
+			"Href": "docs/v6/tutorial/op/",
 			"Child": [
 				{
 					"Title": "部署",
