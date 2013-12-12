@@ -4,16 +4,16 @@ title: 资源下载二维码（qrcode）
 order: 110
 ---
 
-<a name="qrcode"></a>
+<a id="qrcode"></a>
 # 资源下载二维码（qrcode）
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 生成二维码功能可以为存放在七牛云存储上的资源`下载URL`或`资源内容`生成一个二维码图片，方便用户在各种客户端之间传播资源。  
 所生成的二维码图片格式为png。  
 
-<a name="specification"></a>
+<a id="specification"></a>
 ## 接口规格（qrcodeSpec）
 
 ```
@@ -29,10 +29,10 @@ order: 110
 
 注意：`L`是最低级别的冗余度，`H`最高。冗余度越高，生成图片体积越大。详情请参考[维基百科](http://en.wikipedia.org/wiki/QR_code#Error_correction)。  
 
-<a name="request"></a>
+<a id="request"></a>
 ### 请求
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 #### 请求语法
 
 ```
@@ -40,10 +40,10 @@ GET <DownloadURI>?<qrcodeSpec> HTTP/1.1
 Host: <DownloadHost>
 ```
 
-<a name="response"></a>
+<a id="response"></a>
 ### 响应
 
-<a name="response-syntax"></a>
+<a id="response-syntax"></a>
 #### 响应语法
 
 ```
@@ -55,7 +55,7 @@ Content-Type: image/png
 
 如果请求失败，具体信息请参考响应状态码。
 
-<a name="response-code"></a>
+<a id="response-code"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
@@ -65,12 +65,12 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="remarks"></a>
+<a id="remarks"></a>
 ## 附注
 
 二维码的内容实际上是文本，却可存储多种类型的内容，参考[具体用例](https://code.google.com/p/zxing/wiki/BarcodeContents)。  
 
-<a name="samples"></a>
+<a id="samples"></a>
 ## 示例
 
 1. Mode=0时，基于下载URL生成二维码：  
@@ -105,7 +105,7 @@ HTTP状态码 | 含义
 
 	以上两个二维码图片尺寸不同，但表示的内容相同。
 
-<a name="advance-usage"></a>
+<a id="advance-usage"></a>
 ## 高级用法
 
 想生成二维码 + Logo，可以使用七牛云存储的[Pipeline API](pipeline.html)和[图像水印接口](image-process.html#watermark) 操作实现。例如，

@@ -4,19 +4,19 @@ title: 音视频处理（avthumb）
 order: 150
 ---
 
-<a name="avthumb"></a>
+<a id="avthumb"></a>
 # 音视频处理（avthumb）
 
-<a name="audio-convert"></a>
+<a id="audio-convert"></a>
 ## 音频转换
 
-<a name="audio-preset-description"></a>
+<a id="audio-preset-description"></a>
 ### 描述
 
 音频转码是七牛云存储提供的云处理功能。  
 使用音频转码功能，用户可以对存放在七牛云存储的音频资源进行编码和转换处理。  
 
-<a name="audio-spec"></a>
+<a id="audio-spec"></a>
 ### 接口规格（audioSpec）  
 
 ```
@@ -33,10 +33,10 @@ avthumb/<Format>
 `/aq/<AudioQuality>` | 动态码率（VBR），取值范围为0-9，值越小码率越高。不能与上述静态码率参数共用 |
 `/ar/<SamplingRate>` | 音频采样频率，单位：赫兹（Hz），常用采样频率：8000，12050，22050，44100等 |
 
-<a name="audio-request"></a>
+<a id="audio-request"></a>
 ### 请求
 
-<a name="audio-request-syntax"></a>
+<a id="audio-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -44,10 +44,10 @@ GET <AudioDownloadURI>?<audioSpec> HTTP/1.1
 Host: <AudioDownloadHost>
 ```
 
-<a name="audio-response"></a>
+<a id="audio-response"></a>
 ### 响应
 
-<a name="audio-response-syntax"></a>
+<a id="audio-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -57,7 +57,7 @@ Content-Type: <AudioMimeType>
 <AudioBinaryData>
 ```
 
-<a name="audio-samples"></a>
+<a id="audio-samples"></a>
 ### 示例
 
 #### 将wav音频转换为mp3格式
@@ -84,33 +84,33 @@ http://apitest.qiniudn.com/sample.wav?avthumb/mp3
 
 	[点击收听效果](http://apitest.qiniudn.com/sample.wav?avthumb/mp3/ar/44100/aq/3)
 
-<a name="audio-remarks"></a>
+<a id="audio-remarks"></a>
 ### 附注
 
 支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
 
-<a name="audio-optimization"></a>
+<a id="audio-optimization"></a>
 ### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)
 
-<a name="video-convert"></a>
+<a id="video-convert"></a>
 ## 视频转码
 
 视频转码是七牛云存储提供的云处理功能。  
 使用视频转码功能，用户可以对存放在七牛云存储的视频资源进行编码和转换处理。  
 视频转码包括两种方式：[视频转换预设集](#video-preset)和[视频自定义转换](#self-def-video-convert)。  
 
-<a name="video-preset"></a>
+<a id="video-preset"></a>
 ## 视频转换预设集
 
-<a name="video-preset-description"></a>
+<a id="video-preset-description"></a>
 ### 描述
 
 视频转换预设集是七牛云存储预先设置的一组视频转码设置，适用于特定业务场景。  
 用户可以方便地使用这些预设的转码设置，面向特定格式进行转码。  
 
-<a name="video-preset-spec"></a>
+<a id="video-preset-spec"></a>
 ### 接口规格（videoPresetSpec）  
 
 ```
@@ -133,10 +133,10 @@ iphone_low   | libx264    | mp4      | 480x320  | 96k      | libfaac    | 64k   
 iphone       | libx264    | mp4      | 480x320  | 512k     | libfaac    | 128k     | 48k
 webm         | libvpx     | webm     |          | 700k     | libvorbis  | 128k     | 48k
 
-<a name="video-request"></a>
+<a id="video-request"></a>
 ### 请求
 
-<a name="video-request-syntax"></a>
+<a id="video-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -144,10 +144,10 @@ GET <VideoDownloadURI>?<videoPresetSpec> HTTP/1.1
 Host: <VideoDownloadHost>
 ```
 
-<a name="video-response"></a>
+<a id="video-response"></a>
 ### 响应
 
-<a name="video-response-syntax"></a>
+<a id="video-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -157,7 +157,7 @@ Content-Type: <VideoMimeType>
 <VideoBinaryData>
 ```
 
-<a name="audio-samples"></a>
+<a id="audio-samples"></a>
 ### 示例
 
 1. 将mp4视频转换为`iphone`格式：  
@@ -176,15 +176,15 @@ Content-Type: <VideoMimeType>
 
 	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/android_high)
 
-<a name="video-selfdef-convert"></a>
+<a id="video-selfdef-convert"></a>
 ## 视频自定义转换
 
-<a name="video-preset-description"></a>
+<a id="video-preset-description"></a>
 ### 描述
 
 七牛云存储还支持使用自定义参数进行视频转码。  
 
-<a name="video-selfdef-spec"></a>
+<a id="video-selfdef-spec"></a>
 ### 接口规格（videoSelfDefSpec）  
 
 ```
@@ -212,10 +212,10 @@ avthumb/<Format>
 `/t/<Duration>`         | 指定视频截取的长度，单位：秒。用于视频截取，从一段视频中截取一段视频。 |
 `/s/<Resolution>`       | 指定视频分辨率，格式为 wxh 或者预定义值。 |
 
-<a name="video-request"></a>
+<a id="video-request"></a>
 ### 请求
 
-<a name="video-request-syntax"></a>
+<a id="video-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -223,10 +223,10 @@ GET <VideoDownloadURI>?<videoSelfDefSpec> HTTP/1.1
 Host: <VideoDownloadHost>
 ```
 
-<a name="video-response"></a>
+<a id="video-response"></a>
 ### 响应
 
-<a name="video-response-syntax"></a>
+<a id="video-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -236,7 +236,7 @@ Content-Type: <VideoMimeType>
 <VideoBinaryData>
 ```
 
-<a name="audio-samples"></a>
+<a id="audio-samples"></a>
 ### 示例
 
 1. 将mp4视频转换为flv格式，帧率为24，使用x264进行视频编码：  
@@ -283,13 +283,13 @@ Content-Type: <VideoMimeType>
 
 	[点击观看效果](http://open.qiniudn.com/thinking-in-go.mp4?avthumb/ogv/r/30/vb/1800k/vcodec/libtheora/ar/44100/ab/128k/acodec/libvorbis)
 
-<a name="audio-remarks"></a>
+<a id="audio-remarks"></a>
 ### 附注
 
 支持的视频编码器（Codec）有：libx264，libvpx，libtheora，libxvid等。
 支持的音频编码器（Codec）有：libmp3lame，libfaac，libvorbis等。  
 
-<a name="audio-optimization"></a>
+<a id="audio-optimization"></a>
 ### 优化建议
 
 为了保证良好的用户体验，请配合上传预转机制使用。参考: [上传预转](#upload-fop)

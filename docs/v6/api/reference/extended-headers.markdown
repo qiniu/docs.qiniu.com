@@ -4,17 +4,17 @@ title: HTTP扩展字段
 order: 200
 ---
 
-<a name="extended-headers"></a>
+<a id="extended-headers"></a>
 # HTTP扩展字段
 
 除了HTTP 1.1规范自带的各种字段外，七牛云存储还支持一系列扩展的请求头和响应头字段。
 
-<a name="extended-request-headers"></a>
+<a id="extended-request-headers"></a>
 ## 请求扩展字段
 
 无。
 
-<a name="extended-response-headers"></a>
+<a id="extended-response-headers"></a>
 ## 响应扩展字段
 
 字段名称 | 字段说明

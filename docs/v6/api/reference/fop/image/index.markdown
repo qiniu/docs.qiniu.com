@@ -6,7 +6,7 @@ order: 170
 
 # 其他数据处理支持
 
-<a name="qr-code"></a>
+<a id="qr-code"></a>
 ## 生成二维码
 
 生成二维码功能可以为存放在七牛云存储上的资源的url生成一个二维码图片，方便用户在各种客户端之间传播资源。所生成的二维码图片格式为png。
@@ -23,7 +23,7 @@ order: 170
 
 ![通向本篇文档的二维码图片地址](http://docs.qiniudn.com/api/qrcode.html?qrcode)
 
-<a name="qrcode-api"></a>
+<a id="qrcode-api"></a>
 
 ## API 规格
 
@@ -54,7 +54,7 @@ H  | 30%
 
 L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体积越大。具体参见 [维基百科](http://en.wikipedia.org/wiki/QR_code#Error_correction)
 
-<a name="qrcode-sample"></a>
+<a id="qrcode-sample"></a>
 
 ## 样例
 
@@ -74,7 +74,7 @@ L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体�
 以上两个二维码图片尺寸不同，但表示的内容相同。
 
 
-<a name="qrcode-adv"></a>
+<a id="qrcode-adv"></a>
 
 ## 高级用法
 
@@ -85,7 +85,7 @@ L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体�
 可以右键查看该二维码图片的URL
 
 
-<a name="qrcode-content"></a>
+<a id="qrcode-content"></a>
 
 ## 二维码中的内容
 
@@ -95,7 +95,7 @@ L 是最低级别的冗余度，H 最高，冗余度越高，生成的图片体�
 
 
 
-<a name="alias"></a>
+<a id="alias"></a>
 
 ## 别名
 
