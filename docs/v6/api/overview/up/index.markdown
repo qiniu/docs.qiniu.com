@@ -8,7 +8,7 @@ order: 500
 
 本节讲解资源的上传过程，包含以下内容：
 
-* [上传模型](upload-model.html)
+* [上传模型](upload-models.html)
 * [表单上传](form-upload.html)
 * [分片上传（断点续传）](chunked-upload.html)
 * 上传后续动作
