@@ -223,22 +223,25 @@ HTTP状态码 | 含义
 
 1. 生成480x320缩略图
 
+	等比缩小75%：
+	
 	```
-等比缩小75%
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p
 	```
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75p)
 
+	按原宽度75%等比缩小：
+
 	```
-按原宽度75%等比缩小
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px
 	```
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!75px)
 
+	按原高度75%等比缩小：
+
 	```
-按原高度75%等比缩小
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/!x75p
 	```
 
@@ -246,15 +249,17 @@ HTTP状态码 | 含义
 
 2. 生成700x467放大图
 
+	指定新宽度为700px：
+
 	```
-指定新宽度为700px
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x
 	```
 
 	![查看效果图](http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/700x)
 
+	指定新高度为467px：
+
 	```
-指定新高度为467px
     http://qiniuphotos.qiniudn.com/gogopher.jpg?imageMogr/v2/thumbnail/x467
 	```
 

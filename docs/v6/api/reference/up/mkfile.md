@@ -49,7 +49,6 @@ Content-Length | 所有块的ctx及分隔符的总长度，单位为字节。 | 
 Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`UpToken QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
 使用本API无需设置额外头部信息。  
-其它可用请求头部信息请参考[常用请求头部信息]()。
 
 <a id="request-body"></a>
 ### 请求内容
@@ -122,5 +121,4 @@ HTTP状态码 | 含义
 - [上传片（bput）](bput.html)
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[uploadTokenHref]               ../security/upload-token.html                    "上传凭证"
-[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
+[uploadTokenHref]:              ../security/upload-token.html                    "上传凭证"
