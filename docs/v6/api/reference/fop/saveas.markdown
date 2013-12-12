@@ -4,15 +4,15 @@ title: 处理结果另存为（saveas）
 order: 185
 ---
 
-<a name="saveas"></a>
+<a id="saveas"></a>
 # 处理结果另存（saveas）
 
-<a name="tag"></a>
+<a id="tag"></a>
 ## 标签
 
 [辅助功能](helperHref)
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 七牛云存储的云处理API接口均支持如下串行处理规格:
@@ -26,7 +26,7 @@ order: 185
 
 我们提供名为`saveas`的云处理操作，将云处理结果作为资源保存到指定空间内，并赋以指定Key。保存成功后，下一次可直接通过指定Key来访问该资源，以达到提升下载速度的效果。  
 
-<a name="specification"></a>
+<a id="specification"></a>
 ## 接口规格（saveasSpec）  
 
 ```
@@ -38,7 +38,7 @@ saveas/<EncodedEntryURI>/sign/<Sign>
 `<EncodedEntryURI>` | string | 以[EncodedEntryURI格式][encodedEntryURIHref]组织的Bucket与Key | 是
 `/sign/<Sign>`      | string | 请求签名部分，算法见下方。                                    | 是
 
-<a name="sign-algorithm"></a>
+<a id="sign-algorithm"></a>
 ## 签名算法
 
 ### 算法描述
@@ -91,14 +91,14 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 }
 ```
 
-<a name="remarks"></a>
+<a id="remarks"></a>
 ## 附注
 
 - `urlsafe_base64_encode()` 函数按照标准的 [RFC 4648](http://www.ietf.org/rfc/rfc4648.txt) 实现，开发者可以参考 [github.com/qiniu](https://github.com/qiniu) 上各SDK的样例代码。
 - 此处签名内容不包含Scheme部分，与DownloadToken签名不一样。
 - 当要持久化保存的fop耗时较长时候，saveas请求会返回CDN超时，但是只要保证发送的saveas请求合法，七牛服务器还是会对请求做正确处理。
 
-<a name="samples"></a>
+<a id="samples"></a>
 ## 示例
 
 1. 原资源是一个图片：  

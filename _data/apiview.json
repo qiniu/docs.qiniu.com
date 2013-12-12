@@ -36,16 +36,10 @@
 					"Order": 540
 				},
 				{
-					"Title": "分片上传",
+					"Title": "分片上传（断点续传）",
 					"Href": "docs/v6/api/overview/up/chunked-upload.html",
 					"Child": null,
 					"Order": 530
-				},
-				{
-					"Title": "追加上传",
-					"Href": "docs/v6/api/overview/up/append.html",
-					"Child": null,
-					"Order": 520
 				},
 				{
 					"Title": "上传后续动作",
@@ -188,12 +182,6 @@
 					"Href": "docs/v6/api/overview/fop/streaming.html",
 					"Child": null,
 					"Order": 240
-				},
-				{
-					"Title": "自定义数据处理",
-					"Href": "docs/v6/api/overview/fop/custom-fop.html",
-					"Child": null,
-					"Order": 210
 				}
 			],
 			"Order": 200

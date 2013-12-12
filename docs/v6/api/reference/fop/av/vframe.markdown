@@ -1,23 +1,22 @@
 ---
-layout: default
 title: 视频截图（vframe）
 order: 149
 ---
 
-<a name="video-thumbnail"></a>
+<a id="video-thumbnail"></a>
 # 视频帧缩略图
 
-<a name="tag"></a>
+<a id="tag"></a>
 ## 标签
 
 [缩略图](thumbnailHref)
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 从视频流中截取指定时刻的单帧画面并按指定大小缩放成图片。  
 
-<a name="specification"></a>
+<a id="specification"></a>
 ## 接口规格（vframeSpec）  
 
 ```
@@ -34,10 +33,10 @@ vframe/<Format>
 `/w/<Width>`       | 缩略图宽度，单位：像素（px），取值范围为1-1920                      | 是
 `/h/<Height>`      | 缩略图高度，单位：像素（px），取值范围为1-1080                      | 是
 
-<a name="request"></a>
+<a id="request"></a>
 ## 请求
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 请求语法
 
 ```
@@ -45,10 +44,10 @@ GET <VideoDownloadURI>?<vframeSpec> HTTP/1.1
 Host: <VideoDownloadHost>
 ```
 
-<a name="response"></a>
+<a id="response"></a>
 ## 响应
 
-<a name="response-syntax"></a>
+<a id="response-syntax"></a>
 ### 响应语法
 
 ```
@@ -60,7 +59,7 @@ Content-Type: <ImageMimeType>
 
 如果请求失败，具体信息请参考响应状态码。
 
-<a name="response-code"></a>
+<a id="response-code"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
@@ -71,12 +70,12 @@ HTTP状态码 | 含义
 TODO       | 未支持的图片格式
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="remarks"></a>
+<a id="remarks"></a>
 ## 附注
 
 无。
 
-<a name="samples"></a>
+<a id="samples"></a>
 ## 示例
 
 1. 取视频第7秒的截图，图片格式为jpg，宽度为480px，高度为360px：

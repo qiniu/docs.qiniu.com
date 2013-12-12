@@ -4,10 +4,10 @@ title: 管道
 order: 285
 ---
 
-<a name="pipeline"></a>
+<a id="pipeline"></a>
 # 管道
 
-<a name="pipeline-spec"></a>
+<a id="pipeline-spec"></a>
 ## 管道规格
 
 七牛云存储的数据处理功能规格如下:

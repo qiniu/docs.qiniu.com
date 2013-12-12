@@ -1,35 +1,35 @@
 ---
 layout: docs
-title: 查询异步云处理及持久化状态（prefop）
+title: 查询异步处理状态（prefop）
 order: 200
 ---
 
-<a name="prefop"></a>
-# 查询异步云处理及持久化状态（prefop）
+<a id="prefop"></a>
+# 查询异步处理状态（prefop）
 
-<a name="prefop-description"></a>
+<a id="prefop-description"></a>
 ## 描述
 
 用户可以使用`<persistentId>`来主动查询异步云处理及持久化的执行状态。  
 
-<a name="prefop-specification"></a>
+<a id="prefop-specification"></a>
 ## 接口规格（prefopSpec）
 
 ```
 http://api.qiniu.com/status/get/prefop?id=<persistentId>
 ```
 
-<a name="prefop-specification-params"></a>
+<a id="prefop-specification-params"></a>
 ## 接口参数
 
 参数名称      | 说明                                             | 必填
 :------------ | :----------------------------------------------- | :-------
 `id`          | 上传预处理或异步云处理接口返回的`<persistentId>` | 是
 
-<a name="prefop-request"></a>
+<a id="prefop-request"></a>
 ## 请求
 
-<a name="prefop-request-syntax"></a>
+<a id="prefop-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -37,7 +37,7 @@ GET /status/get/prefop?<prefopSpec> HTTP/1.1
 Host: api.qiniu.com  
 ```
 
-<a name="prefop-request-headers"></a>
+<a id="prefop-request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -49,10 +49,10 @@ Host          | 固定为api.qiniu.com                     | 是
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a name="prefop-response"></a>
+<a id="prefop-response"></a>
 ## 响应
 
-<a name="prefop-request-syntax"></a>
+<a id="prefop-request-syntax"></a>
 ### 响应语法
 
 ```
@@ -63,14 +63,14 @@ Content-Length: <prefopResponseContentLength>
 <prefopResponseContent>
 ```
 
-<a name="prefop-response-headers"></a>
+<a id="prefop-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-<a name="prefop-response-body"></a>
+<a id="prefop-response-body"></a>
 ### 响应内容（prefopResponseContent）
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -139,7 +139,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 }
 ```
 
-<a name="pfop-error-messages"></a>
+<a id="pfop-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义

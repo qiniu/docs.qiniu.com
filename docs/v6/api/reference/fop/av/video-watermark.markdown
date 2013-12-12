@@ -3,10 +3,10 @@ layout: docs
 title: 视频水印（vwatermark）
 order: 139
 ---
-<a name="vwatermark"></a>
+<a id="vwatermark"></a>
 # 视频水印（vwatermark）
 
-<a name="vwatermark-spec"></a>
+<a id="vwatermark-spec"></a>
 ## 视频水印规格（vwatermarkSpec）
 
 ```
@@ -23,10 +23,10 @@ vwatermark/<Mode>
 `<Gravity>`|打水印的位置，目前支持`NorthWest`，`North`，`NorthEast`，`West`，`Center`，`East`，`SouthWest`，`South`，`SouthEast`。缺省值为`NorthEast` |
 `<OutputFormat>`           | 指定目标视频的输出格式，取值范围：mp4，flv等。缺省值为`mp4` |
 
-<a name="video-request"></a>
+<a id="video-request"></a>
 ## 请求
 
-<a name="video-request-syntax"></a>
+<a id="video-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -34,10 +34,10 @@ GET <VideoDownloadURI>?<vwatermarkSpec> HTTP/1.1
 Host: <VideoDownloadHost>
 ```
 
-<a name="video-response"></a>
+<a id="video-response"></a>
 ## 响应
 
-<a name="video-response-syntax"></a>
+<a id="video-response-syntax"></a>
 ### 响应语法
 
 ```
@@ -47,7 +47,7 @@ Content-Type: <VideoMimeType>
 <VideoBinaryData>
 ```
 
-<a name="vwatermark-samples"></a>
+<a id="vwatermark-samples"></a>
 ## 示例
 
 ```

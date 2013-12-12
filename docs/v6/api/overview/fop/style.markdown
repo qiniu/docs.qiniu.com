@@ -3,7 +3,7 @@ layout: docs
 title: 样式
 order: 255
 ---
-<a name="style"></a>
+<a id="style"></a>
 # 样式
 
 如果觉得 `url?<fop1>|<fop2>|<fop3>|<fopN>` 这样的形式够冗长，还可以为这些串行的 `<fop>` 集合定义一个友好别名。如此一来，就可以用友好URL风格进行访问。

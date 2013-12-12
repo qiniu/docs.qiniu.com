@@ -4,13 +4,13 @@ title: 管理凭证
 order: 950
 ---
 
-<a name="access-token"></a>
+<a id="access-token"></a>
 # 管理凭证
 
 管理凭证是七牛云存储用于验证管理请求合法性的机制。  
 建议仅在业务服务器使用这一类凭证，避免意外授权导致滥用。  
 
-<a name="access-token-algorithm"></a>
+<a id="access-token-algorithm"></a>
 ## 算法
 
 1. 生成待签名字符串：  
@@ -36,20 +36,9 @@ order: 950
     '/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=\n'
 	```
 
-2. 用`SecretKey`对待签名字符串进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：
+2. 将上一步得到的字符串作为[凭证算法][tokenAlgorithmHref]的原始数据进行运算，得到管理凭证，我们称之为`encodedSign`。
 
-	```
-    sign = hmac_sha1(SecretKey, signingStr)
-    encodedSign = urlsafe_base64_encode(sign)
-	```
-
-    假设`SecretKey`为'Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0'，签名结果应为  
-
-	```
-    'Ubf-hoK7DkUJQv_P0vyQORA_7IY='
-	```
-
-3. 最后，将`AccessKey`和`EncodedSign`用“:”连接起来：  
+3. 最后，将`AccessKey`和`encodedSign`用`:`连接：  
 
 	```
     <AccessKey>:<encodedSign>
@@ -62,19 +51,19 @@ order: 950
     'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:Ubf-hoK7DkUJQv_P0vyQORA_7IY='
 	```
 
-<a name="access-token-remarks"></a>
+<a id="access-token-remarks"></a>
 ## 附注
 
 无。
 
-<a name="access-token-samples"></a>
+<a id="access-token-samples"></a>
 ## 代码示例
 
 ```
 // TODO: 代码示例goes here.
 ```
 
-<a name="access-external-resources"></a>
+<a id="access-external-resources"></a>
 ## 外部参考资源
 
 - [HMAC-SHA1加密][hmacSha1Href]
@@ -82,3 +71,4 @@ order: 950
 
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[tokenAlgorithmHref]:		token-algorithm.html

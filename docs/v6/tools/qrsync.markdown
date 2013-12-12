@@ -9,14 +9,14 @@ title: qrsync 命令行同步工具
 - [用法](#usage)
 
 
-<a name="overview"></a>
+<a id="overview"></a>
 ## 简介
 
 qrsync 是一个根据七牛云存储API实现的简易命令行辅助上传同步工具，支持断点续上传，增量同步，它可将用户本地的某目录的文件同步到七牛云存储中，同步或上传几百GB甚至上TB的文件毫无鸭梨。
 
 **注意：被同步的文件名和路径必须是utf8编码，非utf8的文件名和路径将会同步失败**
 
-<a name="download"></a>
+<a id="download"></a>
 ## 下载
 
 qrsync 命令行辅助同步工具下载地址：
@@ -27,7 +27,7 @@ qrsync 命令行辅助同步工具下载地址：
 - Windows 32bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip>
 - Windows 64bits: <http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip>
 
-<a name="usage"></a>
+<a id="usage"></a>
 ## 用法
 
 先建立一个配置文件，比如叫 conf.json，内容大体如下：

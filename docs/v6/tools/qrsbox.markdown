@@ -10,7 +10,7 @@ title: QRSBox 同步工具
     - [Windows GUI 的使用](#usage-gui)
     - [命令行使用方法](#usage-cmd)
 
-<a name="intro"></a>
+<a id="intro"></a>
 
 ## 简介
 
@@ -20,7 +20,7 @@ QRSBox可将用户本地的某个目录的文件同步到七牛云存储中，�
 
 关于QRSBox的一些疑问，可以在[疑问简答](http://kb.qiniu.com/537ps105)中找到答案。
 
-<a name="download"></a>
+<a id="download"></a>
 
 ## 下载
 
@@ -33,13 +33,13 @@ QRSBox下载地址：
     - Linux 64bits: [qrsboxcli linux_amd64](http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip)
     - Linux 32bits: [qrsboxcli linux_386](http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip)
 
-<a name="usage"></a>
+<a id="usage"></a>
 
 ## QRSBox使用方法
 
 QRSBox包含 Windows GUI 和 命令行工具两部分。前者可在 Windows中使用，由于拥有GUI界面，使用更加方便。后者适合 Linux/OS X 等类 Unix 操作系统使用。当然，命令行工具也有 Windows 版，可在 Windows 的命令行使用。
 
-<a name="usage-gui"></a>
+<a id="usage-gui"></a>
 
 ### Windows GUI 的使用
 
@@ -68,7 +68,7 @@ QRSBox 启动后会常驻内存，在 Windows 的任务栏中显示托盘 ![托�
 
 如果用户需要修改同步目录，AccessKey/SecretKey，或其他参数，可以右键单击qrsbox的托盘，选择“配置”菜单项，打开配置界面，重新配置。
 
-<a name="usage-cmd"></a>
+<a id="usage-cmd"></a>
 
 ### 命令行使用方法
 
