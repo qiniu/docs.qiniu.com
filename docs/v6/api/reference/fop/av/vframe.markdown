@@ -1,5 +1,4 @@
 ---
-layout: default
 title: 视频截图（vframe）
 order: 149
 ---

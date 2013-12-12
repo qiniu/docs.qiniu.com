@@ -42,12 +42,6 @@
 					"Order": 530
 				},
 				{
-					"Title": "追加上传",
-					"Href": "docs/v6/api/overview/up/append.html",
-					"Child": null,
-					"Order": 520
-				},
-				{
 					"Title": "上传后续动作",
 					"Href": "docs/v6/api/overview/up/response",
 					"Child": [
