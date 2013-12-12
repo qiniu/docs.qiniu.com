@@ -1198,7 +1198,7 @@ div.api-resource .social-resource .author {
 }
 .container.index .cell.sdk ul li {
   border-left: 1px solid #f0f0f0;
-  width: 94px;
+  width: 99px;
 }
 .container.index .cell.sdk ul li:first-child {
   border-left: none;
@@ -1265,6 +1265,8 @@ div.api-resource .social-resource .author {
 .container.docs .cell h2 {
   margin-bottom: 25px;
   color: #262626;
+  height: 19px;
+  line-height: 19px;
 }
 .container.index .cell.sdk,
 .container.docs .cell.sdk {
@@ -1279,7 +1281,6 @@ div.api-resource .social-resource .author {
 .container.index .cell.sdk ul li,
 .container.docs .cell.sdk ul li {
   float: left;
-  width: 94px;
   height: 70px;
   margin: 0 auto;
   text-align: center;
@@ -1321,6 +1322,8 @@ div.api-resource .social-resource .author {
   font-size: 12px;
   margin-bottom: 10px;
   color: #404040;
+  line-height: 16px;
+  height: 16px;
 }
 .container.index .cell.api .cell-line h4,
 .container.docs .cell.api .cell-line h4 {
@@ -1329,6 +1332,8 @@ div.api-resource .social-resource .author {
   margin-top: 8px;
   color: #404040;
   font-weight: normal;
+  line-height: 16px;
+  height: 16px;
 }
 .container.index .cell.api .cell-line span.icon,
 .container.docs .cell.api .cell-line span.icon {
@@ -1350,6 +1355,8 @@ div.api-resource .social-resource .author {
   float: left;
   width: 145px;
   margin-bottom: 10px;
+  height: 14px;
+  line-height: 14px;
 }
 .container.index .cell.cli,
 .container.docs .cell.cli {
