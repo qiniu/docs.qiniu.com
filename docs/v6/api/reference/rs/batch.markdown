@@ -1,5 +1,4 @@
 ---
-layout: docs
 title: 批量操作（batch）
 order: 500
 ---
