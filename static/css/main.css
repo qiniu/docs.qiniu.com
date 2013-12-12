@@ -1253,10 +1253,6 @@ div.api-resource .social-resource .author {
 .container.index .side-bar .resource-community p a {
   color: #999999;
 }
-.container.index a,
-.container.docs a {
-  color: #0c94de;
-}
 .container.index .cell,
 .container.docs .cell {
   padding: 25px;
@@ -1267,6 +1263,10 @@ div.api-resource .social-resource .author {
   color: #262626;
   height: 19px;
   line-height: 19px;
+}
+.container.index .cell a,
+.container.docs .cell a {
+  color: #0c94de;
 }
 .container.index .cell.sdk,
 .container.docs .cell.sdk {
