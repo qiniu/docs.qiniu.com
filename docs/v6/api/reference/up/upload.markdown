@@ -4,25 +4,25 @@ title: 直传文件（upload）
 order: 50
 ---
 
-<a name="upload"></a>
+<a id="upload"></a>
 # 直传文件（upload）
 
-<a name="upload-tags"></a>
+<a id="upload-tags"></a>
 ## 标签
 
 [上传](../appendix-tags.html#up)
 
-<a name="upload-description"></a>
+<a id="upload-description"></a>
 ## 描述
 
 `upload`是七牛云存储提供的最基础的接口，用于在一次HTTP会话中上传单一的一个文件。  
 
 ---
 
-<a name="upload-request"></a>
+<a id="upload-request"></a>
 ## 请求报文
 
-<a name="upload-request-syntax"></a>
+<a id="upload-request-syntax"></a>
 ### 请求报文格式
 
 请求报文的内容以`multipart/form-data`格式组织，具体细节请参考[multipart格式][multipartFrontierHref]。  
@@ -58,7 +58,7 @@ Content-Transfer-Encoding: binary
 --<frontier>--
 ```
 
-<a name="upload-request-header"></a>
+<a id="upload-request-header"></a>
 ### 请求头部
 
 头部名称       | 必填 | 说明
@@ -67,7 +67,7 @@ Host           | 是   | 上传服务器域名，固定为up.qiniu.com
 Content-Type   | 是   | 固定为multipart/form-data。`<frontier>`为[Multipart分隔符][multipartFrontierHref]，必须是任何Multipart消息都不包含的字符串
 Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（Byte） 
 
-<a name="upload-request-params"></a>
+<a id="upload-request-params"></a>
 ### 请求动作
 
 请求动作在`actoin`消息中设置，用于向服务器指明需要执行的操作。  
@@ -82,7 +82,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 `/mimeType/<encodedFileMimeType>` |      | 指定目标资源的[MIME类型](mimeTypeHref)，请参考IANA维护的[完整清单](mimeTypeListHref)。需进行[URL安全的Base64编码][urlsafeBase64Href]
 `/meta/<encodedMeta>`             |      | 指定目标资源的元信息，单位：字节（Byte），最长256字节。需进行[URL安全的Base64编码][urlsafeBase64Href]
 
-<a name="upload-request-params"></a>
+<a id="upload-request-params"></a>
 ### 请求报文参数
 
 请求报文的每一个参数（以“<>”标记）的具体说明如下表所示（按出现位置顺序排列）：  
@@ -100,10 +100,10 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 
 ---
 
-<a name="upload-response"></a>
+<a id="upload-response"></a>
 ## 响应报文
 
-<a name="upload-response-syntax"></a>
+<a id="upload-response-syntax"></a>
 ### 响应报文格式
 
 ```
@@ -117,7 +117,7 @@ Cache-Control:  no-store
 }
 ```
 
-<a name="upload-response-header"></a>
+<a id="upload-response-header"></a>
 ### 响应头部
 
 头部名称       | 必填 | 说明
@@ -125,7 +125,7 @@ Cache-Control:  no-store
 Content-Type   | 是   | MIME类型，固定为application/json
 Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
-<a name="upload-response-content"></a>
+<a id="upload-response-content"></a>
 ### 响应内容
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -156,7 +156,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#upload-response-status)
 `<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
-<a name="upload-response-status"></a>
+<a id="upload-response-status"></a>
 ### 响应状态
 
 HTTP状态码 | 含义
@@ -169,21 +169,21 @@ HTTP状态码 | 含义
 
 ---
 
-<a name="upload-remarks"></a>
+<a id="upload-remarks"></a>
 ## 附注
 
 无。（TODO）
 
 ---
 
-<a name="upload-internal-resources"></a>
+<a id="upload-internal-resources"></a>
 ## 内部参考资源
 
 - [上传策略][putPolicyHref]
 - [上传凭证][uploadTokenHref]
 - [自定义变量][xVariablesHref]
 
-<a name="upload-external-resources"></a>
+<a id="upload-external-resources"></a>
 ## 外部参考资源
 
 - [URL安全的Base64编码][urlsafeBase64Href]

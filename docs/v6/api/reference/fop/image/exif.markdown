@@ -4,20 +4,20 @@ title: 图片EXIF信息（exif）
 order: 172
 ---
 
-<a name="exif-exif"></a>
+<a id="exif-exif"></a>
 # 图片EXIF信息（exif）
 
-<a name="exif-description"></a>
+<a id="exif-description"></a>
 ## 描述
 
 [EXIF（EXchangeable Image File Format）](http://zh.wikipedia.org/wiki/EXIF)是专门为数码相机的照片设定的可交换图像文件格式，通过在图片下载URL后附加`exif`指示符（区分大小写）获取。  
 
 注意：缩略图等经过云处理的新图片不支持该方法。  
 
-<a name="exif-request"></a>
+<a id="exif-request"></a>
 ## 请求
 
-<a name="exif-request-syntax"></a>
+<a id="exif-request-syntax"></a>
 ### 请求报文格式
 
 ```
@@ -25,7 +25,7 @@ GET <imageDownloadUri>?exif HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
-<a name="exif-request-header"></a>
+<a id="exif-request-header"></a>
 ### 请求头部
 
 头部名称       | 必填 | 说明
@@ -34,10 +34,10 @@ Host           | 是   | 下载服务器域名，可为七牛三级域名或自�
 
 ---
 
-<a name="exif-response"></a>
+<a id="exif-response"></a>
 ## 响应
 
-<a name="exif-response-syntax"></a>
+<a id="exif-response-syntax"></a>
 ### 响应报文格式
 
 ```
@@ -50,7 +50,7 @@ Cache-Control: no-store
 }
 ```
 
-<a name="exif-response-header"></a>
+<a id="exif-response-header"></a>
 ### 响应头部
 
 头部名称       | 必填 | 说明
@@ -58,7 +58,7 @@ Cache-Control: no-store
 Content-Type   | 是   | MIME类型，固定为application/json
 Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
-<a name="exif-response-content"></a>
+<a id="exif-response-content"></a>
 ### 响应内容
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -93,7 +93,7 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#exif-response-status)
 `<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
-<a name="exif-response-code"></a>
+<a id="exif-response-code"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
@@ -105,7 +105,7 @@ HTTP状态码 | 含义
 
 ---
 
-<a name="exif-samples"></a>
+<a id="exif-samples"></a>
 ## 示例
 
 1. 获取图片EXIF信息  
@@ -151,12 +151,12 @@ HTTP状态码 | 含义
 
 ---
 
-<a name="exif-internal-resources"></a>
+<a id="exif-internal-resources"></a>
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]
 
-<a name="exif-external-resources"></a>
+<a id="exif-external-resources"></a>
 ## 外部参考资源
 
 - [EXIF技术白皮书][exifWhitePaperHref]

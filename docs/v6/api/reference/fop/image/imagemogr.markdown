@@ -4,20 +4,20 @@ title: 高级图片处理（imageMogr）
 order: 174
 ---
 
-<a name="imageMogr"></a>
+<a id="imageMogr"></a>
 # 高级图像处理
 
-<a name="imageMogr-tag"></a>
+<a id="imageMogr-tag"></a>
 ## 标签
 
 [缩略图](thumbnailHref)
 
-<a name="imageMogr-description"></a>
+<a id="imageMogr-description"></a>
 ## 描述
 
 除了能简便地生成缩略图外，七牛云处理服务还提供一系列高级图片处理功能，包括缩放、裁剪、旋转等等，称为imageMogr。  
 
-<a name="imageMogr-specification"></a>
+<a id="imageMogr-specification"></a>
 ## 接口规格
 
 建议优先使用第二版`imageMogr`，其规格是：
@@ -54,7 +54,7 @@ imageMogrSpec = imageMogr/auto-orient
 `/rotate/<rotateDegree>`             |      | 旋转角度，取值范围1-360，缺省为不旋转
 `/format/<destinationImageFormat>`   |      | 图片格式，支持jpg、gif、png、webp等，缺省为原图格式
 
-<a name="imageMogr-thumbnail-spec"></a>
+<a id="imageMogr-thumbnail-spec"></a>
 ### 缩放操作参数表
 
 参数名称                        | 必填 | 说明
@@ -71,7 +71,7 @@ imageMogrSpec = imageMogr/auto-orient
 `/thumbnail/<Width>x<Height><`  |      | 当原图尺寸小于给定的宽度或高度时，按照给定宽高值放大。<p>取值范围0-10000
 `/thumbnail/<Area>@`            |      | 按原图高宽比例等比缩放，缩放后的像素数量不超过指定值。<p>取值范围0-100000000
 
-<a name="imageMogr-crop-size-spec"></a>
+<a id="imageMogr-crop-size-spec"></a>
 ### 裁剪操作参数表（cropSize）
 
 参数名称                 | 必填 | 说明
@@ -80,7 +80,7 @@ imageMogrSpec = imageMogr/auto-orient
 `/crop/x<Height>`        |      | 指定目标图片高度，宽度不变。取值范围0-10000
 `/crop/<Width>x<Height>` |      | 同时指定目标图片宽高。取值范围0-10000
 
-<a name="imageMogr-crop-offset-spec"></a>
+<a id="imageMogr-crop-offset-spec"></a>
 ### 裁剪偏移参数表（cropOffset）
 
 参数名称                      | 必填 | 说明
@@ -98,7 +98,7 @@ imageMogrSpec = imageMogr/auto-orient
 注意1：必须同时指定横轴偏移和纵轴偏移。  
 注意2：计算偏移值会受到位置偏移指示符（/gravity/<gravityType>）影响。默认为相对于左上角计算偏移值（即NorthWest），参看[裁剪锚点参数表](#imageMogr-anchor-spec)。  
 
-<a name="imageMogr-anchor-spec"></a>
+<a id="imageMogr-anchor-spec"></a>
 ### 裁剪锚点参数表
 
 注意：不区分大小写。  
@@ -117,7 +117,7 @@ West          |     Center     |          East
 SouthWest     |     South      |     SouthEast
 ```
 
-<a name="imageMogr-escape-sequence"></a>
+<a id="imageMogr-escape-sequence"></a>
 ### 转义说明
 
 部分参数以“!”开头，表示参数将被转义。为便于阅读，我们采用特殊转义方法，如下所示：
@@ -133,10 +133,10 @@ a => + (add)
 `<imageSizeAndOffsetGeometry>`中的OffsetGeometry部分可以省略，缺省为`+0+0`。  
 即`/crop/50x50`等价于`/crop/!50x50a0a0`，执行`-crop 50x50+0+0`语义。
 
-<a name="imageMogr-request"></a>
+<a id="imageMogr-request"></a>
 ## 请求
 
-<a name="imageMogr-request-syntax"></a>
+<a id="imageMogr-request-syntax"></a>
 ### 请求报文格式
 
 ```
@@ -144,7 +144,7 @@ GET <imageDownloadURI>?<imageMogrSpecV2> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
-<a name="imageMogr-request-header"></a>
+<a id="imageMogr-request-header"></a>
 ### 请求头部
 
 头部名称       | 必填 | 说明
@@ -153,10 +153,10 @@ Host           | 是   | 下载服务器域名，可为七牛三级域名或自�
 
 ---
 
-<a name="imageMogr-response"></a>
+<a id="imageMogr-response"></a>
 ## 响应
 
-<a name="imageMogr-response-syntax"></a>
+<a id="imageMogr-response-syntax"></a>
 ### 响应报文格式
 
 ```
@@ -166,7 +166,7 @@ Content-Type: <imageMimeType>
 <imageBinaryData>
 ```
 
-<a name="imageMogr-response-header"></a>
+<a id="imageMogr-response-header"></a>
 ### 响应头部
 
 头部名称       | 必填 | 说明
@@ -174,7 +174,7 @@ Content-Type: <imageMimeType>
 Content-Type   | 是   | MIME类型，成功时为图片的MIME类型，失败时为application/json
 Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
-<a name="imageMogr-response-content"></a>
+<a id="imageMogr-response-content"></a>
 ### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
@@ -193,19 +193,19 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#imageMogr-response-status)
 `<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
-<a name="imageMogr-response-code"></a>
+<a id="imageMogr-response-code"></a>
 ### 响应状态码
 
 HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 缩放成功
-400	       | 请求语法错误
+400	       | 请求报文格式错误
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 ---
 
-<a name="imageMogr-remarks"></a>
+<a id="imageMogr-remarks"></a>
 ## 附注
 
 - imageMogr生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
@@ -216,7 +216,7 @@ HTTP状态码 | 含义
     - 参考[预转异步处理（persistentOps）][persistentOpsHref]。
 - 第一版的`imageMogr`对gif图片仅反回原图，不做处理。
 
-<a name="imageMogr-samples"></a>
+<a id="imageMogr-samples"></a>
 ## 示例
 
 ### 缩放
@@ -450,7 +450,7 @@ HTTP状态码 | 含义
 
 ---
 
-<a name="imageMogr-internal-resources"></a>
+<a id="imageMogr-internal-resources"></a>
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]

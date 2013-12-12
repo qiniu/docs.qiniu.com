@@ -4,18 +4,18 @@ title: 水印（watermark）
 order: 160
 ---
 
-<a name="watermark"></a>
+<a id="watermark"></a>
 # 水印（watermark）
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 七牛云存储提供两种水印接口：图片水印和文字水印。  
 
-<a name="pic-watermark"></a>
+<a id="pic-watermark"></a>
 ## 图片水印
 
-<a name="pic-watermark-spec"></a>
+<a id="pic-watermark-spec"></a>
 ### 规格接口规格  
 
 ```
@@ -34,10 +34,10 @@ picWaterMarkSpec = watermark/1/image/<encodedImageURL>
 `/dx/<distanceX>`           |      | 横轴边距，单位:像素(px)，缺省值为10
 `/dy/<distanceY>`           |      | 纵轴边距，单位:像素(px)，缺省值为10
 
-<a name="pic-watermark-request"></a>
+<a id="pic-watermark-request"></a>
 ### 请求
 
-<a name="pic-watermark-request-syntax"></a>
+<a id="pic-watermark-request-syntax"></a>
 #### 请求报文格式
 
 ```
@@ -45,17 +45,17 @@ GET <imageDownloadURI>?<picWaterMarkSpec> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
-<a name="pic-watermark-request-header"></a>
+<a id="pic-watermark-request-header"></a>
 #### 请求头部
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
 
-<a name="pic-watermark-response"></a>
+<a id="pic-watermark-response"></a>
 ### 响应
 
-<a name="pic-watermark-response-syntax"></a>
+<a id="pic-watermark-response-syntax"></a>
 #### 响应报文格式
 
 ```
@@ -65,7 +65,7 @@ Content-Type: <imageMimeType>
 <imageBinaryData>
 ```
 
-<a name="pic-watermark--response-header"></a>
+<a id="pic-watermark--response-header"></a>
 #### 响应头部
 
 头部名称       | 必填 | 说明
@@ -73,7 +73,7 @@ Content-Type: <imageMimeType>
 Content-Type   | 是   | MIME类型，成功时为图片的MIME类型，失败时为application/json
 Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
-<a name="imageView-response-content"></a>
+<a id="imageView-response-content"></a>
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
@@ -92,7 +92,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
 `<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
-<a name="pic-watermark-response-code"></a>
+<a id="pic-watermark-response-code"></a>
 #### 响应状态码
 
 HTTP状态码 | 含义
@@ -102,7 +102,7 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="pic-watermark-samples"></a>
+<a id="pic-watermark-samples"></a>
 ### 图片水印示例
 
 - 水印图片: <http://www.b1.qiniudn.com/images/logo-2.png>
@@ -117,10 +117,10 @@ HTTP状态码 | 含义
 
 右键拷贝图片链接查看水印生成的具体规格参数。
 
-<a name="text-watermark"></a>
+<a id="text-watermark"></a>
 ## 文字水印
 
-<a name="text-watermark-spec"></a>
+<a id="text-watermark-spec"></a>
 ### 规格接口规格  
 
 ```
@@ -145,10 +145,10 @@ textWaterMarkSpec = watermark/2/text/<encodedText>
 `/dx/<distanceX>`          |      | 横轴边距，单位:像素(px)，缺省值为10
 `/dy/<distanceY>`          |      | 纵轴边距，单位:像素(px)，缺省值为10
 
-<a name="text-watermark-request"></a>
+<a id="text-watermark-request"></a>
 ### 请求
 
-<a name="text-watermark-request-syntax"></a>
+<a id="text-watermark-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -156,17 +156,17 @@ GET <imageDownloadURI>?<textWaterMarkSpec> HTTP/1.1
 Host: <imageDownloadHost>
 ```
 
-<a name="text-watermark-request-header"></a>
+<a id="text-watermark-request-header"></a>
 #### 请求头部
 
 头部名称       | 必填 | 说明
 :------------- | :--- | :------------------------------------------
 Host           | 是   | 下载服务器域名，可为七牛三级域名或自定义二级域名，参考[域名绑定][cnameBindingHref]
 
-<a name="text-watermark-response"></a>
+<a id="text-watermark-response"></a>
 ### 响应
 
-<a name="text-watermark-response-syntax"></a>
+<a id="text-watermark-response-syntax"></a>
 #### 响应报文格式
 
 ```
@@ -176,7 +176,7 @@ Content-Type: <imageMimeType>
 <imageBinaryData>
 ```
 
-<a name="text-watermark--response-header"></a>
+<a id="text-watermark--response-header"></a>
 #### 响应头部
 
 头部名称       | 必填 | 说明
@@ -184,7 +184,7 @@ Content-Type: <imageMimeType>
 Content-Type   | 是   | MIME类型，成功时为图片的MIME类型，失败时为application/json
 Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
-<a name="text-watermark-response-content"></a>
+<a id="text-watermark-response-content"></a>
 #### 响应内容
 
 ■ 如果请求成功，返回图片的二进制数据。  
@@ -203,7 +203,7 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 `<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
 `<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
 
-<a name="text-watermark-response-code"></a>
+<a id="text-watermark-response-code"></a>
 #### 响应状态码
 
 HTTP状态码 | 含义
@@ -213,7 +213,7 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="text-watermark-samples"></a>
+<a id="text-watermark-samples"></a>
 ### 文字水印样例
 
 - 水印文本：`七牛云存储`
@@ -227,7 +227,7 @@ HTTP状态码 | 含义
 
 右键拷贝图片链接查看水印生成的具体规格参数。
 
-<a name="watermark-remarks"></a>
+<a id="watermark-remarks"></a>
 ## 附注
 
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
@@ -270,14 +270,14 @@ HTTP状态码 | 含义
     http://<Domain>/<Key>-watermarked.jpg
 	```
 
-<a name="imageView-internal-resources"></a>
+<a id="imageView-internal-resources"></a>
 ## 内部参考资源
 
 - [域名绑定][cnameBindingHref]
 - [触发异步处理][pfopHref]
 - [saveas处理][saveasHref]
 
-<a name="watermark-external-resources"></a>
+<a id="watermark-external-resources"></a>
 ## 外部参考资源
 
 - [URL安全的Base64编码][urlsafeBase64Href]

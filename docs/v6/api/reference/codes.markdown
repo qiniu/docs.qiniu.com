@@ -4,7 +4,7 @@ title: 状态码
 order: 300
 ---
 
-<a name="codes"></a>
+<a id="codes"></a>
 # HTTP状态码
 
 HTTP状态码 | 说明

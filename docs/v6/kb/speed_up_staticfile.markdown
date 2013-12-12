@@ -12,7 +12,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 - [文件隐私安全保护](#private-download)
 
 
-<a name="speed"></a>
+<a id="speed"></a>
 
 ## 下载测速
 
@@ -27,7 +27,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 实测地址: <http://17ce.com/>
 
 
-<a name="image-process"></a>
+<a id="image-process"></a>
 
 ## 图片在线处理
 
@@ -82,7 +82,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 - 蟬游记-七牛云存储使用心得：<http://quake.iteye.com/blog/1816807>
 
 
-<a name="audio-video-process"></a>
+<a id="audio-video-process"></a>
 
 ## 音频/视频在线压缩转码
 
@@ -115,7 +115,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 - [七牛云存储音/视频处理接口](/api/audio-video-hls-process.html)
 
 
-<a name="hls"></a>
+<a id="hls"></a>
 
 ### HTTP Live Streaming - 流媒体
 
@@ -158,7 +158,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 我们还在深化 HLS API, 欢迎提供建议！
 
 
-<a name="upload"></a>
+<a id="upload"></a>
 
 ## 测试上传文件
 
@@ -194,7 +194,7 @@ snapshot: "为了方便测试，我们已经人工上传了一个测试音频，
 控制台输出可以看到文件上传的具体信息。
 
 
-<a name="private-download"></a>
+<a id="private-download"></a>
 
 ## 下载文件
 

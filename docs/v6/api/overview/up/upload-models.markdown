@@ -3,12 +3,12 @@ layout: docs
 title: 上传模型
 order: 550
 ---
-<a name="upload-models"></a>
+<a id="upload-models"></a>
 # 上传模型
 
 资源上传服务支持多种上传模式和响应模式。开发者可以根据需要组合使用两种模式，以最快的速度完成期望的业务流程。
 
-<a name="upload-types"></a>
+<a id="upload-types"></a>
 ## 上传类型
 
 开发者可以选择以下几种上传类型来完成一个文件的上传过程。
@@ -33,7 +33,7 @@ order: 550
 	
 	分片上传的相关细节请参见[切片上传](chunked-upload.html)。
 	
-<a name="response-types"></a>
+<a id="response-types"></a>
 ## 响应类型	
 	
 从结果响应的角度，上传模型支持几种不同的响应方式和通知目标。

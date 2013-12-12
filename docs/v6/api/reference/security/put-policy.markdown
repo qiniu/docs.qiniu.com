@@ -4,14 +4,14 @@ title: 上传策略
 order: 980
 ---
 
-<a name="put-policy"></a>
+<a id="put-policy"></a>
 # 上传策略（PutPolicy）
 
 上传策略是资源上传时附带的一组配置设定。通过这组配置信息，七牛云存储可以了解用户上传的需求：它将上传什么资源，上传到哪个空间，上传结果是回调通知还是使用重定向跳转，是否需要设置反馈信息的内容，以及授权上传的截止时间等等。  
 
 上传策略同时还参与请求验证。实际上，[上传凭证（Upload Token）][uploadTokenHref]就是上传策略的加密结果。通过对PutPolicy的加密，可以确保用户对某个资源的上传请求是完全受到验证的。
 
-<a name="put-policy-struct"></a>
+<a id="put-policy-struct"></a>
 ## 格式
 
 ```
@@ -43,21 +43,21 @@ order: 980
 `persistentOps`       |      | 音频/视频资源上传成功后异步执行的预转[云处理][fopHref]持久化指令。每个指令是一个API规格字符串，多个指令用“;”分隔
 `persistentNotifyUrl` |      | 七牛云存储向`App-Server`发送预转云处理持久化结果的URL，必须是公网上可以正常进行POST请求并能响应`HTTP/1.1 200 OK`的有效URL
 
-<a name="put-policy-remarks"></a>
+<a id="put-policy-remarks"></a>
 ## 附注
 
 - `Key`必须采用utf-8编码，使用非utf-8编码的资源名访问时会报错。  
 - `callbackUrl`与`returnUrl`不可同时指定，两者只可选其一。
 - `callbackBody`与`returnBody`不可同时指定，两者只可选其一。
 
-<a name="upload-internal-resources"></a>
+<a id="upload-internal-resources"></a>
 ## 内部参考资源
 
 - [上传凭证][uploadTokenHref]
 - [魔法变量][magicVariablesHref]
 - [自定义变量][xVariablesHref]
 
-<a name="download-external-resources"></a>
+<a id="download-external-resources"></a>
 ## 外部参考资源
 
 - [Unix时间][unixTimeHref]

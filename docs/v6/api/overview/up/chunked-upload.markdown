@@ -3,12 +3,12 @@ layout: docs
 title: 分片上传（断点续传）
 order: 530
 ---
-<a name="chunked-upload"></a>
+<a id="chunked-upload"></a>
 # 分片上传（断点续传）
 
 分片上传功能支持将一个文件切割为一系列特定大小的小数据片，分别将这些小数据片分别上传到服务端，全部上传完后再在服务端将这些小数据片合并成为一个资源。[上传模型][uploadModelHref]中对分片上传的特点进行了完整的阐述。
 
-<a name="chunked-upload-concepts"></a>
+<a id="chunked-upload-concepts"></a>
 ## 关键概念
 
 分片上传引入了两个概念：**块**（block）和**片**（chunk）。每个**块**由一到多个**片**组成，而一个资源则由一到多个**块**组成。他们之间的关系可以用下图表述：
@@ -17,7 +17,7 @@ order: 530
 
 **块**是服务端的永久数据存储单位，**片**则只在分片上传过程中作为临时存储的单位。服务端会以约一个月为单位周期性的清除上传后未被合并为块的数据片。
 
-<a name="chunked-upload-workflow"></a>
+<a id="chunked-upload-workflow"></a>
 ## 基本流程
 
 与分片上传相关的API有这几个：[创建块（mkblk）][mkblkHref]、[上传片（bput）][bputHref]、[创建资源（mkfile）][mkfileHref]。一个完整的分片上传流程可用下图表示：
@@ -32,14 +32,14 @@ order: 530
 
 如要更准确的理解这个基本流程，可以通过阅读SDK源代码。所有SDK的源代码都公开托管在[Github](http://github.com/qiniu)上。
 
-<a name="parallel-upload"></a>
+<a id="parallel-upload"></a>
 ## 并发上传
 
 由于之前介绍的片上传过程中的Context机制，每个块内部只能按顺序逐一上传该块所切分好的片。而每个块之间相互独立，因此若干个块可以同时进行传输而不会相互干扰，因此我们可以利用这个特征实现并发上传特性。
 
 每个文件对应的最大理论并发上传数量也即该文件可划分的块数量。当然这个理论数量也受到很多其他因素的制约，比如像iOS限定了每个APP最多只能开4个并发HTTP连接，也即在iOS上，无论有多少个块，最大的并发上传数量不可能超过4个。并不是并发数量越大上传速度就会越快。因此在实际开发中，通常会使用线程池（Thread Pool）技术来控制并发数量。
 
-<a name="resumable-upload"></a>
+<a id="resumable-upload"></a>
 ## 断点续传
 
 虽然片的存在周期并非永久，但已足以实现断点续传机制。
@@ -54,7 +54,7 @@ order: 530
 
 支持断点续传功能之后，在客户端很自然可以支持一个新功能：暂停或恢复某个文传的上传过程。
 
-<a name="chunked-upload-response"></a>
+<a id="chunked-upload-response"></a>
 ## 上传后续动作
 
 我们曾在[上传模型][uploadModelHref]中提过，在上传时开发者可以指定上传完成后服务端的后续动作，比如回调、自定义返回内容、301重定向等。可设置的后续动作与[表单上传][formUploadHref]中完全一致。

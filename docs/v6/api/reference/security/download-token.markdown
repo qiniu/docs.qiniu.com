@@ -4,13 +4,13 @@ title: 下载凭证
 order: 960
 ---
 
-<a name="download-token"></a>
+<a id="download-token"></a>
 # 下载凭证
 
 下载凭证是七牛云存储用于验证下载私有资源请求合法性的机制。  
 用户通过下载凭证授权客户端，使其具备访问指定私有资源的能力。  
 
-<a name="download-token-algorithm"></a>
+<a id="download-token-algorithm"></a>
 ## 算法
 
 1. 构造下载URL：  
@@ -36,19 +36,19 @@ order: 960
 `RealDownloadUrl`即为下载对应私有资源的可用URL，并在指定时间后失效。  
 失效后，可按需重新生成下载凭证。  
 
-<a name="download-token-remarks"></a>
+<a id="download-token-remarks"></a>
 ## 附注
 
 - 为确保客户端、业务服务器和七牛服务器对于授权截止时间的理解保持一致，需要同步校准各自的时钟。频繁返回401状态码时请先检查时钟同步性与生成e参数值的代码逻辑。  
 
-<a name="download-token-samples"></a>
+<a id="download-token-samples"></a>
 ## 代码示例
 
 ```
 // TODO: 代码示例goes here.
 ```
 
-<a name="download-external-resources"></a>
+<a id="download-external-resources"></a>
 ## 外部参考资源
 
 - [Unix时间][unixTimeHref]

@@ -4,19 +4,19 @@ title: 上传片（bput）
 order: 90
 ---
 
-<a name="bput"></a>
+<a id="bput"></a>
 # 上传片（bput）
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 上传指定块的一片数据，具体数据量可根据现场环境调整。  
 同一块的每片数据必须串行上传。  
 
-<a name="request"></a>
+<a id="request"></a>
 ## 请求
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 请求语法
 
 ```
@@ -29,7 +29,7 @@ Authorization:  UpToken <UploadToken>
 <next_chunk_binary>
 ```
 
-<a name="request-params"></a>
+<a id="request-params"></a>
 ### 请求参数
 
 参数名称        | 类型   | 说明
@@ -37,7 +37,7 @@ Authorization:  UpToken <UploadToken>
 ctx             | string | 上次返回的服务端上传控制字段
 next_chunk_size | int64  | 当前片大小
 
-<a name="request-headers"></a>
+<a id="request-headers"></a>
 ### 头部信息
 
 该请求须指定以下头部信息。
@@ -52,20 +52,20 @@ Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式�
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a name="request-body"></a>
+<a id="request-body"></a>
 ### 请求内容
 
 该请求的内容为当前片的二进制内容。
 
-<a name="request-auth"></a>
+<a id="request-auth"></a>
 ### 访问权限
 
 [上传凭证（UploadToken）][uploadTokenHref]方式。
 
-<a name="response"></a>
+<a id="response"></a>
 ## 响应
 
-<a name="response-headers"></a>
+<a id="response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
@@ -74,7 +74,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a name="response-body"></a>
+<a id="response-body"></a>
 ### 响应内容
 
 如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
@@ -101,7 +101,7 @@ selectUpHost   | string | 后续上传接收地址。
 
 如果请求失败，请参见错误消息。
 
-<a name="error-messages"></a>
+<a id="error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -112,12 +112,12 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 701        | 后续上传接收地址不正确，或ctx信息已过期
 
-<a name="remarks"></a>
+<a id="remarks"></a>
 ## 附注
 
 无。
 
-<a name="related-resources"></a>
+<a id="related-resources"></a>
 ## 相关资源
 
 - [上传凭证（UploadToken）][uploadTokenHref]
