@@ -63,25 +63,83 @@
 	}
 }
 
+.container.sdk {
+	width:958px;
+	height: 165px;
+	margin-top: 54px;
+	margin-bottom: 23px;
+	ul {
+		li  {
+			display: inline-block;
+			width: 94px;
+			border-right: 1px solid #ccc;
+			&:first-child {
+				border-right: none;
+			}
+			height: 38px;
+			margin-bottom: 5px;
+			text-align: center;
+			vertical-align: middle;
+			a {
+				display: block;
+				vertical-align: middle;
+				margin-left: 7.5px;
+				img {
+					vertical-align: middle;
+				}					
+			}
+			&:hover {
+				border: 1px solid rgb(230,230,230);	
+			}
+		}
+	}
+}
 .container.index {
-    .cell-head {
-        text-align: right;
-    }	
+	overflow: hidden;
+	.cell-head {
+		text-align: right;
+	}
+	.cell {
+		padding: 25px;		
+		// padding: 25px 25px 0;		
+	}	
 	.side-bar {
-		margin-top: 20px;
-		&.cell {
-			padding: 25px 25px 0;
+		.cell {
+			//padding: 25px 25px 0;
+			width: 251px;
 		}
 	}
 	.main {		
-		&.cell {
-			width: 582px;
+		.cell {
+			width: 580px;
+		}
+		.api {
+			margin-bottom: 25px;
+		}
+		.cli {
+			height: 70px;
+			ul {
+				overflow: hidden;
+				li {
+					float: left;
+					overflow: hidden;
+					width: 193px;
+					p {
+						color: @64;
+						line-height: 18px;
+					}
+					.logo {
+						width: 26px;
+						margin-right: 24px;
+					}	
+					.info {
+						width: 143px;
+					}				
+				}
+			}
 		}
 	}
 	.side-bar {
-		&.cell {
-			width: 254px;
-		}
 		.cell-body {
 			padding: 25px 0;
 			border-top:1px solid @240;
@@ -110,44 +168,8 @@
 				color: @64;
 			}			
 		}
-		.resource-sdk {
-			border-top: none;
-			padding-bottom: 15px;
-			.sdk-list {
-				li {
-					display: inline-block;
-					height: 38px;
-					width: 80px;
-					margin-bottom: 5px;
-					text-align: center;
-					vertical-align: middle;
-					border:1px solid #fff;
-					&.nail {
-						margin-right: 0;
-					}
-					a {
-						display: block;
-						vertical-align: middle;
-						margin-left: 7.5px;
-						img {
-							vertical-align: middle;
-						}					
-					}
-					&:hover {
-						border: 1px solid rgb(230,230,230);	
-					}
-				}
-			}
-		}
-		.resource-tool {
-			height: 250px;
-			p {
-				color: @64;
-				line-height: 18px;
-			}
-			>div {
-				height: 53px;
-			}
+		.question {
+			margin-bottom: 28px;
 		}
 		.resource-community {
 			height: 240px;

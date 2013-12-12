@@ -28,7 +28,8 @@
     <header>
         {{.includes.header}}
     </header>
-    <div class="container index">
+    <div class="container index sdk cell">
+        <h2>SDK</h2>
         <ul class="intro line">
             <li><a href="" title="" class="sdk-logo "></a></li>
             <li><a href="" title="" class="sdk-logo "></a></li>
@@ -38,7 +39,7 @@
             <li><a href="" title="" class="sdk-logo "></a></li>
             <li><a href="" title="" class="sdk-logo "></a></li>
             <li><a href="" title="" class="sdk-logo "></a></li>
-            <li><a href="" title="" class="sdk-logo "></a></li>
+            <li><a href="" title="" class="sdk-logo ">111</a></li>
         </ul>
     </div>
     <div class="container index">
@@ -135,35 +136,22 @@
                     {{end}} -->
 
                 </div>
-                <div class="resource-tool cell">
-                    <h2 class="">官方工具</h2>
+                <div class="cli cell">
+                    <h2 class="">工具</h2>
+                    <ul>
                     {{range .data.resource.devtools}}
-                    <div>
-                        <h4>
-                            <span class="icon index_{{.name}}_sprited"></span><a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
-                        </h4>
-                        <p>{{.description}}</p>
-
-                    </div>
-                    {{end}}                
+                       <li>
+                            <div class="pull-left logo"><span class="icon resource_{{.name}}_sprited"></span></div>
+                            <div class="pull-left info">
+                                    <a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
+                                    <p>{{.description}}</p>                               
+                            </div>
+                        </li>
+                    {{end}}
+                    </ul>                
                 </div>   
-            </div>             
         </div>
         <div class="side-bar pull-right">
-<!--             <div class="cell-head">
-                <h2 class="pull-left">资源下载</h2>
-            </div> -->
-<!--             <div class="cell-body resource-sdk">
-                <h3 class="en">官方SDK</h3>
-                <ul class="sdk-list">
-                    {{range .data.resource.sdk}}
-                    <li>
-                        <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="{{.name}} sdk" class="sdk-{{.name}}">
-                        </a>
-                    </li>
-                    {{end}}
-                </ul>
-            </div> -->
             <div class="question cell">
                 <h2></h2>
                 <ul>

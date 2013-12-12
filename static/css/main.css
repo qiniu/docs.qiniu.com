@@ -1186,20 +1186,74 @@ div.api-resource .social-resource .author {
 .intro .cell.nail div {
   margin-right: 28px;
 }
+.container.sdk {
+  width: 958px;
+  height: 165px;
+  margin-top: 54px;
+  margin-bottom: 23px;
+}
+.container.sdk ul li {
+  display: inline-block;
+  width: 94px;
+  border-right: 1px solid #ccc;
+  height: 38px;
+  margin-bottom: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+.container.sdk ul li:first-child {
+  border-right: none;
+}
+.container.sdk ul li a {
+  display: block;
+  vertical-align: middle;
+  margin-left: 7.5px;
+}
+.container.sdk ul li a img {
+  vertical-align: middle;
+}
+.container.sdk ul li:hover {
+  border: 1px solid #e6e6e6;
+}
+.container.index {
+  overflow: hidden;
+}
 .container.index .cell-head {
   text-align: right;
 }
-.container.index .side-bar {
-  margin-top: 20px;
+.container.index .cell {
+  padding: 25px;
 }
-.container.index .side-bar.cell {
-  padding: 25px 25px 0;
+.container.index .side-bar .cell {
+  width: 251px;
 }
-.container.index .main.cell {
-  width: 582px;
+.container.index .main .cell {
+  width: 580px;
 }
-.container.index .side-bar.cell {
-  width: 254px;
+.container.index .main .api {
+  margin-bottom: 25px;
+}
+.container.index .main .cli {
+  height: 70px;
+}
+.container.index .main .cli ul {
+  overflow: hidden;
+}
+.container.index .main .cli ul li {
+  float: left;
+  overflow: hidden;
+  width: 193px;
+}
+.container.index .main .cli ul li p {
+  color: #404040;
+  line-height: 18px;
+}
+.container.index .main .cli ul li .logo {
+  width: 26px;
+  margin-right: 24px;
+}
+.container.index .main .cli ul li .info {
+  width: 143px;
 }
 .container.index .side-bar .cell-body {
   padding: 25px 0;
@@ -1229,42 +1283,8 @@ div.api-resource .social-resource .author {
 .container.index .side-bar .cell-body a {
   color: #404040;
 }
-.container.index .side-bar .resource-sdk {
-  border-top: none;
-  padding-bottom: 15px;
-}
-.container.index .side-bar .resource-sdk .sdk-list li {
-  display: inline-block;
-  height: 38px;
-  width: 80px;
-  margin-bottom: 5px;
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid #fff;
-}
-.container.index .side-bar .resource-sdk .sdk-list li.nail {
-  margin-right: 0;
-}
-.container.index .side-bar .resource-sdk .sdk-list li a {
-  display: block;
-  vertical-align: middle;
-  margin-left: 7.5px;
-}
-.container.index .side-bar .resource-sdk .sdk-list li a img {
-  vertical-align: middle;
-}
-.container.index .side-bar .resource-sdk .sdk-list li:hover {
-  border: 1px solid #e6e6e6;
-}
-.container.index .side-bar .resource-tool {
-  height: 250px;
-}
-.container.index .side-bar .resource-tool p {
-  color: #404040;
-  line-height: 18px;
-}
-.container.index .side-bar .resource-tool > div {
-  height: 53px;
+.container.index .side-bar .question {
+  margin-bottom: 28px;
 }
 .container.index .side-bar .resource-community {
   height: 240px;
