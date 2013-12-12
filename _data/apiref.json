@@ -127,13 +127,13 @@
 					"Href": "docs/v6/api/reference/fop/pfop",
 					"Child": [
 						{
-							"Title": "对既存资源进行云处理并持久化（pfop）",
+							"Title": "触发异步处理（pfop）",
 							"Href": "docs/v6/api/reference/fop/pfop/pfop.html",
 							"Child": null,
 							"Order": 300
 						},
 						{
-							"Title": "查询异步云处理及持久化状态（prefop）",
+							"Title": "查询异步处理状态（prefop）",
 							"Href": "docs/v6/api/reference/fop/pfop/prefop.html",
 							"Child": null,
 							"Order": 200
