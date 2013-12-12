@@ -1186,138 +1186,29 @@ div.api-resource .social-resource .author {
 .intro .cell.nail div {
   margin-right: 28px;
 }
-.container.sdk {
-  padding: 25px;
-  width: 908px;
-  height: 115px;
-  margin-top: 54px;
-  margin-bottom: 20px;
-}
-.container.sdk ul li {
-  display: inline-block;
-  width: 94px;
-  border-left: 1px solid #f0f0f0;
-  height: 70px;
-  margin: 0 auto;
-  text-align: center;
-  vertical-align: middle;
-}
-.container.sdk ul li:first-child {
-  border-left: none;
-}
-.container.sdk ul li a {
-  display: block;
-  vertical-align: middle;
-  margin-left: 7.5px;
-}
-.container.sdk ul li a img {
-  margin-top: 5px;
-}
 .container.index {
   overflow: hidden;
-}
-.container.index .cell {
-  padding: 25px;
-}
-.container.index .cell h2 {
-  margin-bottom: 22px;
-  color: #262626;
 }
 .container.index a {
   color: #0c94de;
 }
-.container.index .main {
-  margin-bottom: 76px;
+.container.index .cell.sdk {
+  width: 908px;
+  height: 115px;
 }
-.container.index .main .cell {
+.container.index .cell.sdk ul li {
+  border-left: 1px solid #f0f0f0;
+}
+.container.index .cell.sdk ul li:first-child {
+  border-left: none;
+}
+.container.index .cell.cli,
+.container.index .cell.api {
   width: 580px;
-}
-.container.index .main .api {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-}
-.container.index .main .api .cell-line {
-  border-top: 1px solid #f0f0f0;
-  padding-top: 15px;
-  margin-bottom: 3px;
-}
-.container.index .main .api .cell-line:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-.container.index .main .api .cell-line h3 {
-  font-size: 12px;
-  margin-bottom: 10px;
-  color: #404040;
-}
-.container.index .main .api .cell-line h4 {
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-top: 8px;
-  color: #404040;
-  font-weight: normal;
-}
-.container.index .main .api .cell-line ul {
-  overflow: hidden;
-}
-.container.index .main .api .cell-line ul li {
-  float: left;
-  width: 145px;
-  margin-bottom: 10px;
-}
-.container.index .main .cli {
-  height: 70px;
-}
-.container.index .main .cli ul {
-  overflow: hidden;
-}
-.container.index .main .cli ul li {
-  float: left;
-  overflow: hidden;
-  width: 193px;
-}
-.container.index .main .cli ul li p {
-  color: #404040;
-  line-height: 18px;
-}
-.container.index .main .cli ul li .logo {
-  width: 26px;
-  margin-right: 14px;
-}
-.container.index .main .cli ul li .info {
-  width: 153px;
 }
 .container.index .side-bar {
   width: 308px;
   margin-left: 20px;
-}
-.container.index .side-bar .cell-body {
-  padding: 25px 0;
-  border-top: 1px solid #f0f0f0;
-}
-.container.index .side-bar .cell-body h2 {
-  margin-bottom: 5px;
-}
-.container.index .side-bar .cell-body h3 {
-  margin-bottom: 16px;
-}
-.container.index .side-bar .cell-body p {
-  line-height: 20px;
-  margin-left: 35px;
-}
-.container.index .side-bar .cell-body > div {
-  margin-top: 25px;
-}
-.container.index .side-bar .cell-body > div span.icon {
-  margin-right: 16px;
-  position: relative;
-  top: 1px;
-}
-.container.index .side-bar .cell-body > div:first-child {
-  margin-top: 0;
-}
-.container.index .side-bar .cell-body a {
-  color: #404040;
 }
 .container.index .side-bar .question {
   margin-bottom: 20px;
@@ -1325,7 +1216,7 @@ div.api-resource .social-resource .author {
 }
 .container.index .side-bar .question ul {
   list-style-type: disc;
-  list-style-position: inside;
+  margin-left: 26px;
 }
 .container.index .side-bar .question ul li {
   line-height: 18px;
@@ -1335,7 +1226,7 @@ div.api-resource .social-resource .author {
   padding-top: 0;
 }
 .container.index .side-bar .resource-community {
-  height: 328px;
+  height: 356px;
 }
 .container.index .side-bar .resource-community span {
   display: inline-block;
@@ -1343,7 +1234,7 @@ div.api-resource .social-resource .author {
   margin-top: 5px;
 }
 .container.index .side-bar .resource-community > div {
-  margin-top: 22px;
+  margin-top: 29px;
   height: 55px;
 }
 .container.index .side-bar .resource-community h4 {
@@ -1364,6 +1255,128 @@ div.api-resource .social-resource .author {
 }
 .container.index .side-bar .resource-community p a {
   color: #999999;
+}
+.container.index .cell,
+.container.docs .cell {
+  padding: 25px;
+}
+.container.index .cell h2,
+.container.docs .cell h2 {
+  margin-bottom: 25px;
+  color: #262626;
+}
+.container.index .cell.sdk,
+.container.docs .cell.sdk {
+  padding: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container.index .cell.sdk ul,
+.container.docs .cell.sdk ul {
+  overflow: hidden;
+}
+.container.index .cell.sdk ul li,
+.container.docs .cell.sdk ul li {
+  float: left;
+  width: 94px;
+  height: 70px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+}
+.container.index .cell.sdk ul li a,
+.container.docs .cell.sdk ul li a {
+  display: block;
+  vertical-align: middle;
+  margin-left: 7.5px;
+}
+.container.index .cell.sdk ul li a img,
+.container.docs .cell.sdk ul li a img {
+  vertical-align: middle;
+}
+.container.index .cell.sdk ul li.more img,
+.container.docs .cell.sdk ul li.more img {
+  margin-top: 0;
+}
+.container.index .cell.api,
+.container.docs .cell.api {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.container.index .cell.api .cell-line,
+.container.docs .cell.api .cell-line {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+  margin-bottom: 3px;
+}
+.container.index .cell.api .cell-line:first-child,
+.container.docs .cell.api .cell-line:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.container.index .cell.api .cell-line h3,
+.container.docs .cell.api .cell-line h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #404040;
+}
+.container.index .cell.api .cell-line h4,
+.container.docs .cell.api .cell-line h4 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+  color: #404040;
+  font-weight: normal;
+}
+.container.index .cell.api .cell-line span.icon,
+.container.docs .cell.api .cell-line span.icon {
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+}
+.container.index .cell.api .cell-line span.icon.off_2,
+.container.docs .cell.api .cell-line span.icon.off_2 {
+  margin-right: 9px;
+}
+.container.index .cell.api .cell-line ul,
+.container.docs .cell.api .cell-line ul {
+  overflow: hidden;
+  margin-left: 23px;
+}
+.container.index .cell.api .cell-line ul li,
+.container.docs .cell.api .cell-line ul li {
+  float: left;
+  width: 145px;
+  margin-bottom: 10px;
+}
+.container.index .cell.cli,
+.container.docs .cell.cli {
+  height: 70px;
+}
+.container.index .cell.cli ul,
+.container.docs .cell.cli ul {
+  overflow: hidden;
+}
+.container.index .cell.cli ul li,
+.container.docs .cell.cli ul li {
+  float: left;
+  overflow: hidden;
+  width: 193px;
+}
+.container.index .cell.cli ul li p,
+.container.docs .cell.cli ul li p {
+  color: #404040;
+  line-height: 18px;
+}
+.container.index .cell.cli ul li .logo,
+.container.docs .cell.cli ul li .logo {
+  width: 26px;
+  margin-right: 14px;
+}
+.container.index .cell.cli ul li .info,
+.container.docs .cell.cli ul li .info {
+  width: 153px;
 }
 .container.resource .cell {
   margin-top: 20px;
@@ -1793,50 +1806,12 @@ div.api-resource .social-resource .author {
   background-color: #fff;
   border: 1px solid #e9e9e9;
 }
+.container.docs .main {
+  margin-left: 20px;
+  width: 680px;
+}
 .container.docs .pull-right {
   width: 681px;
-}
-.container.docs .pull-right .line.cell {
-  overflow: hidden;
-  padding: 0 25px;
-  height: 200px;
-  margin-left: 0;
-}
-.container.docs .pull-right .line.cell .line-box {
-  padding: 25px 0;
-}
-.container.docs .pull-right .line.cell .line-box .cell-head {
-  margin-bottom: 0;
-}
-.container.docs .pull-right .line.cell .line-box .cell-body {
-  border-top: none;
-}
-.container.docs .pull-right .line.cell .line-box .cell-body span {
-  display: inline-block;
-  width: 63px;
-  text-align: left;
-  margin-top: 18px;
-}
-.container.docs .pull-right .line.cell .line-box .cell-body a {
-  width: 63px;
-  display: inline-block;
-  color: #0c94de;
-}
-.container.docs .pull-right .line.cell .api {
-  width: 220px;
-  border-right: 1px solid #eee;
-}
-.container.docs .pull-right .line.cell .api .cell-body span {
-  width: 71px;
-}
-.container.docs .pull-right .line.cell .sdk {
-  width: 196px;
-  padding-left: 25px;
-  border-right: 1px solid #eee;
-}
-.container.docs .pull-right .line.cell .cli {
-  padding-left: 25px;
-  width: 137px;
 }
 .dropdown {
   position: relative;
