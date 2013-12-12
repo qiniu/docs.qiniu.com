@@ -25,18 +25,7 @@ order: 960
     DownloadUrl = 'http://my-bucket.qiniu.com/sunflower.jpg?e=1451491200'
 	```
 
-3. 用`SecretKey`对下载URL进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：
-
-	```
-    Sign = hmac_sha1(SecretKey, DownloadUrl)
-    EncodedSign = urlsafe_base64_encode(Sign)
-	```
-
-    得到
-
-	```
-    'HbAKtTogKqDLWEkq7zVSX6T35NI='
-	```
+3. 将上一步得到的URL字符串作为[凭证算法][tokenAlgorithmHref]的原始数据进行运算，得到下载凭证。
 
 4. 将下载凭证添加到含过期时间参数的下载URL之后，作为最后一个参数（token参数）：  
 
@@ -70,3 +59,4 @@ order: 960
 [jsonHref]:                 http://en.wikipedia.org/wiki/JSON                                                    "JSON格式"
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[tokenAlgorithmHref]:		token-algorithm.html
