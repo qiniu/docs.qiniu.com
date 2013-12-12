@@ -4,10 +4,10 @@ title: 高级下载
 order: 310
 ---
 
-<a name="advanced-download"></a>
+<a id="advanced-download"></a>
 # 高级下载
 
-<a name="download-special-key"></a>
+<a id="download-special-key"></a>
 ## 特殊名字资源
 
 特殊名字资源指资源名中包含了URL保留字符，如`?`、首字符为`/`、以及多个连续的`/`等。如果直接访问导致服务器错误理解URL格式。

@@ -4,10 +4,10 @@ title: 安全机制
 order: 490
 ---
 
-<a name="security"></a>
+<a id="security"></a>
 # 安全机制
 
-<a name="download-public-resource"></a>
+<a id="download-public-resource"></a>
 ## 公开资源下载
 
 公开资源下载非常简单，以HTTP GET方式访问资源URL即可。资源URL的构成如下：
@@ -30,7 +30,7 @@ http://example-images.u.qiniudn.com/sunflower.jpg
 http://i.example.com/sunflower.jpg
 ```
 
-<a name="download-private-resource"></a>
+<a id="download-private-resource"></a>
 ## 私有资源下载
 
 当用户将空间设置成私有后，所有对空间内资源的访问都必须获得授权。
@@ -49,7 +49,7 @@ http://<domain>/<key>?e=<deadline>&token=<downloadToken>
 
 参数`token`携带下载凭证。下载凭证是对资源访问的授权，不带下载凭证或下载凭证不合法都会导致401错误，表示验证失败。关于下载凭证的生成，请参见[下载凭证规格]()。
 
-<a name="anti-leech"></a>
+<a id="anti-leech"></a>
 ## 防盗链
 
 下载还有一种常见的场景，即公开资源的防盗链，比如禁止特定来源域名的访问，禁止非浏览器发起的访问等。

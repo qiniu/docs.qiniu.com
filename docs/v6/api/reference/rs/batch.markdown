@@ -4,17 +4,17 @@ title: 批量操作（batch）
 order: 500
 ---
 
-<a name="move"></a>
+<a id="move"></a>
 # 批量操作（batch）
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 批量操作意指在单一请求中执行多次获取元信息/移动/复制/删除操作，极大提高资源管理效率。  
 
-<a name="request"></a>
+<a id="request"></a>
 ## 请求
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 请求语法
 
 ```
@@ -29,17 +29,17 @@ op=<Operation>&op=<Operation>&...
 其中`op=<Operation>`是单一资源操作指令。例如`/stat/<EncodeEntryURI>`，`/delete/<EncodeEntryURI>`等。  
 EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。  
 
-<a name="request-auth"></a>
+<a id="request-auth"></a>
 ### 访问权限
 
 [访问凭证（AccessToken）][accessTokenHref]方式。
 
-<a name="request-params"></a>
+<a id="request-params"></a>
 ### 请求参数
 
 该请求无需设置任何参数。  
 
-<a name="request-headers"></a>
+<a id="request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -52,7 +52,7 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a name="request-body"></a>
+<a id="request-body"></a>
 ### 请求内容
 
 #### 批量获取元信息
@@ -88,10 +88,10 @@ op=/stat/<EncodedEntryURI>
 &op=/delete/<EncodedEntryURI>&...
 ```
 
-<a name="response"></a>
+<a id="response"></a>
 ## 响应
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 响应语法
 
 ```
@@ -100,7 +100,7 @@ Content-Type: application/json
 Cache-Control: no-store
 ```
 
-<a name="response-headers"></a>
+<a id="response-headers"></a>
 ### 头部信息
 
 
@@ -110,7 +110,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a name="response-body"></a>
+<a id="response-body"></a>
 ### 响应内容
 
 #### 批量获取元信息
@@ -170,7 +170,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 ]
 ```
 
-<a name="error-messages"></a>
+<a id="error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -181,12 +181,12 @@ HTTP状态码 | 含义
 401        | 访问凭证无效
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="remarks"></a>
+<a id="remarks"></a>
 ## 附注
 
 无。
 
-<a name="related-resources"></a>
+<a id="related-resources"></a>
 ## 相关资源
 
 - [访问凭证][accessTokenHref]

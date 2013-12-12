@@ -4,10 +4,10 @@ title: 音视频切片（segtime）
 order: 148
 ---
 
-<a name="segtime"></a>
+<a id="segtime"></a>
 # 音视频切片（segtime）
 
-<a name="audio-preset-description"></a>
+<a id="audio-preset-description"></a>
 ### 描述
 
 音视频切片是七牛云存储提供的云处理功能，用于支持HTTP Live Streaming回放。  
@@ -17,7 +17,7 @@ HTTP Live Streaming是由Apple提出的基于HTTP的流媒体传输协议。
 
 HLS API规格支持两种形式：预设集和自定义两种。  
 
-<a name="segtime-preset"></a>
+<a id="segtime-preset"></a>
 ### 切片预设集接口规格（presetSpec）  
 
 ```
@@ -50,10 +50,10 @@ video_4x3_240k  | 码率为240K，长宽比为4x3，推荐在 3G 环境下使用
 video_4x3_440k  | 码率为440K，长宽比为4x3，推荐在 WIFI 环境下使用
 video_4x3_640k  | 码率为640K，长宽比为4x3，推荐在 WIFI 环境下使用
 
-<a name="segtime-preset-request"></a>
+<a id="segtime-preset-request"></a>
 ### 请求
 
-<a name="segtime-preset-request-syntax"></a>
+<a id="segtime-preset-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -61,10 +61,10 @@ GET <DownloadURI>?<presetSpec> HTTP/1.1
 Host: <DownloadHost>
 ```
 
-<a name="segtime-preset-response"></a>
+<a id="segtime-preset-response"></a>
 ### 响应
 
-<a name="segtime-preset-response-syntax"></a>
+<a id="segtime-preset-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -74,7 +74,7 @@ Content-Type: <MimeType>
 <BinaryData>
 ```
 
-<a name="segtime-selfdef"></a>
+<a id="segtime-selfdef"></a>
 ### 自定义切片接口规格（selfDefSpec）  
 
 ```
@@ -102,10 +102,10 @@ avthumb/m3u8/segtime/<SegSeconds>
 
 注意：以上参数若不指定参数值，参数及其值都不必在API接口中设置。  
 
-<a name="segtime-selfdef-request"></a>
+<a id="segtime-selfdef-request"></a>
 ### 请求
 
-<a name="segtime-selfdef-request-syntax"></a>
+<a id="segtime-selfdef-request-syntax"></a>
 #### 请求语法
 
 ```
@@ -113,10 +113,10 @@ GET <DownloadURI>?<selfDefSpec> HTTP/1.1
 Host: <DownloadHost>
 ```
 
-<a name="segtime-selfdef-response"></a>
+<a id="segtime-selfdef-response"></a>
 ### 响应
 
-<a name="segtime-selfdef-response-syntax"></a>
+<a id="segtime-selfdef-response-syntax"></a>
 #### 响应语法
 
 ```
@@ -126,7 +126,7 @@ Content-Type: <MimeType>
 <BinaryData>
 ```
 
-<a name="segtime-alias"></a>
+<a id="segtime-alias"></a>
 ### 别名
 
 七牛云存储还支持为音视频切片规格设置别名，以使得下载URL更为友好。  
@@ -194,7 +194,7 @@ Content-Type: <MimeType>
     Body: <M3U8File>
 ```
 
-<a name="upload-fop"></a>
+<a id="upload-fop"></a>
 ### 上传预转
 
 由于在线音视频频转换或将音视频切割成多个小文件并生成M3U8播放列表是一个相对耗时的操作，为了保证良好的用户体验，需要配合上传预转机制使用。实际上，七牛官方推荐音视频在线编解码都通过上传预转的方式进行。  

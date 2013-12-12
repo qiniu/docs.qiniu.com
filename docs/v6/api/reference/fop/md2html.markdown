@@ -4,15 +4,15 @@ title: MD转HTML（md2html）
 order: 110
 ---
 
-<a name="md2html"></a>
+<a id="md2html"></a>
 # MD转HTML（md2html）
 
-<a name="description"></a>
+<a id="description"></a>
 ## 描述
 
 七牛云存储支持直接将Markdown类型的资源转为HTML文件并返回。  
 
-<a name="specification"></a>
+<a id="specification"></a>
 ## 接口规格（md2htmlSpec）
 
 ```

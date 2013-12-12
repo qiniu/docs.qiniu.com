@@ -36,13 +36,13 @@ title: qboxrsctl 命令行辅助工具
     - [删除文件](#del)
 
 
-<a name="intro"></a>
+<a id="intro"></a>
 
 ## 简介
 
 qboxrsctl 是根据七牛云存储API实现的一个简易命令行辅助工具。覆盖七牛云存储开发者网站包含的大部分甚至更高级的功能。开发者在对七牛云存储 API 有基本了解的情况下，此工具将会非常适用。
 
-<a name="download"></a>
+<a id="download"></a>
 
 ## 下载
 
@@ -56,11 +56,11 @@ qboxrsctl 命令行辅助工具下载地址：
 
 qboxrsctl 各个指令的用法可以在命令行直接输入 qboxrsctl 不带参数来获得。
 
-<a name="oauth"></a>
+<a id="oauth"></a>
 
 ## 授权操作
 
-<a name="login"></a>
+<a id="login"></a>
 
 ### 登录
 
@@ -76,11 +76,11 @@ Passwd  | 登录密码
 登录成功后，会话的有效期是 3600 秒（一个小时），一个小时后需要重新登录。
 
 
-<a name="ak_sk"></a>
+<a id="ak_sk"></a>
 
 ## 账号管理
 
-<a name="info"></a>
+<a id="info"></a>
 
 ### 查看帐号信息
 
@@ -88,7 +88,7 @@ Passwd  | 登录密码
 
 返回账号信息
 
-<a name="newaccess"></a>
+<a id="newaccess"></a>
 
 ### 生成密钥（AccessKey/SecretKey）
 
@@ -98,7 +98,7 @@ Passwd  | 登录密码
 --------|------------------------------------------------
 AppName | 应用名称，网站上默认创建的应用名称是：`default`
 
-<a name="appinfo"></a>
+<a id="appinfo"></a>
 
 ### 查看密钥（AccessKey/SecretKey）
 
@@ -109,7 +109,7 @@ AppName | 应用名称，网站上默认创建的应用名称是：`default`
 --------|------------------------------------------------
 AppName | 应用名称，网站上默认使用的应用名称是：`default`
 
-<a name="delaccess"></a>
+<a id="delaccess"></a>
 
 ### 删除密钥（AccessKey/SecretKey）
 
@@ -120,11 +120,11 @@ AppName | 应用名称，网站上默认使用的应用名称是：`default`
 AppName   | 应用名称，网站上默认使用的应用名称是：`default`
 AccessKey | 指定要删除掉的 AccessKey
 
-<a name="bucketmgr"></a>
+<a id="bucketmgr"></a>
 
 ## 空间管理
 
-<a name="mkbucket"></a>
+<a id="mkbucket"></a>
 
 ### 创建空间（Bucket）
 
@@ -134,37 +134,37 @@ AccessKey | 指定要删除掉的 AccessKey
 --------|------------------------------------------------
 Bucket  | 空间名称，字母数字下划线组合。
 
-<a name="set-bucket-public"></a>
+<a id="set-bucket-public"></a>
 
 ### 3.2 将空间设置为公开
 
     qboxrsctl private <Bucket> 0
 
-<a name="set-bucket-private"></a>
+<a id="set-bucket-private"></a>
 
 ### 3.3 将空间设置为私有
 
     qboxrsctl private <Bucket> 1
 
-<a name="buckets"></a>
+<a id="buckets"></a>
 
 ### 3.4 列出所有空间（Buckets）
 
     qboxrsctl buckets
 
-<a name="bucketinfo"></a>
+<a id="bucketinfo"></a>
 
 ### 3.5 查看指定空间（Bucket）信息
 
     qboxrsctl bucketinfo <Bucket>
 
-<a name="drop"></a>
+<a id="drop"></a>
 
 ### 3.6 删除空间（Bucket）
 
     qboxrsctl drop -f <Bucket>
 
-<a name="img"></a>
+<a id="img"></a>
 
 ### 3.7 设置镜像存储（源站加速）
 
@@ -176,23 +176,23 @@ Bucket  | 指定用于托管源站资源的存储空间名称，必填。
 SrcUrl  | 源站地址，必填，可设置多个。格式：`http://domain:port/` 或者 `http://ip:port/`，其中 port 可选。
 SrcHost | 源站域名，可选
 
-<a name="unimg"></a>
+<a id="unimg"></a>
 
 ### 3.8 取消镜像存储
 
     qboxrsctl unimg <Bucket>
 
-<a name="refresh"></a>
+<a id="refresh"></a>
 
 ### 3.9 清除配置缓存
 
     qboxrsctl refresh <Bucket>
 
-<a name="foper"></a>
+<a id="foper"></a>
 
 ## 4. 云处理
 
-<a name="style"></a>
+<a id="style"></a>
 
 ### 4.1 设置API规格别名
 
@@ -208,19 +208,19 @@ fop       | API规格定义，可使用 [图像处理接口](/api/image-process.
 
     http://<Domain>/<Key><Sep><Name>
 
-<a name="unstyle"></a>
+<a id="unstyle"></a>
 
 ### 4.2 取消API规格别名
 
     qboxrsctl unstyle <Bucket> <Name>
 
-<a name="separator"></a>
+<a id="separator"></a>
 
 ### 4.3 设置友好URL分隔符
 
     qboxrsctl separator <Bucket> <Sep>
 
-<a name="protected"></a>
+<a id="protected"></a>
 
 ### 4.4 设置源文件/原图保护
 
@@ -230,11 +230,11 @@ fop       | API规格定义，可使用 [图像处理接口](/api/image-process.
 ----------|------------------------------------------------
 Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示开启保护。
 
-<a name="rsmgr"></a>
+<a id="rsmgr"></a>
 
 ## 5. 文件操作
 
-<a name="put"></a>
+<a id="put"></a>
 
 ### 5.1 上传文件
 
@@ -246,19 +246,19 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
 加上选项 `c`　会启用切片并行上传一个超过大文件。（超过 4MB） 
 
-<a name="get"></a>
+<a id="get"></a>
 
 ### 5.2 下载文件
 
     qboxrsctl get <Bucket> <Key> <DestFile>
 
-<a name="stat"></a>
+<a id="stat"></a>
 
 ### 5.3 查看文件
 
     qboxrsctl stat <Bucket> <Key>
 
-<a name="cp"></a>
+<a id="cp"></a>
 
 ### 5.4 复制文件
 
@@ -266,7 +266,7 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
     qboxrsctl cp <Bucket1:KeySrc> <Bucket2:KeyDest>
 
-<a name="mv"></a>
+<a id="mv"></a>
 
 ### 5.5 移动文件
 
@@ -274,7 +274,7 @@ Protected | 可选值为 `0` 或者 `1` ，`0`表示不开启保护，`1`表示�
 
     qboxrsctl mv <Bucket1:KeyOld> <Bucket2:KeyNew>
 
-<a name="del"></a>
+<a id="del"></a>
 
 ### 5.6 删除文件
 

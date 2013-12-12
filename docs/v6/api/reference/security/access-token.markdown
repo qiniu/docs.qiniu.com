@@ -4,13 +4,13 @@ title: 管理凭证
 order: 950
 ---
 
-<a name="access-token"></a>
+<a id="access-token"></a>
 # 管理凭证
 
 管理凭证是七牛云存储用于验证管理请求合法性的机制。  
 建议仅在业务服务器使用这一类凭证，避免意外授权导致滥用。  
 
-<a name="access-token-algorithm"></a>
+<a id="access-token-algorithm"></a>
 ## 算法
 
 1. 生成待签名字符串：  
@@ -51,19 +51,19 @@ order: 950
     'j6XaEDm5DwWvn0H9TTJs9MugjunHK8Cwo3luCglo:Ubf-hoK7DkUJQv_P0vyQORA_7IY='
 	```
 
-<a name="access-token-remarks"></a>
+<a id="access-token-remarks"></a>
 ## 附注
 
 无。
 
-<a name="access-token-samples"></a>
+<a id="access-token-samples"></a>
 ## 代码示例
 
 ```
 // TODO: 代码示例goes here.
 ```
 
-<a name="access-external-resources"></a>
+<a id="access-external-resources"></a>
 ## 外部参考资源
 
 - [HMAC-SHA1加密][hmacSha1Href]

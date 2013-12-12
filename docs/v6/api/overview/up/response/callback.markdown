@@ -3,7 +3,7 @@ layout: docs
 title: 回调
 order: 514
 ---
-<a name="callback"></a>
+<a id="callback"></a>
 # 回调（callback）
 
 开发者可以要求七牛云存储在某文件上传完成后向特定的URL发起一个回调请求。七牛云存储会将该回调的响应内容作为文件上传响应的一部分一并返回给客户端。回调的流程如下图所示：
@@ -12,7 +12,7 @@ order: 514
 
 要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略]()中的`callbackUrl`字段。如果希望控制回调的内容，还可以同时设置`callbackBody`字段。
 
-<a name="callback-url"></a>
+<a id="callback-url"></a>
 ## 回调地址
 
 通过设定上传策略中的`callbackUrl`字段为一个有效的地址，即可让七牛云存储在文件上传完成后向该地址发起回调请求。
@@ -21,7 +21,7 @@ order: 514
 
 如果需要传递自定义的请求内容，开发者可以考虑配合使用上传策略中的`callbackBody`字段。如果只有`callbackUrl`而没有`callbackBody`，回调服务器收到的请求内容将为空。
 
-<a name="callback-body"></a>
+<a id="callback-body"></a>
 ## 回调内容
 
 同普通客户端直传和重定向上传一样，用户也可以控制回调中传递到客户回调服务器的反馈信息。`callbackBody`的格式如下：
@@ -109,7 +109,7 @@ Cache-Control: no-store
 
 如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](/api/reference/codes.html)以及详细的失败信息。
 
-<a name="callback-security"></a>
+<a id="callback-security"></a>
 ## 安全性
 
 因为[上传凭证](/api/reference/security/upload-token.html)可有效防止七牛云存储从客户端收到伪造的回调请求，因此回调接受方（通常是业务服务器）可以认为来自七牛云存储的调用是可信的。

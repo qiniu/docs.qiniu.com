@@ -3,7 +3,7 @@ layout: docs
 title: 绘图规范和工具
 ---
 
-<a name="drawing-rules-tools"></a>
+<a id="drawing-rules-tools"></a>
 # 绘图规范与工具
 
 这里的绘图规范和工具专门针对参考性的技术文档。这些文档的共性在于文档的表达准确性要远重要于文档本身的美感。

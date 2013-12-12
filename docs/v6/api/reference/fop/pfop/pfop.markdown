@@ -1,26 +1,26 @@
 ---
 layout: docs
-title: 对既存资源进行云处理并持久化（pfop）
+title: 触发异步处理（pfop）
 order: 300
 ---
 
-<a name="pfop-existing-resource"></a>
-# 对既存资源进行云处理并持久化（pfop）
+<a id="pfop-existing-resource"></a>
+# 触发异步处理（pfop）
 
-<a name="pfop-description"></a>
+<a id="pfop-description"></a>
 ## 描述
 
 如果需要对已保存在空间中的资源进行云处理并将结果持久化，可以使用`/pfop`接口。  
 
-<a name="pfop-specification"></a>
+<a id="pfop-specification"></a>
 ## 接口规格
 
 无。
 
-<a name="pfop-request"></a>
+<a id="pfop-request"></a>
 ## 请求
 
-<a name="pfop-request-syntax"></a>
+<a id="pfop-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -32,7 +32,7 @@ Authorization: QBox <AccessToken>
 <PfopRequestParams>
 ```
 
-<a name="pfop-request-headers"></a>
+<a id="pfop-request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -46,12 +46,12 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
   
-<a name="pfop-request-auth"></a>
+<a id="pfop-request-auth"></a>
 ### 访问权限
 
 [访问凭证（AccessToken）][accessTokenHref]方式。
 
-<a name="pfop-request-params"></a>
+<a id="pfop-request-params"></a>
 ### 请求参数（PfopRequestParams）
 
 请求参数以表单形式组织，作为请求内容提交，格式如下：  
@@ -67,10 +67,10 @@ bucket=<bucket>&key=<key>&fops=<fop1>;<fop2>...<fopN>&notifyURL=<persistentNotif
 `fops`        | 云处理操作列表，用“;”分隔         | 是
 `notifyURL`   | 处理结果通知接收URL，请参考[处理结果通知](#pfop-notification)小节 | 是
 
-<a name="pfop-response"></a>
+<a id="pfop-response"></a>
 ## 响应
 
-<a name="pfop-request-syntax"></a>
+<a id="pfop-request-syntax"></a>
 ### 响应语法
 
 ```
@@ -81,14 +81,14 @@ Content-Length: <PfopResponseContentLength>
 <PfopResponseContent>
 ```
 
-<a name="pfop-response-headers"></a>
+<a id="pfop-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-<a name="pfop-response-body"></a>
+<a id="pfop-response-body"></a>
 ### 响应内容（PfopResponseContent）
 
 ■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：  
@@ -112,7 +112,7 @@ persistentId  | 异步处理会话标识，可用于查询处理进度，请参�
 }
 ```
 
-<a name="pfop-error-messages"></a>
+<a id="pfop-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -123,15 +123,15 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a name="pfop-notification"></a>
+<a id="pfop-notification"></a>
 # 处理结果通知
 
 服务端按顺序完成所有指定的云处理操作后，会将处理结果状态提交到`<persistentNotifyUrl>`指向的网址。   
 
-<a name="pfop-notification-request"></a>
+<a id="pfop-notification-request"></a>
 ## 请求
 
-<a name="pfop-notification-request-syntax"></a>
+<a id="pfop-notification-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -142,7 +142,7 @@ Content-Type: application/json
 <JsonStatusDescription>
 ```
 
-<a name="pfop-request-headers"></a>
+<a id="pfop-request-headers"></a>
 ### 头部信息
 
 该请求会指定以下头部信息。
@@ -152,7 +152,7 @@ Content-Type: application/json
 Host          | 接收异步云处理结果状态的服务器域名      | 是
 Content-Type  | 固定为application/json                  | 是
 
-<a name="pfop-request-content"></a>
+<a id="pfop-request-content"></a>
 ### 请求内容
 
 用户获得的异步云处理结果状态是一个JSON字符串，内容范例如下：
@@ -218,15 +218,15 @@ http://<domain>/tZ-w8jHlQ0__PYJdiisskrK5h3k=/FjgJQXuH7OresQL4zgRqYG5bZ64x
 
 <domain> TODO
 
-<a name="p-download"></a>
+<a id="p-download"></a>
 # 访问异步云处理的持久化结果（p）
 
-<a name="p-description"></a>
+<a id="p-description"></a>
 ## 描述
 
 前述异步云处理成功完成后，可以使用本接口访问已持久化的结果。  
 
-<a name="p-specification"></a>
+<a id="p-specification"></a>
 ## 接口规格（pSpec）
 
 ```
@@ -237,10 +237,10 @@ p/1/<fop>
 :------------ | :-------------------------------- | :-------
 `fop`         | TODO                              | 是
 
-<a name="p-request"></a>
+<a id="p-request"></a>
 ## 请求
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 请求语法
 
 ```
@@ -248,7 +248,7 @@ GET <RawDownloadURI>?<pSpec> HTTP/1.1
 Host: <RawDownloadDomain>
 ```
 
-<a name="request-headers"></a>
+<a id="request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -260,10 +260,10 @@ Host          | 可下载指定资源的域名                    | 是
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
   
-<a name="p-response"></a>
+<a id="p-response"></a>
 ## 响应
 
-<a name="request-syntax"></a>
+<a id="request-syntax"></a>
 ### 响应语法
 
 ```
@@ -274,7 +274,7 @@ Content-Length: <ResourceBinaryLength>
 <ResourceBinary>
 ```
 
-<a name="p-error-messages"></a>
+<a id="p-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义

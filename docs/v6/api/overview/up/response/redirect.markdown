@@ -3,7 +3,7 @@ layout: docs
 title: 301重定向
 order: 513
 ---
-<a name="redirect"></a>
+<a id="redirect"></a>
 # 301重定向
 
 HTTP 301重定向（参见[RFC2616-SEC10.3.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2)）是HTTP 1.1规范的组成部分，服务器可以通过返回301代码告诉客户端所请求的URL已经永久转移到另一个地方，因此客户端应该重定向到新的URL。该技术被广泛用于网页开发领域，如在文件上传完成后让客户端自动重定向到一个上传成功的结果页面。
