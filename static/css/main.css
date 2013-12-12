@@ -1297,10 +1297,6 @@ div.api-resource .social-resource .author {
 .container.docs .cell.sdk ul li a img {
   vertical-align: middle;
 }
-.container.index .cell.sdk ul li.more img,
-.container.docs .cell.sdk ul li.more img {
-  margin-top: 0;
-}
 .container.index .cell.api,
 .container.docs .cell.api {
   margin-bottom: 20px;
