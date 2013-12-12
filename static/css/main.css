@@ -1221,6 +1221,7 @@ div.api-resource .social-resource .author {
 }
 .container.index .cell h2 {
   margin-bottom: 22px;
+  color: #262626;
 }
 .container.index a {
   color: #0c94de;
@@ -1245,12 +1246,16 @@ div.api-resource .social-resource .author {
   padding-top: 0;
 }
 .container.index .main .api .cell-line h3 {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 10px;
+  color: #404040;
 }
 .container.index .main .api .cell-line h4 {
+  font-size: 12px;
   margin-bottom: 10px;
   margin-top: 8px;
+  color: #404040;
+  font-weight: normal;
 }
 .container.index .main .api .cell-line ul {
   overflow: hidden;
