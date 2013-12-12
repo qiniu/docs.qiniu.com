@@ -36,20 +36,9 @@ order: 950
     '/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ=\n'
 	```
 
-2. 用`SecretKey`对待签名字符串进行[HMAC-SHA1加密][hmacSha1Href]，并对加密结果再做[URL安全的Base64编码][urlsafeBase64Href]：
+2. 将上一步得到的字符串作为[凭证算法][tokenAlgorithmHref]的原始数据进行运算，得到管理凭证，我们称之为`encodedSign`。
 
-	```
-    sign = hmac_sha1(SecretKey, signingStr)
-    encodedSign = urlsafe_base64_encode(sign)
-	```
-
-    假设`SecretKey`为'Yx0hNBifQ5V5SqLUkzPkjyy0pbYJpav9CH1QzkG0'，签名结果应为  
-
-	```
-    'Ubf-hoK7DkUJQv_P0vyQORA_7IY='
-	```
-
-3. 最后，将`AccessKey`和`EncodedSign`用“:”连接起来：  
+3. 最后，将`AccessKey`和`encodedSign`用`:`连接：  
 
 	```
     <AccessKey>:<encodedSign>
@@ -82,3 +71,4 @@ order: 950
 
 [hmacSha1Href]:             http://en.wikipedia.org/wiki/Hash-based_message_authentication_code                  "HMAC-SHA1加密"
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
+[tokenAlgorithmHref]:		token-algorithm.html
