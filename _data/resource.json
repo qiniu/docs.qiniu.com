@@ -64,7 +64,7 @@
         "doc": "",
         "source": "https://github.com/qiniu/csharp-sdk"
     }, {
-        "name": "cpp",
+        "name": "c",
         "label": "SDK for C/C++",
         "download": "https://github.com/qiniu/c-sdk/archive/master.zip",
         "version": "v6.2.2",
