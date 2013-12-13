@@ -7,14 +7,14 @@ order: 700
 <a id="move"></a>
 # 移动资源（move）
 
-<a id="description"></a>
+<a id="move-description"></a>
 ## 描述
 将源空间的指定资源移动到目标空间，或在同一空间内对资源重命名。  
 
-<a id="request"></a>
+<a id="move-request"></a>
 ## 请求
 
-<a id="request-syntax"></a>
+<a id="move-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -26,17 +26,17 @@ Authorization:  QBox <AccessToken>
 
 EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 
-<a id="request-auth"></a>
+<a id="move-request-auth"></a>
 ### 访问权限
 
 [访问凭证（AccessToken）][accessTokenHref]方式。
 
-<a id="request-params"></a>
+<a id="move-request-params"></a>
 ### 请求参数
 
 该请求无需设置任何参数。
 
-<a id="request-headers"></a>
+<a id="move-request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -48,15 +48,15 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a id="request-body"></a>
+<a id="move-request-body"></a>
 ### 请求内容
 
 该请求无需指定请求内容。
 
-<a id="response"></a>
+<a id="move-response"></a>
 ## 响应
 
-<a id="request-syntax"></a>
+<a id="move-request-syntax"></a>
 ### 响应语法
 
 ```
@@ -65,14 +65,16 @@ Content-Type: application/json
 Cache-Control: no-store
 ```
 
-<a id="response-headers"></a>
+<a id="move-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
 :------------ | :--------------------------------------------------------------------
 Content-Type  | 正常情况下该值将被设为`application/json`，表示返回JSON格式的文本信息。
 
-<a id="response-body"></a>
+其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
+
+<a id="move-response-body"></a>
 ### 响应内容
 
 如果请求成功，该响应不返回任何内容。  
@@ -85,7 +87,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 }
 ```
 
-<a id="error-messages"></a>
+<a id="move-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -97,7 +99,7 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在
 
-<a id="example1-command"></a>
+<a id="move-example1-command"></a>
 ### 命令行示例
 
 ```
@@ -109,7 +111,7 @@ curl -i \
      'http://rs.qiniu.com/move/bmV3ZG9jczpmaW5kX21hbi50eHQ=/bmV3ZG9jczpmaW5kLm1hbi50eHQ='
 ```
 
-<a id="example1-request"></a>
+<a id="move-example1-request"></a>
 ### 请求示例
 
 ```
@@ -120,7 +122,7 @@ Accept: */*
 Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
 ```
 
-<a id="example1-response"></a>
+<a id="move-example1-response"></a>
 ### 响应示例
 
 ```
@@ -134,13 +136,13 @@ X-Log: RS.in;RS.mo;qtbl.mv:3;MQ;MC/404;RS.mcd:1;RS:5
 X-Reqid: wxIAAD3btw-v3TwT
 ```
 
-<a id="remarks"></a>
+<a id="move-remarks"></a>
 ## 附注
 
 无。
 
-<a id="related-resources"></a>
-## 相关资源
+<a id="move-internal-resources"></a>
+## 内部参考资源
 
 - [访问凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
@@ -148,3 +150,4 @@ X-Reqid: wxIAAD3btw-v3TwT
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
