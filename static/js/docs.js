@@ -140,7 +140,6 @@ $(function() {
 
     $('.panel-status').each(function() {
         if (!$(this).children().length > 0) {
-            console.log('hahhaha');
             $(this).siblings('.panel-heading').find('.off_2').removeClass('off_2').addClass('off_1');
         }
     });
@@ -157,8 +156,6 @@ $(function() {
                 if ($panelBody.is(':visible')) {
                     $panelBody.hide('fast', adjustApiBoxHeight);
                     $(this).removeClass('active');
-                    //$(this).siblings('.on_2').removeClass('on_2').addClass('off_2');
-                    //$(this).next('.icon').removeClass('api_down2_sprited');
                     if ($(this).siblings('.on_2').length > 0) {
                         $(this).siblings('.on_2').removeClass('on_2').addClass('off_2');
                     } else {
@@ -174,7 +171,6 @@ $(function() {
                         $(this).siblings('.off_1').removeClass('off_1').addClass('on_1');
                     }
                 }
-                return false;
             }
         }
     });

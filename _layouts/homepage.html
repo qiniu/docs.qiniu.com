@@ -21,7 +21,7 @@
         <script src="static/js/html5.js"></script>
         <![endif]-->
 
-    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
 </head>
 
 <body>
@@ -42,11 +42,7 @@
                         <img src="/static/image/index/android.png" alt="">
                     </a>
                 </li>
-                <li>
-                    <a target="blank" href="/docs/v6/sdk/python-sdk.html" title="Python-sdk" class="sdk-logo ">
-                        <img src="/static/image/index/python.png" alt="">
-                    </a>
-                </li>
+
                 <li>
                     <a target="blank" href="/docs/v6/sdk/java-sdk.html" title="Java sdk" class="sdk-logo ">
                         <img src="/static/image/index/java.png" alt="java">
@@ -65,6 +61,11 @@
                 <li>
                     <a target="blank" href="/docs/v6/sdk/ruby-sdk.html" title="Ruby dk" class="sdk-logo ">
                         <img src="/static/image/index/ruby.png" alt="ruby">
+                    </a>
+                </li>
+                <li>
+                    <a target="blank" href="/docs/v6/sdk/python-sdk.html" title="Python-sdk" class="sdk-logo ">
+                        <img src="/static/image/index/python.png" alt="">
                     </a>
                 </li>
                 <li>
@@ -165,8 +166,6 @@
                             </li>
                             <li><a href="/docs/v6/api/overview/fop/streaming.html">流媒体播放</a>
                             </li>
-                            <li><a href="">自定义数据处理</a>
-                            </li>
                         </ul>
                         <h4>
                             <!-- <span class="icon off_2"></span> -->内置数据处理功能</h4>
@@ -200,23 +199,51 @@
             <div class="question cell">
                 <h2>常见问题</h2>
                 <ul>
-                    <li><a href="">如何使用镜像存储？</a>
-                    </li>
-                    <li><a href="">像存储造成百度K站我要怎么办？robots.txt配置文件需要注意哪些事项？</a>
-                    </li>
-                    <li><a href="">如何使用镜像存储？</a>
-                    </li>
-                    <li><a href="">像存储造成百度K站我要怎么办？robots.txt配置文件需要注意哪些事项？</a>
-                    </li>
-                    <li><a href="">如何使用镜像存储？</a>
+                    <li><a target="blank" href="http://kb.qiniu.com/52irs1co">申请防盗链</a> </li>
+                    <li><a target="blank"  href="http://kb.qiniu.com/how-to-use-image-storage-and-qrsync">如何使用镜像存储？</a> </li>
+                    <li><a target="blank"  href="http://kb.qiniu.com/534uaze3">网站加速</a> </li>
+                    <li><a target="blank"  href="http://kb.qiniu.com/testing">如何测试七牛可用性</a> 
                     </li>
                 </ul>
             </div>
             <div class="resource-community cell">
-                {{ .includes.community_resource }}
+                <h2>社区资源</h2>
+                <div>
+                    <span class="icon index_social_sprited"></span>
+                    <h4>
+                        <a href="http://blog.wpjam.com/project/wpjam-qiniutek/">七牛镜像存储 WordPress 插件：一键实现 WordPress 博客静态文件 CDN 加速</a>
+                    </h4>
+                    <p>作者：我爱水煮鱼
+                    </p>
+                </div>
+                <div>
+                    <span class="icon index_social_sprited"></span>
+                    <h4>
+                        <a href="http://www.discuz.net/thread-3399569-1-1.html">Discuz插件，将DiscuzX的文件保存到七牛云存储</a>
+                    </h4>
+                    <p>作者：discuz
+                    </p>
+                </div>
+                <div>
+                    <span class="icon index_social_sprited"></span>
+                    <h4>
+                        <a href="https://github.com/fengmk2/qn">Nodejs 第三方插件，前端支持 > IE 5.5,支持图片本地预览，上传进度，拖放等效果</a>
+                    </h4>
+                    <p>作者：小问
+                    </p>
+                </div>
+                <div>
+                    <span class="icon index_tool_sprited"></span>
+                    <h4>
+                        <a href="http://staticfile.org/">开放静态文件CDN，为开源库稳定、快速的加速， 由七牛云存储提供存储和加速</a>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
+
+
+
     <footer>
         {{.includes.footer}}
     </footer>
