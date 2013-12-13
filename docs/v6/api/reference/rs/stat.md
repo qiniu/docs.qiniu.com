@@ -7,14 +7,14 @@ order: 900
 <a id="stat"></a>
 # 获取资源信息（stat）
 
-<a id="description"></a>
+<a id="stat-description"></a>
 ## 描述
 仅获取资源的Metadata信息，不返回资源内容。
 
-<a id="request"></a>
+<a id="stat-request"></a>
 ## 请求
 
-<a id="request-syntax"></a>
+<a id="stat-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -25,17 +25,17 @@ Authorization: QBox <AccessToken>
 
 EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 
-<a id="request-auth"></a>
+<a id="stat-request-auth"></a>
 ### 访问权限
 
 [访问凭证（AccessToken）][accessTokenHref]方式。
 
-<a id="request-params"></a>
+<a id="stat-request-params"></a>
 ### 请求参数
 
 该请求不支持任何参数。
 
-<a id="request-headers"></a>
+<a id="stat-request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -47,15 +47,15 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a id="request-body"></a>
+<a id="stat-request-body"></a>
 ### 请求内容
 
 该请求无需指定请求内容。
 
-<a id="response"></a>
+<a id="stat-response"></a>
 ## 响应
 
-<a id="response-headers"></a>
+<a id="stat-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
@@ -64,7 +64,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a id="response-body"></a>
+<a id="stat-response-body"></a>
 ### 响应内容
 
 如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
@@ -89,7 +89,7 @@ putTime        | int64  | 文件上传时的服务器端Epoch时间戳，单位�
 
 如果请求失败，请参考[错误消息](#error-messages)。
 
-<a id="error-messages"></a>
+<a id="stat-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -100,10 +100,10 @@ HTTP状态码 | 含义
 404        | 目标资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a id="examples"></a>
+<a id="stat-examples"></a>
 ## 示例
 
-<a id="example1-command"></a>
+<a id="stat-example1-command"></a>
 ### 命令行示例
 
 ```
@@ -112,7 +112,7 @@ curl -i \
      "http://rs.qiniu.com/stat/ZGVtbzoyMDEzLTAyLTA5LTA3LTM5LTIwLmpwZw=="
 ```
 
-<a id="example1-request"></a>
+<a id="stat-example1-request"></a>
 ### 请求示例
 
 ```
@@ -123,7 +123,7 @@ Accept: */*
 Authorization: QBox QNJi_bYJlmO5LeY08FfoNj9w_r72Vsn...(过长已省略)
 ```
 
-<a id="example1-response"></a>
+<a id="stat-example1-response"></a>
 ### 响应示例
 
 以下响应中JSON字符串经过格式化，以便查看。
@@ -147,13 +147,13 @@ X-Reqid: swEAAMipp-5bIjMT
 }
 ```
 
-<a id="remarks"></a>
+<a id="stat-remarks"></a>
 ## 附注
 
 无。
 
-<a id="related-resources"></a>
-## 相关资源
+<a id="stat-internal-resources"></a>
+## 内部参考资源
 
 - [访问凭证][accessTokenHref]
 - [EncodedEntryURI格式](encodedEntryURIHref)

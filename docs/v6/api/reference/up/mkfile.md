@@ -111,7 +111,8 @@ HTTP状态码 | 含义
 <a id="mkfile-remarks"></a>
 ## 附注
 
-无。
+- 可以复用创建块时使用的上传凭证。  
+- 上传凭证将被重新验证，若已过期，可以重新生成新的凭证。  
 
 <a id="mkfile-internal-resources"></a>
 ## 内部参考资源
