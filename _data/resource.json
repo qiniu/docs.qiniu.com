@@ -110,103 +110,103 @@
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。"
     }],
     "third_plugin": [{
-        "name": "wordpress",
-        "label": "wordpress插件",
+        "name": "WordPress",
+        "label": "WordPress插件",
         "description": "一键实现 WordPress 博客静态文件 CDN 加速",
         "download": "http://downloads.wordpress.org/plugin/wpjam-qiniu.zip",
         "author": "我爱水煮鱼",
         "date": "2013-09-12",
         "doc": "http://blog.wpjam.com/project/wpjam-qiniutek/"
     }, {
-        "name": "drupal",
-        "label": "drupal插件",
+        "name": "Drupal",
+        "label": "Drupal插件",
         "description": "如何在Drupal接入七牛云存储的CDN服务",
         "download": "#",
         "author": "dansboy",
         "date": "2013-08-25",
         "doc": "https://groups.drupal.org/node/354683"
     }, {
-        "name": "opoopress",
-        "label": "opoopress插件",
+        "name": "Opoopress",
+        "label": "Opoopress插件",
         "description": "将 OpooPress 静态博客部署到七牛云存储",
         "download": "#",
         "author": "Alex Lin",
         "date": "2013-10-12",
         "doc": "https://opoo.org/deploy-opoopress-to-qiniu/"
     }, {
-        "name": "octopress",
-        "label": "octopress插件",
+        "name": "Octopress",
+        "label": "Octopress插件",
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "#",
         "author": "allen",
         "date": "2013-09-12",
         "doc": "http://www.imallen.com/blog/2013/10/16/deploying-octopress-to-qiniu.html"
     }, {
-        "name": "discuz",
-        "label": "discuz插件",
-        "description": "DiscuzX使用七牛云存储",
+        "name": "Discuz",
+        "label": "Discuz插件",
+        "description": "Discuz使用七牛云存储",
         "download": "http://www.discuz.net/forum.php?mod=attachment&aid=MTQxNzkxNnxlNzkzNWExM3wxMzg2NjU0MTIzfDB8MzM5OTU2OQ%3D%3D",
         "author": "discuz",
         "date": "2013-09-12",
         "doc": "http://www.discuz.net/thread-3399569-1-1.html"
     }, {
-        "name": "phpwind",
-        "label": "phpwind插件",
-        "description": "phpwind插件",
+        "name": "PHPWind",
+        "label": "PHPWind插件",
+        "description": "PHPWind插件",
         "download": "http://chajian.u.qiniudn.com/qiniu-phpwind.zip",
         "author": "",
         "date": "2013-09-12",
         "doc": ""
     }, {
-        "name": "emlog",
-        "label": "emlog插件",
-        "description": "emlog插件",
+        "name": "Emlog",
+        "label": "Emlog插件",
+        "description": "Emlog插件",
         "download": "http://cuelog.qiniudn.com/wp-content/uploads/2013/09/qiniu.zip",
         "author": "",
         "date": "2013-09-12",
         "doc": ""
     }, {
-        "name": "typecho",
-        "label": "typecho插件",
+        "name": "Typecho",
+        "label": "Typecho插件",
         "description": "七牛云存储镜像加速插件Typecho版",
         "download": "http://kvdb.qiniudn.com/QiniuCDN.zip?download",
         "author": "Young",
         "date": "2013-07-27",
         "doc": "http://www.microhu.com/qiniu-upload-plugin-for-typecho.html"
     }, {
-        "name": "django",
-        "label": "django插件",
-        "description": "django插件",
+        "name": "Django",
+        "label": "Django插件",
+        "description": "Django插件",
         "download": "https://github.com/piglei/django-qiniu",
         "author": "piglei",
         "date": "2013-09-12",
         "doc": "https://github.com/piglei/django-qiniu"
     }, {
-        "name": "ueditor",
-        "label": "ueditor(java)",
-        "description": "ueditor上传图片到七牛云存储（form api,java）",
+        "name": "Ueditor",
+        "label": "Ueditor(java)",
+        "description": "Ueditor上传图片到七牛云存储（form api,java）",
         "download": "http://git.oschina.net/duoduo3_69/QiNiuWithUeditor.git",
         "author": "duoduo3_69",
         "date": "2013-11-06",
         "doc": "http://my.oschina.net/duoduo3369/blog/174655"
     }, {
-        "name": "uploadify",
-        "label": "uploadify插件",
-        "description": "uploadify和七牛云存储的结合",
+        "name": "Uploadify",
+        "label": "Uploadify插件",
+        "description": "Uploadify和七牛云存储的结合",
         "download": "http://www.widuu.com/archives/11/832.html",
         "author": "widuu",
         "date": "2013-11-06",
         "doc": "http://www.widuu.com/archives/11/832.html"
     }, {
-        "name": "solo",
-        "label": "七牛solo插件",
-        "description": "七牛solo插件",
+        "name": "Solo",
+        "label": "七牛Solo插件",
+        "description": "七牛Solo插件",
         "download": "http://blog.qiniudn.com/qiniu4b3log.zip",
         "author": "symphony",
         "date": "2013-11-28",
         "doc": "http://symphony.b3log.org/article/1385649507137"
     }, {
-        "name": "startbbs",
+        "name": "StartBBS",
         "label": "STB",
         "description": "七牛云(STB版)",
         "download": "http://www.startbbs.com/topic/1198",
@@ -214,7 +214,7 @@
         "date": "2013-11-28",
         "doc": "http://www.startbbs.com/topic/1198"
     }, {
-        "name": "paperclip",
+        "name": "PaperClip",
         "label": "PaperClip",
         "description": "PaperClip",
         "download": "https://github.com/lidaobing/paperclip-qiniu",
@@ -222,9 +222,9 @@
         "date": "2013-11-28",
         "doc": "https://github.com/lidaobing/paperclip-qiniu"
     }, {
-        "name": "packup2qiniu",
-        "label": "Packup to qiniu",
-        "description": "Packup to qiniu",
+        "name": "Packup2qiniu",
+        "label": "Packup to Qiniu",
+        "description": "Packup to Qiniu",
         "download": "https://github.com/lidaobing/backup2qiniu",
         "author": "lidaobing",
         "date": "2013-11-28",
@@ -255,7 +255,7 @@
         "date": "2013-09-12",
         "doc": "https://github.com/guoking/qiniu-php-sdk"
     }, {
-        "name": "python",
+        "name": "Python",
         "label": "Python SDK",
         "description": "用户界面上传工具，基于windows系统，支持断点续上传，增量同步，自动监控。",
         "download": "https://github.com/yueyoum/seven-cow",
