@@ -89,7 +89,7 @@
         "version": "v6",
         "date": "2013-09-12",
         "doc": "/docs/v6/tools/qrsync.html",
-        "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传，增量同步上传。"
+        "description": "命令行辅助上传同步工具，支持断点续上传，增量同步上传。"
     }, {
         "name": "cmd",
         "label": "qboxrsctl",
