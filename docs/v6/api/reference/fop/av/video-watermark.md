@@ -20,7 +20,7 @@ vwatermark/<Mode>
 :------------------------- | :------------------------------------ | :---
 `<Mode>`                   | 固定为1，表示`图片水印`               | 是
 `<EncodedRemoteImageUrl>`  | 水印的源路径，目前仅支持远程路径，需要经过`urlsafe_base64_encode` | 是   
-`<Gravity>`|打水印的位置，目前支持`NorthWest`，`North`，`NorthEast`，`West`，`Center`，`East`，`SouthWest`，`South`，`SouthEast`。缺省值为`NorthEast` |
+`<Gravity>`                | 打水印的位置，目前支持`NorthWest`，`North`，`NorthEast`，<p>`West`，`Center`，`East`，<p>`SouthWest`，`South`，`SouthEast`。<p>缺省值为`NorthEast` |
 `<OutputFormat>`           | 指定目标视频的输出格式，取值范围：mp4，flv等。缺省值为`mp4` |
 
 <a id="video-request"></a>

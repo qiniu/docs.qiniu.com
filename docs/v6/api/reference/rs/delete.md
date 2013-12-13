@@ -7,14 +7,14 @@ order: 600
 <a id="delete"></a>
 # 删除资源（delete）
 
-<a id="description"></a>
+<a id="delete-description"></a>
 ## 描述
 删除指定资源。
 
-<a id="request"></a>
+<a id="delete-request"></a>
 ## 请求
 
-<a id="request-syntax"></a>
+<a id="delete-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -26,17 +26,17 @@ Authorization:  QBox <AccessToken>
 
 EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 
-<a id="request-auth"></a>
+<a id="delete-request-auth"></a>
 ### 访问权限
 
 [访问凭证（AccessToken）][accessTokenHref]方式。
 
-<a id="request-params"></a>
+<a id="delete-request-params"></a>
 ### 请求参数
 
 该请求无需设置任何参数。
 
-<a id="request-headers"></a>
+<a id="delete-request-headers"></a>
 ### 头部信息
 
 该请求必须指定以下头部信息。
@@ -48,15 +48,15 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a id="request-body"></a>
+<a id="delete-request-body"></a>
 ### 请求内容
 
 该请求无需指定请求内容。
 
-<a id="response"></a>
+<a id="delete-response"></a>
 ## 响应
 
-<a id="request-syntax"></a>
+<a id="delete-request-syntax"></a>
 ### 响应语法
 
 ```
@@ -65,7 +65,7 @@ Content-Type: application/json
 Cache-Control: no-store
 ```
 
-<a id="response-headers"></a>
+<a id="delete-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
@@ -74,7 +74,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a id="response-body"></a>
+<a id="delete-response-body"></a>
 ### 响应内容
 
 如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
@@ -88,7 +88,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 }
 ```
 
-<a id="error-messages"></a>
+<a id="delete-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -99,7 +99,7 @@ HTTP状态码 | 含义
 404        | 待删除资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
-<a id="example1-command"></a>
+<a id="delete-example1-command"></a>
 ### 命令行示例
 
 ```
@@ -111,7 +111,7 @@ curl -i \
      'http://rs.qiniu.com/delete/bmV3ZG9jczpmaW5kX21hbi50eHQ='
 ```
 
-<a id="example1-request"></a>
+<a id="delete-example1-request"></a>
 ### 请求示例
 
 ```
@@ -122,7 +122,7 @@ Accept: */*
 Authorization: QBox u8WqmQu1jH21kxpIQmo2LqntzugM1VoHE9_pozCU:2LJIG...(过长已省略)
 ```
 
-<a id="example1-response"></a>
+<a id="delete-example1-response"></a>
 ### 响应示例
 
 ```
@@ -136,13 +136,13 @@ X-Log: RS.in;RS.mo;qtbl.mv:3;MQ;MC/404;RS.mcd:1;RS:5
 X-Reqid: wxIAAD3btw-v3TwT
 ```
 
-<a id="remarks"></a>
+<a id="delete-remarks"></a>
 ## 附注
 
 无。
 
-<a id="related-resources"></a>
-## 相关资源
+<a id="delete-internal-resources"></a>
+## 内部参考资源
 
 - [访问凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
@@ -150,3 +150,4 @@ X-Reqid: wxIAAD3btw-v3TwT
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
