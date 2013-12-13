@@ -34,349 +34,338 @@
 
     <div class="container docs">
         <div class="pull-left">
-        <div class="side-bar pull-left">
-            <div class="panel-box">
-                <div class="panel special-panel">
-                    <a href="/docs/v6/index.html">
-                        文档首页
-                    </a>                        
-                </div>
-                <!-- 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                    教程
-                                </a>
-                            <span class="icon api_default">
-                            </span>
-                        </h4>
+            <div class="side-bar pull-left">
+                <div class="panel-box">
+                    <div class="panel special-panel">
+                        <a href="/docs/v6/index.html">
+                            文档首页
+                        </a>                        
                     </div>
-                    <div class="panel-body">
-                        <ul class="panel-list level-one">
-                            {{range .data.guide.Items}}
-                            <li>
-                                <span class="icon off_1">
-                                </span>
-                                <a class="link" href="/{{.Href}}">
-                                {{.Title}}
+                    <!-- 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#">
+                                        教程
                                     </a>
-                            </li>
-                            {{end}}
-                        </ul>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                {{range .data.guide.Items}}
+                                <li>
+                                    <span class="icon off_1">
+                                    </span>
+                                    <a class="link" href="/{{.Href}}">
+                                    {{.Title}}
+                                        </a>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                -->
+                    -->
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a href="#"> API使用说明 </a>
-                            <span class="icon api_default">
-                            </span>
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="panel-list level-one">
-                            {{range .data.apiview.Items}}
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
-                                        <span class="icon"></span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body panel-status">
-                                    {{if isnot_nil_or_empty .Child}}
-                                    <ul class="panel-list level-three nav">
-                                        {{range .Child}}
-                                        <li>
-                                            <a href="/{{.Href}}"> {{.Title}} </a>
-                                            {{if isnot_nil_or_empty .Child}}
-                                            <ul class="panel-list level-four nav">
-                                                {{range .Child}}
-                                                <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
-                                                </li>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#"> API使用说明 </a>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                {{range .data.apiview.Items}}
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_2">
+                                            </span>
+                                            <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                            <span class="icon"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body panel-status">
+                                        {{if isnot_nil_or_empty .Child}}
+                                        <ul class="panel-list level-three nav">
+                                            {{range .Child}}
+                                            <li>
+                                                <a href="/{{.Href}}"> {{.Title}} </a>
+                                                {{if isnot_nil_or_empty .Child}}
+                                                <ul class="panel-list level-four nav">
+                                                    {{range .Child}}
+                                                    <li>
+                                                        <a href="/{{.Href}}">{{.Title}} </a>
+                                                    </li>
+                                                    {{end}}
+                                                </ul>
                                                 {{end}}
-                                            </ul>
+                                            </li>
                                             {{end}}
-                                        </li>
+                                        </ul>
                                         {{end}}
-                                    </ul>
-                                    {{end}}
-                                </div>
-                            </li>
-                            {{end}}
-                        </ul>
+                                    </div>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a href="#"> API参考手册 </a>
-                            <span class="icon api_default">
-                            </span>
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="panel-list level-one">
-                            {{range .data.apiref.Items}}
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
-                                        <span class="icon"></span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body panel-status">
-                                    {{if isnot_nil_or_empty .Child}}
-                                    <ul class="panel-list level-three nav">
-                                        {{range .Child}}
-                                        <li>
-                                            <a href="/{{.Href}}"> {{upcase .Title}} </a>
-                                            {{if isnot_nil_or_empty .Child}}
-                                            <ul class="panel-list level-four nav">
-                                                {{range .Child}}
-                                                <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
-                                                </li>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#"> API参考手册 </a>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                {{range .data.apiref.Items}}
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_2">
+                                            </span>
+                                            <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                            <span class="icon"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body panel-status">
+                                        {{if isnot_nil_or_empty .Child}}
+                                        <ul class="panel-list level-three nav">
+                                            {{range .Child}}
+                                            <li>
+                                                <a href="/{{.Href}}"> {{upcase .Title}} </a>
+                                                {{if isnot_nil_or_empty .Child}}
+                                                <ul class="panel-list level-four nav">
+                                                    {{range .Child}}
+                                                    <li>
+                                                        <a href="/{{.Href}}">{{.Title}} </a>
+                                                    </li>
+                                                    {{end}}
+                                                </ul>
                                                 {{end}}
-                                            </ul>
+                                            </li>
                                             {{end}}
-                                        </li>
+                                        </ul>
                                         {{end}}
-                                    </ul>
-                                    {{end}}
-                                </div>
-                            </li>
-                            {{end}}
-                        </ul>
+                                    </div>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                {{ .includes.api_sdk_menu }}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                    工具
-                                </a>
-                            <span class="icon api_default">
-                            </span>
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="panel-list level-one">
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/docs/v6/tools/qboxrsctl.html" class="link">
-                                                qboxrsctl
-                                            </a>
-                                        <span class="icon">
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body" id="qboxrsctl">
+                    {{ .includes.api_sdk_menu }}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#">
+                                        工具
+                                    </a>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_1">
+                                            </span>
+                                            <a href="/docs/v6/tools/qboxrsctl.html" class="link">
+                                                    qboxrsctl
+                                                </a>
+                                            <span class="icon">
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body" id="qboxrsctl">
 
-                                </div>
-                            </li>
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/docs/v6/tools/qrsbox.html" class="link">
-                                                qrsbox
-                                            </a>
-                                        <span class="icon">
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body" id="qrsbox">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_2">
-                                        </span>
-                                        <a href="/docs/v6/tools/qrsync.html" class="link">
-                                                qrsync
-                                            </a>
-                                        <span class="icon">
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body" id="qrsync">
-                                </div>
-                            </li>
-                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_1">
+                                            </span>
+                                            <a href="/docs/v6/tools/qrsbox.html" class="link">
+                                                    qrsbox
+                                                </a>
+                                            <span class="icon">
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body" id="qrsbox">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_1">
+                                            </span>
+                                            <a href="/docs/v6/tools/qrsync.html" class="link">
+                                                    qrsync
+                                                </a>
+                                            <span class="icon">
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body" id="qrsync">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a href="#">
-                                    技术文章
-                                </a>
-                            <span class="icon api_default">
-                            </span>
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="panel-list level-one">
-                            {{range .data.kb.Items}}
-                            <li>
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="icon off_1">
-                                        </span>
-                                        <a href="/{{.Href}}" class="link"> {{.Title}} </a>
-                                        <span class="icon"></span>
-                                    </h5>
-                                </div>
-                                <div class="panel-body  panel-status">
-                                    {{if isnot_nil_or_empty .Child}}
-                                    <ul class="panel-list level-three nav">
-                                        {{range .Child}}
-                                        <li>
-                                            <a href="/{{.Href}}"> {{.Title}} </a>
-                                            {{if isnot_nil_or_empty .Child}}
-                                            <ul class="panel-list level-four nav">
-                                                {{range .Child}}
-                                                <li>
-                                                    <a href="/{{.Href}}">{{.Title}} </a>
-                                                </li>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#">
+                                        技术文章
+                                    </a>
+                                <span class="icon api_default">
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="panel-list level-one">
+                                {{range .data.kb.Items}}
+                                <li>
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">
+                                            <span class="icon off_1">
+                                            </span>
+                                            <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                                            <span class="icon"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="panel-body  panel-status">
+                                        {{if isnot_nil_or_empty .Child}}
+                                        <ul class="panel-list level-three nav">
+                                            {{range .Child}}
+                                            <li>
+                                                <a href="/{{.Href}}"> {{.Title}} </a>
+                                                {{if isnot_nil_or_empty .Child}}
+                                                <ul class="panel-list level-four nav">
+                                                    {{range .Child}}
+                                                    <li>
+                                                        <a href="/{{.Href}}">{{.Title}} </a>
+                                                    </li>
+                                                    {{end}}
+                                                </ul>
                                                 {{end}}
-                                            </ul>
+                                            </li>
                                             {{end}}
-                                        </li>
+                                        </ul>
                                         {{end}}
-                                    </ul>
-                                    {{end}}
-                                </div>
-                            </li>
-                            {{end}}
-                        </ul>
+                                    </div>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-        </div>
-        <div class="pull-right">
-            <div class="cell article-cell">
-                <div class="cell-head">
-                    <h2 class="pull-left">教程</h2>
-                </div>
-                <div class="cell-body">
+        <div class="main pull-left">
+                <div class="sdk cell">
+                    <h2>SDK</h2>
                     <ul>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/apple.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/andriod.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/win.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/java.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/php.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/cpp.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/csharp.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/python.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/ruby.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/nodejs.png" alt=""></a></li>
+                        <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/go.png" alt=""></a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="cell line">
-                <div class="pull-left  api line-box">
-                    <div class="cell-head">
-                        <h2 class="pull-left">API</h2>
+                <div class="api  cell">
+                    <h2>API文档</h2>
+                        <div class="cell-body">
+                             <div class="cell-line">
+                                <h3><span class="icon index_resource_sprited"></span>开发基础</h3>
+                                <ul>
+                                    <li><a href="">关键概念</a></li>
+                                    <li><a href="">编程模型</a></li>
+                                    <li><a href="">安全机制</a></li>
+                                </ul>
+                            </div>
+                            <div class="cell-line">
+                                <h3><span class="icon index_resource_sprited"></span>上传资源</h3>
+                                <ul>
+                                    <li><a href="">上传模型</a></li>
+                                    <li><a href="">表单上传</a></li>
+                                    <li><a href="">分片上传</a></li>
+                                </ul>
+                                <h4><!-- <span class="icon off_2"></span> -->上传后续动作</h4>
+                                <ul>
+                                    <li><a href="">简单反馈</a></li>
+                                    <li><a href="">回调</a></li>
+                                    <li><a href="">301重定向</a></li>
+                                    <li><a href="">自定义响应内容</a></li>
+                                    <li><a href="">变量</a></li>
+                                    <li><a href="">异步数据处理</a></li>
+                                </ul>                        
+                            </div>
+                            <div class="cell-line">
+                                <h3><span class="icon index_resource_sprited"></span>下载资源</h3>
+                                <ul>
+                                    <li><a href="">安全机制</a></li>
+                                    <li><a href="">资源下载</a></li>
+                                    <li><a href="">下载设置</a></li>
+                                    <li><a href="">高级下载</a></li>
+                                </ul>
+                            </div>
+                            <div class="cell-line">
+                                <h3><span class="icon index_resource_sprited"></span>资源管理</h3>
+                                <ul>
+                                    <li><a href="">安全机制</a></li>
+                                    <li><a href="">管理操作</a></li>
+                                    <li><a href="">批量操作</a></li>        
+                                </ul>
+                            </div>
+                            <div class="cell-line">
+                                <h3><span class="icon index_resource_sprited"></span>数据处理</h3>
+                                <ul>
+                                    <li><a href="">数据处理机制</a></li>
+                                    <li><a href="">管道</a></li>
+                                    <li><a href="">异步数据处理</a></li> 
+                                    <li><a href="">样式</a></li> 
+                                    <li><a href="">流媒体播放</a></li> 
+                                    <li><a href="">自定义数据处理</a></li> 
+                                </ul>
+                                <h4><!-- <span class="icon off_2"></span> -->内置数据处理功能</h4>
+                                <ul>
+                                    <li><a href="">图片处理</a></li> 
+                                    <li><a href="">音视频处理</a></li> 
+                                </ul>
+                            </div> 
+                        </div>
                     </div>
-                    <div class="cell-body">
-                        {{range .data.apiref.Items}}
-                        <span><a href="/{{.Href}}">{{.Title}}</a>
-                        </span>
-                        {{end}}
-                    </div>
-                </div>
-                <div class="pull-left  sdk line-box">
-                    <div class="cell-head">
-                        <h2 class="pull-left">SDK</h2>
-                    </div>
-                    <div class="cell-body">
-
-                        {{range .data.resource.sdk}}
-                        <span><a href="{{.source}}">{{.name}}</a>
-                        </span>
-                        {{end}}
-                    </div>
-                </div>
-                <div class="pull-left cli line-box">
-                    <div class="cell-head">
-                        <h2 class="pull-left">工具</h2>
-                    </div>
-                    <div class="cell-body">
+                    <div class="cli cell">
+                        <h2 class="">工具</h2>
+                        <ul>
                         {{range .data.resource.devtools}}
-                        <span><a href="{{.doc}}">{{.label}}</a>
-                        </span>
+                           <li>
+                                <div class="pull-left logo"><span class="icon resource_{{.name}}_sprited"></span></div>
+                                <div class="pull-left info">
+                                        <a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
+                                        <p>{{.title}}</p>                               
+                                </div>
+                            </li>
                         {{end}}
-
-                    </div>
-                </div>
+                        </ul>                
+                    </div>   
             </div>
-            <div class="cell article-cell">
-                <div class="cell-head">
-                    <h2 class="pull-left">热点文章</h2>
-                </div>
-                <div class="cell-body">
-                    <ul>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                        <li>
-                            <h3>
-                                <span class="icon index_resource_sprited"></span>
-                                <a href="/docs/sdk/php-sdk.html">PHP</a>
-                            </h3>
-                            <p>七牛云存储的完整功能规格说明文档。开发者可以直接使用API，或者给予API封装自己的SDK。理解AP的细节有利于更高效的使用七牛云存储服务。</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
     <footer>
         {{ .includes.footer }}
