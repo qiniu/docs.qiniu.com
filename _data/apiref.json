@@ -6,31 +6,31 @@
 			"Href": "docs/v6/api/reference/security/",
 			"Child": [
 				{
-					"Title": "凭证算法",
+					"Title": "凭证算法（TokenAlgorithm）",
 					"Href": "docs/v6/api/reference/security/token-algorithm.html",
 					"Child": null,
 					"Order": 990
 				},
 				{
-					"Title": "上传策略",
+					"Title": "上传策略（PutPolicy）",
 					"Href": "docs/v6/api/reference/security/put-policy.html",
 					"Child": null,
 					"Order": 980
 				},
 				{
-					"Title": "上传凭证",
+					"Title": "上传凭证（UploadToken）",
 					"Href": "docs/v6/api/reference/security/upload-token.html",
 					"Child": null,
 					"Order": 970
 				},
 				{
-					"Title": "下载凭证",
+					"Title": "下载凭证（DownloadToken）",
 					"Href": "docs/v6/api/reference/security/download-token.html",
 					"Child": null,
 					"Order": 960
 				},
 				{
-					"Title": "管理凭证",
+					"Title": "管理凭证（AccessToken）",
 					"Href": "docs/v6/api/reference/security/access-token.html",
 					"Child": null,
 					"Order": 950
@@ -102,6 +102,12 @@
 					"Href": "docs/v6/api/reference/rs/batch.html",
 					"Child": null,
 					"Order": 500
+				},
+				{
+					"Title": "列举资源（list）",
+					"Href": "docs/v6/api/reference/rs/_list.html",
+					"Child": null,
+					"Order": 400
 				}
 			],
 			"Order": 600
