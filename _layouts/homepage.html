@@ -250,78 +250,33 @@
     <div class="search-result js-search-result">
         <div class="resource-box">
             <div class="box-head">
-                <h2 class="js-box-title">提交我的插件</h2>
+                <h2 class="js-box-title">搜索结果</h2>
             </div>
             <div class="box-body">
-                <p>感谢您对七牛的支持。我们将在官网上列出经过筛选的优秀社区资源。</p>
-                <form class="resource js-resource">
-                    <div class="ops-line" style="display:none">
-                        <select class="full js-resource-tag">
-                            <option value="使用帮助">使用帮助</option>
-                            <option value="问题反馈" selected="selected">问题反馈</option>
-                            <option value="功能意见">功能意见</option>
-                            <option value="商务咨询">商务咨询</option>
-                        </select>
+                <p>为您找到约8条结果（用时0.19秒），感谢您对七牛的支持。</p>
+<!--                 <select class="full js-resource-tag">
+                    <option value="使用帮助">使用帮助</option>
+                    <option value="问题反馈" selected="selected">问题反馈</option>
+                </select> -->
+                <div class="ops-line ">
+                    <h5><a href="" class="" target="_blank">如何避免用户<span>上传</span>相同的文件- 七牛云存储</a></h5>
+                    <div class="url">
+                        <a  href="" class="" target="_blank">kb.qiniu.com/use-app-callback-token-with-magic-variables</a>
                     </div>
-                    <div class="ops-line ">
-                        <label for="resource-name"><span class="need">*</span>资源名称：</label>
-                        <input class="full js-resource-name input-small" id="resource-name" type="text" title="请填写此字段。" placeholder="如：WordPress图片插件"  /> 
-                        <div class="need js-tips"></div>                     
-                    </div>
-                    <div class="ops-line">
-                        <label for="resource-author"><span class="need">*</span>作者：</label>
-                        <input class="full js-resource-author input-small" id="resource-author" type="text" title="请填写此字段。" placeholder="姓名或昵称"  />
-                        <div class="need js-tips"></div>
-                    </div>
-                    <div class="ops-line">
-                        <label for="author-email"><span class="need">*</span>电子邮箱：</label>
-                        <input class="full js-author-email input-large" id="author-email" type="text" title="请填写此字段。" placeholder="我们将通过此邮箱联系您"  />
-                        <div class="need js-tips"></div>
-                    </div>
-                    <div class="ops-line">
-                        <label for="author-homepage">作者主页：</label>
-                        <input class="full js-author-homepage input-large" id="author-homepage" type="text" placeholder=""  />
-                        <div class="need js-tips"></div>
-                    </div>
-                    <div class="ops-line special-line">
-                        <label for="resource-describle"><span class="need">*</span>资源描述：</label>
-                        <textarea name="" id="resource-describle" class="full js-resource-describle input-large" title="请填写此字段。" placeholder="请简短描述您的资源，控制在58字以内。" maxlength="58"></textarea>
-                        <div class="need js-tips"></div>
-                        <div class="hidden js-length-tip length-tip">您还可以输入<span class="length js-textarea-length">33</span>字</div>
-                    </div> 
-                    <div class="ops-line">
-                        <label for="resource-download"><span class="need">*</span>下载链接：</label>
-                        <input class="full js-resource-download input-large" id="resource-download" type="text" title="请填写此字段。" placeholder=""  />
-                        <div class="need js-tips"></div>
-                    </div>                          
-                    <div class="ops-line">
-                        <label for="resource-docs">文档链接：</label>
-                        <input class="full js-resource-docs input-large" id="resource-docs" type="text" placeholder=""  />
-                        <div class="need js-tips"></div>
-                    </div>
-
-                    <div class="ops-line">
-                        <label for="resource-source">源码链接：</label>
-                        <input class="full js-resource-source input-large" id="resource-source" type="text" placeholder=""  />
-                        <div class="need js-tips"></div>
-                    </div>
-
-                </form>
-                <div class="resource-mask js-resource-mask">
-                    <div class="resource-success js-resource-success">
-                        提交成功。<br/>
-                        您可至邮箱<span class="js-resource-mail-tips"></span>或<br/>
-                        <a class="js-resource-ticket-link"></a>    查看最新的处理情况。<br>
-                        页面<span class="js-rest-time">5</span>秒后自动返回。
-                    </div>
-                    <div class="resource-error js-resource-error">服务器出错,您的插件（SDK）提交失败，请重新尝试!</div>
-                    <div class="resource-loading js-resource-loading">提交反馈中，请稍候...</div>
+                    <div class="content">
+                        请教一个问题： 如果避免用户<span>上传</span>相同的文件呢？以前自己做存储的时候，是自己 计算文件hash，上传时查询如果存在的就不保存了
+                    </div>                
                 </div>
+                <div class="ops-line ">
+                    <h5><a href="" class="" target="_blank">如何避免用户<span>上传</span>相同的文件- 七牛云存储</a></h5>
+                    <div class="url">
+                        <a  href="" class="" target="_blank">kb.qiniu.com/use-app-callback-token-with-magic-variables</a>
+                    </div>
+                    <div class="content">
+                        请教一个问题： 如果避免用户<span>上传</span>相同的文件呢？以前自己做存储的时候，是自己 计算文件hash，上传时查询如果存在的就不保存了
+                    </div>                
+                </div>                
             </div>
-            <div class="box-foot js-resource-foot">
-                <button class="btn js-resource-close js-resource-ok">确定提交</button>
-            </div>
-            <span class="icon icon_close_default_sprited js-resource-cancel"></span>
         </div>
     </div>
 
