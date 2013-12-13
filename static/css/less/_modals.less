@@ -14,14 +14,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: @zindex-modal-background;
+  z-index: 1000;
 }
 
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
   width: 812px;
-  z-index: (@zindex-modal-background + 10);
+  z-index: (1000 + 10);
   background-color: #fff;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -57,7 +57,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: (@zindex-modal-background - 10);
+    z-index: (1000 - 10);
     background-color: rgba(0,0,0,02);
   // // Fade for backdrop
     &.fade { .opacity(0); }
