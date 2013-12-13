@@ -20,7 +20,7 @@ order: 90
 ### 请求语法
 
 ```
-POST /bput/<ctx>/<next_chunk_size> HTTP/1.1
+POST /bput/<ctx>/<nect_chunk_offset> HTTP/1.1
 Host:           <selectUpHost>
 Content-Type:   application/octet-stream
 Content-Length: <next_chunk_size>
@@ -35,7 +35,7 @@ Authorization:  UpToken <UploadToken>
 参数名称        | 类型   | 说明
 :-------------- | :----- | :------------------------------
 ctx             | string | 上次返回的服务端上传控制字段
-next_chunk_size | int64  | 当前片大小
+next_chunk_offset | int64  | 当前片在整个块中的起始偏移
 
 <a id="bput-request-headers"></a>
 ### 头部信息
