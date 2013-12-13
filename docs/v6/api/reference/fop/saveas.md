@@ -117,7 +117,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 
 	```
     另存操作的目标空间与资源名
-    entryURI        = "t-test:Ship-thumb.jpg"
+    entryURI        = "t-test:Ship-thumb-200.jpg"
 
     编码结果
     encodedEntryURI = "dC10ZXN0OlNoaXAtdGh1bWItMjAwLmpwZw=="
@@ -138,7 +138,7 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
 5. 保存转码后资源可通过如下URL访问：  
 
 	```
-    http://t-test.qiniudn.com/Ship-thumb.jpg
+    http://t-test.qiniudn.com/Ship-thumb-200.jpg
 	```
 
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
