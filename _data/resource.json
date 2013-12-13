@@ -83,6 +83,7 @@
     "devtools": [{
         "name": "upload",
         "label": "qrsync",
+        "title": "命令行辅助上传同步工具",
         "download": "/docs/v6/tools/qrsync.html#download",
         "version": "v6",
         "date": "2013-09-12",
@@ -91,6 +92,7 @@
     }, {
         "name": "cmd",
         "label": "qboxrsctl",
+        "title": "命令行辅助工具",
         "download": "/docs/v6/tools/qboxrsctl.html#download",
         "version": "v6",
         "date": "2013-09-12",
@@ -99,6 +101,7 @@
     }, {
         "name": "sync",
         "label": "qrsbox",
+        "title": "用户界面上传工具",
         "download": "/docs/v6/tools/qrsbox.html#download",
         "version": "v6",
         "date": "2013-09-12",
@@ -193,7 +196,7 @@
         "author": "widuu",
         "date": "2013-11-06",
         "doc": "http://www.widuu.com/archives/11/832.html"
-    },{
+    }, {
         "name": "solo",
         "label": "七牛solo插件",
         "description": "七牛solo插件",
@@ -201,7 +204,7 @@
         "author": "symphony",
         "date": "2013-11-28",
         "doc": "http://symphony.b3log.org/article/1385649507137"
-    },{
+    }, {
         "name": "startbbs",
         "label": "STB",
         "description": "七牛云(STB版)",
@@ -209,7 +212,7 @@
         "author": "StartBBS",
         "date": "2013-11-28",
         "doc": "http://www.startbbs.com/topic/1198"
-    },{
+    }, {
         "name": "paperclip",
         "label": "PaperClip",
         "description": "PaperClip",
@@ -217,7 +220,7 @@
         "author": "lidaobing",
         "date": "2013-11-28",
         "doc": "https://github.com/lidaobing/paperclip-qiniu"
-    },{
+    }, {
         "name": "packup2qiniu",
         "label": "Packup to qiniu",
         "description": "Packup to qiniu",

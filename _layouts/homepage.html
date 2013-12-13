@@ -29,76 +29,139 @@
         {{.includes.header}}
     </header>
     <div class="container index">
-        <ul class="intro line">
-            <li class="pull-left cell">
-                <span class="icon index_clock_sprited"></span>
-                <h2><a href="">基于七牛云存储快速开发应用</a>
-                </h2>
-                <div>一步步教你在几分钟内完成一个基于七牛云存储的在线应用。云存储原来可以这么简单。</div>
-            </li>
-            <li class="pull-left cell quality">
-                <span class="icon index_book_sprited"></span>
-                <h2><a href="/docs/v6/guide/testing.html">云存储质量评估指南</a>
-                </h2>
-                <div>如何系统性的判断一个云存储服务的整体质量，这篇文档给出了相对清晰而客观的指引。</div>
-            </li>
-            <li class="pull-left cell nail">
-                <span class="icon index_light_sprited"></span>
-                <h2><a href="">常见的问题，答疑解惑</a>
-                </h2>
-                <div>你想找的问题也许就在这里，不妨找找看？如有其它疑问，欢迎和我们取得联系。</div>
-            </li>
-        </ul>
+        <div class="sdk cell">
+             <h2>SDK</h2>
+            <ul>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/apple.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/andriod.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/win.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/java.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/php.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/csharp.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/ruby.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/go.png" alt=""></a></li>
+                <li><a href="" title="" class="sdk-logo "><img src="/static/image/index/more.png" alt=""></a></li>
+            </ul>           
+        </div>
     </div>
     <div class="container index">
-        <div class="main pull-left cell article-cell">
-            <div class="cell-head">
-                <h2 class="pull-left">开发文档</h2>
-                <a href="/docs/v6/" class="more">更多>></a>
-            </div>
-            <div class="cell-body">
-                <ul>
-                    {{range .pages.guide}}
-                    <li>
-                        <h3>
-                            <span class="icon index_resource_sprited"></span>
-                            <a href="{{.url}}">{{.title}}</a>
-                        </h3>
-                        <p>{{.snapshot}}</p>
-                    </li>
-                    {{end}}
-                </ul>
-            </div>
-        </div>
-        <div class="side-bar pull-right cell">
-            <div class="cell-head">
-                <h2 class="pull-left">资源下载</h2>
-                <a href="docs/v6/resources/" class="more">更多>></a>
-            </div>
-            <div class="cell-body resource-sdk">
-                <h3 class="en">官方SDK</h3>
-                <ul class="sdk-list">
-                    {{range .data.resource.sdk}}
-                    <li>
-                        <a href="/docs/v6/sdk/{{.name}}-sdk.html" title="{{.name}} sdk" class="sdk-{{.name}}">
-                        </a>
-                    </li>
-                    {{end}}
-                </ul>
-            </div>
-            <div class="cell-body resource-tool">
-                <h3 class="">官方工具</h3>
-                {{range .data.resource.devtools}}
-                <div>
-                    <h4>
-                        <span class="icon index_{{.name}}_sprited"></span><a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
-                    </h4>
-                    <p>{{.description}}</p>
+        <div class="main pull-left">
+            <div class="api  cell">
+            <h2>API文档</h2>
+                <div class="cell-body">
+                     <div class="cell-line">
+                        <h3><span class="icon index_resource_sprited"></span>开发基础</h3>
+                        <ul>
+                            <li><a href="">关键概念</a></li>
+                            <li><a href="">编程模型</a></li>
+                            <li><a href="">安全机制</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3><span class="icon index_resource_sprited"></span>上传资源</h3>
+                        <ul>
+                            <li><a href="">上传模型</a></li>
+                            <li><a href="">表单上传</a></li>
+                            <li><a href="">分片上传</a></li>
+                        </ul>
+                        <h4><!-- <span class="icon off_2"></span> -->上传后续动作</h4>
+                        <ul>
+                            <li><a href="">简单反馈</a></li>
+                            <li><a href="">回调</a></li>
+                            <li><a href="">301重定向</a></li>
+                            <li><a href="">自定义响应内容</a></li>
+                            <li><a href="">变量</a></li>
+                            <li><a href="">异步数据处理</a></li>
+                        </ul>                        
+                    </div>
+                    <div class="cell-line">
+                        <h3><span class="icon index_resource_sprited"></span>下载资源</h3>
+                        <ul>
+                            <li><a href="">安全机制</a></li>
+                            <li><a href="">资源下载</a></li>
+                            <li><a href="">下载设置</a></li>
+                            <li><a href="">高级下载</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3><span class="icon index_resource_sprited"></span>资源管理</h3>
+                        <ul>
+                            <li><a href="">安全机制</a></li>
+                            <li><a href="">管理操作</a></li>
+                            <li><a href="">批量操作</a></li>        
+                        </ul>
+                    </div>
+                    <div class="cell-line">
+                        <h3><span class="icon index_resource_sprited"></span>数据处理</h3>
+                        <ul>
+                            <li><a href="">数据处理机制</a></li>
+                            <li><a href="">管道</a></li>
+                            <li><a href="">异步数据处理</a></li> 
+                            <li><a href="">样式</a></li> 
+                            <li><a href="">流媒体播放</a></li> 
+                            <li><a href="">自定义数据处理</a></li> 
+                        </ul>
+                        <h4><!-- <span class="icon off_2"></span> -->内置数据处理功能</h4>
+                        <ul>
+                            <li><a href="">图片处理</a></li> 
+                            <li><a href="">音视频处理</a></li> 
+                        </ul>
+                    </div> 
+                </div>
+<!--                     {{range .data.apiview.Items}}
+                    <div class="cell-line">                             
+                        <h2>
+                            <a href="/{{.Href}}" class="link"> {{.Title}} </a>
+                        </h2>
+                        <ul>
+                            {{if isnot_nil_or_empty .Child}}
+                                {{range .Child}}
+                                <li>
+                                    <a href="/{{.Href}}"> {{.Title}} </a>
+                                    {{if isnot_nil_or_empty .Child}}
+                                    <ul>
+                                        {{range .Child}}
+                                        <li>
+                                            <a href="/{{.Href}}">{{.Title}} </a>
+                                        </li>
+                                        {{end}}
+                                    </ul>
+                                    {{end}}
+                                </li>
+                                {{end}}
+                            {{end}}
+                        </ul>
+                    </div>
+                    {{end}} -->
 
                 </div>
-                {{end}}
+                <div class="cli cell">
+                    <h2 class="">工具</h2>
+                    <ul>
+                    {{range .data.resource.devtools}}
+                       <li>
+                            <div class="pull-left logo"><span class="icon resource_{{.name}}_sprited"></span></div>
+                            <div class="pull-left info">
+                                    <a href="/docs/v6/tools/{{.label}}.html">{{.label}}</a>
+                                    <p>{{.title}}</p>                               
+                            </div>
+                        </li>
+                    {{end}}
+                    </ul>                
+                </div>   
+        </div>
+        <div class="side-bar pull-left">
+            <div class="question cell">
+                <h2>常见问题</h2>
+                <ul>
+                    <li><a href="">如何使用镜像存储？</a></li>
+                    <li><a href="">像存储造成百度K站我要怎么办？robots.txt配置文件需要注意哪些事项？</a></li>
+                    <li><a href="">如何使用镜像存储？</a></li>
+                    <li><a href="">像存储造成百度K站我要怎么办？robots.txt配置文件需要注意哪些事项？</a></li>
+                    <li><a href="">如何使用镜像存储？</a></li>
+                </ul>
             </div>
-            <div class="cell-body resource-community">
+            <div class="resource-community cell">
                 {{ .includes.community_resource }}
             </div>
         </div>
