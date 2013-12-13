@@ -79,7 +79,7 @@ Content-Length | 是   | 整个Multipart内容的总长度，单位：字节（B
 参数名称                          | 必填 | 说明
 :-------------------------------- | :--- | :-----------------------------------------
 `<encodedEntryUri>`               | 是   | 指定目标资源空间（Bucket）与目标资源名（Key），[EncodedEntryURI格式][encodedEntryURIHref]
-`/mimeType/<encodedFileMimeType>` |      | 指定目标资源的[MIME类型](mimeTypeHref)，请参考IANA维护的[完整清单](mimeTypeListHref)。需进行[URL安全的Base64编码][urlsafeBase64Href]
+`/mimeType/<encodedFileMimeType>` |      | 指定目标资源的[MIME类型][mimeTypeHref]，请参考IANA维护的[完整清单][mimeTypeListHref]。需进行[URL安全的Base64编码][urlsafeBase64Href]
 `/meta/<encodedMeta>`             |      | 指定目标资源的元信息，单位：字节（Byte），最长256字节。需进行[URL安全的Base64编码][urlsafeBase64Href]
 
 <a id="upload-request-params"></a>
@@ -153,8 +153,8 @@ Cache-Control  | 是   | 缓存控制，固定为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#upload-response-status)
-`<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
+`code`       | 是   | HTTP状态码，请参考[响应状态](#upload-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="upload-response-status"></a>
 ### 响应状态
@@ -179,6 +179,7 @@ HTTP状态码 | 含义
 <a id="upload-internal-resources"></a>
 ## 内部参考资源
 
+- [EncodedEntryURI格式][encodedEntryURIHref]
 - [上传策略][putPolicyHref]
 - [上传凭证][uploadTokenHref]
 - [自定义变量][xVariablesHref]
@@ -188,8 +189,8 @@ HTTP状态码 | 含义
 
 - [URL安全的Base64编码][urlsafeBase64Href]
 - [Multipart分隔符][multipartFrontierHref]
-- [MIME类型](mimeTypeHref)
-- [MIME清单](mimeTypeListHref)
+- [MIME类型][mimeTypeHref]
+- [MIME清单][mimeTypeListHref]
 
 [encodedEntryURIHref]:      http://docs.qiniu.com/api/v6/rs.html#words                   "EncodedEntryURI格式"
 [uploadTokenHref]:          ../token/upload.html                                         "上传凭证"

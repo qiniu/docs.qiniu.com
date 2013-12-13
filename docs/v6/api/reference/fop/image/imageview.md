@@ -102,8 +102,8 @@ Cache-Control  |      | 缓存控制，失败时为no-store，不缓存
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
-`<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
+`code`       | 是   | HTTP状态码，请参考[响应状态](#imageView-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageView-response-code"></a>
 ### 响应状态码

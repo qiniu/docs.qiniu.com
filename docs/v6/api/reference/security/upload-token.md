@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 上传凭证
+title: 上传凭证（UploadToken）
 order: 970
 ---
 

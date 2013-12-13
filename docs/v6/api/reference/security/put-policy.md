@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 上传策略
+title: 上传策略（PutPolicy）
 order: 980
 ---
 
@@ -9,7 +9,7 @@ order: 980
 
 上传策略是资源上传时附带的一组配置设定。通过这组配置信息，七牛云存储可以了解用户上传的需求：它将上传什么资源，上传到哪个空间，上传结果是回调通知还是使用重定向跳转，是否需要设置反馈信息的内容，以及授权上传的截止时间等等。  
 
-上传策略同时还参与请求验证。实际上，[上传凭证（Upload Token）][uploadTokenHref]就是上传策略的加密结果。通过对PutPolicy的加密，可以确保用户对某个资源的上传请求是完全受到验证的。
+上传策略同时还参与请求验证。实际上，[上传凭证（UploadToken）][uploadTokenHref]就是上传策略的加密结果。通过对上传策略加密，可以确保用户对某个资源的上传请求是完全受到验证的。
 
 <a id="put-policy-struct"></a>
 ## 格式
@@ -62,8 +62,8 @@ order: 980
 
 - [Unix时间][unixTimeHref]
 
-[uploadTokenHref]:          ../token/upload.html                                         "上传凭证"
+[uploadTokenHref]:          upload-token.html                                            "上传凭证"
 [magicVariablesHref]:       ../magic-variables.html                                      "魔法变量"
 [xVariablesHref]:           ../x-variables.html                                          "自定义变量"
 
-[unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                                               "Unix时间"
+[unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"

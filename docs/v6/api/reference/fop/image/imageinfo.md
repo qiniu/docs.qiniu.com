@@ -94,8 +94,8 @@ colorModel     | 是     | 彩色空间，如palette16、ycbcr等
 
 字段名称     | 必填 | 说明                              
 :----------- | :--- | :--------------------------------------------------------------------
-`<httpCode>` | 是   | HTTP状态码，请参考[响应状态](#imageInfo-response-status)
-`<errMsg>`   | 是   | 与HTTP状态码对应的消息文本
+`code`       | 是   | HTTP状态码，请参考[响应状态](#imageInfo-response-status)
+`error`      | 是   | 与HTTP状态码对应的消息文本
 
 <a id="imageInfo-response-code"></a>
 ### 响应状态码

@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: 凭证算法
+title: 凭证算法（TokenAlgorithm）
 order: 990
 ---
 
 <a id="token-algorithm"></a>
-# 凭证算法
+# 凭证算法（TokenAlgorithm）
 
 七牛云存储使用的凭证包含三种：上传凭证、下载凭证、管理凭证。这三种凭证的原始数据（我们称之为`data`）不同，但从原始数据生成相应凭证的算法则完全一致。此处详细描述该算法过程。
 
@@ -96,7 +96,9 @@ $access_token = generate_token($access_key, $secret_key, $url);
 var_dump($access_token);
 ```
 
-[putPolicyHref]:           put-policy.html "上传策略"
-[downloadTokenHref]:       download-token.html "下载凭证"
-[accessTokenHref]:         access-token.html "管理凭证"
+[putPolicyHref]:            put-policy.html         "上传策略"
+[uploadTokenHref]:          upload-token.html       "上传凭证"
+[downloadTokenHref]:        download-token.html     "下载凭证"
+[accessTokenHref]:          access-token.html       "管理凭证"
+
 [urlsafeBase64Href]:        http://zh.wikipedia.org/wiki/Base64#.E5.9C.A8URL.E4.B8.AD.E7.9A.84.E5.BA.94.E7.94.A8 "URL安全的Base64编码"
