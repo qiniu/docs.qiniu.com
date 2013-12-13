@@ -71,8 +71,45 @@ $(function() {
     }).on('blur', function() {
         $(this).attr('placeholder', '全站搜索');
         $(this).next().addClass('global_search_default_sprited').removeClass('global_search_active_sprited');
+    }).on('keypress', function(e) {
+        var code = e.keyCode || e.which;
+        if (code == 13) { //Enter keycode
+            //Do something
+            var val = encodeURIComponent($(this).val());
+            search(val);
+        }
+    });
+    $('.search span').on('click', function() {
+        var val = encodeURIComponent($(this).siblings('input').val());
+        search(val);
     });
 
+    function search(val) {
+        if (val !== '' && val !== undefined) {
+            $.getJSON('http://42.62.26.6:8081/search?query=' + val + '&callback=?', function(data) {
+                console.log(data);
+                if (data.items.length > 0) {
+                    var markup = '';
+                    for (var i = 0, len = data.items.length; i < len; i++) {
+                        var tData = data.items[i];
+                        markup += '<div class="ops-line ">' +
+                            ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
+                            ' <div class="url">' +
+                            '<a  href=' + tData.url + ' target="_blank">' + tData.display_url + '</a>' +
+                            '</div>' +
+                            '<div class="content">' + tData.description + '</div > ' +
+                            ' </div> ';
+                    }
+                    $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');
+                    $('#myModal').find('.result-line').html('').append(markup);
+                } else {
+                    $('#myModal').find('.result-line').html('很抱歉，没有找到相关结果。');
+                    $('#myModal').find('p').html('感谢您对七牛的支持。');
+                }
+                $('#myModal').modal();
+            });
+        }
+    };
     // 技术支持 模态窗口
     $('.js-initFeedBack').on('click', function() {
         QiniuFeedBack.show();
@@ -212,274 +249,9 @@ $(function() {
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
-    Q.getTemplate = function(selector) {
-        return Q.template.find(selector).clone(true, true);
-    };
-    Q.modalBinding = function() {
-        //自动绑定页面上所有的data-toggle=modal
-        $('body').on('click', '[data-toggle="modal"]', function() {
-            var self = $(this),
-                target = self.attr('data-target') || self.attr('href'),
-                content = target ? Q.getTemplate(target).contents() : self.attr('data-content'),
-                title = self.attr('data-title'),
-                type = self.attr('data-type'),
-                style = self.attr('data-style');
 
-            if (content) {
-                Q.modal(title, content, type, style).show();
-            }
 
-            return false;
-        });
-    };
-    Q.modal = function(content, title, type, remove) {
-        var $random = String(Math.random()).substring(2);
-        var $id = 'js-modal-' + $random;
-        var $jqObject = Q.getTemplate('.js-modal').find('.modal-background').addClass($id).appendTo('body');
-        var $modal = {
-            0: $jqObject,
-            selector: $id,
-            beforeOnFuns: [],
-            afterOnFuns: [],
-            beforeOffFuns: [],
-            afterOffFuns: [],
-            setTitle: function(title) {
-                var originTitle = this[0].find('.box-head').html();
-                if (typeof(title) !== 'string') {
-                    switch (type) {
-                        case 'prompt':
-                            title = '请输入';
-                            break;
-                        case 'confirm':
-                            title = '请确认';
-                            break;
-                        default:
-                            title = '提示';
-                            break;
-                    }
-                }
-                this[0].find('.box-head').html(title);
-                return originTitle;
-            },
-            setContent: function(content) {
-                var originContent = this[0].find('.box-body').children();
-                this[0].find('.box-body').html(content);
-                return originContent;
-            },
-            setType: function(type) {
-                if (type !== 'base' && type !== 'prompt' && type !== 'alert' && type !== 'confirm') {
-                    type = 'standard';
-                }
-                switch (type) {
-                    case 'base':
-                        this[0].addClass('base');
-                        this[0].find('.box-head, .box-foot').remove();
-                        this[0].find('.modal-box').css('padding', '0px');
-                        break;
-                    case 'prompt':
-                        var promptContent = '<p class="js-prompt-modal-tips"></p>' +
-                            '<input class="js-prompt-modal-input" type="text" value="' + content + '">' +
-                            '<p class="js-prompt-modal-error"></p>';
-                        this[0].addClass('prompt');
-                        this.setContent(promptContent);
-                        this.done = function(func) {
-                            if ($.isFunction(func)) {
-                                this.beforeOff(function(obj) {
-                                    if (obj && obj.hasClass('js-modal-ok')) {
-                                        func(this.find('.js-prompt-modal-input').val());
-                                    }
-                                });
-                            }
-                            return this;
-                        };
-                        this.fail = function(func) {
-                            if ($.isFunction(func)) {
-                                this.beforeOff(function(obj) {
-                                    if (!obj || !obj.hasClass('js-modal-ok')) {
-                                        func(content);
-                                    }
-                                });
-                            }
-                            return this;
-                        };
-                        break;
-                    case 'alert':
-                        this[0].addClass('alert');
-                        this[0].find('.box-foot .js-modal-cancel').remove();
-                        this[0].find('.box-foot .js-modal-ok').addClass('js-modal-close');
-                        break;
-                    case 'confirm':
-                        this[0].addClass('confirm');
-                        this.done = function(func) {
-                            if ($.isFunction(func)) {
-                                this.beforeOff(function(obj) {
-                                    if (obj && obj.hasClass('js-modal-ok')) {
-                                        func();
-                                    }
-                                });
-                            }
-                            return this;
-                        };
-                        this.fail = function(func) {
-                            if ($.isFunction(func)) {
-                                this.beforeOff(function(obj) {
-                                    if (!obj || !obj.hasClass('js-modal-ok')) {
-                                        func();
-                                    }
-                                });
-                            }
-                            return this;
-                        };
-                        break;
-                }
-                return this;
-            },
-            setStyle: function(style) {
-                if (style !== 'normal' && style !== 'warning' && style !== 'small') {
-                    style = 'normal';
-                }
-                this[0].addClass(style);
-                return this;
-            },
-            setCallBack: function(type, callback, once) {
-                if ($.isFunction(callback)) {
-                    var callbackObj = {
-                        callback: callback,
-                        once: once === true ? true : false
-                    };
-                    this[type + 'Funs'].push(callbackObj);
-                }
-                return this;
-            },
-            beforeOn: function(callback, once) {
-                return this.setCallBack('beforeOn', callback, once);
-            },
-            afterOn: function(callback, once) {
-                return this.setCallBack('afterOn', callback, once);
-            },
-            beforeOff: function(callback, once) {
-                return this.setCallBack('beforeOff', callback, once);
-            },
-            afterOff: function(callback, once) {
-                return this.setCallBack('afterOff', callback, once);
-            },
-            find: function(selector) {
-                return this[0].find(selector);
-            },
-            hide: function(obj, remove) {
-                var self = this;
-                var ret;
-                if (remove !== true && remove !== false) {
-                    remove = undefined;
-                }
-                if (obj === true) {
-                    remove = obj;
-                    obj = undefined;
-                }
-                for (var f in self.beforeOffFuns) {
-                    if (self.beforeOffFuns.hasOwnProperty(f)) {
-                        ret = self.beforeOffFuns[f].callback(obj);
-                        if (self.beforeOffFuns[f].once) {
-                            self.beforeOffFuns.splice(f, 1);
-                        }
-                    }
-                }
-                if (ret !== false) {
-                    self[0].animate({
-                        opacity: 0
-                    }, 'fast', function() {
-                        self[0].hide();
-                        for (var f in self.afterOffFuns) {
-                            if (self.afterOffFuns.hasOwnProperty(f)) {
-                                ret = self.afterOffFuns[f].callback(obj);
-                                if (self.afterOffFuns[f].once) {
-                                    self.afterOffFuns.splice(f, 1);
-                                }
-                            }
-                        }
-                        if (remove) {
-                            self[0].remove();
-                            $('body').off('.' + $id);
-                            $(window).off('.' + $id);
-                        }
-                    });
-                }
-                return self;
-            },
-            show: function(obj) {
-                var self = this;
-                var ret;
-                for (var f in self.beforeOnFuns) {
-                    if (self.beforeOnFuns.hasOwnProperty(f)) {
-                        ret = self.beforeOnFuns[f].callback(obj);
-                        if (self.beforeOnFuns[f].once) {
-                            self.beforeOnFuns.splice(f, 1);
-                        }
-                    }
-                }
-                if (ret !== false) {
-                    $(window).on('scroll.' + $id + ' resize.' + $id, function() {
-                        if ($('body').height() < $(window).height()) {
-                            self[0].height($(window).height());
-                        } else {
-                            self[0].height($('body').height());
-                        }
-                    });
-                    if ($('body').height() < $(window).height()) {
-                        self[0].show().height($(window).height());
-                    } else {
-                        self[0].show().height($('body').height());
-                    }
-                    self[0].children().css('marginTop', ($(window).height() - self[0].children().outerHeight()) / 2 + $(document).scrollTop() + 'px');
-                    self[0].animate({
-                        opacity: 1
-                    }, 'fast', function() {
-                        for (var f in self.afterOnFuns) {
-                            if (self.afterOnFuns.hasOwnProperty(f)) {
-                                ret = self.afterOnFuns[f].callback(obj);
-                                if (self.afterOnFuns[f].once) {
-                                    self.afterOnFuns.splice(f, 1);
-                                }
-                            }
-                        }
-                    });
-                }
-                return self;
-            },
-            init: function() {
-                var self = this;
-                if (type === true || type === false) {
-                    remove = type;
-                    type = undefined;
-                }
-                if (title === true || title === false) {
-                    remove = title;
-                    title = undefined;
-                }
-                if (title === 'base' || title === 'alert' || title === 'prompt' || title === 'confirm') {
-                    type = title;
-                    title = undefined;
-                }
-                if ((type === 'alert' || type === 'prompt' || type === 'confirm') && remove !== false) {
-                    remove = true;
-                }
 
-                self.setTitle(title);
-                self.setContent(content);
-                self.setType(type);
-                $('body').on('click.' + $id, '.' + $id + ' .js-modal-close', function() {
-                    self.hide($(this), remove);
-                });
-                $(window).on('keydown.' + $id, function(e) {
-                    if (e.keyCode === 27 && self[0].is(':visible')) {
-                        self.hide(remove);
-                    }
-                });
-                return self;
-            }
-        };
-        return $modal.init();
-    };
 
-    Q.modalBinding();
+
 });

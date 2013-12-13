@@ -246,41 +246,7 @@
             </div>
         </div>
     </div>
-
-    <div class="search-result js-search-result">
-        <div class="resource-box">
-            <div class="box-head">
-                <h2 class="js-box-title">搜索结果</h2>
-            </div>
-            <div class="box-body">
-                <p>为您找到约8条结果（用时0.19秒），感谢您对七牛的支持。</p>
-<!--                 <select class="full js-resource-tag">
-                    <option value="使用帮助">使用帮助</option>
-                    <option value="问题反馈" selected="selected">问题反馈</option>
-                </select> -->
-                <div class="ops-line ">
-                    <h5><a href="" class="" target="_blank">如何避免用户<span>上传</span>相同的文件- 七牛云存储</a></h5>
-                    <div class="url">
-                        <a  href="" class="" target="_blank">kb.qiniu.com/use-app-callback-token-with-magic-variables</a>
-                    </div>
-                    <div class="content">
-                        请教一个问题： 如果避免用户<span>上传</span>相同的文件呢？以前自己做存储的时候，是自己 计算文件hash，上传时查询如果存在的就不保存了
-                    </div>                
-                </div>
-                <div class="ops-line ">
-                    <h5><a href="" class="" target="_blank">如何避免用户<span>上传</span>相同的文件- 七牛云存储</a></h5>
-                    <div class="url">
-                        <a  href="" class="" target="_blank">kb.qiniu.com/use-app-callback-token-with-magic-variables</a>
-                    </div>
-                    <div class="content">
-                        请教一个问题： 如果避免用户<span>上传</span>相同的文件呢？以前自己做存储的时候，是自己 计算文件hash，上传时查询如果存在的就不保存了
-                    </div>                
-                </div>                
-            </div>
-        </div>
-    </div>
-
-
+    {{.includes.search_result}}
     <footer>
         {{.includes.footer}}
     </footer>
@@ -288,6 +254,7 @@
     <script src="static/js/jquery-1.9.1.min.js" type="text/javascript">
     </script>
     <script src="/static/js/dropdown.js" type="text/javascript"></script>
+    <script src="/static/js/modal.js" type="text/javascript"></script>
     <script src="static/js/jquery.hcsticky-min.js" type="text/javascript">
     </script>
     <script src="static/js/highlight/highlight.js" type="text/javascript">

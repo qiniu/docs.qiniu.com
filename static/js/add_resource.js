@@ -15,8 +15,8 @@ var DocsAddResource = {
         //this.iframe.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
         //this.iframeHide.attr('src', 'https://portal.qiniu.com/zendesk/docs?type=' + type + '#' + l);
         //本地测试
-        this.iframe.attr('src', 'http://192.168.19.56:8000/zendesk/docs?type=' + type + '#' + l);
-        this.iframeHide.attr('src', 'http://192.168.19.56:8000/zendesk/docs?type=' + type + '#' + l);
+        this.iframe.attr('src', 'http://192.168.2.102:8000/zendesk/docs?type=' + type + '#' + l);
+        this.iframeHide.attr('src', 'http://192.168.2.102:8000/zendesk/docs?type=' + type + '#' + l);
 
         this.obj.fadeIn().removeClass('hide').show();
         var dx = $(window).height() - 871;
