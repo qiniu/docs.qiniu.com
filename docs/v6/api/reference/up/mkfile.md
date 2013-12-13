@@ -7,15 +7,15 @@ order: 10
 <a id="mkfile"></a>
 # 创建文件（mkfile）
 
-<a id="description"></a>
+<a id="mkfile-description"></a>
 ## 描述
 
 将上传好的所有数据块按指定顺序合并成一个资源文件。  
 
-<a id="request"></a>
+<a id="mkfile-request"></a>
 ## 请求
 
-<a id="request-syntax"></a>
+<a id="mkfile-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -28,7 +28,7 @@ Authorization:  UpToken <UploadToken>
 <ctx_list>
 ```
 
-<a id="request-params"></a>
+<a id="mkfile-request-params"></a>
 ### 请求参数
 
 参数名称        | 类型   | 说明
@@ -36,7 +36,7 @@ Authorization:  UpToken <UploadToken>
 file_size       | int64  | 资源文件大小
 encodedKey      | string | 进行URL安全的Base编码后的资源名
 
-<a id="request-headers"></a>
+<a id="mkfile-request-headers"></a>
 ### 头部信息
 
 该请求须指定以下头部信息。
@@ -50,7 +50,7 @@ Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式�
 
 使用本API无需设置额外头部信息。  
 
-<a id="request-body"></a>
+<a id="mkfile-request-body"></a>
 ### 请求内容
 
 该请求的内容为所有块的ctx列表，以“,”分隔，按其在源文件中的位置排序。  
@@ -59,15 +59,15 @@ Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式�
 <ctx1>,<ctx2>,<ctx3>,<ctx4>,<ctx5>,...
 ```
 
-<a id="request-auth"></a>
+<a id="mkfile-request-auth"></a>
 ### 访问权限
 
 [上传凭证（UploadToken）][uploadTokenHref]方式。
 
-<a id="response"></a>
+<a id="mkfile-response"></a>
 ## 响应
 
-<a id="response-headers"></a>
+<a id="mkfile-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
@@ -76,7 +76,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a id="response-body"></a>
+<a id="mkfile-response-body"></a>
 ### 响应内容
 
 如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
@@ -97,7 +97,7 @@ key            | string | 资源名
 
 如果请求失败，请参见错误消息。
 
-<a id="error-messages"></a>
+<a id="mkfile-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -108,13 +108,13 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在
 
-<a id="remarks"></a>
+<a id="mkfile-remarks"></a>
 ## 附注
 
 无。
 
-<a id="related-resources"></a>
-## 相关资源
+<a id="mkfile-internal-resources"></a>
+## 内部参考资源
 
 - [上传凭证（UploadToken）][uploadTokenHref]
 - [创建块（mkblk）](mkblk.html)
@@ -122,3 +122,4 @@ HTTP状态码 | 含义
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [uploadTokenHref]:              ../security/upload-token.html                    "上传凭证"
+[commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"

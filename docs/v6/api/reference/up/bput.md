@@ -7,16 +7,16 @@ order: 90
 <a id="bput"></a>
 # 上传片（bput）
 
-<a id="description"></a>
+<a id="bput-description"></a>
 ## 描述
 
 上传指定块的一片数据，具体数据量可根据现场环境调整。  
 同一块的每片数据必须串行上传。  
 
-<a id="request"></a>
+<a id="bput-request"></a>
 ## 请求
 
-<a id="request-syntax"></a>
+<a id="bput-request-syntax"></a>
 ### 请求语法
 
 ```
@@ -29,7 +29,7 @@ Authorization:  UpToken <UploadToken>
 <next_chunk_binary>
 ```
 
-<a id="request-params"></a>
+<a id="bput-request-params"></a>
 ### 请求参数
 
 参数名称        | 类型   | 说明
@@ -37,7 +37,7 @@ Authorization:  UpToken <UploadToken>
 ctx             | string | 上次返回的服务端上传控制字段
 next_chunk_size | int64  | 当前片大小
 
-<a id="request-headers"></a>
+<a id="bput-request-headers"></a>
 ### 头部信息
 
 该请求须指定以下头部信息。
@@ -52,20 +52,20 @@ Authorization  | 该参数应严格按照[上传凭证][uploadTokenHref]格式�
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
 
-<a id="request-body"></a>
+<a id="bput-request-body"></a>
 ### 请求内容
 
 该请求的内容为当前片的二进制内容。
 
-<a id="request-auth"></a>
+<a id="bput-request-auth"></a>
 ### 访问权限
 
 [上传凭证（UploadToken）][uploadTokenHref]方式。
 
-<a id="response"></a>
+<a id="bput-response"></a>
 ## 响应
 
-<a id="response-headers"></a>
+<a id="bput-response-headers"></a>
 ### 头部信息
 
 头部名称      | 说明                              
@@ -74,7 +74,7 @@ Content-Type  | 正常情况下该值将被设为`application/json`，表示返�
 
 其它可能返回的头部信息，请参考[常见响应头部信息][commonHttpResponseHeaderHref]。
 
-<a id="response-body"></a>
+<a id="bput-response-body"></a>
 ### 响应内容
 
 如果请求成功，返回的响应内容将是一个JSON结构体。格式如下：
@@ -101,7 +101,7 @@ selectUpHost   | string | 后续上传接收地址。
 
 如果请求失败，请参见错误消息。
 
-<a id="error-messages"></a>
+<a id="bput-error-messages"></a>
 ### 错误消息
 
 HTTP状态码 | 含义
@@ -112,13 +112,13 @@ HTTP状态码 | 含义
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 701        | 后续上传接收地址不正确，或ctx信息已过期
 
-<a id="remarks"></a>
+<a id="bput-remarks"></a>
 ## 附注
 
 无。
 
-<a id="related-resources"></a>
-## 相关资源
+<a id="bput-internal-resources"></a>
+## 内部参考资源
 
 - [上传凭证（UploadToken）][uploadTokenHref]
 - [创建块（mkblk）](mkblk.html)

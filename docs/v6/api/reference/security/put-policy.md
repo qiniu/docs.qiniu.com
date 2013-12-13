@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 上传策略
+title: 上传策略（PutPolicy）
 order: 980
 ---
 
