@@ -117,12 +117,6 @@
 			"Href": "docs/v6/api/reference/fop/",
 			"Child": [
 				{
-					"Title": "预设数据处理指令",
-					"Href": "docs/v6/api/reference/fop/preset-fops.html",
-					"Child": null,
-					"Order": 190
-				},
-				{
 					"Title": "处理结果另存为（saveas）",
 					"Href": "docs/v6/api/reference/fop/saveas.html",
 					"Child": null,
