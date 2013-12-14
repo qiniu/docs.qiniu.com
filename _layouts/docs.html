@@ -344,7 +344,7 @@
         <script src="/static/js/modal.js" type="text/javascript"></script>
 
     <!-- 全局 JS-->
-    <script src="/static/js/docs.js" type="text/javascript"></script>
+    <script src="/static/js/docs.js?v={{.time}}" type="text/javascript"></script>
 
     <!-- 技术支持 JS-->
     <script type="text/javascript" src="https://dn-portal-static.qbox.me/v105/static/theme/default/js/zendesk/init.js"></script>
@@ -357,7 +357,7 @@
     $('#search').autocomplete({
         lookup: fc.fc,
         onSelect: function(suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            // alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
         }
     });
     </script>
