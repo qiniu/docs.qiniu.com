@@ -1916,8 +1916,103 @@ div.api-resource .social-resource .author {
   bottom: 100%;
   margin-bottom: 1px;
 }
-.search-result {
+.modal-open {
+  overflow: hidden;
+}
+.modal {
   display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+}
+.modal-dialog {
+  position: relative;
+  width: 812px;
+  z-index: 1050;
+  background-color: #fff;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin: 110px auto;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  max-height: 1000px;
+  left: 9px;
+}
+.modal-content {
+  position: relative;
+  outline: none;
+}
+.modal-content span.icon {
+  position: absolute;
+  right: 22px;
+  top: 20px;
+  cursor: pointer;
+}
+.modal-content span.icon:hover {
+  cursor: pointer;
+  background: url('../image/css-sprite.png?1386754990') no-repeat;
+  background-position: 0px -293px;
+  width: 16px;
+  height: 18px;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #000000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.modal-header {
+  padding: 0 25px;
+  line-height: 67px;
+  height: 65px;
+}
+.modal-header h2 {
+  font-weight: bold;
+  font-size: 18px;
+  color: #262626;
+}
+.modal-body {
+  position: relative;
+  padding: 0 25px 25px 25px;
+}
+.modal-body p {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 33px;
+}
+.modal-body .result-line {
+  max-height: 1000px;
+}
+.modal-body .result-line .ops-line {
+  margin-bottom: 26px;
+  line-height: 18px;
+}
+.modal-body .result-line .ops-line h5 a {
+  color: #0c94de;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: normal;
+}
+.modal-body .result-line .ops-line .url a {
+  color: #404040;
 }
 /*----------
 
