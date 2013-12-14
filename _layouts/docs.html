@@ -20,7 +20,8 @@
     <!--[if lte IE 8]>
         <script src="/static/js/html5.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="/static/css/main.css">
+
+    <link rel="stylesheet" href="/static/css/main.css?v={{.time}}">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                 <div class="panel special-panel">
                     <a href="/docs/v6/index.html">
                         文档首页
-                    </a>                        
+                    </a> 
                 </div>
                 <!-- 
                 <div class="panel panel-default">
@@ -326,6 +327,7 @@
             </div>
         </div>
     </div>
+        {{.includes.search_result}}
     <footer>
         {{ .includes.footer }}
     </footer>
@@ -338,9 +340,11 @@
     <script src="/static/js/highlight/highlight.js" type="text/javascript"></script>
     <script src="/static/js/fc.js" type="text/javascript"></script>
     <script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
-    <script src="/static/js/dropdown.js" type="text/javascript"></script>   
+    <script src="/static/js/dropdown.js" type="text/javascript"></script>
+        <script src="/static/js/modal.js" type="text/javascript"></script>
+
     <!-- 全局 JS-->
-    <script src="/static/js/docs.js" type="text/javascript"></script>
+    <script src="/static/js/docs.js?v={{.time}}" type="text/javascript"></script>
 
     <!-- 技术支持 JS-->
     <script type="text/javascript" src="https://dn-portal-static.qbox.me/v105/static/theme/default/js/zendesk/init.js"></script>
@@ -353,7 +357,7 @@
     $('#search').autocomplete({
         lookup: fc.fc,
         onSelect: function(suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            // alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
         }
     });
     </script>

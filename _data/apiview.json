@@ -133,6 +133,12 @@
 					"Href": "docs/v6/api/overview/rs/rs.html",
 					"Child": null,
 					"Order": 340
+				},
+				{
+					"Title": "批量操作",
+					"Href": "docs/v6/api/overview/rs/batch.html",
+					"Child": null,
+					"Order": 330
 				}
 			],
 			"Order": 300

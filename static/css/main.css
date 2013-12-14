@@ -1223,7 +1223,7 @@ div.api-resource .social-resource .author {
   padding-top: 0;
 }
 .container.index .side-bar .resource-community {
-  height: 356px;
+  height: 333px;
 }
 .container.index .side-bar .resource-community span {
   display: inline-block;
@@ -1231,14 +1231,14 @@ div.api-resource .social-resource .author {
   margin-top: 5px;
 }
 .container.index .side-bar .resource-community > div {
-  margin-top: 29px;
+  margin-top: 23px;
   height: 55px;
 }
 .container.index .side-bar .resource-community h4 {
   font-weight: normal;
   color: #404040;
   display: inline-block;
-  width: 215px;
+  width: 225px;
   margin-left: 10px;
 }
 .container.index .side-bar .resource-community h4 a {
@@ -1294,12 +1294,18 @@ div.api-resource .social-resource .author {
 .container.index .cell.sdk ul li a,
 .container.docs .cell.sdk ul li a {
   display: block;
+  height: 70px;
   vertical-align: middle;
-  margin-left: 7.5px;
 }
 .container.index .cell.sdk ul li a img,
 .container.docs .cell.sdk ul li a img {
   vertical-align: middle;
+}
+.container.index .cell.sdk ul li a:hover,
+.container.docs .cell.sdk ul li a:hover {
+  height: 68px;
+  line-height: 68px;
+  border: 1px solid #f0f0f0;
 }
 .container.index .cell.api,
 .container.docs .cell.api {
@@ -1354,7 +1360,7 @@ div.api-resource .social-resource .author {
 .container.index .cell.api .cell-line ul li,
 .container.docs .cell.api .cell-line ul li {
   float: left;
-  width: 145px;
+  width: 139px;
   margin-bottom: 10px;
   height: 14px;
   line-height: 14px;
@@ -1909,6 +1915,104 @@ div.api-resource .social-resource .author {
   top: auto;
   bottom: 100%;
   margin-bottom: 1px;
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+}
+.modal-dialog {
+  position: relative;
+  width: 812px;
+  z-index: 1050;
+  background-color: #fff;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin: 110px auto;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  max-height: 1000px;
+  left: 9px;
+}
+.modal-content {
+  position: relative;
+  outline: none;
+}
+.modal-content span.icon {
+  position: absolute;
+  right: 22px;
+  top: 20px;
+  cursor: pointer;
+}
+.modal-content span.icon:hover {
+  cursor: pointer;
+  background: url('../image/css-sprite.png?1386754990') no-repeat;
+  background-position: 0px -293px;
+  width: 16px;
+  height: 18px;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #000000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.modal-header {
+  padding: 0 25px;
+  line-height: 67px;
+  height: 65px;
+}
+.modal-header h2 {
+  font-weight: bold;
+  font-size: 18px;
+  color: #262626;
+}
+.modal-body {
+  position: relative;
+  padding: 0 25px 25px 25px;
+}
+.modal-body p {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 33px;
+}
+.modal-body .result-line {
+  max-height: 1000px;
+}
+.modal-body .result-line .ops-line {
+  margin-bottom: 26px;
+  line-height: 18px;
+}
+.modal-body .result-line .ops-line h5 a {
+  color: #0c94de;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: normal;
+}
+.modal-body .result-line .ops-line .url a {
+  color: #404040;
 }
 /*----------
 
