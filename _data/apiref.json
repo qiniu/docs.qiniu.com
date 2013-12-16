@@ -102,12 +102,6 @@
 					"Href": "docs/v6/api/reference/rs/batch.html",
 					"Child": null,
 					"Order": 500
-				},
-				{
-					"Title": "列举资源（list）",
-					"Href": "docs/v6/api/reference/rs/_list.html",
-					"Child": null,
-					"Order": 400
 				}
 			],
 			"Order": 600
