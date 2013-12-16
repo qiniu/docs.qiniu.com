@@ -62,7 +62,7 @@ avthumb/m3u8[/segtime/<SegSeconds>][/<fop_cmd>/<fop_params>]
 avthumb/m3u8/segtime/10/preset/audio_32k
 ```
 
-请参见[音视频预设集](../../reference/fop/avthumb.html#segtime-preset)了解完整的预设数据处理指令。
+请参见[音视频预设集](../../reference/fop/av/segtime.html#segtime-preset)了解完整的预设数据处理指令。
 
 <a id="streaming-custom-pfop"></a>
 ## 自定义处理指令
