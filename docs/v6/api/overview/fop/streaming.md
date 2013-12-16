@@ -33,7 +33,7 @@ Content-Type: application/x-mpegurl
 
 理论上，我们可以在用户访问一个多媒体资源时利用数据处理机制实时生成一个播放列表并返回，但考虑到这个时间损耗，我们不建议这种看起来方便但实际上会非常影响用户体验的用法。
 
-合理的用法是使用[处理结果持久化功能]()，在播放前事先以异步方式创建播放列表并切割小文件，然后将两类文件均持久化存储在空间中。
+合理的用法是使用[处理结果持久化功能](persistent-fop.html)，在播放前事先以异步方式创建播放列表并切割小文件，然后将两类文件均持久化存储在空间中。
 
 <a id="streaming-pfop"></a>
 ## 流媒体处理结果持久化
@@ -51,7 +51,7 @@ avthumb/m3u8[/segtime/<SegSeconds>][/<fop_cmd>/<fop_params>]
 `<fop>`表示常规的数据处理操作，可以添加以便在切割成小文件之前先进行适当的格式转换，比如码率调整、视频画面大小调整等。
 
 
-我们可以配合[处理结果持久化]()功能使用以上的音视频处理命令，以达到预处理流播放内容的目的。当然，我们也可以使用`persistentId`来获取特定音视频文件的转换和切割进度。
+我们可以配合[处理结果持久化](persistent-fop.html)功能使用以上的音视频处理命令，以达到预处理流播放内容的目的。当然，我们也可以使用`persistentId`来获取特定音视频文件的转换和切割进度。
 
 <a id="streaming-preset-pfop"></a>
 ## 预设处理指令
@@ -62,7 +62,7 @@ avthumb/m3u8[/segtime/<SegSeconds>][/<fop_cmd>/<fop_params>]
 avthumb/m3u8/segtime/10/preset/audio_32k
 ```
 
-请参见[音频预设集]()和[视频预设集]()了解完整的预设数据处理指令。
+请参见[音视频预设集](../../reference/fop/avthumb.html#segtime-preset)了解完整的预设数据处理指令。
 
 <a id="streaming-custom-pfop"></a>
 ## 自定义处理指令
@@ -80,4 +80,4 @@ avthumb/m3u8/segtime/<SegSeconds>
             /ar/<SamplingRate>
 ```
 
-完整的音视频处理参数含义解释请参见[音视频处理规格（avthumb）](/api/reference/fop/avthumb.html)。
+完整的音视频处理参数含义解释请参见[音视频处理规格（avthumb）](../../reference/fop/av/avthumb.html)。

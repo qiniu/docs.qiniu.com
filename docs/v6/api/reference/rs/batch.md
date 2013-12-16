@@ -31,7 +31,7 @@ EncodeEntryURI、EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[Enco
 <a id="batch-request-auth"></a>
 ### 访问权限
 
-[访问凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证（AccessToken）][accessTokenHref]方式。
 
 <a id="batch-request-params"></a>
 ### 请求参数
@@ -188,10 +188,10 @@ HTTP状态码 | 含义
 <a id="batch-related-resources"></a>
 ## 相关资源
 
-- [访问凭证][accessTokenHref]
+- [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
+[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"

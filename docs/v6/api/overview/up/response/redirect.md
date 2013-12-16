@@ -10,7 +10,7 @@ HTTP 301重定向（参见[RFC2616-SEC10.3.2](http://www.w3.org/Protocols/rfc261
 
 七牛云存储的资源资源上传后续动作也支持301重向功能。
 
-在构造[上传凭证](/api/reference/security/upload-token.html)时，开发者可以通过设置[上传策略](/api/reference/security/put-policy.html)中的`returnUrl`参数以激活301重定向功能。在成功完成上传后，服务端会向客户端返回HTTP 301状态码，并在`Location`字段中携带上传时指定的重定向地址。如下所示：
+在构造[上传凭证](../../../reference/security/upload-token.html)时，开发者可以通过设置[上传策略](../../../reference/security/put-policy.html)中的`returnUrl`参数以激活301重定向功能。在成功完成上传后，服务端会向客户端返回HTTP 301状态码，并在`Location`字段中携带上传时指定的重定向地址。如下所示：
 
 ```
 HTTP/1.1 301 Moved Permanently
@@ -19,7 +19,7 @@ Location: <returnUrl>
 
 客户端收到这样的反馈后，应按HTTP 1.1标准将当前页面重定向到`Location`字段所指定的URL。主流的浏览器都能正确的支持该标准。
 
-如果上传策略中还设定了自定义返回内容`returnBody`，则到时服务端返回的301响应中的`Location`字段也会包含自定义返回内容。参数值采用[URL安全的Base64编码](/api/overview/appendix.html#urlsafe-base64)。此时的响应内容如下所示：
+如果上传策略中还设定了自定义返回内容`returnBody`，则到时服务端返回的301响应中的`Location`字段也会包含自定义返回内容。参数值采用[URL安全的Base64编码](../../appendix.html#urlsafe-base64)。此时的响应内容如下所示：
 
 ```
 HTTP/1.1 301 Moved Permanently
