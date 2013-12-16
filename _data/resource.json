@@ -223,8 +223,8 @@
         "doc": "https://github.com/lidaobing/paperclip-qiniu"
     }, {
         "name": "packup2qiniu",
-        "label": "Packup to Qiniu",
-        "description": "Packup to Qiniu",
+        "label": "Backup to Qiniu",
+        "description": "Backup to Qiniu",
         "download": "https://github.com/lidaobing/backup2qiniu",
         "author": "lidaobing",
         "date": "2013-11-28",
