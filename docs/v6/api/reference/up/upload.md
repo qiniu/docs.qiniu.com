@@ -187,7 +187,8 @@ HTTP状态码 | 含义
 - [MIME类型][mimeTypeHref]
 - [MIME清单][mimeTypeListHref]
 
-[encodedEntryURIHref]:      http://docs.qiniu.com/api/v6/rs.html#words                   "EncodedEntryURI格式"
+[encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
+
 [uploadTokenHref]:          ../security/upload-token.html                                "上传凭证"
 [putPolicyHref]:            ../security/put-policy.html                                  "上传策略"
 [xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"

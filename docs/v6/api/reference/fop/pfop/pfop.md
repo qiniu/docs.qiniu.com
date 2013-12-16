@@ -285,5 +285,6 @@ HTTP状态码 | 含义
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
+[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"

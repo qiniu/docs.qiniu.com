@@ -159,8 +159,9 @@ X-Reqid: swEAAMipp-5bIjMT
 - [EncodedEntryURI格式](encodedEntryURIHref)
 - [自定义返回内容]()
 
+[encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
+[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [mimeMediaTypesHref]:           http://www.iana.org/assignments/media-types      "MIME媒体类型"
-[accessTokenHref]:              http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"
-[encodedEntryURIHref]:          http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
