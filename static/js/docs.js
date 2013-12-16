@@ -242,7 +242,7 @@ $(function() {
     // 资源下载页提交社区SDK/插件
     $('.js-add-resource').on('click', function() {
         var title = $.trim($(this).text());
-        var type = title === '提交我的插件' ? 'Plugin' : 'SDK';
+        var type = title === '提交我的插件/工具' ? 'Plugin' : 'SDK';
         DocsAddResource.show(type);
         return false;
     });
