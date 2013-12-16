@@ -107,7 +107,11 @@
                 {{range .data.resource.third_plugin}}
                 <div class="resource-card">
                     <div class="logo">
-                        <span class="icon resource_{{.name}}"></span>
+                        {{if .defaultSprite}}
+                            <span class="icon resource_plugin"></span>
+                        {{else}}
+                            <span class="icon resource_{{.name}}"></span>
+                        {{end}}
                     </div>
                     <div class="content">
                         <div class="name">{{.label}}</div>
