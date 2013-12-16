@@ -1259,6 +1259,9 @@ div.api-resource .social-resource .author {
 .container.index .side-bar .resource-community p a {
   color: #999999;
 }
+.container.index .side-bar .resource-community > p {
+  text-align: right;
+}
 .container.index .cell,
 .container.docs .cell {
   padding: 25px;
