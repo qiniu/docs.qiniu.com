@@ -8,9 +8,9 @@ order: 513
 
 [简单反馈](simple-response.html)只会包含资源的最基本信息，但很多情况下用户都希望得到更多的资源信息。
 
-用户可以通过[资源管理](/api/overview/rs/index.html)和[数据处理](/api/overview/fop/index.html)功能获得资源的扩展信息。但这些都需要用户发起一个新请求。七牛云存储支持在上传请求的响应中直接返回客户端需要的资源扩展信息。
+用户可以通过[资源管理](../../rs/index.html)和[数据处理](../../fop/index.html)功能获得资源的扩展信息。但这些都需要用户发起一个新请求。七牛云存储支持在上传请求的响应中直接返回客户端需要的资源扩展信息。
 
-在生成[上传凭证](/api/reference/security/upload-token.html)时，开发者可以通过设置[上传策略](/api/reference/security/put-policy.html)中的`returnBody`字段指定需要返回的信息，比如资源的大小、类型，图片的尺寸等等。
+在生成[上传凭证](../../../reference/security/upload-token.html)时，开发者可以通过设置[上传策略](../../../reference/security/put-policy.html)中的`returnBody`字段指定需要返回的信息，比如资源的大小、类型，图片的尺寸等等。
 
 `returnBody`实际上是一个用户定义的反馈信息模板，**内容必须用JSON格式表达**。下面是一个示例：
 

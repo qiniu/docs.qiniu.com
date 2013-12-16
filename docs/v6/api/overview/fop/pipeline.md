@@ -26,7 +26,7 @@ order: 285
 [GET] url?<fop1>|<fop2>|<fop3>|<fopN>
 ```
 
-`url` 获取可以参考 [下载接口](get.html)
+`url` 获取可以参考[资源下载](../dn/)。
 
 ## 样例
 

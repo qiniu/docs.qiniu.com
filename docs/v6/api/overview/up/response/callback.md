@@ -10,7 +10,7 @@ order: 514
 
 ![带回调的上传流程](img/upload-with-callback.png)
 
-要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略]()中的`callbackUrl`字段。如果希望控制回调的内容，还可以同时设置`callbackBody`字段。
+要启用回调功能，业务服务器在签发上传凭证时需要设置[上传策略](../../../reference/security/put-policy.html)中的`callbackUrl`字段。如果希望控制回调的内容，还可以同时设置`callbackBody`字段。
 
 <a id="callback-url"></a>
 ## 回调地址
@@ -63,7 +63,7 @@ name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm- \
 RlQx_4O2&location=Shanghai&price=1500.00
 ```
 
-之后，再对其进行[URL安全的Base64编码](/api/overview/appendix.html#urlsafe-base64)，结果如下：
+之后，再对其进行[URL安全的Base64编码](../../../appendix.html#urlsafe-base64)，结果如下：
 
 ```
 bmFtZT1zdW5mbG93Z...zZT0xNTAwLjAw
@@ -107,12 +107,12 @@ Cache-Control: no-store
 }
 ```
 
-如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](/api/reference/codes.html)以及详细的失败信息。
+如果回调失败，七牛云存储会将返回给应用客户端[HTTP状态码579](../../../reference/codes.html)以及详细的失败信息。
 
 <a id="callback-security"></a>
 ## 安全性
 
-因为[上传凭证](/api/reference/security/upload-token.html)可有效防止七牛云存储从客户端收到伪造的回调请求，因此回调接受方（通常是业务服务器）可以认为来自七牛云存储的调用是可信的。
+因为[上传凭证](../../../reference/security/upload-token.html)可有效防止七牛云存储从客户端收到伪造的回调请求，因此回调接受方（通常是业务服务器）可以认为来自七牛云存储的调用是可信的。
 
 但由于回调请求中可能用变量等方式请求一些敏感的用户信息，这个调用过程应识别非可信方的请求，并在必要的时候用HTTPS的方式防止传输中途被截取内容。回调URL直接支持HTTPS协议。
 

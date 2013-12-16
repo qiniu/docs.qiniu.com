@@ -8,7 +8,7 @@ order: 512
 
 变量是七牛云存储同用户交换数据的机制，引入变量概念的目的在于更灵活的控制上传后续动作中的内容组织和传递。可以认为变量是一种占位符，七牛云存储会将占位符按约定替换为实际内容。
 
-在构造[上传策略](/api/reference/security/put-policy.html)时，可在上传策略的`returnBody`和`callbackBody`字段内容中使用变量。
+在构造[上传策略](../../../reference/security/put-policy.html)时，可在上传策略的`returnBody`和`callbackBody`字段内容中使用变量。
 
 变量分为两种：[魔法变量](#magicvar)和[自定义变量](#xvar)。魔法变量是系统提供的一系列预定义变量，可直接使用，而自定义变量则由调用方指定，通常应对应于上传时的表单参数。服务端会将这些上传参数的具体值返回给调用方。
 
@@ -22,13 +22,13 @@ order: 512
 变量名        | 包含子项 | 变量说明
 :----------- |:------:|-------------------------------------------
 bucket       | 否     | 获得上传的目标空间名。
-etag         | 否     | 文件上传成功后的[Etag]()。若上传时未指定资源ID，Etag将作为资源ID使用。
+etag         | 否     | 文件上传成功后的[Etag](http://en.wikipedia.org/wiki/HTTP_ETag)。若上传时未指定资源ID，Etag将作为资源ID使用。
 fname        | 否     | 上传的原始文件名。
 fsize        | 否     | 资源尺寸，单位为字节。
 mimeType     | 否     | 资源类型，比如JPG图片的资源类型为`image/jpg`。
 endUser      | 否     | 上传时指定的`endUser`字段，通常用于区分不同终端用户的请求。
 persistentId | 否     | 音视频转码持久化的进度查询ID。
-exif         | 是     | 获取所上传图片的[EXIF]()信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。
+exif         | 是     | 获取所上传图片的[EXIF](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)信息。<p>该变量包含子字段，比如对`$(exif.ApertureValue.val)`取值将得到该图片拍摄时的光圈值。
 imageInfo    | 是     | 获取所上传图片的基本信息。<p>该变量包含子字段，比如对`$(imageInfo.width)`取值将得到该图片的宽度。
 
 魔法变量支持`<Object>.<Property>`形势的访问方法，例如：
@@ -92,6 +92,6 @@ name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm- \
 RlQx_4O2&location=Shanghai&price=1500.00
 ```
 
-然后，七牛云存储将此结果进行[URL安全的Base64编码](/api/overview/appendix.html#urlsafe-base64)，作为回调请求的Body调用`callbackUrl`指定的回调服务器。
+然后，七牛云存储将此结果进行[URL安全的Base64编码](../../appendix.html#urlsafe-base64)，作为回调请求的Body调用`callbackUrl`指定的回调服务器。
 
 如果变量取值失败（比如在上传策略中指定了一个并不存在的表单变量），响应内容中对应的变量将被赋予空值。
