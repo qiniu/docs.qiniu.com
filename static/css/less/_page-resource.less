@@ -84,8 +84,8 @@
                                 .border-radius(3px);
                                 .box-shadow(0 1px 0 rgba(243,243,243,0.75));
                                 display: block;
-                                float: left;
-                                margin-left:8px;
+                                float: right;
+                                margin-right: 8px;
                                 height: 26px;
                                 width: 60px;
                                 line-height: 26px;
@@ -98,7 +98,7 @@
                                 outline: none;
 
                                 &:first-child {
-                                    margin-left: 0;
+                                    margin-right: 0;
                                 }
                                 &:hover {
                                     .box-shadow(0 1px 0 rgba(230,230,230,0.75));
@@ -163,187 +163,6 @@
             }            
         }
     }
-//资源下载页 提交插件 SDK
-
-.docs-add-resource {
-    width: 590px;
-    margin:40px auto;
-    margin-top: 140px;
-    .box-shadow(0 0 40px rgba(0,0,0,.2));
-    position: relative;
-
-
-    .resource-box {
-        background-color: #fff;
-        .border-radius(3px);
-    }
-    span.icon {
-        position: absolute;
-        right: 22px;
-        top: 20px;
-        cursor: pointer;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    .box-head {
-        padding:0 25px;        
-        line-height: 67px;    
-        height: 65px;
-        h2 {
-            font-weight: bold;
-            font-size: 18px;
-            color: @38;
-        }
-    }
-    .box-body {
-        padding:0 25px;             
-        font-size: 14px;
-        p {
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .resource {
-            margin-top: 15px;
-            .ops-line {
-                padding-top:7.5px;
-                padding-bottom:7.5px;
-                position: relative;
-                label {
-                    display: inline-block;
-                    width: 84px;
-                    text-align: right;                    
-                }
-                input ,textarea{
-                    padding: 5px 8px;
-                    height: 20px;
-                    line-height: 20px;
-                    background: #fff;
-                    border: 1px solid @228;
-                    color: #404040;
-                    resize: none;
-                    background: #fff;
-                    .box-shadow(inset 0 2px 4px 0 rgba(0,0,0,.04));
-                    .placeholder(@200);
-                    font-size: 12px;
-                    &:hover,&:active,&:focus{
-                        outline: none;
-                        border: 1px solid #d7d7d7;
-                        .box-shadow(inset 0 2px 4px 0 rgba(0,0,0,.05));   
-                    }
-                    &.need {
-                        border:1px solid rgb(255,100,100);
-                    }
-                    &.error {
-                        border:1px solid rgb(255,100,100);
-                    }
-                }
-                input.input-small {
-                    width: 178px;
-                }
-                input.input-large,textarea.input-large  {
-                    width: 428px;
-                }  
-                textarea {
-                    //padding: 5px 8px;
-                    height: 35px;
-                }  
-                div ,span {
-                    font-size: 12px;
-                }
-                div.need,span.need {                    
-                    color:rgb(255, 110, 110);
-                }   
-                span.need {
-                    margin-left: 5px;
-                }
-                div.need {
-                    padding-left: 18%;
-                    padding-top: 5px;
-                    display: none;
-                }      
-                &:first-child {
-                    margin-top: 0;
-                }
-                .email-tip {
-                    margin-left: 10px;
-                }
-                span.icon_resource_success {
-                    position: absolute;
-                }
-            }
-            .ops-line.special-line {
-                label {
-                    vertical-align: top;
-                    margin-top: 7px;
-                }
-                div.length-tip {
-                    padding-left: 18%;
-                    padding-top: 3px;                    
-                    span {
-                        color:#ff6e6e;
-                    }
-                }
-            }
-        }
-        .resource-mask {
-            height: 200px;
-            text-align: center;
-            display:none;
-            .resource-success {
-                display: none;
-                padding-top: 30px;
-                line-height: 30px;
-            }
-            .resource-error {
-                line-height: 200px;   
-                display: none;
-                color: red;             
-            }
-            .resource-loading {
-                display: none;
-                padding-top: 75px; 
-            }
-        }
-    }
-    .box-foot {
-        height: 80px;
-        line-height: 74px;
-        text-align: center;
-        .btn {
-            width: 190px;
-            height: 38px;
-            line-height: 38px;
-            background-color: #55A744;
-            font-weight: bold;
-            font-size: 14px;
-            color: #fff;
-            border:none;
-            cursor: pointer;
-            padding: 0;
-            .box-shadow(0 1px 0 rgba(0,0,0,.05));
-            .border-radius(3px);
-            background-image: -webkit-linear-gradient(top,transparent,transparent);
-            background-image: linear-gradient(top,transparent,transparent);
-            text-shadow: none;
-            outline: none;
-            &:hover {
-                background: #65b045;                
-                background-image: -webkit-linear-gradient(top,transparent,transparent);
-                background-image: linear-gradient(top,transparent,transparent);
-                text-shadow: none;
-                outline: none;
-            }
-            &:active {
-                .box-shadow(inset 0 1px 0 #2f6124);
-                background: #3e802f;
-                outline: none;
-            }
-        }
-    }
-}
-
-
 
 //针对资源下载页分页效果的样式，暂时未用到，勿删
 .bx-controls {
