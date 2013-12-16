@@ -1,16 +1,11 @@
 ---
 layout: docs
 title: 直传文件（upload）
-order: 50
+order: 200
 ---
 
 <a id="upload"></a>
 # 直传文件（upload）
-
-<a id="upload-tags"></a>
-## 标签
-
-[上传](../appendix-tags.html#up)
 
 <a id="upload-description"></a>
 ## 描述
@@ -163,7 +158,7 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 上传成功
 400	       | 请求报文格式错误
-401        | 访问凭证无效
+401        | 管理凭证无效
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 614        | 目标资源已存在
 

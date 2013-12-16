@@ -7,11 +7,6 @@ order: 174
 <a id="imageMogr"></a>
 # 高级图像处理
 
-<a id="imageMogr-tag"></a>
-## 标签
-
-[缩略图](thumbnailHref)
-
 <a id="imageMogr-description"></a>
 ## 描述
 

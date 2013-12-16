@@ -7,11 +7,6 @@ order: 185
 <a id="saveas"></a>
 # 处理结果另存（saveas）
 
-<a id="tag"></a>
-## 标签
-
-[辅助功能](helperHref)
-
 <a id="description"></a>
 ## 描述
 

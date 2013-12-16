@@ -6,11 +6,6 @@ order: 149
 <a id="video-thumbnail"></a>
 # 视频帧缩略图
 
-<a id="tag"></a>
-## 标签
-
-[缩略图](thumbnailHref)
-
 <a id="description"></a>
 ## 描述
 

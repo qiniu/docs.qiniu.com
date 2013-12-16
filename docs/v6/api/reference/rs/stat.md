@@ -28,7 +28,7 @@ EncodedEntryURI的细节请查看[EncodedEntryURI格式][encodedEntryURIHref]。
 <a id="stat-request-auth"></a>
 ### 访问权限
 
-[访问凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证（AccessToken）][accessTokenHref]方式。
 
 <a id="stat-request-params"></a>
 ### 请求参数
@@ -96,7 +96,7 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 获取Metadata成功
 400	       | 请求参数错误
-401        | 访问凭证无效
+401        | 管理凭证无效
 404        | 目标资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
@@ -155,12 +155,12 @@ X-Reqid: swEAAMipp-5bIjMT
 <a id="stat-internal-resources"></a>
 ## 内部参考资源
 
-- [访问凭证][accessTokenHref]
+- [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式](encodedEntryURIHref)
 - [自定义返回内容]()
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
 [mimeMediaTypesHref]:           http://www.iana.org/assignments/media-types      "MIME媒体类型"
-[accessTokenHref]:              http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
+[accessTokenHref]:              http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"
 [encodedEntryURIHref]:          http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"
