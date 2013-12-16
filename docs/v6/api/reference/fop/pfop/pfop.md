@@ -41,7 +41,7 @@ Authorization: QBox <AccessToken>
 :------------ | :-------------------------------------- | :-------
 Host          | 固定为api.qiniu.com                     | 是
 Content-Type  | 固定为application/x-www-form-urlencoded | 是
-Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
+Authorization | 该参数应严格按照[管理凭证][accessTokenHref]格式进行填充，否则会返回401错误码。<p>一个合法的Authorization值应类似于：`QBox QNJi_bYJlmO5LeY08FfoNj9w_r7...`。 | 是
 
 使用本API无需设置额外头部信息。  
 其它可用请求头部信息请参考[常用请求头部信息]()。
@@ -49,7 +49,7 @@ Authorization | 该参数应严格按照[访问凭证][accessTokenHref]格式进
 <a id="pfop-request-auth"></a>
 ### 访问权限
 
-[访问凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证（AccessToken）][accessTokenHref]方式。
 
 <a id="pfop-request-params"></a>
 ### 请求参数（PfopRequestParams）
@@ -119,7 +119,7 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 持久化处理成功
 400	       | 请求参数错误
-401        | 访问凭证无效
+401        | 管理凭证无效
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
@@ -281,9 +281,9 @@ HTTP状态码 | 含义
 :--------- | :--------------------------
 200        | 持久化处理成功
 400	       | 请求参数错误
-401        | 访问凭证无效
+401        | 管理凭证无效
 404        | 资源不存在
 599	       | 服务端操作失败。<p>如遇此错误，请将完整错误信息（包括所有HTTP响应头部）[通过邮件发送][sendBugReportHref]给我们。
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "访问凭证"
+[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"

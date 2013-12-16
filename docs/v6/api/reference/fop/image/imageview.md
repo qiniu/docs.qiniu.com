@@ -7,11 +7,6 @@ order: 175
 <a id="imageView"></a>
 # 图片处理（imageView）
 
-<a id="imageView-tag"></a>
-## 标签
-
-[缩略图](thumbnailHref)
-
 <a id="imageView-description"></a>
 ## 描述
 
