@@ -310,6 +310,7 @@ css-sprite（图片拼合）
 .resource_perl_sprited,
 .resource_php_sprited,
 .resource_phpwind,
+.resource_plugin,
 .resource_python_sprited,
 .resource_ruby_sprited,
 .resource_sync_sprited,
@@ -329,7 +330,7 @@ css-sprite（图片拼合）
 .sdk-php,
 .sdk-python,
 .sdk-ruby {
-  background: url('../image/css-sprite.png?1386754990') no-repeat;
+  background: url('../image/css-sprite.png?1387159814') no-repeat;
 }
 .api_default {
   background-position: 0px 0px;
@@ -586,115 +587,120 @@ css-sprite（图片拼合）
   width: 70px;
   height: 40px;
 }
-.resource_python_sprited {
+.resource_plugin {
   background-position: 0px -1370px;
+  width: 36px;
+  height: 36px;
+}
+.resource_python_sprited {
+  background-position: 0px -1406px;
   width: 70px;
   height: 40px;
 }
 .resource_ruby_sprited {
-  background-position: 0px -1410px;
+  background-position: 0px -1446px;
   width: 70px;
   height: 40px;
 }
 .resource_sync_sprited {
-  background-position: 0px -1450px;
+  background-position: 0px -1486px;
   width: 27px;
   height: 27px;
 }
 .resource_tool {
-  background-position: 0px -1477px;
+  background-position: 0px -1513px;
   width: 32px;
   height: 29px;
 }
 .resource_typecho {
-  background-position: 0px -1506px;
+  background-position: 0px -1542px;
   width: 70px;
   height: 40px;
 }
 .resource_upload_sprited {
-  background-position: 0px -1546px;
+  background-position: 0px -1582px;
   width: 27px;
   height: 27px;
 }
 .resource_wordpress {
-  background-position: 0px -1573px;
+  background-position: 0px -1609px;
   width: 70px;
   height: 40px;
 }
 .sdk-android {
-  background-position: 0px -1613px;
-  width: 65px;
-  height: 36px;
-}
-.sdk-cpp {
   background-position: 0px -1649px;
   width: 65px;
   height: 36px;
 }
-.sdk-csharp {
+.sdk-cpp {
   background-position: 0px -1685px;
   width: 65px;
   height: 36px;
 }
-.sdk-go {
+.sdk-csharp {
   background-position: 0px -1721px;
   width: 65px;
   height: 36px;
 }
-.sdk-ios {
+.sdk-go {
   background-position: 0px -1757px;
   width: 65px;
   height: 36px;
 }
-.sdk-java {
+.sdk-ios {
   background-position: 0px -1793px;
   width: 65px;
   height: 36px;
 }
-.sdk-net {
+.sdk-java {
   background-position: 0px -1829px;
   width: 65px;
   height: 36px;
 }
-.sdk-nodejs {
+.sdk-net {
   background-position: 0px -1865px;
   width: 65px;
   height: 36px;
 }
-.sdk-perl {
+.sdk-nodejs {
   background-position: 0px -1901px;
   width: 65px;
   height: 36px;
 }
-.sdk-php {
+.sdk-perl {
   background-position: 0px -1937px;
   width: 65px;
   height: 36px;
 }
-.sdk-python {
+.sdk-php {
   background-position: 0px -1973px;
   width: 65px;
   height: 36px;
 }
-.sdk-ruby {
+.sdk-python {
   background-position: 0px -2009px;
   width: 65px;
   height: 36px;
 }
+.sdk-ruby {
+  background-position: 0px -2045px;
+  width: 65px;
+  height: 36px;
+}
 header {
-  height: 39px;
-  line-height: 39px;
+  height: 43px;
+  line-height: 43px;
   background-color: #0c94de;
 }
 header a {
   font-size: 12px;
 }
 header .container {
-  height: 39px;
+  height: 43px;
 }
 header .container h1 {
   width: 200px;
-  height: 39px;
+  height: 43px;
 }
 header .container h1 img {
   display: inline-block;
@@ -702,8 +708,8 @@ header .container h1 img {
 header .container h1 > a {
   outline: none;
   display: inline-block;
-  line-height: 39px;
-  height: 39px;
+  line-height: 43px;
+  height: 43px;
 }
 header .container h1 > a.btn {
   width: 30px;
@@ -715,7 +721,7 @@ header .container h1 > a.btn span {
   display: inline-block;
 }
 header .container h1 > a.btn:hover span {
-  background: url('../image/css-sprite.png?1386754990') no-repeat;
+  background: url('../image/css-sprite.png?1387159814') no-repeat;
   background-position: 0px -118px;
   width: 9px;
   height: 6px;
@@ -729,7 +735,7 @@ header .container nav.nav-home a {
 }
 header .container nav.nav-home a:hover,
 header .container nav.nav-home a.active {
-  height: 36px;
+  height: 40px;
 }
 header .container nav.nav-home a.active {
   font-weight: bold;
@@ -790,7 +796,7 @@ header .container nav.nav-home a:after {
 }
 header .container .search {
   position: relative;
-  line-height: 39px;
+  line-height: 43px;
   width: 227px;
   margin-right: 2px;
 }
@@ -827,7 +833,7 @@ header .container .search span {
   display: inline-block;
   position: absolute;
   right: 5px;
-  top: 12px;
+  top: 14px;
 }
 header .container nav.nav-top {
   text-align: right;
@@ -1414,7 +1420,7 @@ div.api-resource .social-resource .author {
   font-weight: normal;
   float: right;
   height: 26px;
-  width: 90px;
+  min-width: 90px;
   line-height: 26px;
   color: #404040;
   border: 1px solid #e9e9e9;
@@ -1424,6 +1430,7 @@ div.api-resource .social-resource .author {
   -webkit-user-select: none;
   outline: none;
   margin-top: 10px;
+  padding: 0 5px;
 }
 .container.resource .cell .cell-head a:hover {
   -webkit-box-shadow: 0 1px 0 rgba(230, 230, 230, 0.75);
@@ -1839,7 +1846,7 @@ div.api-resource .social-resource .author {
 }
 .dropdown-menu {
   position: absolute;
-  top: 37px;
+  top: 41px;
   left: 0;
   z-index: 100;
   display: none;
@@ -1928,12 +1935,12 @@ div.api-resource .social-resource .author {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1000;
 }
 .modal-dialog {
   position: relative;
   width: 812px;
-  z-index: 1050;
+  z-index: 1010;
   background-color: #fff;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
@@ -1957,7 +1964,7 @@ div.api-resource .social-resource .author {
 }
 .modal-content span.icon:hover {
   cursor: pointer;
-  background: url('../image/css-sprite.png?1386754990') no-repeat;
+  background: url('../image/css-sprite.png?1387159814') no-repeat;
   background-position: 0px -293px;
   width: 16px;
   height: 18px;
@@ -1968,7 +1975,7 @@ div.api-resource .social-resource .author {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 990;
   background-color: #000000;
 }
 .modal-backdrop.fade {

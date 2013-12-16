@@ -86,7 +86,10 @@ $(function() {
 
     function search(val) {
         if (val !== '' && val !== undefined) {
-            $.getJSON('http://42.62.26.6:8081/search?query=' + val + '&callback=?', function(data) {
+            $('#myModal').modal();
+            $('#myModal').find('p').html('正在搜索中，请耐心等待。');
+            $('#myModal').find('.result-line').html('');
+            $.getJSON('http://ss.qbox.me:9900/?query=' + val + '&callback=?', function(data) {
                 console.log(data);
                 if (data.items.length > 0) {
                     var markup = '';
@@ -103,10 +106,9 @@ $(function() {
                     $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');
                     $('#myModal').find('.result-line').html('').append(markup);
                 } else {
-                    $('#myModal').find('.result-line').html('很抱歉，没有找到相关结果。');
                     $('#myModal').find('p').html('感谢您对七牛的支持。');
+                    $('#myModal').find('.result-line').html('很抱歉，没有找到相关结果。');
                 }
-                $('#myModal').modal();
             });
         }
     };
