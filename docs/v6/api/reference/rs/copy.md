@@ -30,7 +30,7 @@ EncodedEntryURISrc与EncodedEntryURIDest的细节请查看[EncodedEntryURI格式
 <a id="copy-request-auth"></a>
 ### 访问权限
 
-[访问凭证（AccessToken）][accessTokenHref]方式。
+[管理凭证（AccessToken）][accessTokenHref]方式。
 
 <a id="copy-request-params"></a>
 ### 请求参数
@@ -143,9 +143,9 @@ X-Reqid: wxIAAD3btw-v3TwT
 <a id="copy-internal-resources"></a>
 ## 内部参考资源
 
-- [访问凭证][accessTokenHref]
+- [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志        "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth    "访问凭证"
+[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth    "管理凭证"
 [encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words          "EncodedEntryURI格式"
