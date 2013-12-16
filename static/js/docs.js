@@ -71,8 +71,47 @@ $(function() {
     }).on('blur', function() {
         $(this).attr('placeholder', '全站搜索');
         $(this).next().addClass('global_search_default_sprited').removeClass('global_search_active_sprited');
+    }).on('keypress', function(e) {
+        var code = e.keyCode || e.which;
+        if (code == 13) { //Enter keycode
+            //Do something
+            var val = encodeURIComponent($(this).val());
+            search(val);
+        }
+    });
+    $('.search span').on('click', function() {
+        var val = encodeURIComponent($(this).siblings('input').val());
+        search(val);
     });
 
+    function search(val) {
+        if (val !== '' && val !== undefined) {
+            $('#myModal').modal();
+            $('#myModal').find('p').html('正在搜索中，请耐心等待。');
+            $('#myModal').find('.result-line').html('');
+            $.getJSON('http://ss.qbox.me:9900/?query=' + val + '&callback=?', function(data) {
+                console.log(data);
+                if (data.items.length > 0) {
+                    var markup = '';
+                    for (var i = 0, len = data.items.length; i < len; i++) {
+                        var tData = data.items[i];
+                        markup += '<div class="ops-line ">' +
+                            ' <h5><a href=' + tData.url + ' target="_blank">' + tData.title + '</a></h5>' +
+                            ' <div class="url">' +
+                            '<a  href=' + tData.url + ' target="_blank">' + tData.display_url + '</a>' +
+                            '</div>' +
+                            '<div class="content">' + tData.description + '</div > ' +
+                            ' </div> ';
+                    }
+                    $('#myModal').find('p').html('为您找到了如下结果，感谢您对七牛的支持。');
+                    $('#myModal').find('.result-line').html('').append(markup);
+                } else {
+                    $('#myModal').find('p').html('感谢您对七牛的支持。');
+                    $('#myModal').find('.result-line').html('很抱歉，没有找到相关结果。');
+                }
+            });
+        }
+    };
     // 技术支持 模态窗口
     $('.js-initFeedBack').on('click', function() {
         QiniuFeedBack.show();
@@ -212,4 +251,9 @@ $(function() {
     // $('.bxslider').bxSlider({
     //     controls: false
     // });
+
+
+
+
+
 });

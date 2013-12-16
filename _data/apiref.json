@@ -102,12 +102,6 @@
 					"Href": "docs/v6/api/reference/rs/batch.html",
 					"Child": null,
 					"Order": 500
-				},
-				{
-					"Title": "列举资源（list）",
-					"Href": "docs/v6/api/reference/rs/_list.html",
-					"Child": null,
-					"Order": 400
 				}
 			],
 			"Order": 600
@@ -116,12 +110,6 @@
 			"Title": "数据处理",
 			"Href": "docs/v6/api/reference/fop/",
 			"Child": [
-				{
-					"Title": "预设数据处理指令",
-					"Href": "docs/v6/api/reference/fop/preset-fops.html",
-					"Child": null,
-					"Order": 190
-				},
 				{
 					"Title": "处理结果另存为（saveas）",
 					"Href": "docs/v6/api/reference/fop/saveas.html",
