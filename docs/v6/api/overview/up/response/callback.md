@@ -63,7 +63,7 @@ name=sunflower.jpg&hash=Fn6qeQi4VDLQ347NiRm- \
 RlQx_4O2&location=Shanghai&price=1500.00
 ```
 
-之后，再对其进行[URL安全的Base64编码](../../../appendix.html#urlsafe-base64)，结果如下：
+之后，再对其进行[URL安全的Base64编码](../../appendix.html#urlsafe-base64)，结果如下：
 
 ```
 bmFtZT1zdW5mbG93Z...zZT0xNTAwLjAw

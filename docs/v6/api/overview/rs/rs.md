@@ -29,11 +29,6 @@ order: 340
 
 删除资源与删除文件类似，但是七牛云存储不提供回收站的功能，因此在删除前请确认待删除的资源确实不再需要。具体参考[删除资源（delete）](/docs/v6/api/reference/rs/delete.html)。
 
-<a id="list"></a>
-## 列举（list）
-
-列出文件操作可以查看空间里的所有资源列表，遍历资源。具体参考[列举资源（list）](/docs/v6/api/reference/rs/list.html)。
-
 <a id="batch"></a>
 ## 批量操作 (batch)
 
