@@ -161,8 +161,8 @@ HTTP状态码 | 含义
 - [触发异步处理][pfopHref]
 - [saveas处理][saveasHref]
 
-[cnameBindingHref]:             ../../../overview/service/cname-binding.html     "域名绑定"
-[pfopHref]:                     ../fop/pfop/pfop.html                            "触发异步处理"
+[cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
+[pfopHref]:                     ../pfop/pfop.html                            "触发异步处理"
 [saveasHref]:                   ../saveas.html                                   "saveas处理"
 
 [thumbnailHref]:                ../../list/thumbnail.html                       "缩略图文档列表"
