@@ -232,7 +232,7 @@ HTTP状态码 | 含义
 
 - watermark生成的图片会被七牛云存储缓存以加速下载，但不会持久化。需要持久化的缩略图，请参考[触发异步处理][pfopHref]和[saveas处理][saveasHref]。  
 
-- 使用[qboxrsctl][qtoolsHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
+- 使用[qboxrsctl][qboxrsctlHref]工具，给图片下载URL中的水印规格添加别名，使得URL更加友好。
 
 	```
     qboxrsctl login <email> <password>
@@ -282,8 +282,8 @@ HTTP状态码 | 含义
 
 - [URL安全的Base64编码][urlsafeBase64Href]
 
-[qtoolsHref]:          ../qtools.html                                  "七牛工具"
-[resourceProtectHref]: ../resource-protect.html                        "原图保护"
+[qboxrsctlHref]:       ../../../../tools/qboxrsctl.html                "七牛工具"
+[resourceProtectHref]: http://kb.qiniu.com/52uad43y                    "原图保护"
 [sendBugReportHref]:   mailto:support@qiniu.com?subject=599错误日志    "发送错误报告"
 [cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"
 [pfopHref]:                     ../pfop/pfop.html                            "触发异步处理"
