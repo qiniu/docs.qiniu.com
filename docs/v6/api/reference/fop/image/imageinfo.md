@@ -144,4 +144,4 @@ HTTP状态码 | 含义
 - [域名绑定][cnameBindingHref]
 
 [sendBugReportHref]:            mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[cnameBindingHref]:             ../../../overview/service/cname-binding.html     "域名绑定"
+[cnameBindingHref]:             http://kb.qiniu.com/53a48154                     "域名绑定"

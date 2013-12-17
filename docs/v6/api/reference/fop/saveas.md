@@ -136,4 +136,4 @@ func makeSaveasUrl(URL, accessKey string, secretKey []byte, saveBucket, saveKey 
     http://t-test.qiniudn.com/Ship-thumb-200.jpg
 	```
 
-[encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
+[accessTokenHref]:              ../security/access-token.html                    "管理凭证"

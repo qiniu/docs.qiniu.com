@@ -147,7 +147,8 @@ X-Reqid: wxIAAD3btw-v3TwT
 - [管理凭证][accessTokenHref]
 - [EncodedEntryURI格式][encodedEntryURIHref]
 
+[encodedEntryURIHref]:          ../data-formats.html                             "EncodedEntryURI格式"
+[accessTokenHref]:              ../security/access-token.html                    "管理凭证"
+
 [sendBugReportHref]:    mailto:support@qiniu.com?subject=599错误日志     "发送错误报告"
-[accessTokenHref]:      http://docs.qiniu.com/api/v6/rs.html#digest-auth "管理凭证"
-[encodedEntryURIHref]:  http://docs.qiniu.com/api/v6/rs.html#words       "EncodedEntryURI格式"
 [commonHttpResponseHeaderHref]: ../extended-headers.html                         "常见响应头部信息"

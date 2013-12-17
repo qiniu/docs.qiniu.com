@@ -202,7 +202,7 @@ SrcHost | 源站域名，可选
 ----------|------------------------------------------------
 Bucket    | 存储空间名称
 aliasName | 别名名称
-fop       | API规格定义，可使用 [图像处理接口](/api/image-process.html)、[音频 / 视频 / 流媒体处理接口](/api/audio-video-hls-process.html) 等。
+fop       | API规格定义，可使用 [图像处理接口](../api/reference/fop/image/index.html)、[音频 / 视频 / 流媒体处理接口](../api/reference/fop/av/index.html) 等。
 
 友好URL访问形式：
 

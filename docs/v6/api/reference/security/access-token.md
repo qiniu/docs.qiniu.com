@@ -18,6 +18,8 @@ order: 950
 	抽取请求URL中`<path>`或`<path>?<query>`的部分与请求内容，用“\n”连接起来。  
 	如无请求内容，该部分必须为空字符串。  
 
+    注意：当`Content-Type`为`application/x-www-form-urlencoded`时，签名内容须包括报文内容（即Body部分）。  
+
 	```
     signingStr = '<path>?<query>\n'
     或

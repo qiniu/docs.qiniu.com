@@ -63,7 +63,7 @@ order: 980
 - [Unix时间][unixTimeHref]
 
 [uploadTokenHref]:          upload-token.html                                            "上传凭证"
-[magicVariablesHref]:       ../magic-variables.html                                      "魔法变量"
-[xVariablesHref]:           ../x-variables.html                                          "自定义变量"
+[magicVariablesHref]:       ../../overview/up/response/vars.html#magicvar                "魔法变量"
+[xVariablesHref]:           ../../overview/up/response/vars.html#xvar                    "自定义变量"
 
 [unixTimeHref]:             http://en.wikipedia.org/wiki/Unix_time                       "Unix时间"

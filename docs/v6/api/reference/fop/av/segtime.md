@@ -129,7 +129,7 @@ Content-Type: <MimeType>
 ### 别名
 
 七牛云存储还支持为音视频切片规格设置别名，以使得下载URL更为友好。  
-可以使用命令行工具[qboxrsctl](/tools/qboxrsctl.html)配置这类别名。
+可以使用命令行工具[qboxrsctl](../../../../tools/qboxrsctl.html)配置这类别名。
 
 ```
 指令1，登录授权:
@@ -198,7 +198,7 @@ Content-Type: <MimeType>
 
 由于在线音视频频转换或将音视频切割成多个小文件并生成M3U8播放列表是一个相对耗时的操作，为了保证良好的用户体验，需要配合上传预转机制使用。实际上，七牛官方推荐音视频在线编解码都通过上传预转的方式进行。  
 
-上传预转参考文档：[音视频上传预转 - asyncOps](put.html#uploadToken-asyncOps)  
+上传预转参考文档：[音视频上传预转 - persistentOps](../../security/put-policy.html#put-policy-struct)  
 
 接上述示例，已知`m3u8_audio`的API规格定义，将其作为上传授权凭证（`uploadToken`）预转参数（`asyncOps`）的值即可。
 
